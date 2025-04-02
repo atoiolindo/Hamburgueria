@@ -1,0 +1,58 @@
+hamburgueria
+
+
+cliente
+id
+endereco
+nome
+nascimento
+telefone
+
+funcionarios ver se precisa ou n 
+id
+nome
+endereco
+cpf
+nascimento
+cargo
+
+
+venda
+id 
+idcliente fk
+idfuncionario fk
+valor_final
+data
+observacoes
+
+item_venda N:N
+idvenda fk
+idproduto fk
+observacao
+quantidade
+valor_item -- normalmente nao coloca no bd, gravar quando terminar a venda, é calculado na hora
+
+
+produtos
+id
+nome
+ingredientes
+preco
+
+
+armazenamento verificar
+idingredientes
+nome
+quantidade_estoque
+
+
+movimentacao_estoque
+idmovimentacao
+idingrediente fk
+idfuncionario fk
+tipo_movimentacao (entrada ou saída)
+quantidade
+data
+
+pedido no delivery pode tirar presneical
+tipo token de mc e bk
