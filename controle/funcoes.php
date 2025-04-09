@@ -228,4 +228,15 @@ function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $id
 };
 
 
+function deletarVendas($conexao, $idvendas) {
+    $sql = "DELETE FROM vendas WHERE idvendas = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idvendas);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+};
 ?>
