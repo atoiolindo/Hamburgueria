@@ -103,6 +103,19 @@ function deletarCliente($conexao, $idcliente) {
 };
 
 
+function editarCliente($conexao, $nome, $cpf, $endereco, $idcliente) {
+    $sql = "UPDATE tb_cliente SET nome=?, cpf=?, endereco=? WHERE idcliente=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $endereco, $idcliente);
+    
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou; 
+};
+
+
 function listarFuncionario($conexao) {
     $sql = "SELECT * FROM funcionario";
     $comando = mysqli_prepare($conexao, $sql);
