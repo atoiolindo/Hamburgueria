@@ -131,6 +131,7 @@ function listarFuncionario($conexao) {
     return $lista_funcionarios;
 };
 
+
 function salvarFuncionario($conexao, $nome, $cpf, $cargo) {
     $sql = "INSERT INTO funcionario (nome, cpf, cargo) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
@@ -146,6 +147,7 @@ function salvarFuncionario($conexao, $nome, $cpf, $cargo) {
     return $idfuncionario;
 };
 
+
 function editarFuncionario($conexao, $nome, $cpf, $cargo, $idfuncionario) {
     $sql = "UPDATE funcionario SET nome=?, cpf=?, cargo=? WHERE idfuncionario=?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -157,6 +159,7 @@ function editarFuncionario($conexao, $nome, $cpf, $cargo, $idfuncionario) {
     mysqli_stmt_close($comando);
     return $funcionou; 
 };
+
 
 function deletarFuncionario($conexao, $idfuncionario) {
     $sql = "DELETE FROM funcionario WHERE idfuncionario = ?";
@@ -170,6 +173,7 @@ function deletarFuncionario($conexao, $idfuncionario) {
     return $funcionou; 
 };
 
+
 function salvarUsuario($conexao, $nome, $email, $senha) {
     $sql = "INSERT INTO tb_usuario (nome, email, senha) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
@@ -182,6 +186,8 @@ function salvarUsuario($conexao, $nome, $email, $senha) {
    mysqli_stmt_close($comando);
     return $funcionou;
 };
+
+
 function listarVenda($conexao) {
     // seleciona as vendas
     $sql = "SELECT * FROM venda";
