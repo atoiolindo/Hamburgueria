@@ -31,6 +31,17 @@ function salvarCliente($conexao, $nome, $telefone, $endereco) {
     return $idcliente;
 };
 
+function deletarCliente($conexao, $idcliente) {
+    $sql = "DELETE FROM cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+};
 
 function listarFuncionario($conexao) {
     $sql = "SELECT * FROM funcionario";
@@ -46,15 +57,4 @@ function listarFuncionario($conexao) {
 
     mysqli_stmt_close($comando);
     return $lista_funcionarios;
-};
-function deletarCliente($conexao, $idcliente) {
-    $sql = "DELETE FROM cliente WHERE idcliente = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_bind_param($comando, 'i', $idcliente);
-    $funcionou = mysqli_stmt_execute($comando);
-
-    mysqli_stmt_close($comando);
-    
-    return $funcionou; 
 };
