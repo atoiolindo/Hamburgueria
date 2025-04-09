@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS `hamburgueria`.`funcionario` (
   `idfuncionario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
   `cpf` VARCHAR(14) NOT NULL,
-  `nascimento` VARCHAR(11) NOT NULL,
   `cargo` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`idfuncionario`),
   UNIQUE INDEX `idfuncionario_UNIQUE` (`idfuncionario` ASC) VISIBLE,
@@ -147,3 +146,8 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO produto (nome,ingredientes, preco) VALUES ('x-tudo', 'pao,carne,alface,queijo', 20.34 )
+INSERT INTO produto (nome,ingredientes, preco) VALUES ('x-frango', 'pao,frango,alface,queijo', 25.90 )
+
+INSERT INTO funcionario (nome,cpf, cargo) VALUES ('jessica', '111.345.678-09', 'cozinheira')
