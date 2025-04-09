@@ -1,4 +1,6 @@
 <?php
+
+
 function deletarProduto($conexao, $idproduto) {    
     $sql = "DELETE FROM produto WHERE idproduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -10,6 +12,7 @@ function deletarProduto($conexao, $idproduto) {
     
     return $funcionou; 
 };
+
 
 function listarProduto($conexao) {
     $sql = "SELECT * FROM produto";
@@ -54,7 +57,6 @@ function editarProduto($conexao, $nome, $ingredientes, $preco) {
 };
 
 
-
 function listarCliente($conexao) {
     $sql = "SELECT * FROM cliente";
     $comando = mysqli_prepare($conexao, $sql);
@@ -71,6 +73,7 @@ function listarCliente($conexao) {
     return $lista_clientes;
 };
 
+
 function salvarCliente($conexao, $nome, $telefone, $endereco) {
     $sql = "INSERT INTO cliente (nome, telefone, endereco) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
@@ -86,6 +89,7 @@ function salvarCliente($conexao, $nome, $telefone, $endereco) {
     return $idcliente;
 };
 
+
 function deletarCliente($conexao, $idcliente) {
     $sql = "DELETE FROM cliente WHERE idcliente = ?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -97,6 +101,7 @@ function deletarCliente($conexao, $idcliente) {
     
     return $funcionou; 
 };
+
 
 function listarFuncionario($conexao) {
     $sql = "SELECT * FROM funcionario";
@@ -113,5 +118,6 @@ function listarFuncionario($conexao) {
     mysqli_stmt_close($comando);
     return $lista_funcionarios;
 };
+
 
 ?>
