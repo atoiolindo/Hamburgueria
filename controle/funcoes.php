@@ -214,4 +214,18 @@ function listarVenda($conexao) {
     return $vendas;
 }
 
+
+function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $idfuncionario) {
+    $sql = "INSERT INTO tb_venda (valor_final, observacao, data, idcliente, idfuncionario) VALUES (?, ?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'dssii', $valor_final, $observacao, $data, $idcliente, $idfuncionario);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+};
+
+
 ?>
