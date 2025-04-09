@@ -147,6 +147,18 @@ function salvarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo) {
     return $idfuncionario;
 };
 
+function editarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo, $idfuncionario) {
+    $sql = "UPDATE funcionario SET nome=?, cpf=?, nascimento=?, cargo=? WHERE idfuncionario=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $cpf, $nascimento, $cargo, $idfuncionario);
+    
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou; 
+};
+
 
 
 ?>
