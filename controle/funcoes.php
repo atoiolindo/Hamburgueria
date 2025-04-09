@@ -16,6 +16,22 @@ function listarCliente($conexao) {
     return $lista_clientes;
 };
 
+function salvarCliente($conexao, $nome, $telefone, $endereco) {
+    $sql = "INSERT INTO cliente (nome, telefone, endereco) VALUES (?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sss', $nome, $telefone, $endereco);
+    
+    mysqli_stmt_execute($comando);
+    
+    $idcliente = mysqli_stmt_insert_id($comando);
+
+    mysqli_stmt_close($comando);
+
+    return $idcliente;
+};
+
+
 function listarFuncionario($conexao) {
     $sql = "SELECT * FROM funcionario";
     $comando = mysqli_prepare($conexao, $sql);
