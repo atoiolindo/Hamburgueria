@@ -106,7 +106,6 @@ function deletarCliente($conexao, $idcliente) {
 function editarCliente($conexao, $nome, $cpf, $endereco, $idcliente) {
     $sql = "UPDATE tb_cliente SET nome=?, cpf=?, endereco=? WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
-    
     mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $endereco, $idcliente);
     
     $funcionou = mysqli_stmt_execute($comando);
@@ -132,11 +131,11 @@ function listarFuncionario($conexao) {
     return $lista_funcionarios;
 };
 
-function salvarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo) {
-    $sql = "INSERT INTO funcionario (nome, cpf, nascimento, cargo) VALUES (?, ?, ?)";
+function salvarFuncionario($conexao, $nome, $cpf, $cargo) {
+    $sql = "INSERT INTO funcionario (nome, cpf, cargo) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssss', $nome, $cpf, $nascimento, $cargo);
+    mysqli_stmt_bind_param($comando, 'sss', $nome, $cpf, $cargo);
     
     mysqli_stmt_execute($comando);
     
@@ -147,11 +146,11 @@ function salvarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo) {
     return $idfuncionario;
 };
 
-function editarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo, $idfuncionario) {
-    $sql = "UPDATE funcionario SET nome=?, cpf=?, nascimento=?, cargo=? WHERE idfuncionario=?";
+function editarFuncionario($conexao, $nome, $cpf, $cargo, $idfuncionario) {
+    $sql = "UPDATE funcionario SET nome=?, cpf=?, cargo=? WHERE idfuncionario=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $cpf, $nascimento, $cargo, $idfuncionario);
+    mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $cargo, $idfuncionario);
     
     $funcionou = mysqli_stmt_execute($comando);
     
