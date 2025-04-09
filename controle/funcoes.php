@@ -159,6 +159,36 @@ function editarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo, $idfuncio
     return $funcionou; 
 };
 
+function listarVenda($conexao) {
+    // seleciona as vendas
+    $sql = "SELECT * FROM venda";
+    $comando = mysqli_prepare($conexao, $sql);
 
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    
+    $vendas = [];
+    while ($venda = mysqli_fetch_assoc($resultado)) {
+        // busca o nome do cliente
+        $clienteS = "SELECT nome FROM cliente WHERE idcliente = {$venda['idcliente']}";
+        $cliente_resultado = mysqli_query($conexao, $clienteS);
+        $cliente = mysqli_fetch_assoc($cliente_resultado);
+        
+        // busca o nome do produto
+        $funcionarioS = "SELECT nome FROM funcionario WHERE idfuncionario = {$venda['idfuncionario']}";
+        $funcionario_resultado = mysqli_query($conexao, $funcionarioS);
+        $funcionario = mysqli_fetch_assoc($funcionario_resultado);
+
+        // adiciona dados p venda
+        $venda['nome_cliente'] = $cliente['nome'];
+        $venda['nome_funcionario'] = $funcionario['nome'];
+
+        // adiciona venda p lista
+        $vendas[] = $venda;
+    }
+    mysqli_stmt_close($comando);
+    return $vendas;
+}
 
 ?>
