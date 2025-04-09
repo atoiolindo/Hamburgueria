@@ -159,6 +159,18 @@ function editarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo, $idfuncio
     return $funcionou; 
 };
 
+function deletarFuncionario($conexao, $idfuncionario) {
+    $sql = "DELETE FROM funcionario WHERE idfuncionario = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idfuncionario);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+};
+
 
 
 ?>
