@@ -119,5 +119,21 @@ function listarFuncionario($conexao) {
     return $lista_funcionarios;
 };
 
+function salvarFuncionario($conexao, $nome, $cpf, $nascimento, $cargo) {
+    $sql = "INSERT INTO funcionario (nome, cpf, nascimento, cargo) VALUES (?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sssss', $nome, $cpf, $nascimento, $cargo);
+    
+    mysqli_stmt_execute($comando);
+    
+    $idfuncionario = mysqli_stmt_insert_id($comando);
+
+    mysqli_stmt_close($comando);
+
+    return $idfuncionario;
+};
+
+
 
 ?>
