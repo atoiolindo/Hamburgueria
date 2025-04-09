@@ -214,4 +214,42 @@ function listarVenda($conexao) {
     return $vendas;
 }
 
+
+function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $idfuncionario) {
+    $sql = "INSERT INTO tb_venda (valor_final, observacao, data, idcliente, idfuncionario) VALUES (?, ?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'dssii', $valor_final, $observacao, $data, $idcliente, $idfuncionario);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+};
+
+
+function deletarVenda($conexao, $idvenda) {
+    $sql = "DELETE FROM venda WHERE idvendas = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idvenda);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+};
+
+
+function editarVenda($conexao, $valor_final, $observacao, $data, $idvenda) {
+    $sql = "UPDATE venda SET valor_final=?, observacao=?, data=? WHERE idvenda=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'dssi', $valor_final, $observacao, $data, $idvenda);
+    
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou; 
+};
 ?>
