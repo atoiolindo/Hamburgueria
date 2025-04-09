@@ -103,13 +103,6 @@ function deletarCliente($conexao, $idcliente) {
 };
 
 
-<<<<<<< Updated upstream
-=======
-
-
-
-
->>>>>>> Stashed changes
 function listarFuncionario($conexao) {
     $sql = "SELECT * FROM funcionario";
     $comando = mysqli_prepare($conexao, $sql);
@@ -127,10 +120,4 @@ function listarFuncionario($conexao) {
 };
 
 
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
 ?>
