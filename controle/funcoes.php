@@ -258,4 +258,18 @@ function editarVenda($conexao, $valor_final, $observacao, $data, $idvenda) {
     mysqli_stmt_close($comando);
     return $funcionou; 
 };
+
+function salvarItemVenda($conexao, $id_venda, $id_produto, $quantidade, $valor) {
+    $sql = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor) VALUES (?, ?, ?, ?)";
+
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'iidd', $id_venda, $id_produto, $quantidade, $valor);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+
+    return $funcionou;
+}
+
 ?>
