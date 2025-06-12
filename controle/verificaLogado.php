@@ -1,8 +1,9 @@
-<?php
-session_start();
+<!-- php aq -->
+<!-- // session_start();
 
-if (!isset($_SESSION['logado'])) {
+// if (!isset($_SESSION['logado'])) {
     // echo "não posso acessar";
-    header("Location: ../public/index.php");
-}
-?>
+    // header("Location: ../public/index.php");
+// },
+
+// php?> -->
