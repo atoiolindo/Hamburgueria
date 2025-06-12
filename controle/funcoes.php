@@ -32,11 +32,11 @@ function listarProduto($conexao) {
 
 // testar
 
-function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo) {
-    $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo) VALUES (?, ?, ?)";
+function salvarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tipo) {
+    $sql = "INSERT INTO produto (nome, quantidade, ingredientes, valor, tipo) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssds', $nome, $nome_real, $ingredientes, $valor, $tipo);
+    mysqli_stmt_bind_param($comando, 'sssds', $nome, $quantidade, $ingredientes, $valor, $tipo);
     
     $funcionou = mysqli_stmt_execute($comando);
     
@@ -46,12 +46,12 @@ function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo
 
 // testar
 
-function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo) {  
-    $sql = "UPDATE produto SET nome=?, nome_real=?, ingredientes=?, valor=?, tipo=? WHERE idproduto=?";
+function editarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tipo) {  
+    $sql = "UPDATE produto SET nome=?, quantidade=?, ingredientes=?, valor=?, tipo=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
         
     
-    mysqli_stmt_bind_param($comando, 'sssdsi', $nome, $nome_real, $ingredientes, $valor, $tipo, $idproduto);
+    mysqli_stmt_bind_param($comando, 'sssdsi', $nome, $quantidade, $ingredientes, $valor, $tipo, $idproduto);
         
     $funcionou = mysqli_stmt_execute($comando);
         
@@ -294,6 +294,63 @@ function listarIngrediente($conexao, $idvenda) {
 
     mysqli_stmt_close($comando);
     return $lista_itens;
+};
+
+function listarArmazenamento($conexao) {
+    $sql = "SELECT * FROM armazenamento";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($comando); 
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_armazenamento = [];
+    while ($armazenamento = mysqli_fetch_assoc($resultado)){
+        $lista_armazenamento[] = $armazenamento;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_armazenamento;
+};
+// testar
+
+function deletarArmazenamento($conexao, $idingredientes) {    
+    $sql = "DELETE FROM armazenamento WHERE idingredientes = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idingredientes);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+//testar
+};
+
+function salvarArmazenamento($conexao, $nome, $quantidade) {
+    $sql = "INSERT INTO produto (nome, quantidade) VALUES (?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'si', $nome, $quantidade);
+    
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou;
+};
+
+// testar
+
+function editarArmazenamento($conexao, $nome, $quantidade) {
+    $sql = "UPDATE armazenamento SET nome=?, quantidade=? WHERE idingredientes=?";
+    $comando = mysqli_prepare($conexao, $sql);
+        
+    
+    mysqli_stmt_bind_param($comando, 'sii', $nome, $quantidade, $idingredientes);
+        
+    $funcionou = mysqli_stmt_execute($comando);
+        
+    mysqli_stmt_close($comando);
+    return $funcionou;  
 };
 
 ?>
