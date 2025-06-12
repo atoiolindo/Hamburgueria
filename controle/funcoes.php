@@ -367,5 +367,6 @@ function editarArmazenamento($conexao, $nome, $quantidade) {
     mysqli_stmt_close($comando);
     return $funcionou;  
 };
+//testar
 
 ?>
