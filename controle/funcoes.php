@@ -204,17 +204,96 @@ function editarVenda($conexao, $valor_final, $observacao, $data, $idvenda) {
     return $funcionou; 
 };
 
-function salvarItemVenda($conexao, $id_venda, $id_produto, $quantidade, $valor) {
-    $sql = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor) VALUES (?, ?, ?, ?)";
+function pesquisarProduto($conexao, $idproduto) {
+    $sql = "SELECT * FROM produto WHERE idproduto = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produto = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $produto;
+};
+
+
+function salvarItemVenda($conexao, $id_venda, $id_produto, $quantidade, $valor, $observacao) {
+    $sql = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao) VALUES (?, ?, ?, ?)";
 
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'iidd', $id_venda, $id_produto, $quantidade, $valor);
+    mysqli_stmt_bind_param($comando, 'iiids', $id_venda, $id_produto, $quantidade, $valor, $observacao);
 
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
 
     return $funcionou;
 }
+
+function listarItemVenda($conexao, $idvenda) {
+    $sql = "SELECT * FROM item_venda WHERE idvenda = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idvenda);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_itens = [];
+    while ($item = mysqli_fetch_assoc($resultado)) {
+
+        
+        $id_produto = $item['idproduto'];
+        $produto = pesquisarProduto($conexao, $id_produto);
+        $nome_produto = $produto['nome'];
+
+        $item['nome_produto'] = $nome_produto;
+        $lista_itens[] = $item;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_itens;
+};
+
+function salvarIngrediente($conexao, $idproduto, $idingredientes, $quantidade) {
+    $sql = "INSERT INTO tb_item_venda (idvenda, idproduto, quantidade) VALUES (?, ?, ?)";
+
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'iii', $idproduto, $idingredientes, $quantidade);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+
+    return $funcionou;
+}
+
+function listarIngrediente($conexao, $idvenda) {
+    $sql = "SELECT * FROM Ingrediente WHERE idproduto = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idvenda);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_itens = [];
+    while ($item = mysqli_fetch_assoc($resultado)) {
+
+        
+        $id_ingredintes = $item['idingredientes'];
+        $ingredientes = pesquisarProduto($conexao, $id_ingredintes);
+        $nome_ingredientes = $ingredientes['nome'];
+
+        $item['nome_produto'] = $nome_ingredientes;
+        $lista_itens[] = $item;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_itens;
+};
 
 ?>
