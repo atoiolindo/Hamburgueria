@@ -219,6 +219,21 @@ function pesquisarProduto($conexao, $idproduto) {
     return $produto;
 };
 
+function pesquisarArmazenamento($conexao, $idingredientes) {
+    $sql = "SELECT * FROM armazenamento WHERE idingredientes = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idingredientes);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produto = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $produto;
+};
+
 
 function salvarItemVenda($conexao, $id_venda, $id_produto, $quantidade, $valor, $observacao) {
     $sql = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao) VALUES (?, ?, ?, ?)";
@@ -285,7 +300,7 @@ function listarIngrediente($conexao, $idvenda) {
 
         
         $id_ingredintes = $item['idingredientes'];
-        $ingredientes = pesquisarProduto($conexao, $id_ingredintes);
+        $ingredientes = pesquisarArmazenamento($conexao, $id_ingredintes);
         $nome_ingredientes = $ingredientes['nome'];
 
         $item['nome_produto'] = $nome_ingredientes;
