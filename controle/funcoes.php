@@ -12,7 +12,7 @@ function deletarProduto($conexao, $idproduto) {
     
     return $funcionou; 
 };
-
+//  testar
 
 function listarProduto($conexao) {
     $sql = "SELECT * FROM produto";
@@ -30,6 +30,7 @@ function listarProduto($conexao) {
     return $lista_produto;
 };
 
+// testar
 
 function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo) {
     $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo) VALUES (?, ?, ?)";
@@ -43,6 +44,7 @@ function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo
     return $funcionou;
 };
 
+// testar
 
 function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo) {  
     $sql = "UPDATE produto SET nome=?, nome_real=?, ingredientes=?, valor=?, tipo=? WHERE idproduto=?";
@@ -57,6 +59,7 @@ function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo
     return $funcionou;  
 };
 
+// testar
 
 function listarCliente($conexao) {
     $sql = "SELECT * FROM cliente";
