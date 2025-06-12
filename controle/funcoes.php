@@ -31,11 +31,11 @@ function listarProduto($conexao) {
 };
 
 
-function salvarProduto($conexao, $nome, $ingredientes, $preco) {
-    $sql = "INSERT INTO produto (nome, ingredientes, preco) VALUES (?, ?, ?)";
+function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo) {
+    $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssd', $nome, $ingredientes, $preco);
+    mysqli_stmt_bind_param($comando, 'sssds', $nome, $nome_real, $ingredientes, $valor, $tipo);
     
     $funcionou = mysqli_stmt_execute($comando);
     
@@ -44,16 +44,17 @@ function salvarProduto($conexao, $nome, $ingredientes, $preco) {
 };
 
 
-function editarProduto($conexao, $nome, $ingredientes, $preco) {   
-    $sql = "UPDATE produto SET nome=?, ingredientes=?, preco=? WHERE idproduto=?";
+function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo) {  
+    $sql = "UPDATE produto SET nome=?, nome_real=?, ingredientes=?, valor=?, tipo=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
         
-    mysqli_stmt_bind_param($comando, 'ssdi', $nome, $ingredientes, $preco, $idproduto);
+    
+    mysqli_stmt_bind_param($comando, 'sssdsi', $nome, $nome_real, $ingredientes, $valor, $tipo, $idproduto);
         
     $funcionou = mysqli_stmt_execute($comando);
         
     mysqli_stmt_close($comando);
-    return $funcionou;
+    return $funcionou;  
 };
 
 
@@ -74,11 +75,11 @@ function listarCliente($conexao) {
 };
 
 
-function salvarCliente($conexao, $nome, $telefone, $endereco) {
-    $sql = "INSERT INTO cliente (nome, telefone, endereco) VALUES (?, ?, ?)";
+function salvarCliente($conexao, $nome, $email, $endereco) {
+    $sql = "INSERT INTO cliente (nome, email, endereco) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sss', $nome, $telefone, $endereco);
+    mysqli_stmt_bind_param($comando, 'sss', $nome, $email, $endereco);
     
     mysqli_stmt_execute($comando);
     
