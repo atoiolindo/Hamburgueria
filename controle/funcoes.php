@@ -115,65 +115,6 @@ function editarCliente($conexao, $nome, $cpf, $endereco, $idcliente) {
 };
 
 
-function listarFuncionario($conexao) {
-    $sql = "SELECT * FROM funcionario";
-    $comando = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-
-    $lista_funcionarios = [];
-    while ($funcionario = mysqli_fetch_assoc($resultado)) {
-        $lista_funcionarios[] = $funcionario;
-    }
-
-    mysqli_stmt_close($comando);
-    return $lista_funcionarios;
-};
-
-
-function salvarFuncionario($conexao, $nome, $cpf, $cargo) {
-    $sql = "INSERT INTO funcionario (nome, cpf, cargo) VALUES (?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sss', $nome, $cpf, $cargo);
-    
-    mysqli_stmt_execute($comando);
-    
-    $idfuncionario = mysqli_stmt_insert_id($comando);
-
-    mysqli_stmt_close($comando);
-
-    return $idfuncionario;
-};
-
-
-function editarFuncionario($conexao, $nome, $cpf, $cargo, $idfuncionario) {
-    $sql = "UPDATE funcionario SET nome=?, cpf=?, cargo=? WHERE idfuncionario=?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $cargo, $idfuncionario);
-    
-    $funcionou = mysqli_stmt_execute($comando);
-    
-    mysqli_stmt_close($comando);
-    return $funcionou; 
-};
-
-
-function deletarFuncionario($conexao, $idfuncionario) {
-    $sql = "DELETE FROM funcionario WHERE idfuncionario = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_bind_param($comando, 'i', $idfuncionario);
-    $funcionou = mysqli_stmt_execute($comando);
-
-    mysqli_stmt_close($comando);
-    
-    return $funcionou; 
-};
-
-
 function salvarUsuario($conexao, $nome, $email, $senha) {
     $sql = "INSERT INTO tb_usuario (nome, email, senha) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
