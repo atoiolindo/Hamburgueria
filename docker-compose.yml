@@ -20,3 +20,5 @@ services:
       - MARIADB_ROOT_PASSWORD=123
     ports:
       - 3307:3306
+
+https://chatgpt.com/share/6852b715-231c-800d-b284-b94b4c14eb08
