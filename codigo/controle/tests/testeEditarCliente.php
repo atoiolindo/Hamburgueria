@@ -5,7 +5,8 @@ require_once "../funcoes.php";
 
 $idcliente = 1;
 $nome = "Fulanooooo";
+$telefone = "1111";
 $endereco = "Rua Fulano";
-$cpf = "111.111.111-11";
+$email = "taiobinha@gmail.com";
 
-editarCliente($conexao, $nome, $cpf, $endereco, $idcliente);
+editarCliente($conexao, $nome, $telefone, $endereco, $idcliente, $email);

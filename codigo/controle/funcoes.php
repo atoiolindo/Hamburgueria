@@ -76,10 +76,11 @@ function listarCliente($conexao) {
     mysqli_stmt_close($comando);
     return $lista_clientes;
 };
+// testado e funcionando
 
 
 function salvarCliente($conexao, $nome, $email, $endereco, $telefone) {
-    $sql = "INSERT INTO cliente (nome, email, endereco) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO cliente (nome, email, endereco, telefone) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);  
     
     mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $endereco, $telefone);
@@ -92,7 +93,7 @@ function salvarCliente($conexao, $nome, $email, $endereco, $telefone) {
 
     return $idcliente;
 };
-
+// testado e funcionando
 
 function deletarCliente($conexao, $idcliente) {
     $sql = "DELETE FROM cliente WHERE idcliente = ?";
@@ -107,10 +108,10 @@ function deletarCliente($conexao, $idcliente) {
 };
 
 
-function editarCliente($conexao, $nome, $cpf, $endereco, $idcliente) {
-    $sql = "UPDATE tb_cliente SET nome=?, cpf=?, endereco=? WHERE idcliente=?";
+function editarCliente($conexao, $nome, $telefone, $endereco,  $email, $idcliente) {
+    $sql = "UPDATE cliente SET nome=?, telefone=?, endereco=?, email=? WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $endereco, $idcliente);
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $telefome, $endereco, $email, $idcliente );
     
     $funcionou = mysqli_stmt_execute($comando);
     
@@ -120,7 +121,7 @@ function editarCliente($conexao, $nome, $cpf, $endereco, $idcliente) {
 
 
 function salvarUsuario($conexao, $nome, $email, $senha) {
-    $sql = "INSERT INTO tb_usuario (nome, email, senha) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
