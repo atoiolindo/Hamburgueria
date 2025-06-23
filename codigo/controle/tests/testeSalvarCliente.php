@@ -4,9 +4,10 @@ require_once "../conexao.php";
 require_once "../funcoes.php";
 
 $nome = "Teste automatico";
-$cpf = "000.000.000-00";
-$endereco = "Rua Automatico";
+$endereco = "000.000.000-00";
+$email = "Rua Automatico";
+$telefone = "bomdiaprincesa";
 
-$idcliente = salvarCliente($conexao, $nome, $cpf, $endereco);
+$idcliente = salvarCliente($conexao, $nome, $endereco, $email,$telefone);
 
 echo $idcliente;

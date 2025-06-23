@@ -78,11 +78,11 @@ function listarCliente($conexao) {
 };
 
 
-function salvarCliente($conexao, $nome, $email, $endereco) {
-    $sql = "INSERT INTO cliente (nome, email, endereco) VALUES (?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
+function salvarCliente($conexao, $nome, $email, $endereco, $telefone) {
+    $sql = "INSERT INTO cliente (nome, email, endereco) VALUES (?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);  
     
-    mysqli_stmt_bind_param($comando, 'sss', $nome, $email, $endereco);
+    mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $endereco, $telefone);
     
     mysqli_stmt_execute($comando);
     
