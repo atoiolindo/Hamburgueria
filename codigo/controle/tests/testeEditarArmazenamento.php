@@ -3,13 +3,9 @@
 require_once "../conexao.php";
 require_once "../funcoes.php";
 
-$idproduto = 2;
+$idarmazenamnto = 1;
 $nome = "elixir revigorante";
-$nome_real = "abuleibos";
-$ingredientes = "abuleibos abuleis abulerestes";
-$valor = 10;
-$tipo = "bebida";
-$foto = "";
-$descricao = "bebida bem boa e gostosa  ";
+$quantidade = "4";
 
-editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $idproduto);
+
+editarArmazenamento($conexao, $nome, $quantidade, $idarmazenamnto);

@@ -355,7 +355,8 @@ function listarArmazenamento($conexao) {
     mysqli_stmt_close($comando);
     return $lista_armazenamento;
 };
-// testar
+
+//testado e funcionando
 
 function deletarArmazenamento($conexao, $idingrediente) {    
     $sql = "DELETE FROM armazenamento WHERE idingrediente = ?";
@@ -367,8 +368,9 @@ function deletarArmazenamento($conexao, $idingrediente) {
     mysqli_stmt_close($comando);
     
     return $funcionou; 
-//testar
-};
+};    
+
+//testado e funcionando
 
 function salvarArmazenamento($conexao, $nome, $quantidade) {
     $sql = "INSERT INTO armazenamento (nome, quantidade) VALUES (?, ?)";
@@ -382,20 +384,21 @@ function salvarArmazenamento($conexao, $nome, $quantidade) {
     return $funcionou;
 };
 
-// testar
+//testado e funcionando
 
-function editarArmazenamento($conexao, $nome, $quantidade) {
+function editarArmazenamento($conexao, $nome, $quantidade, $idingrediente) {
     $sql = "UPDATE armazenamento SET nome=?, quantidade=? WHERE idingrediente=?";
     $comando = mysqli_prepare($conexao, $sql);
         
     
     mysqli_stmt_bind_param($comando, 'sii', $nome, $quantidade, $idingrediente);
-        
+
     $funcionou = mysqli_stmt_execute($comando);
         
     mysqli_stmt_close($comando);
     return $funcionou;  
 };
-//testar
+
+//testado e funcionando
 
 ?>
