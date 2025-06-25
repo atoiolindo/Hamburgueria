@@ -98,52 +98,50 @@ INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao
 VALUES ('Runa Dourada', 'Runa Dourada', 
 'Batatas rústicas assadas com alho, ervas do bosque e sal dourado', 11.90, 'acompanhamento', 'runa_dourada.jpg', 
 'Batatas assadas com alho, ervas e um toque mágico de sal dourado. Crocantes por fora, macias por dentro.');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (1, 20, 'hambúrguer bovino 150g');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (2, 30, 'queijo prato');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (3, 50, 'pão brioche');
-
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (1, 100, 'Pão brioche');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (2, 100, 'Hambúrguer bovino 150g');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (3, 100, 'Queijo prato');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (4, 100, 'Alface');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (5, 100, 'Tomate');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (6, 100, 'Cebola roxa');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (7, 100, 'Maionese da casa');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (8, 100, 'Pão australiano');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (9, 100, 'Hambúrguer 180g');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (10, 100, 'Cheddar cremoso');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (11, 100, 'Bacon crocante');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (12, 100, 'Cebola caramelizada');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (13, 100, 'Pão de leite');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (14, 100, 'Smash burger 60g');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (15, 100, 'Queijo americano');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (16, 100, 'Picles');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (17, 100, 'Molho especial');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (18, 100, 'Pão rústico');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (19, 100, 'Gorgonzola');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (20, 100, 'Rúcula');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (21, 100, 'Maionese de alho');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (22, 100, 'Queijo muçarela');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (23, 100, 'Jalapeños');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (24, 100, 'Molho barbecue picante');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (25, 100, 'Onion rings');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (26, 100, 'Hambúrguer de pernil temperado');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (27, 100, 'Coleslaw');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (28, 100, 'Molho barbecue');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (29, 100, 'Hambúrguer suíno 180g');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (30, 100, 'Bacon em tiras');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (31, 100, 'Queijo cheddar');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (32, 100, 'Cebola crispy');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (33, 100, 'Maionese defumada');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (34, 100, 'Carne suína desfiada');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (35, 100, 'Hambúrguer de linguiça artesanal');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (36, 100, 'Queijo minas');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (37, 100, 'Vinagrete');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (38, 100, 'Maionese de limão');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (39, 100, 'Filé de frango empanado');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (40, 100, 'Maionese com ervas');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (41, 100, 'Filé de frango grelhado com páprica');
-INSERT INTO armazenamento (idingredientes, quantidade, nome) VALUES (42, 100, 'Maionese chipotle');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (20, 'hambúrguer bovino 150g');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (30, 'queijo prato');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (50, 'pão brioche')INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Pão brioche');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Hambúrguer bovino 150g');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Queijo prato');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Alface');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Tomate');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Cebola roxa');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Maionese da casa');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Pão australiano');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Hambúrguer 180g');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Cheddar cremoso');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Bacon crocante');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Cebola caramelizada');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Pão de leite');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Smash burger 60g');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Queijo americano');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Picles');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Molho especial');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Pão rústico');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Gorgonzola');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Rúcula');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Maionese de alho');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Queijo muçarela');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Jalapeños');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Molho barbecue picante');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Onion rings');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Hambúrguer de pernil temperado');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Coleslaw');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Molho barbecue');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Hambúrguer suíno 180g');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Bacon em tiras');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Queijo cheddar');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Cebola crispy');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Maionese defumada');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Carne suína desfiada');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Hambúrguer de linguiça artesanal');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Queijo minas');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Vinagrete');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Maionese de limão');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Filé de frango empanado');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Maionese com ervas');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Filé de frango grelhado com páprica');
+INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Maionese chipotle');
 
 -- Produto 1: Encantamento Dourado
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 1, 1);
@@ -233,30 +231,30 @@ INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (15, 46, 
 
 -- INSERTs para cliente
 
-INSERT INTO cliente (idcliente, nome, telefone, endereco) VALUES (1, 'Sr. Thomas Melo', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES');
-INSERT INTO cliente (idcliente, nome, telefone, endereco) VALUES (2, 'Francisco Peixoto', '+55 (021) 8396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL');
-INSERT INTO cliente (idcliente, nome, telefone, endereco) VALUES (3, 'Diego Ferreira', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES');
-INSERT INTO cliente (idcliente, nome, telefone, endereco) VALUES (4, 'Carolina Aragão', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES');
-INSERT INTO cliente (idcliente, nome, telefone, endereco) VALUES (5, 'Alícia Oliveira', '0900 034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Sr. Thomas Melo', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Francisco Peixoto', '+55 (021) 8396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Diego Ferreira', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Carolina Aragão', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Alícia Oliveira', '0900 034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP');
 --👤 INSERTs para usuario
 
 
-INSERT INTO usuario (idusuario, email, senha, nome, tipo) VALUES (1, 'cecilia50@ferreira.br', 'b6J+5nLk$3', 'Camila Peixoto', 'admin');
-INSERT INTO usuario (idusuario, email, senha, nome, tipo) VALUES (2, 'pedro-lucasda-mota@gmail.com', 'F2ccGSLl#p', 'Vitor Gabriel Viana', 'atendente');
-INSERT INTO usuario (idusuario, email, senha, nome, tipo) VALUES (3, 'zda-mata@gmail.com', 'W6Q9D!s3_@', 'Kevin Oliveira', 'cozinha');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'cecilia50@ferreira.br', 'b6J+5nLk$3', 'Camila Peixoto', 'admin');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'pedro-lucasda-mota@gmail.com', 'F2ccGSLl#p', 'Vitor Gabriel Viana', 'atendente');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'zda-mata@gmail.com', 'W6Q9D!s3_@', 'Kevin Oliveira', 'cozinha');
 --💰 INSERTs para venda
 
-INSERT INTO venda (idvenda, valor_final, observacao, data, idcliente, status)
-VALUES (1, 44.63, 'Accusantium vel dolore non quae blanditiis.', '2025-06-18', 1, 'concluída');
+INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
+VALUES (44.63, 'Accusantium vel dolore non quae blanditiis.', '2025-06-18', 1, 'concluída');
 
-INSERT INTO venda (idvenda, valor_final, observacao, data, idcliente, status)
-VALUES (2, 65.41, 'Omnis natus dolorem similique fugit doloremque.', '2025-06-20', 1, 'cancelada');
+INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
+VALUES (65.41, 'Omnis natus dolorem similique fugit doloremque.', '2025-06-20', 1, 'cancelada');
 
-INSERT INTO venda (idvenda, valor_final, observacao, data, idcliente, status)
-VALUES (3, 69.74, 'Earum error quod fugit fuga voluptatem.', '2025-06-09', 3, 'concluída');
+INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
+VALUES ( 69.74, 'Earum error quod fugit fuga voluptatem.', '2025-06-09', 3, 'concluída');
 
-INSERT INTO venda (idvenda, valor_final, observacao, data, idcliente, status)
-VALUES (4, 43.89, 'Qui at molestias reprehenderit recusandae odio.', '2025-06-07', 5, 'concluída');
+INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
+VALUES ( 43.89, 'Qui at molestias reprehenderit recusandae odio.', '2025-06-07', 5, 'concluída');
 
-INSERT INTO venda (idvenda, valor_final, observacao, data, idcliente, status)
-VALUES (5, 84.09, 'Praesentium consectetur perferendis suscipit omnis sunt.', '2025-06-10', 4, 'concluída');
+INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
+VALUES ( 84.09, 'Praesentium consectetur perferendis suscipit omnis sunt.', '2025-06-10', 4, 'concluída');
