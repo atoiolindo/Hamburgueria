@@ -162,6 +162,19 @@ function editarUsuario($conexao, $email, $senha, $nome) {
 };
 
 
+function deletarUsuario($conexao, $idusuario) {
+    $sql = "DELETE FROM usuario WHERE idusuario = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idus);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+};
+
+
 function listarVenda($conexao) {
     // seleciona as vendas
     $sql = "SELECT * FROM venda";
