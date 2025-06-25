@@ -6,4 +6,3 @@ $banco = "hamburgueria";
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 ?>
-
