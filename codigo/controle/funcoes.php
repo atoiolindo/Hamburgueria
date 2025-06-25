@@ -111,7 +111,7 @@ function deletarCliente($conexao, $idcliente) {
 function editarCliente($conexao, $nome, $telefone, $endereco,  $email, $idcliente) {
     $sql = "UPDATE cliente SET nome=?, telefone=?, endereco=?, email=? WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $telefome, $endereco, $email, $idcliente );
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $telefone, $endereco, $email, $idcliente );
     
     $funcionou = mysqli_stmt_execute($comando);
     
