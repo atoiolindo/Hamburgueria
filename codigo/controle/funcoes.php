@@ -134,6 +134,22 @@ function salvarUsuario($conexao, $nome, $email, $senha) {
 };
 
 
+function listarUsuario($conexao) {
+    $sql = "SELECT * FROM usuario";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_usuarios = [];
+    while ($usuario = mysqli_fetch_assoc($resultado)) {
+        $lista_usuarios[] = $usuario;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_usuarios;
+};
+
 function listarVenda($conexao) {
     // seleciona as vendas
     $sql = "SELECT * FROM venda";
