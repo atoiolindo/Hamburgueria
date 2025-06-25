@@ -17,20 +17,19 @@ function listarCliente($conexao) {
 };
 
 
-function listarCliente($conexao) {
-    $sql = "SELECT * FROM cliente";
-    $comando = mysqli_prepare($conexao, $sql);
-
+function salvarCliente($conexao, $nome, $email, $endereco, $telefone) {
+    $sql = "INSERT INTO cliente (nome, email, endereco, telefone) VALUES (?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);  
+    
+    mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $endereco, $telefone);
+    
     mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-
-    $lista_clientes = [];
-    while ($cliente = mysqli_fetch_assoc($resultado)) {
-        $lista_clientes[] = $cliente;
-    }
+    
+    $idcliente = mysqli_stmt_insert_id($comando);
 
     mysqli_stmt_close($comando);
-    return $lista_clientes;
+
+    return $idcliente;
 };
 // function editarCliente($conexao, $nome, $telefone, $endereco, $id)
 // function deletarCliente($conexao, $idcliente)
