@@ -151,9 +151,9 @@ function listarUsuario($conexao) {
 };
 
 function editarUsuario($conexao, $email, $senha, $nome) {
-    $sql = "UPDATE usuario SET email=?, senha=?, nome=? WHERE idcliente=?";
+    $sql = "UPDATE usuario SET email=?, senha=?, nome=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'sssi', $email, $senha, $nome, $idcliente );
+    mysqli_stmt_bind_param($comando, 'sssi', $email, $senha, $nome, $idusuario );
     
     $funcionou = mysqli_stmt_execute($comando);
     
