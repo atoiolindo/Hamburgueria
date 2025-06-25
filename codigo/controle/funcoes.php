@@ -191,14 +191,8 @@ function listarVenda($conexao) {
         $cliente_resultado = mysqli_query($conexao, $clienteS);
         $cliente = mysqli_fetch_assoc($cliente_resultado);
         
-        // busca o nome do produto
-        $funcionarioS = "SELECT nome FROM funcionario WHERE idfuncionario = {$venda['idfuncionario']}";
-        $funcionario_resultado = mysqli_query($conexao, $funcionarioS);
-        $funcionario = mysqli_fetch_assoc($funcionario_resultado);
-
         // adiciona dados p venda
         $venda['nome_cliente'] = $cliente['nome'];
-        $venda['nome_funcionario'] = $funcionario['nome'];
 
         // adiciona venda p lista
         $vendas[] = $venda;
@@ -208,11 +202,11 @@ function listarVenda($conexao) {
 }
 
 
-function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $idfuncionario) {
-    $sql = "INSERT INTO tb_venda (valor_final, observacao, data, idcliente, idfuncionario) VALUES (?, ?, ?, ?, ?)";
+function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $status) {
+    $sql = "INSERT INTO venda (valor_final, observacao, data, idcliente, status) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'dssii', $valor_final, $observacao, $data, $idcliente, $idfuncionario);
+    mysqli_stmt_bind_param($comando, 'dssis', $valor_final, $observacao, $data, $idcliente, $status);
 
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -222,7 +216,7 @@ function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $id
 
 
 function deletarVenda($conexao, $idvenda) {
-    $sql = "DELETE FROM venda WHERE idvendas = ?";
+    $sql = "DELETE FROM venda WHERE idvenda = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_bind_param($comando, 'i', $idvenda);
@@ -234,11 +228,11 @@ function deletarVenda($conexao, $idvenda) {
 };
 
 
-function editarVenda($conexao, $valor_final, $observacao, $data, $idvenda) {
-    $sql = "UPDATE venda SET valor_final=?, observacao=?, data=? WHERE idvenda=?";
+function editarVenda($conexao, $idvenda, $valor_final, $observacao, $data, $idcliente, $status) {
+    $sql = "UPDATE venda SET valor_final=?, observacao=?, data=?, idcliente=?, status=? WHERE idvenda=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'dssi', $valor_final, $observacao, $data, $idvenda);
+    mysqli_stmt_bind_param($comando, 'dssisi', $valor_final, $observacao, $data, $idcliente, $status, $idvenda);
     
     $funcionou = mysqli_stmt_execute($comando);
     

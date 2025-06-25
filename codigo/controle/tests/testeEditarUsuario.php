@@ -8,4 +8,4 @@ $email = "Cleber";
 $senha = "111";
 $nome = "Jsaran";
 
-echo editarUsuario($conexao, $email, $senha, $nome); 
+echo editarUsuario($conexao, $email, $senha, $nome);
