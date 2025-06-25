@@ -100,7 +100,8 @@ VALUES ('Runa Dourada', 'Runa Dourada',
 'Batatas assadas com alho, ervas e um toque mágico de sal dourado. Crocantes por fora, macias por dentro.');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (20, 'hambúrguer bovino 150g');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (30, 'queijo prato');
-INSERT INTO armazenamento ( quantidade, nome) VALUES (50, 'pão brioche')INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Pão brioche');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (50, 'pão brioche');
+INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Pão brioche');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Hambúrguer bovino 150g');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Queijo prato');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (100, 'Alface');
@@ -166,14 +167,14 @@ INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 15, 1
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 16, 1);
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 17, 1);
 
---Produto 4: Gorgonzola Místico – Blue Burger (idproduto = 4)
+-- Produto 4: Gorgonzola Místico – Blue Burger (idproduto = 4)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 18, 1); -- Pão rústico
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 9, 1);  -- Hambúrguer 180g
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 19, 1); -- Gorgonzola
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 20, 1); -- Rúcula
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 21, 1); -- Maionese de alho
 
---Produto 5: Fogo do Deserto – Apimentado Texano (idproduto = 5)
+-- Produto 5: Fogo do Deserto – Apimentado Texano (idproduto = 5)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 1, 1);  -- Pão brioche
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 2, 1);  -- Hambúrguer bovino 150g
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 22, 1); -- Queijo muçarela
@@ -181,14 +182,14 @@ INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 23, 1
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 24, 1); -- Barbecue picante
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 25, 1); -- Onion rings
 
---Produto 6: Barbecue Sombrio – Porco Barbecue (idproduto = 6)
+-- Produto 6: Barbecue Sombrio – Porco Barbecue (idproduto = 6)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 1, 1);  -- Pão brioche (assumido padrão)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 26, 1); -- Hambúrguer de pernil temperado
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 3, 1);  -- Queijo prato
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 27, 1); -- Coleslaw
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 28, 1); -- Molho barbecue
 
---Produto 7: Magia do Bacon – Bacon Lovers (idproduto = 7)
+-- Produto 7: Magia do Bacon – Bacon Lovers (idproduto = 7)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 8, 1);  -- Pão australiano
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 29, 1); -- Hambúrguer suíno 180g
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 30, 1); -- Bacon em tiras
@@ -196,28 +197,28 @@ INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 31, 1
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 32, 1); -- Cebola crispy
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 33, 1); -- Maionese defumada
 
---Produto 8: Poção do Pântano – Pulled Pork Sandwich (idproduto = 8)
+-- Produto 8: Poção do Pântano – Pulled Pork Sandwich (idproduto = 8)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 1, 1);  -- Pão brioche
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 34, 1); -- Carne suína desfiada
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 28, 1); -- Molho barbecue
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 16, 1); -- Picles
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 6, 1);  -- Cebola roxa
 
---Produto 9: Mineirice Mágica – Suíno Mineiro (idproduto = 9)
+-- Produto 9: Mineirice Mágica – Suíno Mineiro (idproduto = 9)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 18, 1); -- Pão rústico
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 35, 1); -- Hambúrguer de linguiça artesanal
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 36, 1); -- Queijo minas
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 37, 1); -- Vinagrete
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 38, 1); -- Maionese de limão
 
---Produto 10: Crocris da Alvorada – Crocante da Casa (idproduto = 10)
+-- Produto 10: Crocris da Alvorada – Crocante da Casa (idproduto = 10)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 13, 1); -- Pão de leite
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 39, 1); -- Filé de frango empanado
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 31, 1); -- Queijo cheddar
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 4, 1);  -- Alface
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 40, 1); -- Maionese com ervas
 
---Produto 11: Fênix Flamejante – Frango Picante (idproduto = 11)
+-- Produto 11: Fênix Flamejante – Frango Picante (idproduto = 11)
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 1, 1);  -- Pão brioche
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 41, 1); -- Filé de frango grelhado com páprica
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 22, 1); -- Queijo muçarela
@@ -227,22 +228,21 @@ INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 42, 
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (12, 43, 1);
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (13, 44, 1);
 INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (14, 45, 1);
-INSERT INTO Ingrediente (idproduto, idingredientes, quantidade) VALUES (15, 46, 1);
 
 -- INSERTs para cliente
 
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Sr. Thomas Melo', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Francisco Peixoto', '+55 (021) 8396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Diego Ferreira', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Carolina Aragão', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Alícia Oliveira', '0900 034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP');
---👤 INSERTs para usuario
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Sr. Thomas Melo', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES', 'a');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Francisco Peixoto', '+55 (021) 8396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL', 'b');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Diego Ferreira', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES', 'c');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Carolina Aragão', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES', 'd');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '0900 034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'e');
+-- INSERTs para usuario
 
 
 INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'cecilia50@ferreira.br', 'b6J+5nLk$3', 'Camila Peixoto', 'admin');
 INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'pedro-lucasda-mota@gmail.com', 'F2ccGSLl#p', 'Vitor Gabriel Viana', 'atendente');
 INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'zda-mata@gmail.com', 'W6Q9D!s3_@', 'Kevin Oliveira', 'cozinha');
---💰 INSERTs para venda
+-- INSERTs para venda
 
 INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
 VALUES (44.63, 'Accusantium vel dolore non quae blanditiis.', '2025-06-18', 1, 'concluída');
