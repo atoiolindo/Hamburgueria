@@ -3,7 +3,7 @@ require_once "../conexao.php";
 require_once "../funcoes.php";
 
 echo "<pre>";
-print_r(listarProduto($conexao));
+print_r(listarArmazenamento($conexao));
 echo "</pre>";
 
 ?>

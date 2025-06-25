@@ -12,7 +12,7 @@ function deletarProduto($conexao, $idproduto) {
     
     return $funcionou; 
 };
-//  testar
+//  testado e funcionando
 
 function listarProduto($conexao) {
     $sql = "SELECT * FROM produto";
@@ -30,28 +30,28 @@ function listarProduto($conexao) {
     return $lista_produto;
 };
 
-// testar
+// testado e funcionando
 
-function salvarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tipo) {
-    $sql = "INSERT INTO produto (nome, quantidade, ingredientes, valor, tipo) VALUES (?, ?, ?, ?, ?)";
+function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao) {
+    $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssds', $nome, $quantidade, $ingredientes, $valor, $tipo);
+    mysqli_stmt_bind_param($comando, 'sssdsss', $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao);
     
     $funcionou = mysqli_stmt_execute($comando);
     
     mysqli_stmt_close($comando);
-    return $funcionou;
+    return $funcionou;  
 };
 
-// testar
+// testado e funcionando
 
-function editarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tipo) {  
-    $sql = "UPDATE produto SET nome=?, quantidade=?, ingredientes=?, valor=?, tipo=? WHERE idproduto=?";
+function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $idproduto) {
+    $sql = "UPDATE produto SET nome=?, nome_real=?, ingredientes=?, valor=?, tipo=?, foto=?, descricao=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
         
     
-    mysqli_stmt_bind_param($comando, 'sssdsi', $nome, $quantidade, $ingredientes, $valor, $tipo, $idproduto);
+    mysqli_stmt_bind_param($comando, 'sssdsssi', $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $idproduto);
         
     $funcionou = mysqli_stmt_execute($comando);
         
@@ -59,7 +59,7 @@ function editarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tip
     return $funcionou;  
 };
 
-// testar
+// testado e funcionando
 
 function listarCliente($conexao) {
     $sql = "SELECT * FROM cliente";
@@ -370,11 +370,11 @@ function listarArmazenamento($conexao) {
 };
 // testar
 
-function deletarArmazenamento($conexao, $idingredientes) {    
-    $sql = "DELETE FROM armazenamento WHERE idingredientes = ?";
+function deletarArmazenamento($conexao, $idingrediente) {    
+    $sql = "DELETE FROM armazenamento WHERE idingrediente = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'i', $idingredientes);
+    mysqli_stmt_bind_param($comando, 'i', $idingrediente);
     $funcionou = mysqli_stmt_execute($comando);
 
     mysqli_stmt_close($comando);
@@ -384,7 +384,7 @@ function deletarArmazenamento($conexao, $idingredientes) {
 };
 
 function salvarArmazenamento($conexao, $nome, $quantidade) {
-    $sql = "INSERT INTO produto (nome, quantidade) VALUES (?, ?)";
+    $sql = "INSERT INTO armazenamento (nome, quantidade) VALUES (?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'si', $nome, $quantidade);
@@ -398,11 +398,11 @@ function salvarArmazenamento($conexao, $nome, $quantidade) {
 // testar
 
 function editarArmazenamento($conexao, $nome, $quantidade) {
-    $sql = "UPDATE armazenamento SET nome=?, quantidade=? WHERE idingredientes=?";
+    $sql = "UPDATE armazenamento SET nome=?, quantidade=? WHERE idingrediente=?";
     $comando = mysqli_prepare($conexao, $sql);
         
     
-    mysqli_stmt_bind_param($comando, 'sii', $nome, $quantidade, $idingredientes);
+    mysqli_stmt_bind_param($comando, 'sii', $nome, $quantidade, $idingrediente);
         
     $funcionou = mysqli_stmt_execute($comando);
         
