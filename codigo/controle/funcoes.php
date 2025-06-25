@@ -150,6 +150,18 @@ function listarUsuario($conexao) {
     return $lista_usuarios;
 };
 
+function editarUsuario($conexao, $email, $senha, $nome) {
+    $sql = "UPDATE usuario SET email=?, senha=?, nome=? WHERE idcliente=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'sssi', $email, $senha, $nome, $idcliente );
+    
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou; 
+};
+
+
 function listarVenda($conexao) {
     // seleciona as vendas
     $sql = "SELECT * FROM venda";
