@@ -150,7 +150,7 @@ function listarUsuario($conexao) {
     return $lista_usuarios;
 };
 
-function editarUsuario($conexao, $email, $senha, $nome) {
+function editarUsuario($conexao, $email, $senha, $nome, $idusuario) {
     $sql = "UPDATE usuario SET email=?, senha=?, nome=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'sssi', $email, $senha, $nome, $idusuario );
