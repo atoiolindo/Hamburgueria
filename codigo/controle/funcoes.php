@@ -46,7 +46,7 @@ function salvarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tip
 
 // testar
 
-function editarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tipo) {  
+function editarProduto($conexao, $nome, $quantidade, $ingredientes, $valor, $tipo,$idproduto) {  
     $sql = "UPDATE produto SET nome=?, quantidade=?, ingredientes=?, valor=?, tipo=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
         
@@ -216,7 +216,7 @@ function salvarVenda($conexao, $idcliente, $valor_final, $observacao, $status, $
     
     mysqli_stmt_close($comando);
     
-    return $funcionou;
+    return $idvenda;
 };
 
 
