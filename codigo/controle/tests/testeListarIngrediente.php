@@ -1,11 +1,11 @@
 <?php
-
 require_once "../conexao.php";
 require_once "../funcoes.php";
 
-$idingrediente = 2;
+$idproduto = 4;
 
 echo "<pre>";
-print_r(pesquisarArmazenamento($conexao, $idingrediente));
+print_r(listarIngrediente($conexao, $idproduto));
 echo "</pre>";
+
 ?>

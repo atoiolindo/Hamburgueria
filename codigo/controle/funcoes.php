@@ -255,11 +255,11 @@ function pesquisarProduto($conexao, $idproduto) {
     return $produto;
 };
 
-function pesquisarArmazenamento($conexao, $idingredientes) {
-    $sql = "SELECT * FROM armazenamento WHERE idingredientes = ?";
+function pesquisarArmazenamento($conexao, $idingrediente) {
+    $sql = "SELECT * FROM armazenamento WHERE idingrediente = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'i', $idingredientes);
+    mysqli_stmt_bind_param($comando, 'i', $idingrediente);
 
     mysqli_stmt_execute($comando);
     $resultado = mysqli_stmt_get_result($comando);
@@ -309,12 +309,12 @@ function listarItemVenda($conexao, $idvenda) {
     return $lista_itens;
 };
 
-function salvarIngrediente($conexao, $idproduto, $idingredientes, $quantidade) {
-    $sql = "INSERT INTO tb_item_venda (idvenda, idproduto, quantidade) VALUES (?, ?, ?)";
+function salvarIngrediente($conexao, $idproduto, $idingrediente, $quantidade) {
+    $sql = "INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (?, ?, ?)";
 
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'iii', $idproduto, $idingredientes, $quantidade);
+    mysqli_stmt_bind_param($comando, 'iii', $idproduto, $idingrediente, $quantidade);
 
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -322,11 +322,11 @@ function salvarIngrediente($conexao, $idproduto, $idingredientes, $quantidade) {
     return $funcionou;
 }
 
-function listarIngrediente($conexao, $idvenda) {
-    $sql = "SELECT * FROM Ingrediente WHERE idproduto = ?";
+function listarIngrediente($conexao, $idproduto) {
+    $sql = "SELECT * FROM ingrediente WHERE idproduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'i', $idvenda);
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
 
     mysqli_stmt_execute($comando);
     $resultado = mysqli_stmt_get_result($comando);
@@ -335,8 +335,8 @@ function listarIngrediente($conexao, $idvenda) {
     while ($item = mysqli_fetch_assoc($resultado)) {
 
         
-        $id_ingredintes = $item['idingredientes'];
-        $ingredientes = pesquisarArmazenamento($conexao, $id_ingredintes);
+        $id_ingredientes = $item['idingrediente'];
+        $ingredientes = pesquisarArmazenamento($conexao, $id_ingredientes);
         $nome_ingredientes = $ingredientes['nome'];
 
         $item['nome_produto'] = $nome_ingredientes;
