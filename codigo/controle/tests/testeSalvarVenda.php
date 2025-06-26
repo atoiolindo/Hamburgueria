@@ -8,7 +8,6 @@ $data = "2025-03-27";
 $idcliente = 1;
 $status = "feito";
 
-$idvenda = salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $status);
+salvarVenda($conexao, $idcliente, $valor_final, $observacao, $status, $data);
 
-echo $idvenda;
 ?>

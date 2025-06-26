@@ -107,6 +107,7 @@ function deletarCliente($conexao, $idcliente) {
     return $funcionou; 
 };
 
+// testado e funcionando
 
 function editarCliente($conexao, $nome, $telefone, $endereco,  $email, $idcliente) {
     $sql = "UPDATE cliente SET nome=?, telefone=?, endereco=?, email=? WHERE idcliente=?";
@@ -201,14 +202,18 @@ function listarVenda($conexao) {
     return $vendas;
 }
 
-
-function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $status) {
-    $sql = "INSERT INTO venda (valor_final, observacao, data, idcliente, status) VALUES (?, ?, ?, ?, ?)";
+ 
+function salvarVenda($conexao, $idcliente, $valor_final, $observacao, $status, $data) {
+    $sql = "INSERT INTO venda (idcliente, valor_final, observacao, status, data) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, 'dssis', $valor_final, $observacao, $data, $idcliente, $status);
+    mysqli_stmt_bind_param($comando, 'idsss', $idcliente, $valor_final, $observacao, $status, $data);
 
     $funcionou = mysqli_stmt_execute($comando);
+
+    // retorna o valor do id que acabou de ser inserido
+    $idvenda = mysqli_stmt_insert_id($comando);
+    
     mysqli_stmt_close($comando);
     
     return $funcionou;
@@ -272,7 +277,7 @@ function pesquisarArmazenamento($conexao, $idingrediente) {
 
 
 function salvarItemVenda($conexao, $id_venda, $id_produto, $quantidade, $valor, $observacao) {
-    $sql = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao) VALUES (?, ?, ?, ?, ?)";
 
     $comando = mysqli_prepare($conexao, $sql);
 
