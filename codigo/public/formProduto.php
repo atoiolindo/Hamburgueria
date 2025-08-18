@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
     <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post">
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
-        Nome Real: <br>
+        Nome Verdadeiro: <br>
         <input type="text" name="nome_real" value="<?php echo $nome_real; ?>"> <br><br>
         Ingredientes utilizados: <br>
         <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>"> <br><br>
