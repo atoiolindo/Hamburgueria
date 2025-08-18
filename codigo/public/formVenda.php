@@ -26,8 +26,6 @@
             ?>
         </select>
 
-
-
         <br><br>
 
         Data: <br>
@@ -52,7 +50,6 @@
 
         <input type="submit" value="Registrar Venda"> <br>
     
-
     </form>
     <button>Botão de testes</button>
 </body>
