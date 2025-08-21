@@ -20,16 +20,24 @@ if (isset($_GET['id'])) {
 
    
     $nome = $linha['nome'];
+    $nome_real = $linha['nome_real'];
     $ingredientes = $linha['ingredientes'];
-    $preco = $linha['preco'];
+    $valor = $linha['valor'];
+    $tipo = $linha['tipo'];
+    $foto = $linha['foto'];
+    $descricao = $linha['descricao'];
 
     $botao = "Atualizar";
 } else {
     // echo "novo";
     $id = 0;
     $nome = "";
+    $nome_real = "";
     $ingredientes = "";
-    $preco = "";
+    $valor = "";
+    $tipo = "";
+    $foto = "";
+    $descricao = "";
 
     $botao = "Cadastrar";
 }
@@ -48,9 +56,9 @@ if (isset($_GET['id'])) {
         Tipo: <br>
         <input type="text" name="tipo" value="<?php echo $tipo; ?>"> <br><br>
         Foto: <br>
-        <input type="text" name="valor" value="<?php echo $valor; ?>"> <br><br>
+        <input type="file" name="foto" value="<?php echo $foto; ?>"> <br><br>
         Descrição: <br>
-        <input type="text" name="tipo" value="<?php echo $tipo; ?>"> <br><br>
+        <input type="text" name="descricao" value="<?php echo $descricao; ?>"> <br><br>
         
         <input type="submit" value="<?php echo $botao; ?>">
     </form>
