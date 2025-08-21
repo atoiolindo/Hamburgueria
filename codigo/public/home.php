@@ -5,44 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamburgueria - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; position: relative; }
-        .search-bar {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            background: #f9f9f9;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px #ccc;
-            width: 520px;
-            margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .search-bar input[type="text"] { padding: 8px; width: 220px; }
-        .search-bar button { padding: 8px 16px; }
-        .search-icons {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-left: auto;
-        }
-        .search-icons a {
-            color: #333;
-            font-size: 1.6em;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .search-icons a:hover {
-            color: #f0a913;
-        }
-        .container { display: flex; gap: 40px; margin-top: 100px; }
-        .menu, .login { background: #f9f9f9; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
-        .login input { margin-bottom: 8px; width: 180px; padding: 6px; }
-        .login button { padding: 8px 16px; }
-    </style>
+    <link rel="stylesheet" href="./css/index.css">
+
 </head>
 <body>
     <h2>Bem-vindo à Hamburgueria</h2>
