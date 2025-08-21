@@ -297,89 +297,89 @@ INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Filé de frango gre
 INSERT INTO armazenamento ( quantidade, nome) VALUES ( 100, 'Maionese chipotle');
 
 -- Produto 1: Encantamento Dourado
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 1, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 2, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 3, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 4, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 5, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 6, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (1, 7, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 1, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 2, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 3, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 4, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 5, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 6, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 7, 1);
 
 -- Produto 2: Feitiço Clássico
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (2, 8, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (2, 9, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (2, 10, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (2, 11, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (2, 12, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (2, 8, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (2, 9, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (2, 10, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (2, 11, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (2, 12, 1);
 
 -- Produto 3: Trio Arcano
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 13, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 14, 3);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 15, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 16, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (3, 17, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (3, 13, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (3, 14, 3);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (3, 15, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (3, 16, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (3, 17, 1);
 
 -- Produto 4: Gorgonzola Místico – Blue Burger (idproduto = 4)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 18, 1); -- Pão rústico
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 9, 1);  -- Hambúrguer 180g
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 19, 1); -- Gorgonzola
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 20, 1); -- Rúcula
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (4, 21, 1); -- Maionese de alho
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (4, 18, 1); -- Pão rústico
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (4, 9, 1);  -- Hambúrguer 180g
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (4, 19, 1); -- Gorgonzola
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (4, 20, 1); -- Rúcula
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (4, 21, 1); -- Maionese de alho
 
 -- Produto 5: Fogo do Deserto – Apimentado Texano (idproduto = 5)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 1, 1);  -- Pão brioche
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 2, 1);  -- Hambúrguer bovino 150g
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 22, 1); -- Queijo muçarela
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 23, 1); -- Jalapeños
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 24, 1); -- Barbecue picante
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (5, 25, 1); -- Onion rings
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (5, 1, 1);  -- Pão brioche
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (5, 2, 1);  -- Hambúrguer bovino 150g
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (5, 22, 1); -- Queijo muçarela
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (5, 23, 1); -- Jalapeños
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (5, 24, 1); -- Barbecue picante
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (5, 25, 1); -- Onion rings
 
 -- Produto 6: Barbecue Sombrio – Porco Barbecue (idproduto = 6)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 1, 1);  -- Pão brioche (assumido padrão)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 26, 1); -- Hambúrguer de pernil temperado
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 3, 1);  -- Queijo prato
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 27, 1); -- Coleslaw
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (6, 28, 1); -- Molho barbecue
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (6, 1, 1);  -- Pão brioche (assumido padrão)
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (6, 26, 1); -- Hambúrguer de pernil temperado
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (6, 3, 1);  -- Queijo prato
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (6, 27, 1); -- Coleslaw
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (6, 28, 1); -- Molho barbecue
 
 -- Produto 7: Magia do Bacon – Bacon Lovers (idproduto = 7)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 8, 1);  -- Pão australiano
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 29, 1); -- Hambúrguer suíno 180g
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 30, 1); -- Bacon em tiras
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 31, 1); -- Queijo cheddar
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 32, 1); -- Cebola crispy
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (7, 33, 1); -- Maionese defumada
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (7, 8, 1);  -- Pão australiano
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (7, 29, 1); -- Hambúrguer suíno 180g
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (7, 30, 1); -- Bacon em tiras
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (7, 31, 1); -- Queijo cheddar
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (7, 32, 1); -- Cebola crispy
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (7, 33, 1); -- Maionese defumada
 
 -- Produto 8: Poção do Pântano – Pulled Pork Sandwich (idproduto = 8)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 1, 1);  -- Pão brioche
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 34, 1); -- Carne suína desfiada
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 28, 1); -- Molho barbecue
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 16, 1); -- Picles
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (8, 6, 1);  -- Cebola roxa
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (8, 1, 1);  -- Pão brioche
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (8, 34, 1); -- Carne suína desfiada
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (8, 28, 1); -- Molho barbecue
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (8, 16, 1); -- Picles
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (8, 6, 1);  -- Cebola roxa
 
 -- Produto 9: Mineirice Mágica – Suíno Mineiro (idproduto = 9)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 18, 1); -- Pão rústico
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 35, 1); -- Hambúrguer de linguiça artesanal
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 36, 1); -- Queijo minas
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 37, 1); -- Vinagrete
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (9, 38, 1); -- Maionese de limão
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (9, 18, 1); -- Pão rústico
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (9, 35, 1); -- Hambúrguer de linguiça artesanal
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (9, 36, 1); -- Queijo minas
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (9, 37, 1); -- Vinagrete
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (9, 38, 1); -- Maionese de limão
 
 -- Produto 10: Crocris da Alvorada – Crocante da Casa (idproduto = 10)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 13, 1); -- Pão de leite
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 39, 1); -- Filé de frango empanado
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 31, 1); -- Queijo cheddar
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 4, 1);  -- Alface
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (10, 40, 1); -- Maionese com ervas
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (10, 13, 1); -- Pão de leite
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (10, 39, 1); -- Filé de frango empanado
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (10, 31, 1); -- Queijo cheddar
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (10, 4, 1);  -- Alface
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (10, 40, 1); -- Maionese com ervas
 
 -- Produto 11: Fênix Flamejante – Frango Picante (idproduto = 11)
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 1, 1);  -- Pão brioche
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 41, 1); -- Filé de frango grelhado com páprica
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 22, 1); -- Queijo muçarela
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 23, 1); -- Jalapeños
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (11, 42, 1); -- Maionese chipotle
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (11, 1, 1);  -- Pão brioche
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (11, 41, 1); -- Filé de frango grelhado com páprica
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (11, 22, 1); -- Queijo muçarela
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (11, 23, 1); -- Jalapeños
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (11, 42, 1); -- Maionese chipotle
 
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (12, 43, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (13, 44, 1);
-INSERT INTO ingrediente (idproduto, idingredientes, quantidade) VALUES (14, 45, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (12, 43, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (13, 44, 1);
+INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (14, 45, 1);
 
 -- INSERTs para cliente
 
