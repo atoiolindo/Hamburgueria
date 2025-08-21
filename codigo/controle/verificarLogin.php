@@ -16,10 +16,10 @@
         $senha_banco = $linha['senha'];
 
         if (password_verify($senha, $senha_banco)) {
-            header("Location: home.php");
+            header("Location: ../public/home.php");
         }
         else {
-            header("Location: index.php");
+            header("Location: ../public/index.php");
         }
     }
 ?>
