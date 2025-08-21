@@ -13,8 +13,9 @@
         <input type="text" name="email"> <br><br>
         Senha: <br>
         <input type="text" name="senha"> <br><br>
+        Confirme sua senha: <br>
 
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Confirmar">
     </form>
 </body>
 </html>

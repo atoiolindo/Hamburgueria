@@ -6,7 +6,7 @@
     <title>Login</title>
 </head>
 <body>
-<h1>Acesse o programa</h1>
+<h1>Entre na sua conta</h1>
 
     <form action="../controle/verificarLogin.php" method="post">
     E-mail: <br>
@@ -16,7 +16,7 @@
 
     <a href="formUsuario.php">Não tem login? Crie um!</a> <br><br>
 
-    <input type="submit" value="Acessar">
+    <input type="submit" value="Confirmar   ">
 </form>
     
 </body>
