@@ -37,7 +37,6 @@
             <li><a href="deslogar.php">Sair</a></li>
         </ul>
     </nav>
-    <h2>Bem-vindo à Hamburgueria</h2>
     <form class="barra-pesquisa" action="pesquisa.php" method="get">
         <input type="text" name="pesquisa" placeholder="Pesquisar">
         <button type="submit">Pesquisar</button>
@@ -47,6 +46,8 @@
         </div>
     </form>
 
-    <h2 style="font-family: 'Bevan', serif;">Hamburgueria pao e magia sua gordura nossa alegria</h2>
+    <h1 style="font-family: 'Bevan', serif;">Hamburgueria Pão & Magia: Sua gordura, nossa alegria!</h1>
+    <h3>Hambúrgueres artesanais com ingredientes caseiros deliciosos.</h3>
+    <button class="btn-pedidos">Faça seu pedido!</button>
 </body>
 </html>
