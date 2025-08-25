@@ -48,6 +48,18 @@
 
     <h1 style="font-family: 'Bevan', serif;">Hamburgueria Pão & Magia: Sua gordura, nossa alegria!</h1>
     <h3>Hambúrgueres artesanais com ingredientes caseiros deliciosos.</h3>
-    <button class="btn-pedidos">Faça seu pedido!</button>
+    <a href="cardapio.php" class="btn-cardapio">Peça agora!</a>
+
+
+<h2 style="font-family: 'Bevan', serif; color: #4B1203;">Cardápio Pão & Magia</h2>
+<div class="cardapio-bolinhas">
+    <a href="cardapio.php" class="bolinha">Burguer Bovino</a>
+    <a href="cardapio.php" class="bolinha">Burguer de Frango</a>
+    <a href="cardapio.php" class="bolinha">Burguer Suíno</a>
+    <a href="cardapio.php" class="bolinha">Batata Frita</a>
+    <a href="cardapio.php" class="bolinha">Refrigerantes</a>
+</div>
+
 </body>
+
 </html>
