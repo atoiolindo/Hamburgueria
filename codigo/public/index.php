@@ -35,10 +35,10 @@
         </ul>
     </nav>
     <h2>Bem-vindo à Hamburgueria</h2>
-    <form class="search-bar" action="pesquisar.php" method="get">
-        <input type="text" name="q" placeholder="Pesquisar">
+    <form class="barra-pesquisa" action="pesquisar.php" method="get">
+        <input type="text" name="pesquisa" placeholder="Pesquisar">
         <button type="submit">Pesquisar</button>
-        <div class="search-icons">
+        <div class="icone-pesquisa">
             <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
             <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
