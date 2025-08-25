@@ -38,7 +38,7 @@
         foreach ($lista_produtos as $produto) {
             $idproduto = $produto['idproduto'];
             $nome = $produto['nome'];
-            $preco = $produto['preco_venda'];
+            $preco = $produto['valor'];
 
             echo "<input type='checkbox' value='$idproduto' id='marcado[$idproduto]' name='idproduto[]'>R$ <span id='preco[$idproduto]'>$preco</span> - $nome ";
             echo "<input type='text' name='quantidade[$idproduto]' id='quantidade[$idproduto]' value='0' onchange='calcular()'><br>";
