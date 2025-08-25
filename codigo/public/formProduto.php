@@ -6,6 +6,7 @@
         
         $id = $_GET['id'];
         
+        $produto = pesquisarProduto($conexao, $id);
         $nome = $linha['nome'];
         $nome_real = $linha['nome_real'];
         $ingredientes = $linha['ingredientes'];
@@ -39,7 +40,7 @@
 </head>
 <body>
     <h1>Cadastro de Produto</h1>
-    <form action="../controle/salvarProduto.php?id=<?php echo $id; ?>" method="post">
+    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post">
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
         Nome Verdadeiro: <br>
