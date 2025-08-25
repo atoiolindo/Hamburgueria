@@ -80,3 +80,18 @@
         .icone-pesquisa a:hover {
             color: #f0a913;
         }
+
+        .btn-cardapio {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #d35400;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-cardapio:hover {
+            background: #e67e22;
+        }
