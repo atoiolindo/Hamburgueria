@@ -23,6 +23,7 @@
             <i class="fa-solid fa-xmark"></i>
         </button>
         <ul>
+            <br><br><br>
             <li><a href="formProduto.php">Cadastrar novo produto</a></li>
             <li><a href="listarProdutos.php">Lista de produtos cadastrados</a></li>
             <li><a href="formCliente.php">Cadastrar novo cliente</a></li>
