@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="salvarVenda.php">
+    <form action="../controle/salvarVenda.php">
         Cliente: <br>
         <select name="idcliente" id="idcliente">
             <?php

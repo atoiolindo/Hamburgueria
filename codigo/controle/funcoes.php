@@ -207,6 +207,16 @@ function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $st
     return $funcionou;
 };
 
+function buscarValorProduto($conexao, $idproduto) {
+    $sql = "SELECT valor FROM produto WHERE id = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $idproduto);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $valor);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    return $valor;
+}
 
 function deletarVenda($conexao, $idvenda) {
     $sql = "DELETE FROM venda WHERE idvenda = ?";
