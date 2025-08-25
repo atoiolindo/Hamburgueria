@@ -6,6 +6,8 @@
     <title>Hamburgueria - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
  
     <script>
         function toggleMenu() {
@@ -36,7 +38,7 @@
         </ul>
     </nav>
     <h2>Bem-vindo à Hamburgueria</h2>
-    <form class="barra-pesquisa" action="pesquisar.php" method="get">
+    <form class="barra-pesquisa" action="pesquisa.php" method="get">
         <input type="text" name="pesquisa" placeholder="Pesquisar">
         <button type="submit">Pesquisar</button>
         <div class="icone-pesquisa">
@@ -44,5 +46,7 @@
             <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </form>
+
+    <h2 style="font-family: 'Bevan', serif;">Hamburgueria pao e magia sua gordura nossa alegria</h2>
 </body>
 </html>
