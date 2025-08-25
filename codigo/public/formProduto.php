@@ -1,3 +1,35 @@
+<?php
+    if (isset($_GET['id'])) {
+
+        require_once "conexao.php";
+        require_once "funcoes.php";
+        
+        $id = $_GET['id'];
+        
+        $nome = $linha['nome'];
+        $nome_real = $linha['nome_real'];
+        $ingredientes = $linha['ingredientes'];
+        $valor = $linha['valor'];
+        $tipo = $linha['tipo'];
+        $foto = $linha['foto'];
+        $descricao = $linha['descricao'];
+
+        $botao = "Atualizar";
+    } 
+    else {
+
+        $id = 0;
+        $nome = "";
+        $nome_real = "";
+        $ingredientes = "";
+        $valor = "";
+        $tipo = "";
+        $foto = "";
+        $descricao = "";
+
+        $botao = "Cadastrar";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,43 +38,6 @@
     <title>Cadastrar Produtos</title>
 </head>
 <body>
-<?php
-if (isset($_GET['id'])) {
-
-    require_once "conexao.php";
-    $id = $_GET['id'];
-
-    $sql = "SELECT * FROM produto WHERE idproduto = $id";
-
-    $resultados = mysqli_query($conexao, $sql);
-
-    $linha = mysqli_fetch_array($resultados);
-
-   
-    $nome = $linha['nome'];
-    $nome_real = $linha['nome_real'];
-    $ingredientes = $linha['ingredientes'];
-    $valor = $linha['valor'];
-    $tipo = $linha['tipo'];
-    $foto = $linha['foto'];
-    $descricao = $linha['descricao'];
-
-    $botao = "Atualizar";
-} else {
-    // echo "novo";
-    $id = 0;
-    $nome = "";
-    $nome_real = "";
-    $ingredientes = "";
-    $valor = "";
-    $tipo = "";
-    $foto = "";
-    $descricao = "";
-
-    $botao = "Cadastrar";
-}
-?>
-
     <h1>Cadastro de Produto</h1>
     <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post">
         Nome: <br>
@@ -62,6 +57,5 @@ if (isset($_GET['id'])) {
         
         <input type="submit" value="<?php echo $botao; ?>">
     </form>
-<!-- corrigir e verificar dados -->
 </body>
 </html>

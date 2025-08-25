@@ -1,21 +1,30 @@
-<?php
+<?php 
+
 require_once "conexao.php";
+require_once "funcoes.php";
 
 $id = $_GET['id'];
-$nome = $_POST['nome'];
-$nome_real = $_POST['nome_real'];
-$ingredientes = $_POST['ingredientes'];
-$valor = $_POST['valor'];
-$tipo = $_POST['tipo'];
-$foto = $_POST['foto'];
-$descricao = $_POST['descricao'];
+$nome = $linha['nome'];
+$nome_real = $linha['nome_real'];
+$ingredientes = $linha['ingredientes'];
+$valor = $linha['valor'];
+$tipo = $linha['tipo'];
+$foto = $linha['foto'];
+
+$nome_arquivo = $_FILES['foto']['name'];
+$caminho_temporario = $_FILES['foto']['tmp_name'];
+$extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
+$novo_nome = uniqid() . "." . $extensao;
+$caminho_destino = "fotos/" . $novo_nome;
+move_uploaded_file($caminho_temporario, $caminho_destino);
+
+$descricao = $linha['descricao'];
 
 if ($id == 0) {
-    // echo "novo";
-    $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao) VALUES ('$nome', '$tipo', $preco_compra, $preco_venda, $margem_lucro, $quantidade)";
+    salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao);
 } else {
-    // echo "atualizar";
-    $sql = "UPDATE produto SET nome = '$nome', nome_real = '$nome_real', ingredientes = $ingredientes, valor = $valor, tipo = $tipo, foto = $foto, descricao = $descricao WHERE idproduto = $id";
+    editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $idproduto);
 }
-mysqli_query($conexao, $sql);
+
+header("Location: home.php");
 ?>
