@@ -51,12 +51,14 @@
     <a href="cardapio.php" class="btn-cardapio">Peça agora!</a>
 
 
-<h2 style="font-family: 'Bevan', serif; color: #4B1203;">Cardápio Pão & Magia</h2><br><br><br>
-        <a href="cardapio.php">Burguer Bovino</a><br>
-        <a href="cardapio.php">Burguer de Frango</a><br>       
-        <a href="cardapio.php">Burguer Suíno</a> <br>
-        <a href="cardapio.php">Batata Frita</a> <br>
-        <a href="cardapio.php">Refrigerantes</a><br>
+<h2 style="font-family: 'Bevan', serif; color: #4B1203;">Cardápio Pão & Magia</h2>
+<div class="cardapio-bolinhas">
+    <a href="cardapio.php" class="bolinha">Burguer Bovino</a>
+    <a href="cardapio.php" class="bolinha">Burguer de Frango</a>
+    <a href="cardapio.php" class="bolinha">Burguer Suíno</a>
+    <a href="cardapio.php" class="bolinha">Batata Frita</a>
+    <a href="cardapio.php" class="bolinha">Refrigerantes</a>
+</div>
 
 </body>
 
