@@ -40,7 +40,7 @@
 </head>
 <body>
     <h1>Cadastro de Produto</h1>
-    <form action="salvarProduto.php?id=<?php echo $id; ?>" method="post">
+    <form action="../controle/salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
         Nome Verdadeiro: <br>
