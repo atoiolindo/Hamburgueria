@@ -1,3 +1,4 @@
+
 <?php
 
 $pesquisa = $_GET['pesquisa'];
@@ -20,12 +21,7 @@ if ($pesquisa != '') {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Resultados da Pesquisa</title>
-    <link rel="stylesheet" href="./css/index.css">
+<!DOCnk rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <h2>Resultados para: "<?php echo $pesquisa; ?>"</h2>
@@ -45,5 +41,4 @@ if ($pesquisa != '') {
     <a href="index.php">Voltar</a>
 </body>
 </html>
-
-
+</head>
