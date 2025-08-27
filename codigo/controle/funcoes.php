@@ -80,6 +80,21 @@ function listarCliente($conexao) {
 
 
 function salvarCliente($conexao, $nome, $email, $endereco, $telefone) {
+     // verifica duplicidade
+    $sql_check = "SELECT idcliente FROM cliente WHERE telefone=? OR endereco=?";
+    $stmt_check = mysqli_prepare($conexao, $sql_check);
+    mysqli_stmt_bind_param($stmt_check, 'ss', $telefone, $endereco);
+    mysqli_stmt_execute($stmt_check);
+    mysqli_stmt_store_result($stmt_check);
+
+    if (mysqli_stmt_num_rows($stmt_check) > 0) {
+        mysqli_stmt_close($stmt_check);
+        return false; // telefone já existe
+    }
+    mysqli_stmt_close($stmt_check);
+
+    // se não existe, insere
+    
     $sql = "INSERT INTO cliente (nome, email, endereco, telefone) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);  
     
@@ -256,6 +271,21 @@ function pesquisarProduto($conexao, $idproduto) {
 
     mysqli_stmt_close($comando);
     return $produto;
+};
+
+function pesquisarCliente($conexao, $idcliente) {
+    $sql = "SELECT * FROM cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $cliente = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $cliente;
 };
 
 function pesquisarArmazenamento($conexao, $idingredientes) {

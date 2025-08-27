@@ -1,19 +1,17 @@
 <?php
     if (isset($_GET['id'])) {
         // echo "editar";
+        
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
 
-        require_once "conexao.php";
         $id = $_GET['id'];
         
-        $sql = "SELECT * FROM tb_cliente WHERE idcliente = $id";
-
-        $resultados = mysqli_query($conexao, $sql);
-
-        $linha = mysqli_fetch_array($resultados);
-
-        $nome = $linha['nome'];
-        $cpf = $linha['cpf'];
-        $endereco = $linha['endereco'];
+        $cliente = pesquisarCliente($conexao, $id);
+        $nome = $cliente['nome'];
+        $email = $cliente['email'];
+        $endereco = $cliente['endereco'];
+        $telefone = $cliente['telefone'];
 
         $botao = "Atualizar";
     }
@@ -21,8 +19,9 @@
         // echo "novo";
         $id = 0;
         $nome = "";
-        $cpf = "";
+        $email = "";
         $endereco = "";
+        $telefone = "";
 
         $botao = "Cadastrar";
     }
@@ -36,13 +35,16 @@
 </head>
 <body>
     <h1>Cadastro de Cliente</h1>
-    <form action="salvarCliente.php?id=<?php echo $id; ?>" method="post">
+    <form action="../controle/salvarCliente.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
-        CPF: <br>
-        <input type="text" name="cpf" value="<?php echo $cpf; ?>"> <br><br>
+        Email: <br>
+        <input type="text" name="email" value="<?php echo $email; ?>"> <br><br>
         Endereço: <br>
         <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
+        Telefone: <br>
+        <input type="text" name="telefone" id="telefone" value="<?php echo $telefone; ?>"> <br><br>
 
         <input type="submit" value="<?php echo $botao; ?>">
     </form>
