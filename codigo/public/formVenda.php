@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastrar Vendas</title>
+    <script src="../controle/jquery-3.7.1min(1).js"></script>
+    <script src="../controle/funcoes.js"></script>
 </head>
 
 <body>
@@ -40,8 +42,9 @@
             $nome = $produto['nome'];
             $preco = $produto['valor'];
 
-            echo "<input type='checkbox' value='$idproduto' id='marcado[$idproduto]' name='idproduto[]'>R$ <span id='preco[$idproduto]'>$preco</span> - $nome ";
-            echo "<input type='text' name='quantidade[$idproduto]' id='quantidade[$idproduto]' value='0' onchange='calcular()'><br>";
+           echo "<input type='checkbox' value='$idproduto' id='marcado_$idproduto' name='idproduto[]' onchange='calcular()'> 
+           R$ <span id='preco_$idproduto'>$preco</span> - $nome ";
+           echo "<input type='number' name='quantidade[$idproduto]' id='quantidade_$idproduto' value='0' onchange='calcular()'><br>";
         }
         ?>
         <br>
