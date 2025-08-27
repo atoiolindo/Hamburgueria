@@ -19,3 +19,4 @@ function calcular() {
     // coloca o total no campo de texto, formatado com 2 casas decimais
     document.getElementById('valor_total').value = total.toFixed(2);
 }
+
