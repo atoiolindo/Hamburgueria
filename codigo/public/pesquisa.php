@@ -1,5 +1,27 @@
 
 <?php
+// require_once "../conexao.php";
+// require_once "../funcoes.php";
+
+// function pesquisar($conexao, $nome)
+    
+//     $sql = "SELECT nome FROM produto WHERE nome LIKE ?";
+//     $comando = mysqli_prepare($conexao, $sql);
+
+//     $like_nome = "%" . $nome . "%";
+//     mysqli_stmt_bind_param($comando, 's', $like_nome);
+
+//     mysqli_stmt_execute($comando);
+//     $resultado = mysqli_stmt_get_result($comando);
+
+//     $produtos = [];
+//     while ($produto = mysqli_fetch_assoc($resultado)) {
+//         $produtos[] = $produto;
+//     }
+
+//     mysqli_stmt_close($comando);
+//     return $produtos;
+// };
 
 $pesquisa = $_GET['pesquisa'];
 
@@ -21,7 +43,7 @@ if ($pesquisa != '') {
     }
 }
 ?>
-<!DOCnk rel="stylesheet" href="./css/index.css">
+<!-- <!DOCnk rel="stylesheet" href="./css/index.css"> -->
 </head>
 <body>
     <h2>Resultados para: "<?php echo $pesquisa; ?>"</h2>
