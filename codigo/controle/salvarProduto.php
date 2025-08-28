@@ -1,5 +1,4 @@
 <?php 
-
 require_once "conexao.php";
 require_once "funcoes.php";
 
@@ -9,27 +8,26 @@ $nome_real = $_POST['nome_real'];
 $ingredientes = $_POST['ingredientes'];
 $valor = $_POST['valor'];
 $tipo = $_POST['tipo'];
-$foto = $_FILES['foto'];
+$descricao = $_POST['descricao'];
 
-if (isset($_FILES['foto']) && $_FILES['foto']['error'] == UPLOAD_ERR_OK) {
+$foto = ""; // vai receber o caminho final
+
+if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
     $nome_arquivo = $_FILES['foto']['name'];
     $caminho_temporario = $_FILES['foto']['tmp_name'];
     $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
-    $novo_nome = uniqid() . "." . $extensao;
+    $novo_nome = uniqid('', true) . "." . $extensao;
     $caminho_destino = "fotos/" . $novo_nome;
 
     if (move_uploaded_file($caminho_temporario, $caminho_destino)) {
-        $foto = $caminho_destino; // salva o caminho no banco
+        $foto = $caminho_destino; // agora é uma STRING para o banco
     }
 }
-
-$descricao = $_POST['descricao'];
 
 if ($id == 0) {
     salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao);
 } else {
-    editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $idproduto);
+    editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $id);
 }
 
-header("Location: home.php");
-?>
+header("Location: ../public/index.php");
