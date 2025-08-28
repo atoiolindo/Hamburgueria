@@ -1,3 +1,7 @@
+<?php    
+    require_once "../controle/conexao.php";
+    require_once "../controle/funcoes.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +44,7 @@
         foreach ($lista_produtos as $produto) {
             $idproduto = $produto['idproduto'];
             $nome = $produto['nome'];
-            $preco = $produto['valor'];
+            $preco = $produto['preco'];
 
            echo "<input type='checkbox' value='$idproduto' id='marcado_$idproduto' name='idproduto[]' onchange='calcular()'> 
            R$ <span id='preco_$idproduto'>$preco</span> - $nome ";

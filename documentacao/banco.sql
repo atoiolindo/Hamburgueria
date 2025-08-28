@@ -383,10 +383,10 @@ INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (14, 45, 1
 
 -- INSERTs para cliente
 
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Sr. Thomas Melo', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES', 'a');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Cleber', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES', 'a');
 INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Francisco Peixoto', '+55 (021) 8396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL', 'b');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Diego Ferreira', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES', 'c');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Carolina Aragão', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES', 'd');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Jessica Arantes Renascida', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES', 'c');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Luana Coutto', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES', 'd');
 INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '0900 034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'e');
 -- INSERTs para usuario
 

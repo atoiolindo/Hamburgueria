@@ -3,7 +3,7 @@ require_once "conexao.php";
 require_once "funcoes.php";
 
 $idcliente = $_GET['idcliente'];
-$total = $_GET['valor_total'];
+$valor_final = $_GET['valor_final'];
 $data = $_GET['data_compra'];
 $observacao = $_GET['observacao'] ?? ''; // caso não venha, usa vazio
 $status = $_GET['status'] ?? 'pendente'; // valor padrão
