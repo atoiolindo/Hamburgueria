@@ -454,7 +454,6 @@ function pesquisar($conexao, $nome) {
 };
 
 
-
 function filtrarTipo($conexao, $tipo) {
     $sql = "SELECT * FROM produto WHERE tipo = ?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -475,7 +474,7 @@ function filtrarTipo($conexao, $tipo) {
 
 
 function filtrarValor($conexao, $valor_min, $valor_max) {
-    
+
 }
 
 //testar

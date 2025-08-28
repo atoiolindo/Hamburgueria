@@ -21,6 +21,8 @@
 
 </head>
 <body class= "p-3 m-0 border-0 bd-example m-0 border-0">
+    <div class="cabecalho">
+
     <button class="menu-btn" onclick="toggleMenu()" title="Menu">
         <i class="fa-solid fa-bars"></i>
     </button>
@@ -41,18 +43,24 @@
             <li><a href="deslogar.php">Sair</a></li>
         </ul>
     </nav>
-    <form class="barra-pesquisa" action="pesquisa.php" method="get">
-        <input type="text" name="pesquisa" placeholder="Pesquisar">
-        <button type="submit">Pesquisar</button>
-        <div class="icone-pesquisa">
-            <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
-            <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-    </form>
+<form class="barra-pesquisa" action="pesquisa.php" method="get">
+    <input type="text" name="pesquisa" placeholder="Pesquisar">
+    <button type="submit" title="Pesquisar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    <div class="icone-pesquisa">
+        <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
+        <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+</form>
 
+<div class="divisoria"></div>
+
+<div class="banner-vermelho">
     <h1 style="font-family: 'Bevan', serif;">Hamburgueria Pão & Magia: Sua larica, nossa alegria!</h1>
     <h3>Hambúrgueres artesanais com ingredientes caseiros deliciosos.</h3>
     <a href="cardapio.php" class="btn-cardapio">Peça agora!</a>
+</div>
 
 
 <h2 style="font-family: 'Bevan', serif; color: #4B1203;">Cardápio Pão & Magia</h2>
