@@ -1,66 +1,41 @@
 
 <?php
-// require_once "../conexao.php";
-// require_once "../funcoes.php";
+require_once "../controle/conexao.php";
+require_once "../controle/funcoes.php";
 
-// function pesquisar($conexao, $nome)
-    
-//     $sql = "SELECT nome FROM produto WHERE nome LIKE ?";
-//     $comando = mysqli_prepare($conexao, $sql);
+$pesquisa = isset($_GET['pesquisa']) ? $_GET['pesquisa'] : '';
 
-//     $like_nome = "%" . $nome . "%";
-//     mysqli_stmt_bind_param($comando, 's', $like_nome);
-
-//     mysqli_stmt_execute($comando);
-//     $resultado = mysqli_stmt_get_result($comando);
-
-//     $produtos = [];
-//     while ($produto = mysqli_fetch_assoc($resultado)) {
-//         $produtos[] = $produto;
-//     }
-
-//     mysqli_stmt_close($comando);
-//     return $produtos;
-// };
-
-$pesquisa = $_GET['pesquisa'];
-
-$produtos = [
-    'Hambúrguer Clássico',
-    'Cheddar Bacon',
-    'Vegano',
-    'Frango Crocante',
-    'Batata Frita',
-    'Refrigerante'
-];
-
-$resultados = [];
 if ($pesquisa != '') {
-    foreach ($produtos as $produto) {
-        if (stripos($produto, $pesquisa) !== false) {
-            $resultados[] = $produto;
-        }
-    }
+    $resultados = pesquisar($conexao, $pesquisa);
+} else {
+    $resultados = [];
 }
 ?>
-<!-- <!DOCnk rel="stylesheet" href="./css/index.css"> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <h2>Resultados para: "<?php echo $pesquisa; ?>"</h2>
-    <?php
+<h2>Resultados para: "<?php echo $pesquisa; ?>"</h2>
+<?php
     if ($pesquisa == '') {
         echo '<p>Digite algo para pesquisar.</p>';
     } elseif (count($resultados) == 0) {
         echo '<p>Nenhum resultado encontrado.</p>';
     } else {
         echo '<ul>';
-        foreach ($resultados as $item) {
-            echo '<li>' . $item . '</li>';
-        }
-        echo '</ul>';
+    foreach ($resultados as $item) {
+        echo '<li>' . $item['nome'] . '</li>';
     }
-    ?>
-    <a href="index.php">Voltar</a>
+    }
+?>
+    
 </body>
 </html>
-</head>
+
+<a href="index.php">Voltar</a>
+

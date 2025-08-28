@@ -451,17 +451,5 @@ function pesquisar($conexao, $nome) {
 
     mysqli_stmt_close($comando);
     return $produtos;
-
-    $pesquisa = $_GET['pesquisa'];
-
-    $resultados = [];
-    if ($pesquisa != '') {
-        foreach ($produtos as $produto) {
-            if (stripos($produto, $pesquisa) !== false) {
-                $resultados[] = $produto;
-            }
-        }
-    }
-
 };
 //testar
