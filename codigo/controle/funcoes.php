@@ -452,4 +452,29 @@ function pesquisar($conexao, $nome) {
     mysqli_stmt_close($comando);
     return $produtos;
 };
+
+
+function filtrarTipo($conexao, $tipo) {
+    $sql = "SELECT * FROM produto WHERE tipo = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 's', $tipo);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produtos = [];
+    while ($produto = mysqli_fetch_assoc($resultado)) {
+        $produtos[] = $produto;
+    }
+
+    mysqli_stmt_close($comando);
+    return $produtos;
+};
+
+
+function filtrarValor($conexao, $valor_min, $valor_max) {
+
+}
+
 //testar
