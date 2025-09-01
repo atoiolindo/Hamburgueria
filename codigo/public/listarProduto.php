@@ -28,7 +28,6 @@
 
     $lista_produtos = listarProduto($conexao);
     
-    //verificar se encontrou produtos antes de imprimir.
     if (count($lista_produtos) == 0) {
         echo "Não existem produtos cadastrados.";
     } else {
@@ -67,7 +66,7 @@
             echo "<td>$tipo</td>";
             echo "<td>$descricao</td>";
             echo "<td><a href='formProduto.php?id=$idproduto'>Editar</a></td>";
-            echo "<td><a href='deletarCliente.php?id=$idproduto'>Excluir</a></td>";
+            echo "<td><a href='deletarProduto.php?id=$idproduto'>Excluir</a></td>";
             echo "</tr>";
         }
     }
