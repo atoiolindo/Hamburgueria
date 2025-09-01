@@ -1,5 +1,5 @@
 <?php
-require_once "../controle/conexao.php";
+require_once "conexao.php";
 require_once "funcoes.php";
 
 $id = $_GET['id'];
@@ -21,4 +21,4 @@ if ($id == 0) {
     editarCliente($conexao, $nome, $email, $endereco, $telefone, $id);
 }
 
-header("Location: ../controle/tests/testeEditarCliente.php");
+header("Location: ../public/index.php");

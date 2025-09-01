@@ -19,7 +19,6 @@
         }
     </script>
 
-
 </head>
 <body class= "p-3 m-0 border-0 bd-example m-0 border-0">
     <div class="cabecalho">
@@ -34,7 +33,7 @@
         <ul>
             <br><br><br>
             <li><a href="formProduto.php">Cadastrar novo produto</a></li>
-            <li><a href="listarProdutos.php">Lista de produtos cadastrados</a></li>
+            <li><a href="listarProduto.php">Lista de produtos cadastrados</a></li>
             <li><a href="formCliente.php">Cadastrar novo cliente</a></li>
             <li><a href="listarCliente.php">Lista de clientes cadastrados</a></li>
             <li><a href="formVenda.php">Cadastrar nova venda</a></li>
