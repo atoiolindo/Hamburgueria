@@ -1,8 +1,3 @@
-<?php
-    //require_once "../controle/verificaLogado.php";
-    require_once "../controle/funcoes.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
