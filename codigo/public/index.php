@@ -18,7 +18,6 @@
             menu.classList.toggle('open');
         }
     </script>
-    a
 
 </head>
 <body class= "p-3 m-0 border-0 bd-example m-0 border-0">
