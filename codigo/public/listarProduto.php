@@ -1,5 +1,5 @@
 <?php
-    require_once "../controle/verificaLogado.php";
+    //require_once "../controle/verificaLogado.php";
     require_once "../controle/funcoes.php";
 ?>
 
@@ -22,7 +22,8 @@
     <h1>Lista de produtos</h1>
 
     <?php
-    require_once "../controle/verificaLogado.php";
+    //require_once "../controle/verificaLogado.php";
+    require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
 
     $lista_produtos = listarProduto($conexao);
@@ -37,27 +38,36 @@
                 <td>Id</td>
                 <td>Foto</td>
                 <td>Nome</td>
-                <td>CPF</td>
-                <td>Endereço</td>
+                <td>Nome real</td>
+                <td>Ingredientes</td>
+                <td>Valor</td>
+                <td>Tipo</td>
+                <td>Descrição</td>
                 <td colspan="2">Ação</td>
             </tr>
 
         <?php
         foreach ($lista_produtos as $produto) {
             $idproduto = $produto['idproduto'];
-            $nome = $cliente['nome'];
-            $cpf = $cliente['cpf'];
-            $endereco = $cliente['endereco'];
-            $foto = $cliente['foto'];
+            $nome = $produto['nome'];
+            $nome_real = $produto['nome_real'];
+            $ingredientes = $produto['ingredientes'];
+            $valor = $produto['valor'];
+            $tipo = $produto['tipo'];
+            $foto = $produto['foto'];
+            $descricao = $produto['descricao'];
 
             echo "<tr>";
-            echo "<td>$idcliente</td>";
+            echo "<td>$idproduto</td>";
             echo "<td><img src='fotos/$foto'></td>";
             echo "<td>$nome</td>";
-            echo "<td>$cpf</td>";
-            echo "<td>$endereco</td>";
-            echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
-            echo "<td><a href='deletarCliente.php?id=$idcliente'>Excluir</a></td>";
+            echo "<td>$nome_real</td>";
+            echo "<td>$ingredientes</td>";
+            echo "<td>$valor</td>";
+            echo "<td>$tipo</td>";
+            echo "<td>$descricao</td>";
+            echo "<td><a href='formProduto.php?id=$idproduto'>Editar</a></td>";
+            echo "<td><a href='deletarCliente.php?id=$idproduto'>Excluir</a></td>";
             echo "</tr>";
         }
     }
