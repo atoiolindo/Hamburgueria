@@ -38,8 +38,8 @@
             <li><a href="listarCliente.php">Lista de clientes cadastrados</a></li>
             <li><a href="formVenda.php">Cadastrar nova venda</a></li>
             <li><a href="listarVenda.php">Lista de vendas cadastrados</a></li>
-            <li><a href="formIngrediente.php">Cadastrar novo ingrediente</a></li>
-            <li><a href="listarIngrediente.php">Lista de ingredientes cadastrados</a></li>
+            <li><a href="formArmazenamento.php">Cadastrar novo ingrediente</a></li>
+            <li><a href="listarArmazenamento.php">Lista de ingredientes cadastrados</a></li>
             <li><a href="deslogar.php">Sair</a></li>
         </ul>
     </nav>
