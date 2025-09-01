@@ -21,4 +21,4 @@ if ($id == 0) {
     editarCliente($conexao, $nome, $email, $endereco, $telefone, $id);
 }
 
-header("Location: ../controle/tests/testeEditarCliente.php");
+header("Location: ../public/index.php");
