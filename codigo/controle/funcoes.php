@@ -185,29 +185,37 @@ function listarVenda($conexao) {
     mysqli_stmt_execute($comando);
     $resultado = mysqli_stmt_get_result($comando);
 
-    
     $vendas = [];
     while ($venda = mysqli_fetch_assoc($resultado)) {
         // busca o nome do cliente
         $clienteS = "SELECT nome FROM cliente WHERE idcliente = {$venda['idcliente']}";
         $cliente_resultado = mysqli_query($conexao, $clienteS);
         $cliente = mysqli_fetch_assoc($cliente_resultado);
-        
-        // busca o nome do produto
-        $funcionarioS = "SELECT nome FROM funcionario WHERE idfuncionario = {$venda['idfuncionario']}";
-        $funcionario_resultado = mysqli_query($conexao, $funcionarioS);
-        $funcionario = mysqli_fetch_assoc($funcionario_resultado);
 
-        // adiciona dados p venda
+        // busca os produtos da venda
+        $produtosS = "SELECT p.nome, p.foto 
+                      FROM item_venda iv
+                      INNER JOIN produto p ON iv.idproduto = p.idproduto
+                      WHERE iv.idvenda = {$venda['idvenda']}";
+        $produtos_resultado = mysqli_query($conexao, $produtosS);
+
+        $produtos = [];
+        while ($produto = mysqli_fetch_assoc($produtos_resultado)) {
+            $produtos[] = $produto; // nome + foto
+        }
+
+        // adiciona dados extras na venda
         $venda['nome_cliente'] = $cliente['nome'];
-        $venda['nome_funcionario'] = $funcionario['nome'];
+        $venda['produtos'] = $produtos;
 
-        // adiciona venda p lista
+        // adiciona na lista final
         $vendas[] = $venda;
     }
+
     mysqli_stmt_close($comando);
     return $vendas;
 }
+
 
 
 function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $status) {

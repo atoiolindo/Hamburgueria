@@ -44,16 +44,19 @@
         </ul>
     </nav>
 <form class="barra-pesquisa" action="pesquisa.php" method="get">
-    <input type="text" name="pesquisa" placeholder="Pesquisar">
     <button type="submit" title="Pesquisar">
         <i class="fa-solid fa-magnifying-glass"></i>
     </button>
-    <div class="icone-pesquisa">
-        <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
-        <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-</form>
+    <input type="text" name="pesquisa" placeholder="Pesquisa">
 
+</form>
+<br>
+<div class="icone-pesquisa">
+    <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
+    <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
+</div>
+
+<br>
 <div class="divisoria"></div>
 
 <div class="banner-vermelho">
@@ -62,14 +65,21 @@
     <a href="cardapio.php" class="btn-cardapio">Peça agora!</a>
 </div>
 
+<br><br><br><br>
 
-<h2 style="font-family: 'Bevan', serif; color: #4B1203;">Cardápio Pão & Magia</h2>
+
+<h2 id= "titulo-cardapio"style="font-family: 'Bevan', serif; color: #4B1203;">Cardápio Pão & Magia</h2>
+
 <div class="cardapio-bolinhas">
-    <a href="cardapio.php" class="bolinha">Burguer Bovino</a>
-    <a href="cardapio.php" class="bolinha">Burguer de Frango</a>
-    <a href="cardapio.php" class="bolinha">Burguer Suíno</a>
-    <a href="cardapio.php" class="bolinha">Batata Frita</a>
-    <a href="cardapio.php" class="bolinha">Refrigerantes</a>
+    <div class="linha-bolinhas">
+        <a href="cardapio.php" class="bolinha">Burguer Bovino</a>
+        <a href="cardapio.php" class="bolinha">Burguer de Frango</a>
+        <a href="cardapio.php" class="bolinha">Burguer Suíno</a>
+    </div>
+    <div class="linha-bolinhas centralizada">
+        <a href="cardapio.php" class="bolinha">Batata Frita</a>
+        <a href="cardapio.php" class="bolinha">Refrigerantes</a>
+    </div>
 </div>
 
 
