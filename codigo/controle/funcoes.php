@@ -223,7 +223,7 @@ function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $st
 };
 
 function buscarValorProduto($conexao, $idproduto) {
-    $sql = "SELECT valor FROM produto WHERE id = ?";
+    $sql = "SELECT valor FROM produto WHERE idproduto = ?";
     $stmt = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($stmt, "i", $idproduto);
     mysqli_stmt_execute($stmt);

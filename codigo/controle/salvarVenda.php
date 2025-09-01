@@ -1,6 +1,6 @@
 <?php
-require_once "conexao.php";
-require_once "funcoes.php";
+require_once "../controle/conexao.php";
+require_once "../controle/funcoes.php";
 
 $idcliente = $_GET['idcliente'];
 $valor_final = $_GET['valor_final'];
