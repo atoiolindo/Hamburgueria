@@ -49,36 +49,25 @@
     cursor: pointer;
     color: #333;
 }
-.barra-pesquisa {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    background: #f9f9f9;
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px #ccc;
-    width: 420px;
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
+
 .barra-pesquisa input[type="text"] { padding: 8px; width: 220px; }
 .barra-pesquisa button { padding: 8px 16px; }
 .icone-pesquisa {
+    position: absolute;
+    top: 18px;
+    right: 40px;
     display: flex;
-    align-items: center;
     gap: 16px;
-    margin-left: auto;
 }
+
 .icone-pesquisa a {
-    color: #333;
+    color: #AD2E1A;
     font-size: 1.6em;
-    text-decoration: none;
     transition: color 0.2s;
 }
+
 .icone-pesquisa a:hover {
-    color: #f0a913;
+    color: #8B2615;
 }
 
 .btn-cardapio {
@@ -146,8 +135,8 @@
     border-radius: 12px;
 }
 .banner-vermelho .btn-cardapio {
-    background: #fff;
-    color: #AD2E1A;
+    background: #F0A913;
+    color: #000;
     border: none;
     padding: 10px 24px;
     font-weight: bold;
@@ -165,53 +154,51 @@
 
 .barra-pesquisa {
     position: absolute;
-    top: 40px;
-    right: 40px;
-    background: transparent; /* transparente */
-    padding: 16px;
-    border-radius: 24px;
-    box-shadow: none;
-    width: 420px;
-    margin-bottom: 0;
+    top: 18px;
+    right: 140px; 
+    background: #fff;
+    border: 2px solid #AD2E1A;
+    border-radius: 10px;
+    padding: 6px 12px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    border: 2px solid #fff; /* borda branca */
+    gap: 12px;
+    width: 280px; 
+    color: #000;
 }
-
 .barra-pesquisa input[type="text"] {
-    padding: 8px 16px;
-    width: 220px;
-    background: transparent;
-    color: #fff; /* texto branco */
+    flex: 1;
+    padding: 6px 12px;
     border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    color: #000;
+    background: transparent;
     outline: none;
-    font-size: 16px;
 }
 
-.barra-pesquisa input[type="text"]::placeholder {
-    color: #fff;
-    opacity: 0.7;
+.barra-pesquisa input::placeholder {
+    color: #666;
+    opacity: 1;
 }
 
 .barra-pesquisa button {
+    background: #F0A913;
+    border: none;
+    border-radius: 10px;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2em;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FFD600; /* amarelo */
-    color: #AD2E1A; /* cor da lupa */
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.2em;
-    margin-left: 8px;
     transition: background 0.2s;
 }
 
 .barra-pesquisa button:hover {
-    background: #FFC107;
+    background: #8B2615;
 }
 
 .barra-pesquisa .icone-pesquisa {
@@ -224,8 +211,7 @@
 .divisoria {
     width: 100%;
     height: 0;
-    border-bottom: 2px solid #AD2E1A; 
-    border-top: 1px solid #fff;       
+    border-top: 1px solid;       
     margin: 32px 0 60px 0;            
     opacity: 0.9;
     box-sizing: border-box;
@@ -236,3 +222,4 @@
     padding-top: 32px;
     padding-bottom: 32px;
 }
+

@@ -18,7 +18,7 @@
             menu.classList.toggle('open');
         }
     </script>
-    a
+
 
 </head>
 <body class= "p-3 m-0 border-0 bd-example m-0 border-0">
@@ -45,15 +45,18 @@
         </ul>
     </nav>
 <form class="barra-pesquisa" action="pesquisa.php" method="get">
-    <input type="text" name="pesquisa" placeholder="Pesquisar">
     <button type="submit" title="Pesquisar">
         <i class="fa-solid fa-magnifying-glass"></i>
     </button>
-    <div class="icone-pesquisa">
-        <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
-        <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
+    <input type="text" name="pesquisa" placeholder="Pesquisa">
+
 </form>
+
+<div class="icone-pesquisa">
+    <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
+    <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
+</div>
+
 
 <div class="divisoria"></div>
 
