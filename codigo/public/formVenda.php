@@ -44,16 +44,17 @@
         foreach ($lista_produtos as $produto) {
             $idproduto = $produto['idproduto'];
             $nome = $produto['nome'];
-            $preco = $produto['preco'];
+            $valor = $produto['valor'];
 
            echo "<input type='checkbox' value='$idproduto' id='marcado_$idproduto' name='idproduto[]' onchange='calcular()'> 
-           R$ <span id='preco_$idproduto'>$preco</span> - $nome ";
+           R$ <span id='preco_$idproduto'>$valor</span> - $nome ";
            echo "<input type='number' name='quantidade[$idproduto]' id='quantidade_$idproduto' value='0' onchange='calcular()'><br>";
         }
         ?>
         <br>
         Valor Total: <br>
-        <input type="text" name="valor_total" id="valor_total" disabled><br><br>
+        <<input type="hidden" name="valor_final" id="valor_final">
+        <span id="mostrar_total">0.00</span> <br><br>
 
         <input type="submit" value="Registrar Venda"> <br>
     

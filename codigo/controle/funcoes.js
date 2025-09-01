@@ -17,6 +17,9 @@ function calcular() {
     });
 
     // coloca o total no campo de texto, formatado com 2 casas decimais
-    document.getElementById('valor_total').value = total.toFixed(2);
+    
+    document.getElementById('valor_final').value = total.toFixed(2);
+    document.getElementById('mostrar_total').innerText = total.toFixed(2);
+
 }
 
