@@ -11,6 +11,8 @@ function calcular() {
 
         // pega a quantidade do produto pelo input com id "quantidade_id"
         let quantidade = +document.getElementById('quantidade_' + id).value;
+        // garante que a quantidade nunca seja menor que 0
+        if (quantidade < 0) quantidade = 0;
 
         // soma ao total (preço * quantidade)
         total += preco * quantidade;
