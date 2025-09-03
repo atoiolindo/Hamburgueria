@@ -20,8 +20,8 @@
     </script>
 
 </head>
-<body class= "p-3 m-0 border-0 bd-example m-0 border-0">
-    <div class="cabecalho">
+<body>
+<div class="cabecalho">
 
     <button class="menu-btn" onclick="toggleMenu()" title="Menu">
         <i class="fa-solid fa-bars"></i>
@@ -47,7 +47,7 @@
     <button type="submit" title="Pesquisar">
         <i class="fa-solid fa-magnifying-glass"></i>
     </button>
-    <input type="text" name="pesquisa" placeholder="Pesquisa">
+    <input type="text" name="pesquisa" placeholder="Pesquisar">
 
 </form>
 <br>
@@ -64,7 +64,7 @@
     <h3>Hambúrgueres artesanais com ingredientes caseiros deliciosos.</h3>
     <a href="cardapio.php" class="btn-cardapio">Peça agora!</a>
 </div>
-
+</div>
 <br><br><br><br>
 
 
@@ -90,9 +90,11 @@
 <div class="card" style="width: 18rem;">
     <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
+
     <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Feitiço Clássico</h5>
     <p class="card-text">R$33,00</p>
     <a href="" class="btn-cardapio">Ver Produto</a>
+
     </div>
 </div>
 
@@ -100,9 +102,11 @@
 <div class="card" style="width: 18rem;">
     <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
+
     <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Encantamento Dourado</h5>
     <p class="card-text">R$40,00</p>
     <a href="" class="btn-cardapio">Ver Produto</a>
+
     </div>
 </div>
 
@@ -110,9 +114,11 @@
 <div class="card" style="width: 18rem;">
     <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
+
     <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Trio Arcano</h5>
     <p class="card-text">R$35,00</p>
     <a href="" class="btn-cardapio">Ver Produto</a>
+
     </div>
 </div>
 
@@ -120,27 +126,33 @@
 <div class="card" style="width: 18rem;">
     <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
+
     <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Gorgonzola Místico</h5>
     <p class="card-text">R$42,00</p>
     <a href="" class="btn-cardapio">Ver Produto</a>
+
     </div>
 </div>
 
 <div class="card" style="width: 18rem;">
     <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
+
     <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Batata Frita Média Simples</h5>
     <p class="card-text">R$13,00</p>
     <a href="" class="btn-cardapio">Ver Produto</a>
+
     </div>
 </div>
 
 <div class="card" style="width: 18rem;">
     <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
+
     <h5 style="font-family: 'Bevan', serif; color: #4B1203;"> Coca-Cola Lata</h5>
     <p class="card-text">R$5,00</p>
     <a href="" class="btn-cardapio">Ver Produto</a>
+
     </div>
 </div>
 

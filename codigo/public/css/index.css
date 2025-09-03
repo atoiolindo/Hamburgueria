@@ -175,15 +175,17 @@
     position: absolute;
     top: 18px;
     right: 140px; 
-    background: #fff;
-    border: 2px solid #AD2E1A;
+    background: rgba(255, 255, 255, 0);
+    border: 0.1px solid #d3d3d3;
     border-radius: 10px;
     padding: 6px 12px;
     display: flex;
     align-items: center;
     gap: 12px;
-    width: 280px; 
+    width:300px; 
+    height: 70px;
     color: #000;
+
 }
 .barra-pesquisa input[type="text"] {
     flex: 1;
@@ -191,22 +193,26 @@
     border: none;
     border-radius: 30px;
     font-size: 1em;
-    color: #000;
+    color: #ffffff;
     background: transparent;
     outline: none;
+    transform: translateX(-70px);
+
 }
 
 .barra-pesquisa input::placeholder {
-    color: #666;
+    color: #ffffff;
     opacity: 1;
 }
 
 .barra-pesquisa button {
     background: #F0A913;
     border: none;
+    transform: translateX(215px);
     border-radius: 10px;
-    width: 38px;
-    height: 38px;
+    flex-shrink: 0;
+    width: 65px;
+    height: 48px;
     cursor: pointer;
     color: #fff;
     font-size: 1.2em;
@@ -214,6 +220,7 @@
     align-items: center;
     justify-content: center;
     transition: background 0.2s;
+    margin-left: auto;
 }
 
 .barra-pesquisa button:hover {
@@ -224,7 +231,15 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-left: auto;
+    margin-left: auto;        
+
+
+}
+
+.barra-pesquisa i {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+
 }
 
 .divisoria {
@@ -234,10 +249,11 @@
     margin: 32px 0 60px 0;            
     opacity: 0.9;
     box-sizing: border-box;
+    color: #fff;
 }
 
 .cabecalho {
-    /* background: #AD2E1A; */
+    background: #AD2E1A;
     padding-top: 32px;
     padding-bottom: 32px;
 }
