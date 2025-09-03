@@ -71,7 +71,7 @@
 }
 
 .btn-cardapio {
-    display: inline-block;
+    display: inline-flex;
     padding: 10px 20px;
     background: #d35400;
     color: #fff;
@@ -80,7 +80,12 @@
     font-weight: bold;
     border: none;
     cursor: pointer;
+    width: auto;        
+    min-width: 130px;     
+    height: 60px;
+    white-space: nowrap; 
 }
+
 .btn-botao {
     display: inline-block;
     padding: 10px 20px;
@@ -91,9 +96,17 @@
     font-weight: bold;
     border: none;
     cursor: pointer;
+    text-align: center;   
+
 }
 .btn-cardapio:hover {
     background: #e67e22;
+}
+
+a.btn-cardapio {
+    justify-content: center;        
+    text-align: center;
+    color: #fff !important;
 }
 
 .cardapio-bolinhas {
@@ -224,7 +237,7 @@
 }
 
 .barra-pesquisa button:hover {
-    background: #8B2615;
+    background: #AD2E1A;
 }
 
 .barra-pesquisa .icone-pesquisa {
@@ -235,6 +248,60 @@
 
 
 }
+
+
+.conteudo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+.texto-banner {
+  max-width: 60%;
+  padding-left: 100px; 
+  text-align: left;
+  transform:translateY(-70px) ;
+}
+
+.texto-banner h1 {
+  font-weight: 800; 
+  font-size: 70px;
+}
+
+.texto-banner h4 {
+    color: #ffffffb2;
+}
+
+.imagem-banner-fundo {
+  position: relative;
+  width: fit-content;
+  height: auto;
+  margin-left: 20px; 
+
+}
+
+#molho-banner {
+  position: absolute;
+  top: -40px;   
+  left: -60px;  
+  z-index: 1;
+  width: 250px;
+  opacity: 0.6;
+  transform: rotate(-10deg); 
+}
+
+#hamburguer-banner {
+  max-width: 90%;
+  width: 680px;
+  height: auto;
+  border-radius: 12px;
+  transform: translate(-50px, -40px);
+  z-index: 2;
+  position: relative;
+}
+
 
 .barra-pesquisa i {
     font-size: 24px;

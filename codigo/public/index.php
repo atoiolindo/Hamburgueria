@@ -57,15 +57,30 @@
 </div>
 
 <br>
-<div class="divisoria"></div>
+<div class="divisoria"></div><br><br>
 
 <div class="banner-vermelho">
-    <h1 style="font-family: 'Bevan', serif;">Hamburgueria Pão & Magia: Sua larica, nossa alegria!</h1>
-    <h3>Hambúrgueres artesanais com ingredientes caseiros deliciosos.</h3>
-    <a href="cardapio.php" class="btn-cardapio">Peça agora!</a>
+  <div class="conteudo-banner">
+    
+    <div class="texto-banner">
+      <h1 style="font-family: 'Bevan', serif;">Hamburgueria Pão & Magia: Sua larica, nossa alegria!</h1><br><br><br>
+      <h4>Hambúrgueres artesanais com ingredientes caseiros deliciosos.</h4><br><br>
+      <a href="cardapio.php" class="btn-cardapio">Peça agora!</a><br><br><br>
+    </div>
+
+    <div class="imagem-banner-fundo">
+      <img id="molho-banner" src="assets/molho.png" alt="Molho decorativo">
+      <img id="hamburguer-banner" src="assets/hamburguer.png" alt="Hambúrguer delicioso">
+    </div>
+
+  </div>
 </div>
 </div>
 <br><br><br><br>
+
+
+
+
 
 
 <h2 id= "titulo-cardapio"style="font-family: 'Bevan', serif; color: #4B1203;">Cardápio Pão & Magia</h2>
