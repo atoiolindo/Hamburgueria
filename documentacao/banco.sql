@@ -168,7 +168,7 @@ VALUES ('Feitiço Clássico', 'Cheddar & Bacon',
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
 VALUES ('Trio Arcano', 'Smash Triplo', 
 'Pão de leite, 3 smash burgers de 60g, queijo americano, picles, molho especial',
-34.90, 'hambúrguer', 'trioarcano.png', 
+34.90, 'hambúrguer', ' assets/trioarcano.png', 
 'Três smash burgers de 60g com queijo americano, picles e molho especial no pão de leite: magia em cada mordida.');
 
 -- Produto 4 – Gorgonzola Místico

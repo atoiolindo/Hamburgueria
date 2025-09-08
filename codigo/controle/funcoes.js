@@ -25,3 +25,13 @@ function calcular() {
 
 }
 
+$(document).ready(function() {
+            $("form").on("submit", function(e) {
+                let data = $("#data").val().trim();
+                if (data === "") {
+                    alert("⚠️ Por favor, selecione a data da venda.");
+                    e.preventDefault(); // bloqueia envio
+                    return false;
+                }
+            });
+        });
