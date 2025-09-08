@@ -415,11 +415,11 @@ function deletarArmazenamento($conexao, $idingrediente) {
 //testar
 };
 
-function salvarArmazenamento($conexao, $nome, $quantidade) {
-    $sql = "INSERT INTO armazenamento (nome, quantidade) VALUES (?, ?)";
+function salvarArmazenamento($conexao, $quantidade, $nome) {
+    $sql = "INSERT INTO armazenamento (quantidade, nome) VALUES (?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'si', $nome, $quantidade);
+    mysqli_stmt_bind_param($comando, 'is', $quantidade, $nome);
     
     $funcionou = mysqli_stmt_execute($comando);
     

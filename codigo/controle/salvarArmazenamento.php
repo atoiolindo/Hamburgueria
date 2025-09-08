@@ -6,8 +6,7 @@ $id = $_GET['id'];
 $quantidade = $_POST['quantidade'];
 $nome = $_POST['nome'];
 
-$idcliente = salvarArmazenamento($conexao, $quantidade, $nome);
-
+$idingrediente = salvarArmazenamento($conexao, $quantidade, $nome);
 
 if ($id == 0) {
     salvarArmazenamento($conexao, $quantidade, $nome);
