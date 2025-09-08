@@ -61,13 +61,16 @@
 }
 
 .icone-pesquisa a {
-    color: #AD2E1A;
+    color: #ffffff;
     font-size: 1.6em;
     transition: color 0.2s;
+    margin-top: 12px; 
+    display: inline-block;
+
 }
 
 .icone-pesquisa a:hover {
-    color: #8B2615;
+    color: #f0a913;
 }
 
 .btn-cardapio {
@@ -101,12 +104,13 @@
 }
 .btn-cardapio:hover {
     background: #e67e22;
+    color: #d3d3d3 !important;
 }
 
 a.btn-cardapio {
     justify-content: center;        
     text-align: center;
-    color: #fff !important;
+    color: #202020 !important;
 }
 
 .cardapio-bolinhas {
