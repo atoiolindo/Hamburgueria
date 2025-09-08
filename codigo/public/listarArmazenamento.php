@@ -41,7 +41,7 @@
             echo "<td>$quantidade</td>";
             echo "<td>$nome</td>";
             echo "<td><a href='formArmazenamento.php?id=$idingrediente'>Editar</a></td>";
-            echo "<td><a href='deletarArmazenamento.php?id=$idingrediente'>Excluir</a></td>";
+            echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'>Excluir</a></td>";
             echo "</tr>";
         }
     }

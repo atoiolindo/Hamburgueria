@@ -429,12 +429,12 @@ function salvarArmazenamento($conexao, $quantidade, $nome) {
 
 // testar
 
-function editarArmazenamento($conexao, $nome, $quantidade, $idingrediente) {
-    $sql = "UPDATE armazenamento SET nome=?, quantidade=? WHERE idingrediente=?";
+function editarArmazenamento($conexao, $quantidade, $nome, $idingrediente) {
+    $sql = "UPDATE armazenamento SET quantidade=?, nome=? WHERE idingrediente=?";
     $comando = mysqli_prepare($conexao, $sql);
         
     
-    mysqli_stmt_bind_param($comando, 'sii', $nome, $quantidade, $idingrediente);
+    mysqli_stmt_bind_param($comando, 'isi', $quantidade, $nome, $idingrediente);
         
     $funcionou = mysqli_stmt_execute($comando);
         
