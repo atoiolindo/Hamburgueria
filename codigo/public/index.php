@@ -187,7 +187,7 @@ um encontro entre amigos ou um jantar especial.</p>
 
 <p class="sobre-nos">Aqui, valorizamos a simplicidade e a qualidade. Do pão artesanal às combinações 
 criativas de molhos e acompanhamentos, cada item do nosso cardápio é cuidadosamente elaborado para surpreender.</p>
-<a href="" class="btn-botao">Saiba mais</a> <br><br><br><br>
+<a href="sobre.html" class="btn-botao">Saiba mais</a> <br><br><br><br>
 
 
 
