@@ -31,10 +31,12 @@
         <table border="1">
             <tr>
                 <td>Id</td>
+                <td>Cliente</td>
+                <td>Valor</td>
+                <td>Observação</td>
+                <td>Data</td>
+                <td>Status</td>
                 <td>Foto</td>
-                <td>Nome</td>
-                <td>CPF</td>
-                <td>Endereço</td>
                 <td colspan="2">Ação</td>
             </tr>
 

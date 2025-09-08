@@ -90,7 +90,7 @@ VALUES ('Batatas Encantadas', 'Batatas Encantadas',
 -- Produto 14 – Verde de Elphira
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
 VALUES ('Verde de Elphira', 'Verde de Elphira', 
-'Alface, rúcula, tomate, pepino, cebola roxa, azeite e limão', 9.90, 'acompanhamento', 'verde_elphira.jpg', 
+'Alface, rúcula, tomate, pepino, cebola roxa, azeite e limão', 9.90, 'acompanhamento', 'verdedeelphira.jpg', 
 'Salada fresca com vegetais crocantes, temperada com azeite e limão encantados.');
 
 -- Produto 15 – Runa Dourada
