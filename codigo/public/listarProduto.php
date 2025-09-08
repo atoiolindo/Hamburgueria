@@ -61,7 +61,7 @@
             echo "<td>$tipo</td>";
             echo "<td>$descricao</td>";
             echo "<td><a href='formProduto.php?id=$idproduto'>Editar</a></td>";
-            echo "<td><a href='deletarProduto.php?id=$idproduto'>Excluir</a></td>";
+            echo "<td><a href='../controle/deletarProduto.php?id=$idproduto'>Excluir</a></td>";
             echo "</tr>";
         }
     }
