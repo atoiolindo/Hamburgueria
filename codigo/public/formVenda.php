@@ -35,7 +35,7 @@
         <br><br>
 
         Data: <br>
-        <input type="date" name="data_compra"><br><br>
+        <input type="date" id="data" name="data_compra" required><br><br>
 
         Produtos: <br>
         <?php
