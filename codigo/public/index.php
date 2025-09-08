@@ -54,6 +54,7 @@
 <div class="icone-pesquisa">
     <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
     <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
+    
 </div>
 
 <br>
