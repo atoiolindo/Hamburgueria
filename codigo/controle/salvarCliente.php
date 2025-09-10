@@ -4,21 +4,21 @@ require_once "funcoes.php";
 
 $id = $_GET['id'];
 $nome = $_POST['nome'];
-$email = $_POST['email'];
-$endereco = $_POST['endereco'];
 $telefone = $_POST['telefone'];
+$endereco = $_POST['endereco'];
+$email = $_POST['email'];
 
-$idcliente = salvarCliente($conexao, $nome, $email, $endereco, $telefone);
+// $idcliente = salvarCliente($conexao, $nome, $email, $endereco, $telefone);
 
-if ($idcliente === false) {
-    echo "<script>alert('Telefone ou endereço já cadastrado!'); history.back();</script>";
-    exit;
-}
 
 if ($id == 0) {
-    salvarCliente($conexao, $nome, $email, $endereco, $telefone);
+    $idcliente = salvarCliente($conexao, $nome, $telefone, $endereco, $email);
+    if ($idcliente === false) {
+        echo "<script>alert('Telefone ou endereço já cadastrado!'); history.back();</script>";
+        exit;
+    }
 } else {
-    editarCliente($conexao, $nome, $email, $endereco, $telefone, $id);
+    editarCliente($conexao, $nome, $telefone, $endereco, $email, $id);
 }
 
 header("Location: ../public/index.php");

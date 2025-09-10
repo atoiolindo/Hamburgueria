@@ -9,9 +9,9 @@
         
         $cliente = pesquisarCliente($conexao, $id);
         $nome = $cliente['nome'];
-        $email = $cliente['email'];
-        $endereco = $cliente['endereco'];
         $telefone = $cliente['telefone'];
+        $endereco = $cliente['endereco'];
+        $email = $cliente['email'];
 
         $botao = "Atualizar";
     }
@@ -19,9 +19,9 @@
         // echo "novo";
         $id = 0;
         $nome = "";
-        $email = "";
-        $endereco = "";
         $telefone = "";
+        $endereco = "";
+        $email = "";
 
         $botao = "Cadastrar";
     }
@@ -39,12 +39,12 @@
 
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
-        Email: <br>
-        <input type="text" name="email" value="<?php echo $email; ?>"> <br><br>
-        Endereço: <br>
-        <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
         Telefone: <br>
         <input type="text" name="telefone" id="telefone" value="<?php echo $telefone; ?>"> <br><br>
+        Endereço: <br>
+        <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
+        Email: <br>
+        <input type="text" name="email" value="<?php echo $email; ?>"> <br><br>
 
         <input type="submit" value="<?php echo $botao; ?>">
     </form>

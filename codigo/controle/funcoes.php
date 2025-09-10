@@ -79,7 +79,7 @@ function listarCliente($conexao) {
 // testado e funcionando
 
 
-function salvarCliente($conexao, $nome, $email, $endereco, $telefone) {
+function salvarCliente($conexao, $nome, $telefone, $endereco, $email) {
      // verifica duplicidade
     $sql_check = "SELECT idcliente FROM cliente WHERE telefone=? OR endereco=?";
     $stmt_check = mysqli_prepare($conexao, $sql_check);
@@ -95,10 +95,10 @@ function salvarCliente($conexao, $nome, $email, $endereco, $telefone) {
 
     // se não existe, insere
     
-    $sql = "INSERT INTO cliente (nome, email, endereco, telefone) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO cliente (nome, telefone, endereco, email) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);  
     
-    mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $endereco, $telefone);
+    mysqli_stmt_bind_param($comando, 'ssss', $nome, $telefone, $endereco, $email);
     
     mysqli_stmt_execute($comando);
     
