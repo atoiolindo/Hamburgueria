@@ -74,7 +74,10 @@
 }
 
 .btn-cardapio {
+    position: relative;
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px 20px;
     background: #d35400;
     color: #fff;
@@ -87,32 +90,41 @@
     min-width: 130px;     
     height: 60px;
     white-space: nowrap; 
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
 }
 
-.btn-botao {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #292828;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    text-align: center;   
-
+.btn-cardapio::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #292828;
+    transition: top 0.4s ease;
+    z-index: 0;
 }
+
+.btn-cardapio:hover::before {
+    top: 0;
+}
+
 .btn-cardapio:hover {
-    background: #e67e22;
     color: #d3d3d3 !important;
 }
 
-a.btn-cardapio {
-    justify-content: center;        
-    text-align: center;
-    color: #202020 !important;
+.btn-cardapio span {
+    position: relative;
+    z-index: 1;
 }
 
+/* opcional, para o link */
+a.btn-cardapio {
+    text-align: center;
+    color: #fff !important;
+}
 .cardapio-bolinhas {
     display: flex;
     flex-direction: column;
