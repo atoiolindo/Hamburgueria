@@ -32,6 +32,9 @@
         </button>
         <ul>
             <br><br><br>
+            <li><a href="formUsuario.php">Entrar</a></li>
+            <li><a href="index.php">Início</a></li>
+            <li><a href="cardapio.php">Cardápio</a></li>
             <li><a href="formProduto.php">Cadastrar novo produto</a></li>
             <li><a href="listarProduto.php">Lista de produtos cadastrados</a></li>
             <li><a href="formCliente.php">Cadastrar novo cliente</a></li>
@@ -40,6 +43,7 @@
             <li><a href="listarVenda.php">Lista de vendas cadastrados</a></li>
             <li><a href="formArmazenamento.php">Cadastrar novo ingrediente</a></li>
             <li><a href="listarArmazenamento.php">Lista de ingredientes cadastrados</a></li>
+            <li><a href="historia.php">História/Política de Privacidade</a></li>
             <li><a href="deslogar.php">Sair</a></li>
         </ul>
     </nav>
