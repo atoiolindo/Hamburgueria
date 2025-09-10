@@ -1,19 +1,19 @@
 <?php
     if (isset($_GET['id'])) {
 
-        require_once "conexao.php";
-        require_once "funcoes.php";
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
         
         $id = $_GET['id'];
         
         $produto = pesquisarProduto($conexao, $id);
-        $nome = $linha['nome'];
-        $nome_real = $linha['nome_real'];
-        $ingredientes = $linha['ingredientes'];
-        $valor = $linha['valor'];
-        $tipo = $linha['tipo'];
-        $foto = $linha['foto'];
-        $descricao = $linha['descricao'];
+        $nome = $produto['nome'];
+        $nome_real = $produto['nome_real'];
+        $ingredientes = $produto['ingredientes'];
+        $valor = $produto['valor'];
+        $tipo = $produto['tipo'];
+        $foto = $produto['foto'];
+        $descricao = $produto['descricao'];
 
         $botao = "Atualizar";
     } 
@@ -46,7 +46,27 @@
         Nome Verdadeiro: <br>
         <input type="text" name="nome_real" value="<?php echo $nome_real; ?>"> <br><br>
         Ingredientes utilizados: <br>
-        <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>"> <br><br>
+        <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>"> 
+        
+        <br><br>
+        Quantidade de ingredientes: <br>
+        <?php
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
+        $lista_ingredientes = listarArmazenamento($conexao);
+
+        foreach ($lista_ingredientes as $ingrediente) {
+            $idingrediente = $ingrediente['idingrediente'];
+            $nome = $ingrediente['nome'];
+            
+
+           echo "<input type='checkbox' value='$idingrediente' id='marcado_$idingrediente' name='idingrediente[]' > 
+           $nome ";
+           echo "<input type='number' name='quantidade[$idingrediente]' id='quantidade_$idingrediente' value='0' ><br>";
+        }
+        ?>
+
+        <br>
         Valor: <br>
         <input type="text" name="valor" value="<?php echo $valor; ?>"> <br><br>
         Tipo: <br>
