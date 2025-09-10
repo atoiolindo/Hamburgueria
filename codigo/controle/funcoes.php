@@ -480,6 +480,48 @@ function filtrarTipo($conexao, $tipo) {
     return $produtos;
 };
 
+function verificarLogin($conexao, $email, $senha) {
+    $sql = "SELECT * FROM usuario WHERE email = ?";
+
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 's', $email);
+
+    mysqli_stmt_execute($comando);
+    
+    $resultado = mysqli_stmt_get_result($comando);
+    $quantidade = mysqli_num_rows($resultado);
+    
+    $iduser = 0;
+    if ($quantidade != 0) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        $senha_banco = $usuario['senha'];
+
+        if (password_verify($senha, $senha_banco)) {
+            $iduser = $usuario['idusuario'];
+        }
+    }
+    return $iduser;
+}
+
+function pegarDadosUsuario($conexao, $idusuario) {
+    $sql = "SELECT nome, tipo FROM tb_usuario WHERE idusuario = ?";
+
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idusuario);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $quantidade = mysqli_num_rows($resultado);
+    
+    if ($quantidade != 0) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        return $usuario;
+    }
+    else {
+        return 0;
+    }
+}
+
 
 function filtrarValor($conexao, $valor_min, $valor_max) {
 
