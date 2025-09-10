@@ -46,12 +46,12 @@ function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo
 
 // testado e funcionando
 
-function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $idproduto) {
-    $sql = "UPDATE produto SET nome=?, nome_real=?, ingredientes=?, valor=?, tipo=?, foto=?, descricao=? WHERE idproduto=?";
+function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $descricao, $idproduto) {
+    $sql = "UPDATE produto SET nome=?, nome_real=?, ingredientes=?, valor=?, tipo=?, descricao=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
         
     
-    mysqli_stmt_bind_param($comando, 'sssdsssi', $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao, $idproduto);
+    mysqli_stmt_bind_param($comando, 'sssdssi', $nome, $nome_real, $ingredientes, $valor, $tipo, $descricao, $idproduto);
         
     $funcionou = mysqli_stmt_execute($comando);
         
