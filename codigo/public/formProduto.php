@@ -51,6 +51,8 @@
         <br><br>
         Quantidade de ingredientes: <br>
         <?php
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
         $lista_ingredientes = listarArmazenamento($conexao);
 
         foreach ($lista_ingredientes as $ingrediente) {
@@ -63,7 +65,7 @@
            echo "<input type='number' name='quantidade[$idingrediente]' id='quantidade_$idingrediente' value='0' ><br>";
         }
         ?>
-        
+
         <br>
         Valor: <br>
         <input type="text" name="valor" value="<?php echo $valor; ?>"> <br><br>

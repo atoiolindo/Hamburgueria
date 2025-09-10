@@ -11,7 +11,7 @@ $idingrediente = $_GET['idingrediente']; // array de IDs de produtos
 $quantidade = $_GET['quantidade']; // array associativo [idingrediente => qtd]
 
 foreach ($idingrediente as $ingrediente) {
-    $ingredientes[] = [$ingrendite, $quantidade[$ingrediente]];
+    $ingredientes2[] = [$ingrendite, $quantidade[$ingrediente]];
 }
 
 
@@ -39,7 +39,7 @@ move_uploaded_file($caminho_temporario, $caminho_destino);
 
 if ($id == 0) {
     salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $novo_nome, $descricao);
-    foreach ($ingredientes as $i) {
+    foreach ($ingredientes2 as $i) {
     salvarIngrediente($conexao, $idvenda, $i[0], $i[1], $quantidade);
 }
 } else {
