@@ -6,6 +6,15 @@ $id = $_GET['id'];
 $nome = $_POST['nome'];
 $nome_real = $_POST['nome_real'];
 $ingredientes = $_POST['ingredientes'];
+
+$idingrediente = $_GET['idingrediente']; // array de IDs de produtos
+$quantidade = $_GET['quantidade']; // array associativo [idingrediente => qtd]
+
+foreach ($idingrediente as $ingrediente) {
+    $ingredientes2[] = [$ingrendite, $quantidade[$ingrediente]];
+}
+
+
 $valor = $_POST['valor'];
 $tipo = $_POST['tipo'];
 $descricao = $_POST['descricao'];
@@ -30,6 +39,9 @@ move_uploaded_file($caminho_temporario, $caminho_destino);
 
 if ($id == 0) {
     salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $novo_nome, $descricao);
+    foreach ($ingredientes2 as $i) {
+    salvarIngrediente($conexao, $idvenda, $i[0], $i[1], $quantidade);
+}
 } else {
     editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $descricao, $id);
 }

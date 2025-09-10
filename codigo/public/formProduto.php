@@ -46,7 +46,27 @@
         Nome Verdadeiro: <br>
         <input type="text" name="nome_real" value="<?php echo $nome_real; ?>"> <br><br>
         Ingredientes utilizados: <br>
-        <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>"> <br><br>
+        <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>"> 
+        
+        <br><br>
+        Quantidade de ingredientes: <br>
+        <?php
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
+        $lista_ingredientes = listarArmazenamento($conexao);
+
+        foreach ($lista_ingredientes as $ingrediente) {
+            $idingrediente = $ingrediente['idingrediente'];
+            $nome = $ingrediente['nome'];
+            
+
+           echo "<input type='checkbox' value='$idingrediente' id='marcado_$idingrediente' name='idingrediente[]' > 
+           $nome ";
+           echo "<input type='number' name='quantidade[$idingrediente]' id='quantidade_$idingrediente' value='0' ><br>";
+        }
+        ?>
+
+        <br>
         Valor: <br>
         <input type="text" name="valor" value="<?php echo $valor; ?>"> <br><br>
         Tipo: <br>
