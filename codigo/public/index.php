@@ -1,3 +1,8 @@
+<?php
+session_start();
+$usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,6 +65,13 @@
     <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
     
 </div>
+
+<?php if ($usuario_logado): ?>
+    <a href="perfil.php" title="Perfil"><i class="fa-solid fa-user"></i></a>
+<?php else: ?>
+    <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
+<?php endif; ?>
+
 
 <br>
 <div class="divisoria"></div><br><br>
