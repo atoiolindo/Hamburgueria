@@ -462,24 +462,6 @@ function pesquisar($conexao, $nome) {
 };
 
 
-function filtrarTipo($conexao, $tipo) {
-    $sql = "SELECT * FROM produto WHERE tipo = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_bind_param($comando, 's', $tipo);
-
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-
-    $produtos = [];
-    while ($produto = mysqli_fetch_assoc($resultado)) {
-        $produtos[] = $produto;
-    }
-
-    mysqli_stmt_close($comando);
-    return $produtos;
-};
-
 function verificarLogin($conexao, $email, $senha) {
     $sql = "SELECT * FROM usuario WHERE email = ?";
 
@@ -504,7 +486,7 @@ function verificarLogin($conexao, $email, $senha) {
 }
 
 function pegarDadosUsuario($conexao, $idusuario) {
-    $sql = "SELECT nome, tipo FROM tb_usuario WHERE idusuario = ?";
+    $sql = "SELECT nome, tipo FROM usuario WHERE idusuario = ?";
 
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'i', $idusuario);
@@ -524,7 +506,141 @@ function pegarDadosUsuario($conexao, $idusuario) {
 
 
 function filtrarValor($conexao, $valor_min, $valor_max) {
+    $sql = "SELECT * FROM produto WHERE valor BETWEEN ? AND ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'dd', $valor_min, $valor_max);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produtos = [];
+    while ($produto = mysqli_fetch_assoc($resultado)) {
+        $produtos[] = $produto;
+    }
+
+    mysqli_stmt_close($comando);
+    return $produtos;
 
 }
 
+//testar
+
+function filtrarDisponivel($conexao, $disponivel = true) {
+    if ($disponivel) {
+        // Seleciona produtos cujos ingredientes estão todos disponíveis
+        $sql = "
+            SELECT p.*
+            FROM produto p
+            LEFT JOIN ingrediente i ON p.idproduto = i.idproduto
+            LEFT JOIN armazenamento a ON i.idingrediente = a.idingrediente
+            GROUP BY p.idproduto
+            HAVING SUM(CASE WHEN a.quantidade <= 0 OR a.quantidade IS NULL THEN 1 ELSE 0 END) = 0
+        ";
+    } else {
+        // Seleciona produtos que têm pelo menos um ingrediente indisponível
+        $sql = "
+            SELECT p.*
+            FROM produto p
+            LEFT JOIN ingrediente i ON p.idproduto = i.idproduto
+            LEFT JOIN armazenamento a ON i.idingrediente = a.idingrediente
+            GROUP BY p.idproduto
+            HAVING SUM(CASE WHEN a.quantidade <= 0 OR a.quantidade IS NULL THEN 1 ELSE 0 END) > 0
+        ";
+    }
+
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produtos = [];
+    while ($produto = mysqli_fetch_assoc($resultado)) {
+        $produtos[] = $produto;
+    }
+
+    mysqli_stmt_close($comando);
+    return $produtos;
+}
+
+//testar
+
+function filtrarTipo($conexao, $tipo) {
+    $sql = "SELECT * FROM produto WHERE tipo = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 's', $tipo);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produtos = [];
+    while ($produto = mysqli_fetch_assoc($resultado)) {
+        $produtos[] = $produto;
+    }
+
+    mysqli_stmt_close($comando);
+    return $produtos;
+};
+
+//testar
+
+function filtrarIngrediente($conexao, $idingrediente) {
+    $sql = "
+        SELECT p.*
+        FROM produto p
+        INNER JOIN ingrediente i ON p.idproduto = i.idproduto
+        WHERE i.idingrediente = ?
+    ";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idingrediente);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produtos = [];
+    while ($produto = mysqli_fetch_assoc($resultado)) {
+        $produtos[] = $produto;
+    }
+
+    mysqli_stmt_close($comando);
+    return $produtos;
+};
+
+function adicionarCarrinho($id) {
+    if (!isset($_SESSION['carrinho'])) {
+        $_SESSION['carrinho'] = [];
+    }
+    if (!isset($_SESSION['carrinho'][$id])) {
+        $_SESSION['carrinho'][$id] = 1;
+    } else {
+        $_SESSION['carrinho'][$id]++;
+    }
+}
+
+function removerCarrinho($id) {
+    if (isset($_SESSION['carrinho'][$id])) {
+        $_SESSION['carrinho'][$id]--;
+        if ($_SESSION['carrinho'][$id] <= 0) {
+            unset($_SESSION['carrinho'][$id]);
+        }
+    }
+}
+
+function listarCarrinho($produtos) {
+    $carrinho = [];
+    $total = 0;
+    if (!empty($_SESSION['carrinho'])) {
+        foreach ($_SESSION['carrinho'] as $id => $qtd) {
+            if (isset($produtos[$id])) {
+                $item = $produtos[$id];
+                $item['qtd'] = $qtd;
+                $item['subtotal'] = $item['valor'] * $qtd;
+                $carrinho[] = $item;
+                $total += $item['subtotal'];
+            }
+        }
+    }
+    return ['itens' => $carrinho, 'total' => $total];
+}
 //testar
