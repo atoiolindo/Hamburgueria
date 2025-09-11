@@ -14,14 +14,14 @@
         $usuario = pegarDadosUsuario($conexao, $idusuario);
         
         if ($usuario == 0) {
-            header("Location: index.php");
+            header("Location: ../public/index.php");
         }
         else {
             session_start();
             $_SESSION['logado'] = 'sim';
             $_SESSION['tipo'] = $usuario['tipo'];
             $_SESSION['nome'] = $usuario['nome'];
-            header("Location: home.php");
+            header("Location: ../public/home.php");
         }
     }
 ?>
