@@ -71,7 +71,9 @@ $usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
             <li><a href="deslogar.php">Sair</a></li>
         </ul>
     </nav>
-<script>
+    
+<!-- dropdown -->
+ <script> 
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
 
@@ -87,6 +89,7 @@ $usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
     });
     }
 </script>
+
 <form class="barra-pesquisa" action="pesquisa.php" method="get">
     <button type="submit" title="Pesquisar">
         <i class="fa-solid fa-magnifying-glass"></i>
