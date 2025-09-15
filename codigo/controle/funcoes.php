@@ -351,7 +351,9 @@ function listarItemVenda($conexao, $idvenda) {
 };
 
 function salvarIngrediente($conexao, $idproduto, $idingredientes, $quantidade) {
-    $sql = "INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO ingrediente (idproduto, idingrediente, quantidade)
+            VALUES (?, ?, ?)
+            ON DUPLICATE KEY UPDATE quantidade = VALUES(quantidade)";
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'iii', $idproduto, $idingredientes, $quantidade);
     $funcionou = mysqli_stmt_execute($comando);
