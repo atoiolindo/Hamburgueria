@@ -37,7 +37,7 @@ $usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
         </button>
         <ul>
             <br><br><br>
-            <li><a href="formUsuario.php">Entrar</a></li>
+            <li><a href="home.php">Entrar</a></li>
             <li><a href="index.php">Início</a></li>
             <li><a href="cardapio.php">Cardápio</a></li>
             <li><a href="formProduto.php">Cadastrar novo produto</a></li>
