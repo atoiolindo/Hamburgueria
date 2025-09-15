@@ -7,11 +7,22 @@ $nome = $_POST['nome'];
 $nome_real = $_POST['nome_real'];
 $ingredientes = $_POST['ingredientes'];
 
-$idingrediente = $_GET['idingrediente']; // array de IDs de produtos
-$quantidade = $_GET['quantidade']; // array associativo [idingrediente => qtd]
+// Como os checkboxes podem não ser marcados, usamos isset() para evitar erro
+// Se não tiver ingredientes marcados, ficam arrays vazios
+$idingrediente = isset($_POST['idingrediente']) ? $_POST['idingrediente'] : [];
+$quantidade = isset($_POST['quantidade']) ? $_POST['quantidade'] : [];
 
+// Criamos um array $ingredientes2 com [idingrediente, quantidade]
+// Se não tiver ingredientes marcados, esse foreach nem roda
+$ingredientes2 = [];
+
+if (!empty($idingrediente)) {
+    foreach ($idingrediente as $ingrediente) {
+        $ingredientes2[] = [$ingrediente, $quantidade[$ingrediente] ?? 0];
+    }
+}
 foreach ($idingrediente as $ingrediente) {
-    $ingredientes2[] = [$ingrendite, $quantidade[$ingrediente]];
+    $ingredientes2[] = [$ingrediente, $quantidade[$ingrediente]];
 }
 
 
@@ -39,9 +50,15 @@ move_uploaded_file($caminho_temporario, $caminho_destino);
 
 if ($id == 0) {
     salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $novo_nome, $descricao);
-    foreach ($ingredientes2 as $i) {
-    salvarIngrediente($conexao, $idvenda, $i[0], $i[1], $quantidade);
-}
+
+    $idproduto = mysqli_insert_id($conexao);
+    
+     // Se tiver ingredientes, salva cada um deles
+    if (!empty($ingredientes2)) {
+        foreach ($ingredientes2 as $i) {
+            salvarIngrediente($conexao, $idproduto, $i[0], $i[1]);
+        }
+    }
 } else {
     editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $descricao, $id);
 }
