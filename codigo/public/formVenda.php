@@ -3,10 +3,9 @@ require_once "../controle/conexao.php";
 require_once "../controle/funcoes.php";
 
 if (isset($_GET['id'])) {
-    // Estamos editando uma venda existente
     $idvenda = $_GET['id'];
 
-    $venda = pesquisarVenda($conexao, $idvenda); // retorna os dados da venda
+    $venda = pesquisarVenda($conexao, $idvenda); 
     $idcliente = $venda['idcliente'];
     $valor_final = $venda['valor_final'];
     $data = $venda['data_compra'];
@@ -17,7 +16,6 @@ if (isset($_GET['id'])) {
 
     $botao = "Atualizar Venda";
 } else {
-    // Estamos cadastrando uma nova venda
     $idvenda = 0;
     $idcliente = 0;
     $valor_final = 0;
@@ -36,7 +34,8 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Vendas</title>
+    <title><?php echo $botao; ?></title>
+
     <script src="../controle/jquery-3.7.1min(1).js"></script>
     <script src="../controle/funcoes.js"></script>
 </head>
@@ -49,14 +48,14 @@ if (isset($_GET['id'])) {
             require_once "../controle/conexao.php";
             require_once "../controle/funcoes.php";
 
+            // colocar um icone bonitinho de editar depois
+
             $lista_clientes = listarCliente($conexao);
-
             foreach ($lista_clientes as $cliente) {
-                $idcliente = $cliente['idcliente'];
-                $nome = $cliente['nome'];
-
-                echo "<option value='$idcliente'>$nome</option>";
-            }
+            $selected = $cliente['idcliente'] == $idcliente ? "selected" : "";
+            echo "<option value='{$cliente['idcliente']}' $selected>{$cliente['nome']}</option>";
+             }
+        ?>
             ?>
         </select>
 
