@@ -71,7 +71,7 @@ $usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
             <li><a href="deslogar.php">Sair</a></li>
         </ul>
     </nav>
-    
+
 <!-- dropdown -->
  <script> 
     var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -118,7 +118,7 @@ $usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
   <div class="conteudo-banner">
     
     <div class="texto-banner">
-      <h1 style="font-family: 'Bevan', serif;">Hamburgueria Pão & Magia: Sua larica, nossa alegria!</h1><br><br><br>
+      <h1 style="font-family: 'Bevan', serif;">Hamburgueria Pão & Magia</h1><br><br><br>
       <h4>Hambúrgueres artesanais com ingredientes caseiros deliciosos.</h4><br><br>
       <a href="cardapio.php" class="btn-cardapio">Peça agora!</a><br><br><br>
     </div>
