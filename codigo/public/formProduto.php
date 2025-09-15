@@ -10,6 +10,7 @@
         $nome = $produto['nome'];
         $nome_real = $produto['nome_real'];
         $ingredientes = $produto['ingredientes'];
+        $ingredientes_existentes = listarIngrediente($conexao, $id); 
         $valor = $produto['valor'];
         $tipo = $produto['tipo'];
         $foto = $produto['foto'];
@@ -23,6 +24,7 @@
         $nome = "";
         $nome_real = "";
         $ingredientes = "";
+        $ingredientes_existentes = [];
         $valor = "";
         $tipo = "";
         $foto = "";
@@ -56,13 +58,28 @@
         $lista_ingredientes = listarArmazenamento($conexao);
 
         foreach ($lista_ingredientes as $ingrediente) {
-            $idingrediente = $ingrediente['idingrediente'];
-            $nome = $ingrediente['nome'];
-            
+        $idingrediente = $ingrediente['idingrediente'];
+        $nome = $ingrediente['nome'];
 
-           echo "<input type='checkbox' value='$idingrediente' id='marcado_$idingrediente' name='idingrediente[]' > 
-           $nome ";
-           echo "<input type='number' name='quantidade[$idingrediente]' id='quantidade_$idingrediente' value='0' ><br>";
+         // verifica se já existe esse ingrediente no produto
+        $quantidade_valor = 0;
+        foreach ($ingredientes_existentes as $ing_existente) {
+        if ($ing_existente['idingrediente'] == $idingrediente) {
+            $quantidade_valor = $ing_existente['quantidade'];
+            break;
+              }
+           }
+
+            echo "<input type='checkbox' value='$idingrediente' 
+            id='marcado_$idingrediente' 
+            name='idingrediente[]' 
+            ".($quantidade_valor > 0 ? "checked" : "")."> 
+            $nome ";
+
+            echo "<input type='number' 
+            name='quantidade[$idingrediente]' 
+            id='quantidade_$idingrediente' 
+            value='$quantidade_valor'><br>";
         }
         ?>
 

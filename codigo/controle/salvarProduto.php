@@ -2,6 +2,8 @@
 require_once "conexao.php";
 require_once "funcoes.php";
 
+
+
 $id = $_GET['id'];
 $nome = $_POST['nome'];
 $nome_real = $_POST['nome_real'];
@@ -60,7 +62,21 @@ if ($id == 0) {
         }
     }
 } else {
+    // Atualiza produto
     editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $descricao, $id);
+
+    // Remove ingredientes antigos
+    $sql_del = "DELETE FROM ingrediente WHERE idproduto = ?";
+    $stmt = $conexao->prepare($sql_del);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    // Insere ingredientes novos
+    if (!empty($ingredientes2)) {
+        foreach ($ingredientes2 as $i) {
+            salvarIngrediente($conexao, $id, $i[0], $i[1]);
+        }
+    }
 }
 
 header("Location: ../public/index.php");
