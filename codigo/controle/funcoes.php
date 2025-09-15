@@ -647,7 +647,4 @@ function listarCarrinho($conexao, $produtos) {
 }
 //testar
 
-function statusPedido ($conexao){
-
-
-}
+function statusVenda($conexao, $status)
