@@ -1,7 +1,35 @@
-<?php    
-    require_once "../controle/conexao.php";
-    require_once "../controle/funcoes.php";
+<?php
+require_once "../controle/conexao.php";
+require_once "../controle/funcoes.php";
+
+if (isset($_GET['id'])) {
+    // Estamos editando uma venda existente
+    $idvenda = $_GET['id'];
+
+    $venda = pesquisarVenda($conexao, $idvenda); // retorna os dados da venda
+    $idcliente = $venda['idcliente'];
+    $valor_final = $venda['valor_final'];
+    $data = $venda['data_compra'];
+    $observacao = $venda['observacao'];
+    $status = $venda['status'];
+
+    $itens_venda = listarItemVenda($conexao, $idvenda); // retorna array associativo [idproduto => quantidade]
+
+    $botao = "Atualizar Venda";
+} else {
+    // Estamos cadastrando uma nova venda
+    $idvenda = 0;
+    $idcliente = 0;
+    $valor_final = 0;
+    $data = date('Y-m-d');
+    $observacao = '';
+    $status = 'pendente';
+    $itens_venda = [];
+
+    $botao = "Registrar Venda";
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
