@@ -40,18 +40,53 @@ $usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
             <li><a href="home.php">Entrar</a></li>
             <li><a href="index.php">Início</a></li>
             <li><a href="cardapio.php">Cardápio</a></li>
-            <li><a href="formProduto.php">Cadastrar novo produto</a></li>
-            <li><a href="listarProduto.php">Lista de produtos cadastrados</a></li>
-            <li><a href="formCliente.php">Cadastrar novo cliente</a></li>
-            <li><a href="listarCliente.php">Lista de clientes cadastrados</a></li>
-            <li><a href="formVenda.php">Cadastrar nova venda</a></li>
-            <li><a href="listarVenda.php">Lista de vendas cadastrados</a></li>
-            <li><a href="formArmazenamento.php">Cadastrar novo ingrediente</a></li>
-            <li><a href="listarArmazenamento.php">Lista de ingredientes cadastrados</a></li>
+            
+            <div class="dropdown">
+            <button class="dropdown-btn">Cadastrar
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="formProduto.php">Cadastrar novo produto</a>
+                <a href="formCliente.php">Cadastrar novo cliente</a>
+                <a href="formVenda.php">Cadastrar nova venda</a>
+                <a href="formArmazenamento.php">Cadastrar novo ingrediente</a>
+            </div>
+            </div>
+            
+            <br>
+            <div class="dropdown">
+            <button class="dropdown-btn">Listar
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="listarProduto.php">Lista de produtos cadastrados</a>
+                <a href="listarCliente.php">Lista de clientes cadastrados</a>
+                <a href="listarVenda.php">Lista de vendas cadastrados</a>
+                <a href="listarArmazenamento.php">Lista de ingredientes cadastrados</a>
+            </div>
+            </div>
+
+            <br>
             <li><a href="historia.php">História/Política de Privacidade</a></li>
             <li><a href="deslogar.php">Sair</a></li>
         </ul>
     </nav>
+<script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+    });
+    }
+</script>
 <form class="barra-pesquisa" action="pesquisa.php" method="get">
     <button type="submit" title="Pesquisar">
         <i class="fa-solid fa-magnifying-glass"></i>
