@@ -351,7 +351,9 @@ function listarItemVenda($conexao, $idvenda) {
 };
 
 function salvarIngrediente($conexao, $idproduto, $idingredientes, $quantidade) {
-    $sql = "INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO ingrediente (idproduto, idingrediente, quantidade)
+            VALUES (?, ?, ?)
+            ON DUPLICATE KEY UPDATE quantidade = VALUES(quantidade)";
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'iii', $idproduto, $idingredientes, $quantidade);
     $funcionou = mysqli_stmt_execute($comando);
@@ -607,7 +609,7 @@ function filtrarIngrediente($conexao, $idingrediente) {
     return $produtos;
 };
 
-function adicionarCarrinho($id) {
+function adicionarCarrinho($conexao, $id) {
     if (!isset($_SESSION['carrinho'])) {
         $_SESSION['carrinho'] = [];
     }
@@ -618,7 +620,7 @@ function adicionarCarrinho($id) {
     }
 }
 
-function removerCarrinho($id) {
+function removerCarrinho($conexao, $id) {
     if (isset($_SESSION['carrinho'][$id])) {
         $_SESSION['carrinho'][$id]--;
         if ($_SESSION['carrinho'][$id] <= 0) {
@@ -627,7 +629,7 @@ function removerCarrinho($id) {
     }
 }
 
-function listarCarrinho($produtos) {
+function listarCarrinho($conexao, $produtos) {
     $carrinho = [];
     $total = 0;
     if (!empty($_SESSION['carrinho'])) {
@@ -644,3 +646,8 @@ function listarCarrinho($produtos) {
     return ['itens' => $carrinho, 'total' => $total];
 }
 //testar
+
+function statusPedido ($conexao){
+
+
+}
