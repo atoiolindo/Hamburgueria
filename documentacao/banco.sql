@@ -409,3 +409,19 @@ VALUES ( 43.89, 'Qui at molestias reprehenderit recusandae odio.', '2025-06-07',
 
 INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
 VALUES ( 84.09, 'Praesentium consectetur perferendis suscipit omnis sunt.', '2025-06-10', 4, 'concluída');
+
+-- Insere items correspondentes às 5 vendas já criadas
+INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao)
+VALUES (1, 1, 1, 44.63, 'Item correspondente à venda 1');
+
+INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao)
+VALUES (2, 3, 1, 65.41, 'Item correspondente à venda 2');
+
+INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao)
+VALUES (3, 4, 1, 69.74, 'Item correspondente à venda 3');
+
+INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao)
+VALUES (4, 10, 1, 43.89, 'Item correspondente à venda 4');
+
+INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao)
+VALUES (5, 7, 1, 84.09, 'Item correspondente à venda 5');
