@@ -77,25 +77,25 @@ VALUES ('Fênix Flamejante', 'Frango Picante',
 
 -- Produto 12 – Poção Refrescante de Laranja
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Poção Refrescante de Laranja', 'Poção Refrescante de Laranja', 
+VALUES ('Poção Refrescante de Laranja', 'Suco de laranja natural', 
 'Suco de laranja 100% natural', 7.90, 'bebida', 'pocao_laranja.jpg', 
 'Feito com laranjas frescas e 100% naturais. Sem adição de açúcar, corantes ou conservantes.');
 
 -- Produto 13 – Batatas Encantadas
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Batatas Encantadas', 'Batatas Encantadas', 
+VALUES ('Batatas Encantadas', 'Batatas fritas', 
 'Batatas crocantes e douradas', 10.90, 'acompanhamento', 'batatas_encantadas.jpg', 
 'Batatas rústicas servidas douradas, sequinhas e bem temperadas, direto do caldeirão.');
 
 -- Produto 14 – Verde de Elphira
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Verde de Elphira', 'Verde de Elphira', 
+VALUES ('Verde de Elphira', 'Salada temperada', 
 'Alface, rúcula, tomate, pepino, cebola roxa, azeite e limão', 9.90, 'acompanhamento', 'verdedeelphira.jpg', 
 'Salada fresca com vegetais crocantes, temperada com azeite e limão encantados.');
 
 -- Produto 15 – Runa Dourada
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Runa Dourada', 'Runa Dourada', 
+VALUES ('Runa Dourada', 'Batatas rústicas', 
 'Batatas rústicas assadas com alho, ervas do bosque e sal dourado', 11.90, 'acompanhamento', 'runa_dourada.jpg', 
 'Batatas assadas com alho, ervas e um toque mágico de sal dourado. Crocantes por fora, macias por dentro.');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (20, 'hambúrguer bovino 150g');
@@ -231,11 +231,11 @@ INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (14, 45, 1
 
 -- INSERTs para cliente
 
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Sr. Thomas Melo', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES', 'a');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Francisco Peixoto', '+55 (021) 8396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL', 'b');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Diego Ferreira', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES', 'c');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Carolina Aragão', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES', 'd');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '0900 034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'e');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Sr. Thomas Melo', '62 93920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / GO', 'thomasmelo@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Francisco Peixoto', '62 98396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / GO', 'francisco_peixoto@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Diego Ferreira', '62 96873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / GO', 'diego.ferreira14@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Carolina Aragão', '62 98582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / GO', 'carolina__aragao69@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / GO', 'aliciaoliveira1@gmail.com');
 -- INSERTs para usuario
 
 
