@@ -1,8 +1,6 @@
 <?php
-    require_once "../controle/verificaLogado.php";
-
-    $nome_usuario = $_SESSION['nome'];
-    $tipo_usuario = $_SESSION['tipo'];
+session_start();
+$usuario_logado = isset($_SESSION['logado']) && $_SESSION['logado'] === 'sim';
 ?>
 
 <!DOCTYPE html>
@@ -43,21 +41,17 @@
             <li><a href="index.php">Início</a></li>
             <li><a href="cardapio.php">Cardápio</a></li>
             
-            <?php
-            if ($tipo_usuario == 'b') {
-            echo "<div class='dropdown'>";
-            echo "<button class='dropdown-btn'>Cadastrar";
-            echo "  <i class='fa fa-caret-down'></i>";
-            echo "</button>";
-            echo "<div class='dropdown-container'>";
-            echo "    <a href='formProduto.php'>Cadastrar novo produto</a>";
-            echo "    <a href='formCliente.php'>Cadastrar novo cliente</a>";
-            echo "    <a href='formVenda.php'>Cadastrar nova venda</a>";
-            echo "    <a href='formArmazenamento.php'>Cadastrar novo ingrediente</a>";
-            echo "</div>";
-            echo "</div>";
-            }
-            ?>
+            <div class="dropdown">
+            <button class="dropdown-btn">Cadastrar
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="formProduto.php">Cadastrar novo produto</a>
+                <a href="formCliente.php">Cadastrar novo cliente</a>
+                <a href="formVenda.php">Cadastrar nova venda</a>
+                <a href="formArmazenamento.php">Cadastrar novo ingrediente</a>
+            </div>
+            </div>
             
             <br>
             <div class="dropdown">
