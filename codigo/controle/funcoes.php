@@ -220,15 +220,18 @@ function listarVenda($conexao) {
 
 function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $status) {
     $sql = "INSERT INTO venda (valor_final, observacao, data, idcliente, status) VALUES (?, ?, ?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, 'dssis', $valor_final, $observacao, $data, $idcliente, $status);
 
-    mysqli_stmt_bind_param($comando, 'dssis', $valor_final, $observacao, $data, $idcliente, $status);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-};
+    if (mysqli_stmt_execute($stmt)) {
+        $idvenda = mysqli_insert_id($conexao); // ✅ pega o id correto
+        mysqli_stmt_close($stmt);
+        return $idvenda; // retorna para usar em salvarItemVenda
+    } else {
+        mysqli_stmt_close($stmt);
+        return false;
+    }
+}
 
 function buscarValorProduto($conexao, $idproduto) {
     $sql = "SELECT valor FROM produto WHERE idproduto = ?";

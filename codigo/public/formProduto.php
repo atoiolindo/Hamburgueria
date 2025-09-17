@@ -38,10 +38,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Produtos</title>
+    <title><?php echo $botao; ?></title>
 </head>
 <body>
-    <h1>Cadastro de Produto</h1>
+    <h1><?php echo $botao; ?></h1>
     <form action="../controle/salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>

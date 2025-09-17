@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $venda = pesquisarVenda($conexao, $idvenda); 
     $idcliente = $venda['idcliente'];
     $valor_final = $venda['valor_final'];
-    $data = $venda['data_compra'];
+    $data = $venda['data'];
     $observacao = $venda['observacao'];
     $status = $venda['status'];
 
@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
     $botao = "Atualizar Venda";
 } else {
     $idvenda = 0;
-    $idcliente = 0;
+    $idcliente = null;
     $valor_final = 0;
     $data = date('Y-m-d');
     $observacao = '';
@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <form action="../controle/salvarVenda.php">
+    <form action="../controle/salvarVenda.php" method="post">
         Cliente: <br>
         <select name="idcliente" id="idcliente">
             <?php
@@ -66,19 +66,20 @@ if (isset($_GET['id'])) {
 
         Produtos: <br>
         <?php
-            $lista_produtos = listarProduto($conexao);
+        $lista_produtos = listarProduto($conexao);
+        foreach ($lista_produtos as $produto) {
+            $idproduto = $produto['idproduto'];
+            $nome = $produto['nome'];
+            $valor = number_format($produto['valor'], 2, '.', '');
             
-            foreach ($lista_produtos as $produto) {
-                $idproduto = $produto['idproduto'];
-                $nome = $produto['nome'];
-                $valor = number_format($produto['valor'], 2, '.', '');
-                $qtd = $itens_venda[$idproduto] ?? 0;
-                $checked = $qtd > 0 ? "checked" : "";
-            
-                echo "<input type='checkbox' name='idproduto[]' value='$idproduto' id='marcado_$idproduto' $checked onchange='calcular()'>
-                      R$ <span id='preco_$idproduto'>$valor</span> - $nome 
-                      <input type='number' name='quantidade[$idproduto]' id='quantidade_$idproduto' value='$qtd' min='0' onchange='calcular()'><br>";
-            }
+            // Pega a quantidade correta ou 0
+            $qtd = isset($itens_venda[$idproduto]) ? $itens_venda[$idproduto]['quantidade'] : 0;
+            $checked = $qtd > 0 ? "checked" : "";
+
+            echo "<input type='checkbox' name='idproduto[]' value='$idproduto' id='marcado_$idproduto' $checked onchange='calcular()'>
+                  R$ <span id='preco_$idproduto'>$valor</span> - $nome 
+                  <input type='number' name='quantidade[$idproduto]' id='quantidade_$idproduto' value='$qtd' min='0' onchange='calcular()'><br>";
+        }
         ?>
         <br>
         Valor Total: <br>
