@@ -241,13 +241,13 @@ VALUES ('Batatas Encantadas', 'Batatas Encantadas',
 
 -- Produto 14 – Verde de Elphira
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Verde de Elphira', 'Verde de Elphira', 
+VALUES ('Verde de Elphira', 'Salada temperada', 
 'Alface, rúcula, tomate, pepino, cebola roxa, azeite e limão', 9.90, 'acompanhamento', 'verdedeselphira.png', 
 'Salada fresca com vegetais crocantes, temperada com azeite e limão encantados.');
 
 -- Produto 15 – Runa Dourada
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Runa Dourada', 'Runa Dourada', 
+VALUES ('Runa Dourada', 'Batatas rústicas', 
 'Batatas rústicas assadas com alho, ervas do bosque e sal dourado', 11.90, 'acompanhamento', 'runadourada.png', 
 'Batatas assadas com alho, ervas e um toque mágico de sal dourado. Crocantes por fora, macias por dentro.');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (20, 'hambúrguer bovino 150g');
@@ -383,11 +383,11 @@ INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (14, 45, 1
 
 -- INSERTs para cliente
 
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Cleber', '+55 41 3920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES', 'a');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Francisco Peixoto', '+55 (021) 8396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL', 'b');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Jessica Arantes Renascida', '(041) 6873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES', 'c');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Luana Coutto', '+55 81 8582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES', 'd');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '0900 034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'e');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Cleber', '62 93920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES', 'thomasmelo@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Francisco Peixoto', '62 98396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL', 'francisco_peixoto@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Jessica Arantes Renascida', '62 96873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES', 'diego.ferreira14@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Luana Coutto', '62 98582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES', 'carolina__aragao69@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'aliciaoliveira1@gmail.com');
 -- INSERTs para usuario
 
 INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'ant.yas.gab@gmail.com', 'b6J+5nLk$3', 'Antônio', 'a');
