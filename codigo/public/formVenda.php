@@ -62,26 +62,31 @@ if (isset($_GET['id'])) {
         <br><br>
 
         Data: <br>
-        <input type="date" id="data" name="data_compra" required><br><br>
+        <input type="date" id="data" name="data_compra" value="<?php echo $data; ?>"    required><br><br>
 
         Produtos: <br>
         <?php
-        $lista_produtos = listarProduto ($conexao);
-
-        foreach ($lista_produtos as $produto) {
-            $idproduto = $produto['idproduto'];
-            $nome = $produto['nome'];
-            $valor = $produto['valor'];
-
-           echo "<input type='checkbox' value='$idproduto' id='marcado_$idproduto' name='idproduto[]' onchange='calcular()'> 
-           R$ <span id='preco_$idproduto'>$valor</span> - $nome ";
-           echo "<input type='number' name='quantidade[$idproduto]' id='quantidade_$idproduto' value='0' onchange='calcular()'><br>";
-        }
+            $lista_produtos = listarProduto($conexao);
+            
+            foreach ($lista_produtos as $produto) {
+                $idproduto = $produto['idproduto'];
+                $nome = $produto['nome'];
+                $valor = number_format($produto['valor'], 2, '.', '');
+                $qtd = $itens_venda[$idproduto] ?? 0;
+                $checked = $qtd > 0 ? "checked" : "";
+            
+                echo "<input type='checkbox' name='idproduto[]' value='$idproduto' id='marcado_$idproduto' $checked onchange='calcular()'>
+                      R$ <span id='preco_$idproduto'>$valor</span> - $nome 
+                      <input type='number' name='quantidade[$idproduto]' id='quantidade_$idproduto' value='$qtd' min='0' onchange='calcular()'><br>";
+            }
         ?>
         <br>
         Valor Total: <br>
-        <<input type="hidden" name="valor_final" id="valor_final">
-        <span id="mostrar_total">0.00</span> <br><br>
+        <input type="hidden" name="valor_final" id="valor_final" value="<?php echo $valor_final; ?>">
+        <span id="mostrar_total"><?php echo number_format($valor_final, 2, '.', ''); ?></span> <br><br>
+        
+        Observação: <br>
+        <textarea name="observacao"><?php echo $observacao; ?></textarea><br><br>
 
         <input type="submit" value="Registrar Venda"> <br>
     

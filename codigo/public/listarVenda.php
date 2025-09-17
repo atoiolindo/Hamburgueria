@@ -65,8 +65,8 @@
         }
         echo "</td>";
     
-        echo "<td><a href='formvenda.php?id=$idvenda'>Editar</a></td>";
-        echo "<td><a href='deletarvenda.php?id=$idvenda'>Excluir</a></td>";
+        echo "<td><a href='formVenda.php?id=$idvenda'>Editar</a></td>";
+        echo "<td><a href='deletarVenda.php?id=$idvenda'>Excluir</a></td>";
         echo "</tr>";
         }
     }
