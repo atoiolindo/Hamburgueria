@@ -239,9 +239,9 @@ INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira'
 -- INSERTs para usuario
 
 
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'cecilia50@ferreira.br', 'b6J+5nLk$3', 'Camila Peixoto', 'admin');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'pedro-lucasda-mota@gmail.com', 'F2ccGSLl#p', 'Vitor Gabriel Viana', 'atendente');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'zda-mata@gmail.com', 'W6Q9D!s3_@', 'Kevin Oliveira', 'cozinha');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'ant.yas.gab@gmail.com', 'b6J+5nLk$3', 'Antônio', 'a');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'pedro-lucas@gmail.com', 'F2ccGSLl#p', 'Vitor Gabriel Viana', 'b');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'zda-mata@gmail.com', 'W6Q9D!s3_@', 'Kevin Oliveira', 'c');
 -- INSERTs para venda
 
 INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
