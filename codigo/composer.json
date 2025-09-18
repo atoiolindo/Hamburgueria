@@ -1,0 +1,7 @@
+{
+  "name": "hamburgueria/paoemagia",
+  "description": "Projeto da hamburgueria com login Google",
+  "require": {
+    "google/apiclient": "^2.15"
+  }
+}

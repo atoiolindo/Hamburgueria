@@ -1,3 +1,32 @@
+<?php
+require __DIR__ . '/../vendor/autoload.php';
+
+
+session_start();
+
+$client = new Google_Client();
+$client->setClientId('751354737095-fo46srd7fqr7k7qke5ok496rbekuv84k.apps.googleusercontent.com');
+$client->setClientSecret('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');
+$client->setRedirectUri('http://localhost:83/public/callback.php'); 
+$client->addScope('email');
+$client->addScope('profile');
+
+$login_url = $client->createAuthUrl();
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login com Google</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <a href="<?= $login_url ?>">Login com Google</a>
+</body>
+</html>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
