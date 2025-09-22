@@ -354,19 +354,19 @@ function listarItemVenda($conexao, $idvenda) {
 
     $lista_itens = [];
     while ($item = mysqli_fetch_assoc($resultado)) {
-
-        
         $id_produto = $item['idproduto'];
         $produto = pesquisarProduto($conexao, $id_produto);
-        $nome_produto = $produto['nome'];
 
-        $item['nome_produto'] = $nome_produto;
+        // adiciona os dados do produto
+        $item['nome_produto'] = $produto['nome'];
+        $item['foto'] = $produto['foto']; 
+
         $lista_itens[] = $item;
     }
 
     mysqli_stmt_close($comando);
     return $lista_itens;
-};
+}
 
 function salvarIngrediente($conexao, $idproduto, $idingredientes, $quantidade) {
     $sql = "INSERT INTO ingrediente (idproduto, idingrediente, quantidade)

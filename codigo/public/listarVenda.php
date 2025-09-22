@@ -61,7 +61,7 @@
         echo "<td>";
         $itens = listarItemVenda($conexao, $idvenda); // pega todos os produtos dessa venda
         foreach ($itens as $item) {
-            echo "<img src='fotos/{$item['foto']}' width='40'> {$item['nome_produto']} ({$item['quantidade']})<br>";
+            echo "<img src='../controle/fotos/{$item['foto']}' width='40'> {$item['nome_produto']} ({$item['quantidade']})<br>";
         }
         echo "</td>";
     
