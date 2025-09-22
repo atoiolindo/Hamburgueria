@@ -53,7 +53,7 @@
 
             echo "<tr>";
             echo "<td>$idproduto</td>";
-            echo "<td><img src='fotos/$foto'></td>";
+            echo "<td><img src='../controle/fotos/$foto'></td>";
             echo "<td>$nome</td>";
             echo "<td>$nome_real</td>";
             echo "<td>$ingredientes</td>";
