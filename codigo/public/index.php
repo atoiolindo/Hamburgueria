@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_SESSION['nome'])) {
     $nome_usuario = $_SESSION['nome'];
     $tipo_usuario = $_SESSION['tipo'];
@@ -9,8 +10,10 @@ else {
 }
 
 if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
-?>
+    
+}
 
+?>
     <!DOCTYPE html>
     <html lang="pt-br">
 
@@ -34,6 +37,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
         </script>
 
     </head>
+            
 
     <body>
         <div class="cabecalho">
@@ -73,6 +77,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
                             <a href="listarCliente.php">Lista de clientes cadastrados</a>
                             <a href="listarVenda.php">Lista de vendas cadastrados</a>
                             <a href="listarArmazenamento.php">Lista de ingredientes cadastrados</a>
+                            <a href="listarUsuario.php">Lista de usuários cadastrados</a>
                         </div>
                     </div>
 
@@ -109,7 +114,17 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
             </form>
             <br>
             <div class="icone-pesquisa">
-                <a href="home.php" title="Login"><i class="fa-solid fa-user"></i></a>
+            <?php
+
+            if (isset($_SESSION['idusuario'])) {
+                $link = "perfil.php";
+            } else {
+                $link = "home.php";
+            }
+            ?>
+                <a href="<?php echo $link; ?>" title="Login">
+                    <i class="fa-solid fa-user"></i>
+                </a>
                 <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
 
             </div>
@@ -279,7 +294,3 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
     </footer>
 
     </html>
-
-<?php
-}
-?>

@@ -1,5 +1,7 @@
 <?php
 
+use Google\Service\PeopleService as Google_Service_PeopleService;
+
 
 function deletarProduto($conexao, $idproduto) {    
     $sql = "DELETE FROM produto WHERE idproduto = ?";
@@ -173,6 +175,19 @@ function editarUsuario($conexao, $email, $senha, $nome) {
     $funcionou = mysqli_stmt_execute($comando);
     
     mysqli_stmt_close($comando);
+    return $funcionou; 
+};
+
+
+function deletarUsuario($conexao, $idusuario) {
+    $sql = "DELETE FROM usuario WHERE idusuario = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idusuario);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
     return $funcionou; 
 };
 
@@ -667,4 +682,61 @@ function listarCarrinho($conexao, $produtos) {
 
 function statusVenda($conexao, $status){
 
-};
+}
+
+function buscarDadosGoogle($client, $authCode) {
+    $token = $client->fetchAccessTokenWithAuthCode($authCode);
+
+    if (isset($token['error'])) {
+        $descricao = htmlspecialchars($token['error_description'] ?? $token['error']);
+        throw new Exception("Erro ao obter token do Google: " . $descricao);
+    }
+
+    $client->setAccessToken($token);
+
+    $peopleService = new Google_Service_PeopleService($client);
+    $profile = $peopleService->people->get('people/me', ['personFields' => 'names,emailAddresses']);
+
+    $email = null;
+    $nome = null;
+
+    if ($profile->getEmailAddresses() && count($profile->getEmailAddresses()) > 0) {
+        $email = $profile->getEmailAddresses()[0]->getValue();
+    }
+
+    if ($profile->getNames() && count($profile->getNames()) > 0) {
+        $nome = $profile->getNames()[0]->getDisplayName();
+    }
+
+    return ['email' => $email, 'nome' => $nome];
+}
+
+function registrarOuBuscarUsuario($conexao, $email, $nome) {
+    $sql = "SELECT * FROM usuario WHERE email = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, "s", $email);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $usuario = mysqli_fetch_assoc($resultado);
+
+    if (!$usuario) {
+        $senha = password_hash("123", PASSWORD_DEFAULT); // senha temporária
+
+        $sql = "INSERT INTO usuario (id, email, nome, senha, tipo) VALUES (?, ?, ?, 'google')";
+        $comando = mysqli_prepare($conexao, $sql);
+        mysqli_stmt_bind_param($comando, "sss", $email, $nome, $senha); 
+        mysqli_stmt_execute($comando);
+
+        return mysqli_insert_id($conexao);
+    } else {
+        return $usuario['idusuario'];
+    }
+}
+
+
+function salvarSessaoGoogle($id, $email, $nome) {
+    $_SESSION['idusuario'] = $id;
+    $_SESSION['email'] = $email;
+    $_SESSION['nome'] = $nome;
+}
