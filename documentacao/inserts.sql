@@ -16,7 +16,7 @@ VALUES ('Feitiço Clássico', 'Cheddar & Bacon',
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
 VALUES ('Trio Arcano', 'Smash Triplo', 
 'Pão de leite, 3 smash burgers de 60g, queijo americano, picles, molho especial',
-34.90, 'hambúrguer', ' assets/trioarcano.png', 
+34.90, 'hambúrguer', 'trioarcano.png', 
 'Três smash burgers de 60g com queijo americano, picles e molho especial no pão de leite: magia em cada mordida.');
 
 -- Produto 4 – Gorgonzola Místico
@@ -65,7 +65,7 @@ VALUES ('Mineirice Mágica', 'Suíno Mineiro',
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
 VALUES ('Crocris da Alvorada', 'Crocante da Casa', 
 'Pão de leite, filé de frango empanado, queijo cheddar, alface, maionese com ervas',
-27.90, 'hambúrguer', 'crocrisdaalvorada.png', 
+27.90, 'hambúrguer', 'cocrisdaalvorada.png', 
 'Filé de frango empanado com cheddar, alface e maionese de ervas no pão de leite.');
 
 -- Produto 11 – Fênix Flamejante
