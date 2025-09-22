@@ -8,4 +8,4 @@ if (!isset($_SESSION['idusuario'])) {
 
 <h1>Perfil de <?php echo htmlspecialchars($_SESSION['nome']); ?></h1>
 <p>Email: <?php echo htmlspecialchars($_SESSION['email']); ?></p>
-<a href="logout.php">Sair</a>
+<a href="../controle/deslogar.php">Sair</a>

@@ -723,7 +723,7 @@ function registrarOuBuscarUsuario($conexao, $email, $nome) {
     if (!$usuario) {
         $senha = password_hash("123", PASSWORD_DEFAULT); // senha temporária
 
-        $sql = "INSERT INTO usuario (id, email, nome, senha, tipo) VALUES (?, ?, ?, 'google')";
+        $sql = "INSERT INTO usuario (email, nome, senha, tipo) VALUES (?, ?, ?, 'google')";
         $comando = mysqli_prepare($conexao, $sql);
         mysqli_stmt_bind_param($comando, "sss", $email, $nome, $senha); 
         mysqli_stmt_execute($comando);
