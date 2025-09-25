@@ -563,7 +563,6 @@ function filtrarValor($conexao, $valor_min, $valor_max) {
 
 function filtrarDisponivel($conexao, $disponivel = true) {
     if ($disponivel) {
-        // Seleciona produtos cujos ingredientes estão todos disponíveis
         $sql = "
             SELECT p.*
             FROM produto p
@@ -573,7 +572,6 @@ function filtrarDisponivel($conexao, $disponivel = true) {
             HAVING SUM(CASE WHEN a.quantidade <= 0 OR a.quantidade IS NULL THEN 1 ELSE 0 END) = 0
         ";
     } else {
-        // Seleciona produtos que têm pelo menos um ingrediente indisponível
         $sql = "
             SELECT p.*
             FROM produto p

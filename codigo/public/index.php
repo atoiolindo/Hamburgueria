@@ -9,11 +9,9 @@ else {
     $tipo_usuario = 0;
 }
 
-if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
-    
-}
-
+if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 ?>
+
     <!DOCTYPE html>
     <html lang="pt-br">
 
@@ -87,23 +85,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
                 </ul>
             </nav>
 
-            <!-- dropdown -->
-            <script>
-                var dropdown = document.getElementsByClassName("dropdown-btn");
-                var i;
-
-                for (i = 0; i < dropdown.length; i++) {
-                    dropdown[i].addEventListener("click", function() {
-                        this.classList.toggle("active");
-                        var dropdownContent = this.nextElementSibling;
-                        if (dropdownContent.style.display === "block") {
-                            dropdownContent.style.display = "none";
-                        } else {
-                            dropdownContent.style.display = "block";
-                        }
-                    });
-                }
-            </script>
 
             <form class="barra-pesquisa" action="pesquisa.php" method="get">
                 <button type="submit" title="Pesquisar">
@@ -114,20 +95,33 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
             </form>
             <br>
             <div class="icone-pesquisa">
-            <?php
+                <?php if (isset($_SESSION['idusuario'])): ?>
+                    <div class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-btn" title="Perfil">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-header">
+                                Olá, <?php echo isset($_SESSION['nome']) ? $_SESSION['nome'] :'Usuário' ?>
+                            </div>
+                      
+                            <a href="pedidos.php">Pedidos</a>
+                            <a href="pagento.php">Pagamento</a>
+                            <a href="perfil.php">Meus Dados</a>
+                            <a href="logout.php">Sair</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <a href="home.php" title="Login">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                <?php endif; ?>
 
-            if (isset($_SESSION['idusuario'])) {
-                $link = "perfil.php";
-            } else {
-                $link = "home.php";
-            }
-            ?>
-                <a href="<?php echo $link; ?>" title="Login">
-                    <i class="fa-solid fa-user"></i>
+                <a href="carrinho.php" title="Carrinho">
+                    <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-                <a href="carrinho.php" title="Carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
-
             </div>
+
 
             <br>
             <div class="divisoria"></div><br><br>
@@ -276,7 +270,29 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {
         <a href="historia.php" class="btn-botao">Saiba mais</a> <br><br><br><br>
 
 
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // dropdowns do menu lateral (já existiam)
+            var menuDropdowns = document.querySelectorAll(".dropdown-btn");
+            menuDropdowns.forEach(function(btn) {
+                btn.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    dropdownContent.style.display =
+                        dropdownContent.style.display === "block" ? "none" : "block";
+                });
+            });
 
+            // dropdown do perfil (novo)
+            var profileBtns = document.querySelectorAll(".profile-btn");
+            profileBtns.forEach(function(btn) {
+                btn.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    this.nextElementSibling.classList.toggle("show");
+                });
+            });
+        });
+        </script>
     </body>
     <footer>
         Horários de Funcionamento: <br>

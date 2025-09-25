@@ -6,7 +6,6 @@ require_once __DIR__ . "/../controle/funcoes.php";
 session_start();
 
 use Google\Client;
-use Google\Service\PeopleService;
 
 $client = new Client();
 $client->setClientId('751354737095-fo46srd7fqr7k7qke5ok496rbekuv84k.apps.googleusercontent.com');
@@ -51,7 +50,7 @@ try {
     <script>
         setTimeout(() => {
             window.location.href = "index.php";
-        }, 5000); // 3 segundos antes de redirecionar
+        }, 5000);
     </script>
 </head>
 <body>
