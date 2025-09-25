@@ -9,12 +9,10 @@ $nome = $_POST['nome'];
 $nome_real = $_POST['nome_real'];
 $ingredientes = $_POST['ingredientes'];
 
-// Como os checkboxes podem não ser marcados, usamos isset() para evitar erro
 // Se não tiver ingredientes marcados, ficam arrays vazios
 $idingrediente = isset($_POST['idingrediente']) ? $_POST['idingrediente'] : [];
 $quantidade = isset($_POST['quantidade']) ? $_POST['quantidade'] : [];
 
-// Criamos um array $ingredientes2 com [idingrediente, quantidade]
 // Se não tiver ingredientes marcados, esse foreach nem roda
 $ingredientes2 = [];
 
@@ -42,12 +40,10 @@ $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
 //gera um novo nome para o arquivo
 $novo_nome = uniqid() . "." . $extensao;
 
-//criando um novo caminho para o arquivo (usando o endereço da página)
-//lembre-se de criar a pasta "fotos/" dentro da pasta "codigo".
-//deve ajustar as permissões da pasta "fotos".
+
 $caminho_destino = "fotos/" . $novo_nome;
 
-//movendo o arquivo para o servidor
+
 move_uploaded_file($caminho_temporario, $caminho_destino);
 
 if ($id == 0) {

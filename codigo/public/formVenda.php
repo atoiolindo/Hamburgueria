@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <form action="../controle/salvarVenda.php" method="post">
+    <form action="../controle/salvarVenda.php?id=<?php echo $idvenda; ?>" method="post" enctype="multipart/form-data">
         Cliente: <br>
         <select name="idcliente" id="idcliente">
             <?php
@@ -89,7 +89,7 @@ if (isset($_GET['id'])) {
         Observação: <br>
         <textarea name="observacao"><?php echo $observacao; ?></textarea><br><br>
 
-        <input type="submit" value="Registrar Venda"> <br>
+        <input type="submit" value="<?php echo $botao; ?>">
     
     </form>
     <button>Botão de testes</button>
