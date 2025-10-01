@@ -72,7 +72,8 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "</div>";
                     }?>
 
-
+                    <br>
+                    
                     <?php
                         if ($tipo_usuario == 'a' || $tipo_usuario == 'b') {
 
