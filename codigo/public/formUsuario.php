@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/formUsuario.css">
+
 </head>
 <body>
-    <form action="salvarUsuario.php" method="post">
-        Nome: <br>
-        <input type="text" name="nome"> <br><br>
-        E-mail: <br>
-        <input type="text" name="email"> <br><br>
-        Senha: <br>
-        <input type="text" name="senha"> <br><br>
-        Confirme sua senha: <br>
 
-        <input type="submit" value="Confirmar">
+<div class="container">
+    
+    <h1>Crie seu cadastro</h1>
+   
+    <form action="../controle/salvarUsuario.php" method="post">
+ 
+    Nome de usuário: 
+    <input type="text" name="nome">
+    
+    E-mail: 
+    <input type="text" name="email">
+    
+    Senha: 
+    <input type="password" name="senha">
+
+    <input type="submit" value="Próximo">
     </form>
+</div>
 </body>
 </html>

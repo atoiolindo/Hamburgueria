@@ -11,5 +11,5 @@ $sql = "INSERT INTO usuario (email, senha, nome, tipo) VALUES ('$email', '$senha
 
 mysqli_query($conexao, $sql);
 
-header("Location: index.php");
+header("Location: ../public/formCliente.php");
 ?>

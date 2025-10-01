@@ -30,11 +30,12 @@ $login_url = $client->createAuthUrl();
     <h1>Entre na sua conta</h1>
    
     <form action="../controle/verificarLogin.php" method="post">
-    E-mail: <br>
-    <input type="text" name="email"> <br><br>
+    E-mail: 
+    <input type="text" name="email">
     
-    Senha: <br>
-    <input type="password" name="senha"> <br><br>
+    Senha: 
+    <input type="password" name="senha">
+    <a href="esqueciSenha.php">Esqueceu sua senha?</a>
 
     <a href="<?= $login_url ?>" class="btn-google">
     <svg width="20" height="20" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">

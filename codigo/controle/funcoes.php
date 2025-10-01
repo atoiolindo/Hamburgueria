@@ -719,9 +719,9 @@ function registrarOuBuscarUsuario($conexao, $email, $nome) {
     $usuario = mysqli_fetch_assoc($resultado);
 
     if (!$usuario) {
-        $senha = password_hash("123", PASSWORD_DEFAULT); // senha temporária
+        $senha = password_hash("123", PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO usuario (email, nome, senha, tipo) VALUES (?, ?, ?, 'google')";
+        $sql = "INSERT INTO usuario (email, nome, senha, tipo) VALUES (?, ?, ?, 'c')";
         $comando = mysqli_prepare($conexao, $sql);
         mysqli_stmt_bind_param($comando, "sss", $email, $nome, $senha); 
         mysqli_stmt_execute($comando);
@@ -737,4 +737,23 @@ function salvarSessaoGoogle($id, $email, $nome) {
     $_SESSION['idusuario'] = $id;
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $nome;
+}
+
+function verificarEmail($conexao, $email) {
+    $sql = "SELECT idusuario FROM usuario WHERE email = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, "s", $email);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $quantidade = mysqli_num_rows($resultado);
+
+    return $quantidade;
+
+    if ($quantidade > 0) {
+        return $linha['idusuario']; 
+    } else {
+        return 0;
+    }
+
 }
