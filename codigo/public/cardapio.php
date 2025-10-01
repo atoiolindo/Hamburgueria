@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/cardapio.css">
 
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -125,8 +126,8 @@
                 <a href="carrinho.php" title="Carrinho">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-            </div>
-    <h1>Cardápio</h1>
+    </div>
+    <div class="cardapio"><h1>Cardápio</h1>
 
     <?php
     //require_once "../controle/verificaLogado.php";
@@ -179,6 +180,7 @@
     }
         ?>
         </table>
+    </div>
 </body>
 
 </html>
