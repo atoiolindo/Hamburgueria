@@ -53,10 +53,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     <li><a href="index.php">Início</a></li>
                     <li><a href="cardapio.php">Cardápio</a></li>
 
-                    <?php
-                    echo $nome_usuario;
-                    echo $tipo_usuario;
-                    ?>
 
                     <?php
                         if ($tipo_usuario == 'a' || $tipo_usuario == 'b') {
