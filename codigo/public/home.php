@@ -37,7 +37,6 @@ $login_url = $client->createAuthUrl();
     <input type="password" name="senha"> <br><br>
 
     <a href="<?= $login_url ?>" class="btn-google">
-    <!-- SVG do "G" do Google -->
     <svg width="20" height="20" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
         <path fill="#4285F4" d="M533.5 278.4c0-18.5-1.5-36.5-4.3-53.9H272v102.2h146.9c-6.4 34.5-25.6 63.8-54.6 83.4l88.2 68.6c51.3-47.3 81-116.9 81-200.3z"/>
         <path fill="#34A853" d="M272 544.3c73.4 0 135-24.3 180-66.1l-88.2-68.6c-24.5 16.5-55.6 26-91.8 26-70.8 0-130.7-47.9-152.3-112.2l-90.6 70c43.4 86.2 132 150.9 243 150.9z"/>
@@ -53,58 +52,3 @@ $login_url = $client->createAuthUrl();
 </div>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Login/Cadastro</title>
-    <link rel="stylesheet" href="./css/home.css">
-</head>
-<body>
-    <h1>Bem-vindo!</h1>
-    <div class="login-options">
-        <button onclick="window.location.href='login_google.php'">Entrar com Google</button><br>
-        <button onclick="window.location.href='login_apple.php'">Entrar com Apple</button><br>
-        <button onclick="showEmailForm()">Entrar com E-mail</button><br>
-    </div>
-
-    <form id="emailForm" action="enviar_codigo_email.php" method="post" style="display:none;">
-        <label>E-mail:</label><br>
-        <input type="email" name="email" required><br>
-        <button type="submit">Enviar código</button>
-    </form>
-
-    <!-- Após envio do código, mostre este formulário -->
-    <!-- <form id="codigoEmailForm" action="validar_codigo_email.php" method="post" style="display:none;">
-        <label>Código recebido no e-mail:</label><br>
-        <input type="text" name="codigo_email" required><br>
-        <button type="submit">Validar código</button>
-    </form> -->
-
-    <!-- Após validar e-mail, mostre este formulário -->
-    <!-- <form id="telefoneForm" action="enviar_codigo_sms.php" method="post" style="display:none;">
-        <label>Telefone:</label><br>
-        <input type="text" name="telefone" required><br>
-        <button type="submit">Enviar código SMS</button>
-    </form> -->
-
-    <!-- Após envio do código SMS, mostre este formulário -->
-    <!-- <form id="codigoSmsForm" action="validar_codigo_sms.php" method="post" style="display:none;">
-        <label>Código recebido por SMS:</label><br>
-        <input type="text" name="codigo_sms" required><br>
-        <button type="submit">Validar código</button>
-    </form> -->
-
-    <!-- Se novo usuário, peça nome e crie conta -->
-    <!-- <form id="cadastroForm" action="criar_conta.php" method="post" style="display:none;">
-        <label>Nome:</label><br>
-        <input type="text" name="nome" required><br>
-        <button type="submit">Criar conta</button>
-    </form> -->
-
-    <!-- <script>
-        function showEmailForm() {
-            document.getElementById('emailForm').style.display = 'block';
-        } -->

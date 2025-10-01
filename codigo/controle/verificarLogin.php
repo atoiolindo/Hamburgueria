@@ -8,7 +8,7 @@
     $idusuario = verificarLogin($conexao, $email, $senha);
 
     if ($idusuario == 0) {
-        header("Location: index.php");
+        header("Location: ../public/index.php");
     }
     else {
         $usuario = pegarDadosUsuario($conexao, $idusuario);
