@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -16,8 +15,9 @@ body {
 
 .login-container {
     display: flex;
-    flex-direction: column; /* empilha h1 e form */
-    align-items: flex-end;  /* alinha à direita */
+    flex-direction: column; 
+    
+    align-items: flex-end;  
 }
 
 form {

@@ -1,66 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap');
+
 body {
-    background: #121212;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
 .container {
     max-width: 800px;
-    margin: 30px auto;
-    background: #1e1e1e;
-    padding: 20px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 32px 24px;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+
+
 h2 {
-    margin-bottom: 20px;
-    font-size: 18px;
-    color: #fff;
+    margin-bottom: 24px;
+    font-size: 1.5em;
+    color: #AD2E1A;
+    font-family: 'Bevan', serif;
+    letter-spacing: 1px;
 }
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
 }
+
 .campo {
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 300px; /* limite horizontal */
+    max-width: 320px;
 }
+
 .campo label {
-    font-size: 13px;
-    margin-bottom: 4px;
-    color: #bbb;
-}
-.campo input {
-    background: #2b2b2b;
-    border: none;
-    padding: 8px 10px;
-    border-radius: 4px;
-    color: #fff;
-    width: 100%;
     font-size: 14px;
+    margin-bottom: 6px;
+    color: #AD2E1A;
+    font-weight: 600;
 }
+
+.campo input {
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    border-radius: 4px;
+    color: #333;
+    width: 100%;
+    font-size: 15px;
+    transition: border 0.2s;
+}
+
+.campo input:focus {
+    border: 1.5px solid #AD2E1A;
+    outline: none;
+}
+
 .campo input[readonly] {
     opacity: 0.85;
+    background: #eee;
 }
+
 .btn-editar {
     position: absolute;
-    right: -65px; 
-    top: 26px;
-    background: #444;
+    right: -75px;
+    top: 32px;
+    background: #AD2E1A;
     border: none;
-    padding: 4px 10px;
+    padding: 6px 16px;
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
-    font-size: 12px;
-    line-height: 1;
+    font-size: 13px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 600;
+    transition: background 0.2s;
 }
+
 .btn-editar:hover {
-    background: #666;
+    background: #8c2212;
 }
+
 .aviso {
-    font-size: 11px;
+    font-size: 12px;
     color: orange;
-    margin-top: 4px;
+    margin-top: 6px;
+    font-family: 'Bevan', serif;
 }

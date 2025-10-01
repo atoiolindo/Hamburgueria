@@ -38,11 +38,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
             
 
     <body>
-    <?php if (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
-    <div class="alert alert-danger" style="text-align:center;">
-        E-mail ou senha incorretos. Tente novamente.
-    </div>
-    <?php endif; ?>
+
         <div class="cabecalho">
 
             <button class="menu-btn" onclick="toggleMenu()" title="Menu">
