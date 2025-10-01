@@ -27,15 +27,13 @@ $telefone = isset($_SESSION['telefone']) ? $_SESSION['telefone'] : "";
 
       <div class="campo">
         <label>E-mail</label>
-        <input type="email" value="<?php echo htmlspecialchars($email); ?>" readonly>
-        <button class="btn-editar" onclick="window.location.href='..verificar.php'">Editar</button>
       </div>
 
-      <!-- Telefone com botão editar -->
       <div class="campo">
         <label>Telefone <span style="color: orange;">*</span></label>
         <input type="text" value="<?php echo htmlspecialchars($telefone); ?>" placeholder="Seu número" readonly>
         <button class="btn-editar" onclick="window.location.href='verificar.php'">Editar</button>
+        <button class="btn-editar" onclick="window.location.href='../controle/verificarEmail.php'">Editar</button>
         <span class="aviso">Campo obrigatório - Usado para contato e suporte</span>
       </div>
     </div>
