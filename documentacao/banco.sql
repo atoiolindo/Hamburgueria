@@ -390,9 +390,11 @@ INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Luana Coutto', '6
 INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'aliciaoliveira1@gmail.com');
 -- INSERTs para usuario
 
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'ant.yas.gab@gmail.com', 'b6J+5nLk$3', 'Antônio', 'a');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'pedro-lucas@gmail.com', 'F2ccGSLl#p', 'Vitor Gabriel Viana', 'b');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'zda-mata@gmail.com', 'W6Q9D!s3_@', 'Kevin Oliveira', 'c');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'jess_rainhe@yahoo.com.br', '$2y$10$MwI4cpcmi6gJhSjxWTzJUejR7MK63EA3SQiRhp//yqzmSIJzIvsYm', 'Jessica Arantes', 'a');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'antonio.andrade@gmail.com', '$2y$10$yHqcxeEU22fW1UNYXj.EgejsFuScLbKS/aELrcs4VmWkghlJdS12a', 'Antônio Andrade', 'b');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'gabriel.rodrigues@gmail.com', '$2y$10$n5PDU7AAWJYj4KKf0PFK6e6rEQ9ag.yNLxY2Kk9hd8IzbO0cHmaHq', 'Gabriel Rodrigues', 'b');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'yasmin.pereira@gmail.com', '$2y$10$JMZ1VlAtGhcPg5wq0cjl4u6lRoP2Gf/ohSKzMXbw4vvvLRn7LGtNW', 'Yasmin Pereira', 'b');
+INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'im.just.cleber@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Cleber', 'c');
 -- INSERTs para venda
 
 INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
