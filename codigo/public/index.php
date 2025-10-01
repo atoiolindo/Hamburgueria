@@ -62,7 +62,9 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "        <i class='fa fa-caret-down'></i>";
                     echo "    </button>";
                     echo "    <div class='dropdown-container'>";
-                    echo "        <a href='formProduto.php'>Cadastrar novo produto</a>";
+                    
+                    if ($tipo_usuario == 'a') {
+                    echo "        <a href='formProduto.php'>Cadastrar novo produto</a>";}
                     echo "        <a href='formCliente.php'>Cadastrar novo cliente</a>";
                     echo "        <a href='formVenda.php'>Cadastrar nova venda</a>";
                     echo "        <a href='formArmazenamento.php'>Cadastrar novo ingrediente</a>";
