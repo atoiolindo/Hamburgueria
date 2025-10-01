@@ -22,6 +22,7 @@ if (isset($_SESSION['nome'])) {
 </head>
 
 <body>
+    
     <h1>Lista de produtos</h1>
 
     <?php
