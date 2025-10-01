@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['nome'])) {
+    $nome_usuario = $_SESSION['nome'];
+    $tipo_usuario = $_SESSION['tipo'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +35,12 @@
                 <td>Id</td>
                 <td>Quantidade</td>
                 <td>Nome</td>
-                <td colspan="2">Ação</td>
-            </tr>
+                
+                <?php 
+                if ($tipo_usuario == 'a') {
+                echo "<td colspan='2'>Ação</td>";
+                } ?>
+               </tr>
 
         <?php
         foreach ($lista_armazenamento as $armazenamento) {
@@ -40,8 +52,11 @@
             echo "<td>$idingrediente</td>";
             echo "<td>$quantidade</td>";
             echo "<td>$nome</td>";
+
+            if ($tipo_usuario == 'a') {
             echo "<td><a href='formArmazenamento.php?id=$idingrediente'>Editar</a></td>";
             echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'>Excluir</a></td>";
+            }
             echo "</tr>";
         }
     }

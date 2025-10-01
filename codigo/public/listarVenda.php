@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['nome'])) {
+    $nome_usuario = $_SESSION['nome'];
+    $tipo_usuario = $_SESSION['tipo'];
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +44,11 @@
                 <td>Data</td>
                 <td>Status</td>
                 <td>Foto</td>
-                <td colspan="2">Ação</td>
+
+                <?php 
+                if ($tipo_usuario == 'a') {
+                echo "<td colspan='2'>Ação</td>";
+                } ?>
             </tr>
 
         <?php
@@ -65,9 +76,10 @@
         }
         echo "</td>";
     
+        if ($tipo_usuario == 'a') {
         echo "<td><a href='formVenda.php?id=$idvenda'>Editar</a></td>";
         echo "<td><a href='deletarVenda.php?id=$idvenda'>Excluir</a></td>";
-        echo "</tr>";
+        } echo "</tr>";
         }
     }
         ?>

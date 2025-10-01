@@ -53,10 +53,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     <li><a href="index.php">Início</a></li>
                     <li><a href="cardapio.php">Cardápio</a></li>
 
-                    <?php
-                    echo $nome_usuario;
-                    echo $tipo_usuario;
-                    ?>
 
                     <?php
                         if ($tipo_usuario == 'a' || $tipo_usuario == 'b') {
@@ -66,7 +62,9 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "        <i class='fa fa-caret-down'></i>";
                     echo "    </button>";
                     echo "    <div class='dropdown-container'>";
-                    echo "        <a href='formProduto.php'>Cadastrar novo produto</a>";
+                    
+                    if ($tipo_usuario == 'a') {
+                    echo "        <a href='formProduto.php'>Cadastrar novo produto</a>";}
                     echo "        <a href='formCliente.php'>Cadastrar novo cliente</a>";
                     echo "        <a href='formVenda.php'>Cadastrar nova venda</a>";
                     echo "        <a href='formArmazenamento.php'>Cadastrar novo ingrediente</a>";
@@ -74,7 +72,8 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "</div>";
                     }?>
 
-
+                    <br>
+                    
                     <?php
                         if ($tipo_usuario == 'a' || $tipo_usuario == 'b') {
 
