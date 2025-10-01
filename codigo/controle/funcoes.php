@@ -272,17 +272,33 @@ function deletarVenda($conexao, $idvenda) {
 };
 
 
-function editarVenda($conexao, $valor_final, $observacao, $data, $idvenda) {
-    $sql = "UPDATE venda SET valor_final=?, observacao=?, data=? WHERE idvenda=?";
+function editarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $status, $idvenda) {
+    $sql = "UPDATE venda 
+               SET valor_final = ?, 
+                   observacao = ?, 
+                   data = ?, 
+                   idcliente = ?, 
+                   status = ?
+             WHERE idvenda = ?";
+    
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'dssi', $valor_final, $observacao, $data, $idvenda);
+    mysqli_stmt_bind_param(
+        $comando,
+        'dssisi', // d=decimal, s=string, s=string, i=int, s=string, i=int
+        $valor_final,
+        $observacao,
+        $data,
+        $idcliente,
+        $status,
+        $idvenda
+    );
     
     $funcionou = mysqli_stmt_execute($comando);
     
     mysqli_stmt_close($comando);
-    return $funcionou; 
-};
+    return $funcionou;
+}
 
 function pesquisarProduto($conexao, $idproduto) {
     $sql = "SELECT * FROM produto WHERE idproduto = ?";
@@ -359,29 +375,43 @@ function salvarItemVenda($conexao, $id_venda, $id_produto, $quantidade, $valor, 
 }
 
 function listarItemVenda($conexao, $idvenda) {
-    $sql = "SELECT * FROM item_venda WHERE idvenda = ?";
-    $comando = mysqli_prepare($conexao, $sql);
+    $sql = "
+        SELECT 
+            iv.idproduto,
+            iv.quantidade,
+            iv.valor         AS valor_unitario,   -- preço registrado no item_venda
+            p.nome           AS nome_produto,
+            p.foto           AS foto_produto,
+            p.valor          AS valor_produto     -- preço atual do produto (opcional)
+        FROM item_venda iv
+        JOIN produto p ON iv.idproduto = p.idproduto
+        WHERE iv.idvenda = ?
+    ";
 
-    mysqli_stmt_bind_param($comando, 'i', $idvenda);
+    $stmt = mysqli_prepare($conexao, $sql);
+    if (!$stmt) return []; // protege caso prepare falhe
 
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
+    mysqli_stmt_bind_param($stmt, 'i', $idvenda);
+    mysqli_stmt_execute($stmt);
+    $resultado = mysqli_stmt_get_result($stmt);
 
     $lista_itens = [];
-    while ($item = mysqli_fetch_assoc($resultado)) {
-        $id_produto = $item['idproduto'];
-        $produto = pesquisarProduto($conexao, $id_produto);
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $id_produto = (int)$row['idproduto'];
 
-        // adiciona os dados do produto
-        $item['nome_produto'] = $produto['nome'];
-        $item['foto'] = $produto['foto']; 
-
-        $lista_itens[] = $item;
+        $lista_itens[$id_produto] = [
+            'quantidade'     => (int) $row['quantidade'],
+            'valor_unitario' => (float) $row['valor_unitario'], // preço gravado na venda/item
+            'nome_produto'   => $row['nome_produto'],
+            'foto'           => $row['foto_produto'],
+            'valor_produto'  => (float) $row['valor_produto'],  // preço atual (se for útil)
+        ];
     }
 
-    mysqli_stmt_close($comando);
+    mysqli_stmt_close($stmt);
     return $lista_itens;
 }
+
 
 function salvarIngrediente($conexao, $idproduto, $idingredientes, $quantidade) {
     $sql = "INSERT INTO ingrediente (idproduto, idingrediente, quantidade)

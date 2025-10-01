@@ -3,7 +3,7 @@ require_once "../controle/conexao.php";
 require_once "../controle/funcoes.php";
 
 // Recebe dados da venda
-$idvenda     = $_GET['idvenda'] ?? 0; // 0 = nova venda
+$idvenda = $_GET['id'] ?? 0; // 0 = nova venda
 $idcliente = $_POST['idcliente'] ?? null;
 
 if (!$idcliente) {
