@@ -36,7 +36,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 
     </head>
             
-
     <body>
 
         <div class="cabecalho">
@@ -54,32 +53,47 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     <li><a href="index.php">Início</a></li>
                     <li><a href="cardapio.php">Cardápio</a></li>
 
-                    <div class='dropdown'>
-                        <button class='dropdown-btn'>Cadastrar
-                            <i class='fa fa-caret-down'></i>
-                        </button>
-                        <div class='dropdown-container'>
-                            <a href='formProduto.php'>Cadastrar novo produto</a>
-                            <a href='formCliente.php'>Cadastrar novo cliente</a>
-                            <a href='formVenda.php'>Cadastrar nova venda</a>
-                            <a href='formArmazenamento.php'>Cadastrar novo ingrediente</a>
-                        </div>
-                    </div>
+                    <?php
+                    echo $nome_usuario;
+                    echo $tipo_usuario;
+                    ?>
 
-                    <br>
-                    <div class="dropdown">
-                        <button class="dropdown-btn">Listar
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-container">
-                            <a href="listarProduto.php">Lista de produtos cadastrados</a>
-                            <a href="listarCliente.php">Lista de clientes cadastrados</a>
-                            <a href="listarVenda.php">Lista de vendas cadastrados</a>
-                            <a href="listarArmazenamento.php">Lista de ingredientes cadastrados</a>
-                            <a href="listarUsuario.php">Lista de usuários cadastrados</a>
-                        </div>
-                    </div>
+                    <?php
+                        if ($tipo_usuario == 'a' || $tipo_usuario == 'b') {
 
+                    echo "<div class='dropdown'>";
+                    echo "    <button class='dropdown-btn'>Cadastrar";
+                    echo "        <i class='fa fa-caret-down'></i>";
+                    echo "    </button>";
+                    echo "    <div class='dropdown-container'>";
+                    echo "        <a href='formProduto.php'>Cadastrar novo produto</a>";
+                    echo "        <a href='formCliente.php'>Cadastrar novo cliente</a>";
+                    echo "        <a href='formVenda.php'>Cadastrar nova venda</a>";
+                    echo "        <a href='formArmazenamento.php'>Cadastrar novo ingrediente</a>";
+                    echo "    </div>";
+                    echo "</div>";
+                    }?>
+
+
+                    <?php
+                        if ($tipo_usuario == 'a' || $tipo_usuario == 'b') {
+
+                    echo "<br>";
+                    echo "<div class='dropdown'>";
+                    echo "    <button class='dropdown-btn'>Listar";
+                    echo "        <i class='fa fa-caret-down'></i>";
+                    echo "    </button>";
+                    echo "    <div class='dropdown-container'>";
+                    echo "        <a href='listarProduto.php'>Lista de produtos cadastrados</a>";
+                    echo "        <a href='listarCliente.php'>Lista de clientes cadastrados</a>";
+                    echo "        <a href='listarVenda.php'>Lista de vendas cadastrados</a>";
+                    echo "        <a href='listarArmazenamento.php'>Lista de ingredientes cadastrados</a>";
+                    echo "        <a href='listarUsuario.php'>Lista de usuários cadastrados</a>";
+                    echo "    </div>";
+                    echo "</div>";
+                    }?>
+
+                    
                     <br>
                     <li><a href="historia.php">História/Política de Privacidade</a></li>
                     <li><a href="deslogar.php">Sair</a></li>
