@@ -2,5 +2,5 @@
 require_once "../conexao.php";
 require_once "../funcoes.php";
 
-deletarUsuario($conexao, 5);
+deletarUsuario($conexao, 11);
 ?>

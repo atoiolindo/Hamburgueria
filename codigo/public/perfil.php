@@ -58,7 +58,7 @@ $telefone = isset($_SESSION['telefone']) ? $_SESSION['telefone'] : "";
     }
     .btn-editar {
       position: absolute;
-      right: -65px; /* joga o botão para fora do input */
+      right: -65px; 
       top: 26px;
       background: #444;
       border: none;
