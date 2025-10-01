@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : "Usuário";
-$email = isset($_SESSION['email']) ? $_SESSION['email'] : "usuario@email.com";
+$nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : "";
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 $telefone = isset($_SESSION['telefone']) ? $_SESSION['telefone'] : "";
 ?>
 
@@ -22,19 +22,22 @@ $telefone = isset($_SESSION['telefone']) ? $_SESSION['telefone'] : "";
     <div class="grid">
       <div class="campo">
         <label>Nome Completo</label>
-        <input type="text" value="<?php echo htmlspecialchars($nome); ?>">
+        <input type="text" value="<?php echo htmlspecialchars($nome); ?>" readonly>
       </div>
 
       <div class="campo">
-        <label>E-mail</label>
+        <label>E-mail <span style="color: brown;">*</label>
+        <input type="text" value="<?php echo htmlspecialchars($telefone); ?>" placeholder="Seu e-mail" readonly>
+        <button class="btn-editar" onclick="window.location.href='./verificarEmail.php'">Editar</button>
+        <span class="aviso">Campo obrigatório </span>
+
       </div>
 
       <div class="campo">
-        <label>Telefone <span style="color: orange;">*</span></label>
+        <label>Telefone <span style="color: brown;">*</span></label>
         <input type="text" value="<?php echo htmlspecialchars($telefone); ?>" placeholder="Seu número" readonly>
-        <button class="btn-editar" onclick="window.location.href='verificar.php'">Editar</button>
-        <button class="btn-editar" onclick="window.location.href='../controle/verificarEmail.php'">Editar</button>
-        <span class="aviso">Campo obrigatório - Usado para contato e suporte</span>
+        <button class="btn-editar" onclick="window.location.href='./verificarTelefone.php'">Editar</button>
+        <span class="aviso">Campo obrigatório </span>
       </div>
     </div>
   </div>
