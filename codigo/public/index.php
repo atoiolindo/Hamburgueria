@@ -38,6 +38,11 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
             
 
     <body>
+    <?php if (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+    <div class="alert alert-danger" style="text-align:center;">
+        E-mail ou senha incorretos. Tente novamente.
+    </div>
+    <?php endif; ?>
         <div class="cabecalho">
 
             <button class="menu-btn" onclick="toggleMenu()" title="Menu">
@@ -272,7 +277,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 
         <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // dropdowns do menu lateral (já existiam)
             var menuDropdowns = document.querySelectorAll(".dropdown-btn");
             menuDropdowns.forEach(function(btn) {
                 btn.addEventListener("click", function() {
@@ -283,7 +287,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                 });
             });
 
-            // dropdown do perfil (novo)
             var profileBtns = document.querySelectorAll(".profile-btn");
             profileBtns.forEach(function(btn) {
                 btn.addEventListener("click", function(e) {

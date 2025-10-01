@@ -521,7 +521,7 @@ function verificarLogin($conexao, $email, $senha) {
 }
 
 function pegarDadosUsuario($conexao, $idusuario) {
-    $sql = "SELECT nome, tipo FROM usuario WHERE idusuario = ?";
+    $sql = "SELECT idusuario, nome, tipo FROM usuario WHERE idusuario = ?";
 
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'i', $idusuario);
