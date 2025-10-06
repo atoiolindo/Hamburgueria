@@ -150,7 +150,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     </div>
 
                     <div class="imagem-banner-fundo">
-                        <img id="molho-banner" src="assets/molho.png" alt="Molho decorativo">
                         <img id="hamburguer-banner" src="assets/hamburguer.png" alt="Hambúrguer delicioso">
                     </div>
 

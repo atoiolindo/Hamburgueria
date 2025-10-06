@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap');
+
 .menu-btn {
     position: absolute;
     top: 32px;
@@ -282,7 +284,9 @@
 .texto-banner h1 {
   font-weight: 800; 
   font-size: 70px;
+  font-family: 'Bevan', serif;
 }
+
 
 .texto-banner h4 {
     color: #ffffffb2;
@@ -311,7 +315,7 @@
   width: 680px;
   height: auto;
   border-radius: 12px;
-  transform: translate(-50px, -40px);
+  transform: translate(-190px, -40px);
   z-index: 2;
   position: relative;
 }
