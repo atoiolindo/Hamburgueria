@@ -31,10 +31,10 @@ $login_url = $client->createAuthUrl();
    
     <form action="../controle/verificarLogin.php" method="post">
     E-mail: 
-    <input type="text" name="email">
+    <input type="text" name="email" required>
     
     Senha: 
-    <input type="password" name="senha">
+    <input type="password" name="senha" required>
     <a href="esqueciSenha.php">Esqueceu sua senha?</a>
 
     <a href="<?= $login_url ?>" class="btn-google">
@@ -47,8 +47,13 @@ $login_url = $client->createAuthUrl();
     Entrar com Google
     </a>
 
-    <a href="formUsuario.php">Não tem login? Crie um!</a>
-    <input type="submit" value="Confirmar">
+    <div id=div>
+        <a href="formUsuario.php">Não tem login? Crie um!</a>
+        <input type="submit" value="Confirmar">
+        <a href="index.php" class="voltar">Voltar</a>
+        
+    </div>
+
     </form>
 </div>
 </body>

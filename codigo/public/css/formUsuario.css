@@ -119,3 +119,29 @@ a:hover {
 }
 
 
+#div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+}
+
+.voltar {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    padding: 8px 12px;
+    background: none;
+    color: #AD2E1A;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.voltar::before {
+    content: '↵';  
+    margin-right: 8px; 
+    font-size: 20px; 
+}

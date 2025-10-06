@@ -16,15 +16,17 @@
     <form action="../controle/salvarUsuario.php" method="post">
  
     Nome de usuário: 
-    <input type="text" name="nome">
+    <input type="text" name="nome" required>
     
     E-mail: 
-    <input type="text" name="email">
+    <input type="text" name="email" required>
     
     Senha: 
-    <input type="password" name="senha">
+    <input type="password" name="senha" required>
 
     <input type="submit" value="Próximo">
+    <a href="index.php" class="voltar">Voltar</a>
+
     </form>
 </div>
 </body>
