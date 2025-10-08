@@ -127,7 +127,9 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
     </div>
-    <div class="cardapio"><h1>Cardápio</h1>
+    <br>
+    <div class="divisoria"></div><br><br>
+    <div class="cardapio"><h1 class="titulo">Cárdapio</h1>
 
     <?php
     //require_once "../controle/verificaLogado.php";
@@ -140,7 +142,7 @@
         echo "Não existem produtos cadastrados.";
     } else {
     ?>
-        <table border="1">
+        <table border="0">
             <tr>
                 <td>Id</td>
                 <td>Foto</td>

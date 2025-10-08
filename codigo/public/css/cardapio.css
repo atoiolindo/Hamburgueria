@@ -1,5 +1,31 @@
+.divisoria {
+    width: 100%;
+    height: 0;
+    border-top: 1px solid;       
+    margin: 32px 0 60px 0;            
+    opacity: 0.9;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+
 .cardapio {
-    border-bottom: 50%;
-    left: 50px;
-    background-color: blueviolet;
+    margin-top: -1.8%;
+    margin-left: 2%;
+
+    
+    border: 2px solid white;     /* borda branca */
+    border-radius: 12px;         /* arredonda as bordas */
+    padding: 20px;               /* espaço interno */
+    width: 2000px;                /* largura */
+    background-color: #222;      /* fundo escuro pra destacar */
+    color: white;                /* texto branco */
+}
+
+
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
