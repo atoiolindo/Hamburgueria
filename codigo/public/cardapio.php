@@ -129,9 +129,9 @@
     </div>
     <br>
     <div class="divisoria"></div><br><br>
-    <div class="cardapio"><h1 class="titulo">Cárdapio</h1>
+    <div class="cardapiogeral"><h1 class="titulo">Cárdapio</h1>
 
-    <?php
+    <div class="hamburguer"> <?php
     //require_once "../controle/verificaLogado.php";
     require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
@@ -157,6 +157,8 @@
 
         <?php
         foreach ($lista_produtos as $produto) {
+            if (strtolower($produto['tipo']) !== 'hambúrguer') continue;
+
             $idproduto = $produto['idproduto'];
             $nome = $produto['nome'];
             $nome_real = $produto['nome_real'];
@@ -182,6 +184,63 @@
     }
         ?>
         </table>
+    </div>
+    <div class="outros"> <?php
+    //require_once "../controle/verificaLogado.php";
+    require_once "../controle/conexao.php";
+    require_once "../controle/funcoes.php";
+
+    $lista_produtos = listarProduto($conexao);
+    
+    if (count($lista_produtos) == 0) {
+        echo "Não existem produtos cadastrados.";
+    } else {
+    ?>
+        <table border="0">
+            <tr>
+                <td>Id</td>
+                <td>Foto</td>
+                <td>Nome</td>
+                <td>Nome real</td>
+                <td>Ingredientes</td>
+                <td>Valor</td>
+                <td>Tipo</td>
+                <td>Descrição</td>
+                <td colspan="2">Ação</td>
+            </tr>
+
+        <?php
+        foreach ($lista_produtos as $produto) {
+            if (!in_array(strtolower($produto['tipo']), ['bebida', 'acompanhamento'])) {
+            continue; // pula os outros tipos
+            }
+
+            $idproduto = $produto['idproduto'];
+            $nome = $produto['nome'];
+            $nome_real = $produto['nome_real'];
+            $ingredientes = $produto['ingredientes'];
+            $valor = $produto['valor'];
+            $tipo = $produto['tipo'];
+            $foto = $produto['foto'];
+            $descricao = $produto['descricao'];
+
+            echo "<tr>";
+            echo "<td>$idproduto</td>";
+            echo "<td><img src='../controle/fotos/$foto'></td>";
+            echo "<td>$nome</td>";
+            echo "<td>$nome_real</td>";
+            echo "<td>$ingredientes</td>";
+            echo "<td>$valor</td>";
+            echo "<td>$tipo</td>";
+            echo "<td>$descricao</td>";
+            echo "<td><a href='formProduto.php?id=$idproduto'>Editar</a></td>";
+            echo "<td><a href='../controle/deletarProduto.php?id=$idproduto'>Excluir</a></td>";
+            echo "</tr>";
+        }
+    }
+        ?>
+        </table>
+    </div>
     </div>
 </body>
 

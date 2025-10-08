@@ -61,6 +61,17 @@ function editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo
     return $funcionou;  
 };
 
+function listarProdutoPorTipo($conexao, $tipo) {
+    $sql = "SELECT * FROM produto WHERE tipo = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, 's', $tipo);
+    mysqli_stmt_execute($stmt);
+    $resultado = mysqli_stmt_get_result($stmt);
+    $produtos = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    mysqli_stmt_close($stmt);
+    return $produtos;
+}
+
 // testado e funcionando
 
 function listarCliente($conexao) {
