@@ -47,17 +47,12 @@ try {
     <title>Callback Google</title>
     <link rel="stylesheet" href="./css/callback.css">
     <link href="https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-    <script>
-        setTimeout(() => {
-            window.location.href = "index.php";
-        }, 5000);
-    </script>
 </head>
 <body>
     <div class="container">
         <div class="success"><?= htmlspecialchars($mensagem) ?></div>
-        <p>Você será redirecionado para a página inicial...</p>
-        <a href="index.php" class="btn">Ir agora</a>
+        <p>Concluir meu cadastro</p>
+        <a href="formCliente.php" class="btn">Ir agora</a>
     </div>
 </body>
 </html>
