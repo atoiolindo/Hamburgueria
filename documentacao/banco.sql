@@ -229,13 +229,13 @@ VALUES ('Fênix Flamejante', 'Frango Picante',
 
 -- Produto 12 – Poção Refrescante de Laranja
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Poção Refrescante de Laranja', 'Poção Refrescante de Laranja', 
+VALUES ('Poção Refrescante de Laranja', 'Suco de laranja', 
 'Suco de laranja 100% natural', 7.90, 'bebida', 'pocaorefrescantedelaranja.png', 
 'Feito com laranjas frescas e 100% naturais. Sem adição de açúcar, corantes ou conservantes.');
 
 -- Produto 13 – Batatas Encantadas
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
-VALUES ('Batatas Encantadas', 'Batatas Encantadas', 
+VALUES ('Batatas Encantadas', 'Batata frita', 
 'Batatas crocantes e douradas', 10.90, 'acompanhamento', 'batatas.png', 
 'Batatas rústicas servidas douradas, sequinhas e bem temperadas, direto do caldeirão.');
 
