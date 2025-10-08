@@ -211,7 +211,9 @@
 
         <?php
         foreach ($lista_produtos as $produto) {
-            if (strtolower($produto['tipo']) !== 'outros') continue;
+            if (!in_array(strtolower($produto['tipo']), ['bebida', 'acompanhamento'])) {
+            continue; // pula os outros tipos
+            }
 
             $idproduto = $produto['idproduto'];
             $nome = $produto['nome'];
