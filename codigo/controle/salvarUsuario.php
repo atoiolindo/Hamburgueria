@@ -1,5 +1,6 @@
 <?php
 require_once "../controle/conexao.php";
+require_once "../controle/funcoes.php";
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
@@ -7,9 +8,17 @@ $nome = $_POST['nome'];
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO usuario (email, senha, nome, tipo) VALUES ('$email', '$senha_hash', '$nome', 'c')";
+$tipo = "c";
+$token = mt_rand(100000, 999999);
+$status = "nao";
 
-mysqli_query($conexao, $sql);
-
-header("Location: ../public/formCliente.php");
+if ($email != "") {
+    salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status);
+    header("Location: ../public/callback.php");
+    exit;
+}
+else {
+    header("Location: ../public/index.php");
+    exit;
+}
 ?>

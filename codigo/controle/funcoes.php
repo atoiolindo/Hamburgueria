@@ -148,16 +148,16 @@ function editarCliente($conexao, $nome, $telefone, $endereco,  $email, $idclient
 };
 
 
-function salvarUsuario($conexao, $nome, $email, $senha) {
-    $sql = "INSERT INTO usuario (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
+function salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status) {
+    $sql = "INSERT INTO usuario (nome, email, senha, tipo, token, status) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $senha_hash, $tipo);
+    mysqli_stmt_bind_param($comando, 'ssssis', $nome, $email, $senha_hash, $tipo, $token, $status);
 
     $funcionou = mysqli_stmt_execute($comando);
 
-   mysqli_stmt_close($comando);
+    mysqli_stmt_close($comando);
     return $funcionou;
 };
 
