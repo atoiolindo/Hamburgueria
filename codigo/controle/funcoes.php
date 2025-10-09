@@ -35,15 +35,15 @@ function listarProduto($conexao) {
 // testado e funcionando
 
 function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao) {
-    $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado) VALUES (?, ?, ?, ?, ?, ?, ?, 'ativo')";
     $comando = mysqli_prepare($conexao, $sql);
     
+    // Removemos o parâmetro $estado
     mysqli_stmt_bind_param($comando, 'sssdsss', $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao);
     
     $funcionou = mysqli_stmt_execute($comando);
-    
     mysqli_stmt_close($comando);
-    return $funcionou;  
+    return $funcionou;
 };
 
 // testado e funcionando
@@ -70,7 +70,7 @@ function listarProdutoPorTipo($conexao, $tipo) {
     $produtos = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
     mysqli_stmt_close($stmt);
     return $produtos;
-}
+};
 
 // testado e funcionando
 

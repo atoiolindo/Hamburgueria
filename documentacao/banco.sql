@@ -154,107 +154,115 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+ALTER TABLE cliente CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+ALTER TABLE ingrediente CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+ALTER TABLE venda CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+ALTER TABLE armazenamento CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+ALTER TABLE usuario CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+ALTER TABLE item_venda CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+ALTER TABLE produto CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
 
 -- Produto 1 – Encantamento Dourado
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Encantamento Dourado', 'Clássico da Casa', 
 'Pão brioche, hambúrguer bovino 150g, queijo prato, alface, tomate, cebola roxa, maionese da casa',
 28.90, 'hambúrguer', 'encantamentodourado.png', 
-'Um clássico encantador com pão brioche, hambúrguer suculento de 150g, queijo prato, vegetais frescos e nossa maionese especial.');
+'Um clássico encantador com pão brioche, hambúrguer suculento de 150g, queijo prato, vegetais frescos e nossa maionese especial.', 'ativo');
 
 -- Produto 2 – Feitiço Clássico
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Feitiço Clássico', 'Cheddar & Bacon', 
 'Pão australiano, hambúrguer 180g, cheddar cremoso, bacon crocante, cebola caramelizada',
 31.90, 'hambúrguer', 'feiticoclassico.png', 
-'Uma combinação clássica de cheddar cremoso, bacon crocante e cebola caramelizada sobre pão australiano e hambúrguer 180g.');
+'Uma combinação clássica de cheddar cremoso, bacon crocante e cebola caramelizada sobre pão australiano e hambúrguer 180g.', 'ativo');
 
 -- Produto 3 – Trio Arcano
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Trio Arcano', 'Smash Triplo', 
 'Pão de leite, 3 smash burgers de 60g, queijo americano, picles, molho especial',
 34.90, 'hambúrguer', 'trioarcano.png', 
-'Três smash burgers de 60g com queijo americano, picles e molho especial no pão de leite: magia em cada mordida.');
+'Três smash burgers de 60g com queijo americano, picles e molho especial no pão de leite: magia em cada mordida.', 'ativo');
 
 -- Produto 4 – Gorgonzola Místico
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Gorgonzola Místico', 'Blue Burger', 
 'Pão rústico, hambúrguer 180g, gorgonzola, rúcula, maionese de alho',
 33.90, 'hambúrguer', 'gorgonzolamistico.png', 
-'Para os amantes do sabor marcante: hambúrguer com gorgonzola, rúcula fresca e maionese de alho no pão rústico.');
+'Para os amantes do sabor marcante: hambúrguer com gorgonzola, rúcula fresca e maionese de alho no pão rústico.', 'ativo');
 
 -- Produto 5 – Fogo do Deserto
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Fogo do Deserto', 'Apimentado Texano', 
 'Pão brioche, hambúrguer bovino 150g, queijo muçarela, jalapeños, molho barbecue picante, onion rings',
 32.90, 'hambúrguer', 'fogododeserto.png', 
-'Explosão de sabor picante com jalapeños, onion rings e molho barbecue especial sobre hambúrguer suculento.');
+'Explosão de sabor picante com jalapeños, onion rings e molho barbecue especial sobre hambúrguer suculento.', ', ativo');
 
 -- Produto 6 – Barbecue Sombrio
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Barbecue Sombrio', 'Porco Barbecue', 
 'Pão brioche, hambúrguer de pernil temperado, queijo prato, coleslaw, molho barbecue',
 29.90, 'hambúrguer', 'barbecuesombrio.png', 
-'Hambúrguer de pernil com coleslaw e molho barbecue no pão tradicional.');
+'Hambúrguer de pernil com coleslaw e molho barbecue no pão tradicional.', 'ativo');
 
 -- Produto 7 – Magia do Bacon
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Magia do Bacon', 'Bacon Lovers', 
 'Pão australiano, hambúrguer suíno 180g, bacon em tiras, queijo cheddar, cebola crispy, maionese defumada',
 33.90, 'hambúrguer', 'magiadobacon.png', 
-'Uma explosão de sabores com hambúrguer suíno, bacon, cheddar e maionese defumada.');
+'Uma explosão de sabores com hambúrguer suíno, bacon, cheddar e maionese defumada.', 'ativo');
 
 -- Produto 8 – Poção do Pântano
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Poção do Pântano', 'Pulled Pork Sandwich', 
 'Pão brioche, carne suína desfiada, molho barbecue, picles, cebola roxa',
 31.90, 'hambúrguer', 'pocaodopantano.png', 
-'Sanduíche de carne suína desfiada com picles e cebola roxa no pão brioche.');
+'Sanduíche de carne suína desfiada com picles e cebola roxa no pão brioche.', 'ativo');
 
 -- Produto 9 – Mineirice Mágica
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Mineirice Mágica', 'Suíno Mineiro', 
 'Pão rústico, hambúrguer de linguiça artesanal, queijo minas, vinagrete, maionese de limão',
 30.90, 'hambúrguer', 'mineiricemagica.png', 
-'Hambúrguer de linguiça mineira com queijo minas e vinagrete no pão rústico.');
+'Hambúrguer de linguiça mineira com queijo minas e vinagrete no pão rústico.', 'ativo');
 
 -- Produto 10 – Crocris da Alvorada
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Crocris da Alvorada', 'Crocante da Casa', 
 'Pão de leite, filé de frango empanado, queijo cheddar, alface, maionese com ervas',
 27.90, 'hambúrguer', 'cocrisdaalvorada.png', 
-'Filé de frango empanado com cheddar, alface e maionese de ervas no pão de leite.');
+'Filé de frango empanado com cheddar, alface e maionese de ervas no pão de leite.', 'ativo');
 
 -- Produto 11 – Fênix Flamejante
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Fênix Flamejante', 'Frango Picante', 
 'Pão brioche, filé de frango grelhado com páprica, queijo muçarela, jalapeños, maionese chipotle',
 30.90, 'hambúrguer', 'fenixflamejante.png', 
-'Frango picante grelhado com jalapeños e maionese chipotle no pão brioche.');
+'Frango picante grelhado com jalapeños e maionese chipotle no pão brioche.', 'ativo');
 
 -- Produto 12 – Poção Refrescante de Laranja
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Poção Refrescante de Laranja', 'Suco de laranja', 
 'Suco de laranja 100% natural', 7.90, 'bebida', 'pocaorefrescantedelaranja.png', 
-'Feito com laranjas frescas e 100% naturais. Sem adição de açúcar, corantes ou conservantes.');
+'Feito com laranjas frescas e 100% naturais. Sem adição de açúcar, corantes ou conservantes.', 'ativo');
 
 -- Produto 13 – Batatas Encantadas
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Batatas Encantadas', 'Batata frita', 
 'Batatas crocantes e douradas', 10.90, 'acompanhamento', 'batatas.png', 
-'Batatas rústicas servidas douradas, sequinhas e bem temperadas, direto do caldeirão.');
+'Batatas rústicas servidas douradas, sequinhas e bem temperadas, direto do caldeirão.', 'ativo');
 
 -- Produto 14 – Verde de Elphira
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Verde de Elphira', 'Salada temperada', 
 'Alface, rúcula, tomate, pepino, cebola roxa, azeite e limão', 9.90, 'acompanhamento', 'verdedeelphira.png', 
-'Salada fresca com vegetais crocantes, temperada com azeite e limão encantados.');
+'Salada fresca com vegetais crocantes, temperada com azeite e limão encantados.', 'ativo');
 
 -- Produto 15 – Runa Dourada
-INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao)
+INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Runa Dourada', 'Batatas rústicas', 
 'Batatas rústicas assadas com alho, ervas do bosque e sal dourado', 11.90, 'acompanhamento', 'runadourada.png', 
-'Batatas assadas com alho, ervas e um toque mágico de sal dourado. Crocantes por fora, macias por dentro.');
+'Batatas assadas com alho, ervas e um toque mágico de sal dourado. Crocantes por fora, macias por dentro.', 'ativo');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (20, 'hambúrguer bovino 150g');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (30, 'queijo prato');
 INSERT INTO armazenamento ( quantidade, nome) VALUES (50, 'pão brioche');
@@ -395,11 +403,11 @@ INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Luana Coutto', '6
 INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'aliciaoliveira1@gmail.com');
 -- INSERTs para usuario
 
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'jess_rainhe@yahoo.com.br', '$2y$10$MwI4cpcmi6gJhSjxWTzJUejR7MK63EA3SQiRhp//yqzmSIJzIvsYm', 'Jessica Arantes', 'a');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'antonio.andrade@gmail.com', '$2y$10$yHqcxeEU22fW1UNYXj.EgejsFuScLbKS/aELrcs4VmWkghlJdS12a', 'Antônio Andrade', 'b');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'gabriel.rodrigues@gmail.com', '$2y$10$n5PDU7AAWJYj4KKf0PFK6e6rEQ9ag.yNLxY2Kk9hd8IzbO0cHmaHq', 'Gabriel Rodrigues', 'b');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'yasmin.pereira@gmail.com', '$2y$10$JMZ1VlAtGhcPg5wq0cjl4u6lRoP2Gf/ohSKzMXbw4vvvLRn7LGtNW', 'Yasmin Pereira', 'b');
-INSERT INTO usuario ( email, senha, nome, tipo) VALUES ( 'im.just.cleber@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Cleber', 'c');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'jess_rainhe@yahoo.com.br', '$2y$10$MwI4cpcmi6gJhSjxWTzJUejR7MK63EA3SQiRhp//yqzmSIJzIvsYm', 'Jessica Arantes', 'a', '1', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'antonio.andrade@gmail.com', '$2y$10$yHqcxeEU22fW1UNYXj.EgejsFuScLbKS/aELrcs4VmWkghlJdS12a', 'Antônio Andrade', 'b', '2', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'gabriel.rodrigues@gmail.com', '$2y$10$n5PDU7AAWJYj4KKf0PFK6e6rEQ9ag.yNLxY2Kk9hd8IzbO0cHmaHq', 'Gabriel Rodrigues', 'b', '3', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'yasmin.pereira@gmail.com', '$2y$10$JMZ1VlAtGhcPg5wq0cjl4u6lRoP2Gf/ohSKzMXbw4vvvLRn7LGtNW', 'Yasmin Pereira', 'b', '4', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'im.just.cleber@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Cleber', 'c', '5', 'não');
 -- INSERTs para venda
 
 INSERT INTO venda ( valor_final, observacao, data, idcliente, status)

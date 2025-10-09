@@ -12,6 +12,7 @@
         $nome = $armazenamento['nome'];
 
         $botao = "Atualizar";
+        $favicon = './assets/editar.png';
     }
     else {
         // echo "novo";
@@ -20,6 +21,7 @@
         $nome = "";
 
         $botao = "Cadastrar";
+        $favicon = './assets/cadastrar.png';
     }
 ?>
 <!DOCTYPE html>
@@ -28,6 +30,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 </head>
 <body>
     <h1>Cadastro de ingredientes</h1>
