@@ -59,7 +59,7 @@ if ($id == 0) {
     }
 } else {
     // Atualiza produto
-    editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $descricao, $id);
+    editarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $descricao, $estado, $id);
 
     // Remove ingredientes antigos
     $sql_del = "DELETE FROM ingrediente WHERE idproduto = ?";
