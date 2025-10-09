@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
     $itens_venda = listarItemVenda($conexao, $idvenda); // retorna array associativo [idproduto => quantidade]
 
     $botao = "Atualizar Venda";
-    $favicon = './assets/cadastrar.png';
+    $favicon = './assets/editar.png';
 } else {
     $idvenda = 0;
     $idcliente = null;
@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
     $itens_venda = [];
 
     $botao = "Registrar Venda";
-    $favicon = './assets/editar.png';
+    $favicon = './assets/cadastrar.png';
 }
 ?>
 
@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $botao; ?></title>
-    <link rel="icon" href="<?php $favicon?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
     <script src="../controle/jquery-3.7.1min(1).js"></script>
     <script src="../controle/funcoes.js"></script>
 </head>
