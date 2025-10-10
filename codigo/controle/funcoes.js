@@ -25,3 +25,10 @@ $(document).ready(function() {
                 }
             });
         });
+
+function editarTelefone() {
+    const input = document.getElementById('telefone');
+    input.removeAttribute('readonly');
+    input.focus();
+}
+

@@ -2,12 +2,12 @@
 require_once "../controle/conexao.php";
 require_once "../controle/funcoes.php";
 
-if (!isset($_POST['email'])) {
+if (!isset($_POST['email']) && !isset($_GET['email'])) {
     header("Location: esqueciSenha.php");
     exit;
 }
 
-$email = $_POST['email'];
+$email = $_POST['email'] ?? $_GET['email'];
 $idusuario = verificarEmail($conexao, $email);
 
 if ($idusuario == 0) {
@@ -42,7 +42,7 @@ if ($idusuario == 0) {
             <input type="submit" value="Confirmar" style="margin-top: 20px;">
         </form>
     
-        <a href="esqueciSenha.php" class="voltar">Voltar</a>
+        <a href="perfil.php" class="voltar">Voltar</a>
 
         <script>
             document.querySelectorAll('.codigo').forEach((input, idx, arr) => {

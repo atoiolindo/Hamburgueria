@@ -67,7 +67,7 @@ h2 {
     background: #eee;
 }
 
-.btn-editar {
+.editar {
     position: absolute;
     right: -75px;
     top: 32px;
@@ -83,7 +83,7 @@ h2 {
     transition: background 0.2s;
 }
 
-.btn-editar:hover {
+.editar:hover {
     background: #8c2212;
 }
 
@@ -92,4 +92,12 @@ h2 {
     color: orange;
     margin-top: 6px;
     font-family: 'Bevan', serif;
+}
+
+.campo { 
+    margin-bottom: 15px; 
+}
+
+.salvar { 
+    display: none; margin-left: 5px; 
 }
