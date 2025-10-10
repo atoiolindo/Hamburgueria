@@ -72,3 +72,8 @@ if ($idusuario == 0) {
             </div>
 </body>
 </html>
+
+
+
+
+o auth provider ver sobre 

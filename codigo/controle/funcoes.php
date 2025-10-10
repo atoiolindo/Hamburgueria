@@ -92,7 +92,7 @@ function listarCliente($conexao) {
 // testado e funcionando
 
 
-function salvarCliente($conexao, $nome, $telefone, $endereco, $email) {
+function salvarCliente($conexao, $nome, $telefone, $endereco) {
      // verifica duplicidade
     $sql_check = "SELECT idcliente FROM cliente WHERE telefone=? OR endereco=?";
     $stmt_check = mysqli_prepare($conexao, $sql_check);
@@ -108,10 +108,10 @@ function salvarCliente($conexao, $nome, $telefone, $endereco, $email) {
 
     // se não existe, insere
     
-    $sql = "INSERT INTO cliente (nome, telefone, endereco, email) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO cliente (nome, telefone, endereco) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);  
     
-    mysqli_stmt_bind_param($comando, 'ssss', $nome, $telefone, $endereco, $email);
+    mysqli_stmt_bind_param($comando, 'sss', $nome, $telefone, $endereco);
     
     mysqli_stmt_execute($comando);
     
@@ -136,10 +136,10 @@ function deletarCliente($conexao, $idcliente) {
 };
 
 
-function editarCliente($conexao, $nome, $telefone, $endereco,  $email, $idcliente) {
-    $sql = "UPDATE cliente SET nome=?, telefone=?, endereco=?, email=? WHERE idcliente=?";
+function editarCliente($conexao, $nome, $telefone, $endereco, $idcliente) {
+    $sql = "UPDATE cliente SET nome=?, telefone=?, endereco=? WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $telefone, $endereco, $email, $idcliente );
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $telefone, $endereco, $idcliente );
     
     $funcionou = mysqli_stmt_execute($comando);
     
