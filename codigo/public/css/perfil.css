@@ -98,6 +98,19 @@ h2 {
     margin-bottom: 15px; 
 }
 
-.salvar { 
-    display: none; margin-left: 5px; 
+#salvar { 
+    display: none; 
+    margin-left: 5px; 
+}
+
+#telefone-form{
+    display:inline;
+}
+
+#email-form{
+    display:inline;
+}
+
+#asterisco{
+    color:brown;
 }

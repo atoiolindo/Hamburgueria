@@ -32,3 +32,9 @@ function editarTelefone() {
     input.focus();
 }
 
+function editarUsuario() {
+    const input = document.getElementById('nome');
+    input.removeAttribute('readonly');
+    input.focus();
+}
+
