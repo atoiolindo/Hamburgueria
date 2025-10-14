@@ -153,7 +153,7 @@ function salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status) 
     $comando = mysqli_prepare($conexao, $sql);
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($comando, 'ssssis', $nome, $email, $senha_hash, $tipo, $token, $status);
+    mysqli_stmt_bind_param($comando, 'ssssss', $nome, $email, $senha_hash, $tipo, $token, $status);
 
     $funcionou = mysqli_stmt_execute($comando);
 

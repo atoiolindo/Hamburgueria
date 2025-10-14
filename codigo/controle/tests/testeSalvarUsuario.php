@@ -7,7 +7,9 @@ $nome = "Teste automatico";
 $email = "a@gmaiss";
 $senha = "Senha Automatica";
 $tipo = "teste";
+$token ="238923";
+$status = "n";
 
-$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $tipo);
+$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status);
 
 echo $idusuario;
