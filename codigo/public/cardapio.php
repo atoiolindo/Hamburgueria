@@ -169,7 +169,6 @@
             $descricao = $produto['descricao'];
 
             echo "<tr>";
-            echo "<td>$idproduto</td>";
             echo "<td><img src='../controle/fotos/$foto'></td>";
             echo "<td>$nome</td>";
             echo "<td>$nome_real</td>";
@@ -177,8 +176,8 @@
             echo "<td>$valor</td>";
             echo "<td>$tipo</td>";
             echo "<td>$descricao</td>";
-            echo "<td><a href='formProduto.php?id=$idproduto'>Editar</a></td>";
-            echo "<td><a href='../controle/deletarProduto.php?id=$idproduto'>Excluir</a></td>";
+            echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
+            echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
         }
     }
@@ -225,7 +224,6 @@
             $descricao = $produto['descricao'];
 
             echo "<tr>";
-            echo "<td>$idproduto</td>";
             echo "<td><img src='../controle/fotos/$foto'></td>";
             echo "<td>$nome</td>";
             echo "<td>$nome_real</td>";
@@ -233,8 +231,8 @@
             echo "<td>$valor</td>";
             echo "<td>$tipo</td>";
             echo "<td>$descricao</td>";
-            echo "<td><a href='formProduto.php?id=$idproduto'><img src="./assets/editar.png" alt="editar"></a></td>";
-            echo "<td><a href='../controle/deletarProduto.php?id=$idproduto'><img src="./assets/excluir.png" alt="excluir"></a></td>";
+            echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
+            echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
         }
     }
