@@ -131,7 +131,9 @@
     <div class="divisoria"></div><br><br>
     <div class="cardapiogeral"><h1 class="titulo">Cárdapio</h1>
 
-    <div class="hamburguer"> <?php
+    <div class="hamburguer">
+    <h2>Hambúrguer</h2>
+    <?php
     //require_once "../controle/verificaLogado.php";
     require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
@@ -144,15 +146,7 @@
     ?>
         <table border="0">
             <tr>
-                <td>Id</td>
-                <td>Foto</td>
-                <td>Nome</td>
-                <td>Nome real</td>
-                <td>Ingredientes</td>
-                <td>Valor</td>
-                <td>Tipo</td>
-                <td>Descrição</td>
-                <td colspan="2">Ação</td>
+                
             </tr>
 
         <?php
@@ -170,12 +164,8 @@
 
             echo "<tr>";
             echo "<td><img src='../controle/fotos/$foto'></td>";
-            echo "<td>$nome</td>";
-            echo "<td>$nome_real</td>";
-            echo "<td>$ingredientes</td>";
+            echo "<td>$nome,<br> $ingredientes</td>";
             echo "<td>$valor</td>";
-            echo "<td>$tipo</td>";
-            echo "<td>$descricao</td>";
             echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
@@ -184,7 +174,8 @@
         ?>
         </table>
     </div>
-    <div class="outros"> <?php
+    <div class="outros"> 
+        <h2>Outros</h2> <?php
     //require_once "../controle/verificaLogado.php";
     require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
@@ -196,18 +187,7 @@
     } else {
     ?>
         <table border="0">
-            <tr>
-                <td>Id</td>
-                <td>Foto</td>
-                <td>Nome</td>
-                <td>Nome real</td>
-                <td>Ingredientes</td>
-                <td>Valor</td>
-                <td>Tipo</td>
-                <td>Descrição</td>
-                <td colspan="2">Ação</td>
-            </tr>
-
+            
         <?php
         foreach ($lista_produtos as $produto) {
             if (!in_array(strtolower($produto['tipo']), ['bebida', 'acompanhamento'])) {
@@ -225,12 +205,8 @@
 
             echo "<tr>";
             echo "<td><img src='../controle/fotos/$foto'></td>";
-            echo "<td>$nome</td>";
-            echo "<td>$nome_real</td>";
-            echo "<td>$ingredientes</td>";
+            echo "<td>$nome,<br> $ingredientes</td>";
             echo "<td>$valor</td>";
-            echo "<td>$tipo</td>";
-            echo "<td>$descricao</td>";
             echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
