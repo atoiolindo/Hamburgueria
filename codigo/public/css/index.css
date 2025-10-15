@@ -312,10 +312,10 @@
 
 #hamburguer-banner {
   max-width: 90%;
-  width: 680px;
+  width: 580px;
   height: auto;
   border-radius: 12px;
-  transform: translate(-190px, -40px);
+  transform: translate(-100px, -40px);
   z-index: 2;
   position: relative;
 }
