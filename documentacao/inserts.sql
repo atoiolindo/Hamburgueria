@@ -231,11 +231,11 @@ INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (14, 45, 1
 
 -- INSERTs para cliente
 
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Cleber', '62 93920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES', 'thomasmelo@gmail.com');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Francisco Peixoto', '62 98396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL', 'francisco_peixoto@gmail.com');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Jessica Arantes Renascida', '62 96873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES', 'diego.ferreira14@gmail.com');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Luana Coutto', '62 98582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES', 'carolina__aragao69@gmail.com');
-INSERT INTO cliente (nome, telefone, endereco, email) VALUES ('Alícia Oliveira', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP', 'aliciaoliveira1@gmail.com');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Cleber', '62 93920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Francisco Peixoto', '62 98396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Jessica Arantes Renascida', '62 96873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Luana Coutto', '62 98582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES');
+INSERT INTO cliente (nome, telefone, endereco) VALUES ('Alícia Oliveira', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP');
 -- INSERTs para usuario
 
 INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'jess_rainhe@yahoo.com.br', '$2y$10$MwI4cpcmi6gJhSjxWTzJUejR7MK63EA3SQiRhp//yqzmSIJzIvsYm', 'Jessica Arantes', 'a', '1', 'não');
