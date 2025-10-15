@@ -1,6 +1,10 @@
 <?php
 
 use Google\Service\PeopleService as Google_Service_PeopleService;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 
 
 function deletarProduto($conexao, $idproduto) {    
@@ -787,14 +791,50 @@ function verificarEmail($conexao, $email) {
     mysqli_stmt_bind_param($comando, "s", $email);
     mysqli_stmt_execute($comando);
     $resultado = mysqli_stmt_get_result($comando);
+
+    if ($linha = mysqli_fetch_assoc($resultado)) {
+        return $linha['idusuario']; 
+    } else {
+        return 0; 
+    }
+}
+
+
+function gerarTokenUnico($conexao){
+    $token = bin2hex(random_bytes(3));
+    $sql = "SELECT idusuario FROM usuario WHERE email = ? AND token = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, "ss", $email, $codigo);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
     $quantidade = mysqli_num_rows($resultado);
 
     return $quantidade;
+    
 
-    if ($quantidade > 0) {
-        return $linha['idusuario']; 
-    } else {
-        return 0;
+    if (!$user) {
+        echo "<p style='color:red;text-align:center;'>Código incorreto.</p>";
+        echo "<p style='text-align:center;'><a href='esqueciSenha.php'>Tentar novamente</a></p>";
+        exit;
     }
 
+    header("Location: novaSenha.php?email=" ($email));
+    exit;
 }
+function pegarNomeUsuario($conexao, $idusuario){
+    $sql= "SELECT nome FROM usuario WHERE idusuario =?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, "i", $idusuario);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    
+    $usuario = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+
+    return $usuario['nome'];
+    
+}
+?>

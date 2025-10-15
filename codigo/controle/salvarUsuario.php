@@ -9,7 +9,7 @@ $nome = $_POST['nome'];
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
 $tipo = "c";
-$token = mt_rand(100000, 999999);
+$token = gerarTokenUnico($conexao);
 $status = "nao";
 
 if ($email != "") {

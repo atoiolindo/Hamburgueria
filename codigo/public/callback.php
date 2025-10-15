@@ -1,6 +1,5 @@
 <?php
 require_once "../controle/conexao.php";
-require_once "../controle/salvarUsuario.php";
 ?>
 
 <!DOCTYPE html>
