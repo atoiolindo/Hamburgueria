@@ -21,7 +21,7 @@ function inativarProduto($conexao, $idproduto) {
 //  testado e funcionando
 
 function listarProduto($conexao) {
-    $sql = "SELECT * FROM produto";
+    $sql = "SELECT * FROM produto WHERE estado = 'ativo'";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($comando); 
