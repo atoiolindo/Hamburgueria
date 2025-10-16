@@ -1,32 +1,30 @@
 <?php
 session_start();
 
-$nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : "";
-$email = isset($_SESSION['email']) ? $_SESSION['email'] : "";
-$telefone = isset($_SESSION['telefone']) ? $_SESSION['telefone'] : "";
+$nome = $_SESSION['nome'] ?? "";
+$email = $_SESSION['email'] ?? "";
+
+$nome_completo = $_SESSION['nome_completo'] ?? "";
+$telefone = $_SESSION['telefone'] ?? "";
+$endereco = $_SESSION['endereco'] ?? "";
 
 if (isset($_POST['telefone'])) {
     $telefone = trim($_POST['telefone']);
     $_SESSION['telefone'] = $telefone; 
     $msg = "Telefone atualizado com sucesso!";
-    
 } 
-
 elseif (isset($_POST['nome'])) {
     $nome = trim($_POST['nome']);
     $_SESSION['nome'] = $nome; 
     $msg = "Nome de usuário atualizado com sucesso!";
 } 
-
 elseif (isset($_POST['email'])) {
     $email = trim($_POST['email']);
     $_SESSION['email'] = $email; 
     $msg = "E-mail atualizado com sucesso!";
 }
-
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,11 +52,16 @@ elseif (isset($_POST['email'])) {
       </div>
 
       <div class="campo">
+        <label>Nome de usuário</label>
+        <input type="text" value="<?php echo ($nome); ?>" readonly>
+      </div>
+
+      <div class="campo">
         <label>E-mail <span id="asterisco">*</label>
 
         <form method="post" id="email-form">
           <input type="text" name="email" id="email" class="email" value="<?php echo ($email); ?>" placeholder="Seu e-mail" readonly>
-          <button type="button" class="editar" onclick="editarUsuario()"onclick="window.location.href='./verificarEmail.php?email=<?php echo($email); ?>'">Editar</button>
+          <button type="button" class="editar" onclick="window.location.href='../controle/verificarEmail.php?email=<?php echo($email); ?>'">Editar</button>
           <span class="aviso">Campo obrigatório </span>
         </form>
 

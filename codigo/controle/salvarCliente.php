@@ -20,4 +20,11 @@ if ($id == 0) {
     editarCliente($conexao, $nome, $telefone, $endereco, $id);
 }
 
+$_SESSION['nome_completo'] = $nome;
+$_SESSION['telefone'] = $telefone;
+$_SESSION['endereco'] = $endereco;
+
+
 header("Location: ../public/index.php");
+exit;
+?>

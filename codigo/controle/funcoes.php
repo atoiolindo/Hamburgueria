@@ -732,7 +732,7 @@ function buscarDadosGoogle($client, $authCode) {
 
     if (isset($token['error'])) {
         $descricao = htmlspecialchars($token['error_description'] ?? $token['error']);
-        throw new Exception("Erro ao obter token do Google: " . $descricao);
+        throw new \Exception("Erro ao obter token do Google: " . $descricao);
     }
 
     $client->setAccessToken($token);
@@ -766,9 +766,9 @@ function registrarOuBuscarUsuario($conexao, $email, $nome) {
     if (!$usuario) {
         $senha = password_hash("123", PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO usuario (email, nome, senha, tipo) VALUES (?, ?, ?, 'c')";
+        $sql = "INSERT INTO usuario (email, nome, senha, tipo, token, status) VALUES (?, ?, ?, 'c', ?, 'nao')";
         $comando = mysqli_prepare($conexao, $sql);
-        mysqli_stmt_bind_param($comando, "sss", $email, $nome, $senha); 
+        mysqli_stmt_bind_param($comando, "ssss", $email, $nome, $senha, $token); 
         mysqli_stmt_execute($comando);
 
         return mysqli_insert_id($conexao);
@@ -782,6 +782,7 @@ function salvarSessaoGoogle($id, $email, $nome) {
     $_SESSION['idusuario'] = $id;
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $nome;
+
 }
 
 function verificarEmail($conexao, $email) {

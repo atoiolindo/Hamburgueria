@@ -51,8 +51,6 @@
         <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
 
         <input type="submit" value="<?php echo $botao; ?>">
-        ver vampo endereco
-        como preencher? mexer no banco? cep, rua bairro etc
     </form>
 </body>
 </html>

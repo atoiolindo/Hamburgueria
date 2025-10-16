@@ -1,16 +1,17 @@
 <?php
-require_once "../controle/conexao.php";
-require_once "../controle/funcoes.php";
+require_once "./conexao.php";
+require_once "./funcoes.php";
 
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
-require 'PHPMailer/src/Exception.php';
+require '../vendor/PHPMailer-master/src/PHPMailer.php';
+require '../vendor/PHPMailer-master/src/SMTP.php';
+require '../vendor/PHPMailer-master/src/Exception.php';
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if (!isset($_POST['email'])) {
-    header("Location: esqueciSenha.php");
+    header("Location: ../public/esqueciSenha.php");
     exit;
 }
 
@@ -18,11 +19,11 @@ $email = $_POST['email'];
 
 $idusuario = verificarEmail($conexao, $email);
 if ($idusuario == 0) {
-    header("Location: esqueciSenha.php?erro=1");
+    header("Location: ../public/esqueciSenha.php?erro=1");
     exit;
 }
 
-$token = pegarTokenUnico($conexao, $idusuario);
+$token = gerarTokenUnico($conexao, $idusuario);
 $nome  = pegarNomeUsuario($conexao, $idusuario);
 
 $mail = new PHPMailer(true);
@@ -32,7 +33,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'liroyasmin@gmail.com';
-    $mail->Password   = 'paty2002+';  
+    $mail->Password   = 'qkzr bqmq kvyw hgmg ';  
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
 
@@ -45,7 +46,7 @@ try {
 
     $mail->send();
 
-    header("Location: digitarCodigo.php?email=" ($email));
+    header("Location: ../public/digitarCodigo.php?email=" . ($email));
     exit;
 
 } catch (Exception $e) {

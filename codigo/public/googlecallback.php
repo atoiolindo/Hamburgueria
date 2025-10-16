@@ -20,7 +20,7 @@ try {
     if (!isset($_GET['code'])) {
         throw new Exception("Código de autenticação não encontrado.");
     }
-
+    
     $dadosGoogle = buscarDadosGoogle($client, $_GET['code']);
     if (empty($dadosGoogle['email']) || empty($dadosGoogle['nome'])) {
         throw new Exception("Não foi possível obter email ou nome do Google.");
