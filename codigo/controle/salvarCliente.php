@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once "conexao.php";
 require_once "funcoes.php";
 
@@ -25,6 +27,6 @@ $_SESSION['telefone'] = $telefone;
 $_SESSION['endereco'] = $endereco;
 
 
-header("Location: ../public/index.php");
+header("Location: ../public/perfil.php");
 exit;
 ?>
