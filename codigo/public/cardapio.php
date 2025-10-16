@@ -163,7 +163,8 @@
 
             echo "<tr>";
             echo "<td><img src='../controle/fotos/$foto'></td>";
-            echo "<td>$nome,<br> $ingredientes</td>";
+            echo "<td><span class='nome-produto'>$nome</span><br>
+            <span class='ingredientes-produto'>$ingredientes</span></td>";
             echo "<td>$valor</td>";
             echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
@@ -203,7 +204,8 @@
 
             echo "<tr>";
             echo "<td><img src='../controle/fotos/$foto'></td>";
-            echo "<td>$nome,<br> $ingredientes</td>";
+            echo "<td><span class='nome-produto'>$nome</span>
+            <span class='ingredientes-produto'>$ingredientes</span></td>";
             echo "<td>$valor</td>";
             echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
