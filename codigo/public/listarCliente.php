@@ -60,7 +60,7 @@ if (isset($_SESSION['nome'])) {
             
             if ($tipo_usuario == 'a') {
             echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
-            echo "<td><a href='deletarCliente.php?id=$idcliente'>Excluir</a></td>";
+            echo "<td><a href='../controle/deletarCliente.php?id=$idcliente'>Excluir</a></td>";
             }
             echo "</tr>";
         }
