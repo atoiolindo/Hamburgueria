@@ -47,18 +47,45 @@ h2 {
   letter-spacing: -2%; 
 }
 
+.linha-produto {
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+  gap: 12px; /* espaço entre imagem, texto e preço */
+}
+
+.celula-imagem img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.celula-info {
+  flex: 1; /* ocupa o espaço central */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .nome-produto {
   font-family: 'Bevan', serif;
+  font-size: 18px;
   color: #F0A913;
-  font-size: 22px;
-  display: block;
-  line-height: 1.2;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  line-height: 1.1;
 }
 
 .ingredientes-produto {
   font-family: 'Arial', sans-serif;
-  color: #fff4e0;
   font-size: 14px;
-  line-height: 1.4;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.celula-preco {
+  font-family: 'Bevan', serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: right;
+  min-width: 60px;
 }
