@@ -24,7 +24,13 @@
     color: white;                /* texto branco */
 }
 
-
+.hamburguer,
+.outros {
+  background-color: #AD2E1A;
+  border-radius: 20px;
+  padding: 20px;
+  width: 48%; /* divide quase meio a meio */
+}
 
 .titulo {
   display: flex;
