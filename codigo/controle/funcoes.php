@@ -838,4 +838,18 @@ function pegarNomeUsuario($conexao, $idusuario){
     return $usuario['nome'];
     
 }
+
+function verificarPermissao($tiposPermitidos) {
+    session_start();
+    if (!isset($_SESSION['logado']) || !isset($_SESSION['tipo'])) {
+        header("Location: ../public/index.php");
+        exit;
+    }
+
+    // se o tipo do usuário não estiver entre os permitidos
+    if (!in_array($_SESSION['tipo'], $tiposPermitidos)) {
+        header("Location: ../public/index.php");
+        exit;
+    }
+}
 ?>

@@ -1,4 +1,7 @@
 <?php
+require_once "../controle/funcoes.php";
+verificarPermissao(['a']);
+
     if (isset($_GET['id'])) {
 
         require_once "../controle/conexao.php";

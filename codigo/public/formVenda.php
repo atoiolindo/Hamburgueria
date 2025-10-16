@@ -1,6 +1,7 @@
 <?php
 require_once "../controle/conexao.php";
 require_once "../controle/funcoes.php";
+verificarPermissao(['a', 'b']);
 
 if (isset($_GET['id'])) {
     $idvenda = $_GET['id'];

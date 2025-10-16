@@ -1,5 +1,7 @@
 <?php
-session_start();
+require_once "../controle/funcoes.php";
+verificarPermissao(['a', 'b']);
+
 if (isset($_SESSION['nome'])) {
     $nome_usuario = $_SESSION['nome'];
     $tipo_usuario = $_SESSION['tipo'];
