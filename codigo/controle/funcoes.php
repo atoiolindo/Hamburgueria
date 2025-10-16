@@ -7,8 +7,8 @@ use PHPMailer\PHPMailer\Exception;
 
 
 
-function deletarProduto($conexao, $idproduto) {    
-    $sql = "DELETE FROM produto WHERE idproduto = ?";
+function inativarProduto($conexao, $idproduto) {
+    $sql = "UPDATE produto SET estado = 'inativo' WHERE idproduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_bind_param($comando, 'i', $idproduto);
@@ -17,7 +17,7 @@ function deletarProduto($conexao, $idproduto) {
     mysqli_stmt_close($comando);
     
     return $funcionou; 
-};
+}
 //  testado e funcionando
 
 function listarProduto($conexao) {

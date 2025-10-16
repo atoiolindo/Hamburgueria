@@ -4,7 +4,7 @@ require_once "funcoes.php";
 
 $id = $_GET['id'];
 
-if (deletarProduto($conexao, $id)) {
+if (inativarProduto($conexao, $id)) {
     header("Location: ../public/listarProduto.php");
 } else {
     header("Location: erro.php");
