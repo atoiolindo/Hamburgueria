@@ -37,7 +37,6 @@ if (isset($_SESSION['nome'])) {
                 <td>Nome</td>
                 <td>Telefone</td>
                 <td>Endereço</td>
-                <td>Email</td>
 
                 <?php 
                 if ($tipo_usuario == 'a') {
@@ -52,14 +51,12 @@ if (isset($_SESSION['nome'])) {
             $nome = $cliente['nome'];
             $telefone = $cliente['telefone'];
             $endereco = $cliente['endereco'];
-            $email = $cliente['email'];
 
             echo "<tr>";
             echo "<td>$idcliente</td>";
             echo "<td>$nome</td>";
             echo "<td>$telefone</td>";
             echo "<td>$endereco</td>";
-            echo "<td>$email</td>";
             
             if ($tipo_usuario == 'a') {
             echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
