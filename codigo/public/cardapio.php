@@ -161,11 +161,14 @@
             $foto = $produto['foto'];
             $descricao = $produto['descricao'];
 
-            echo "<tr>";
-            echo "<td><img src='../controle/fotos/$foto'></td>";
-            echo "<td><span class='nome-produto'>$nome</span><br>
-            <span class='ingredientes-produto'>$ingredientes</span></td>";
-            echo "<td>$valor</td>";
+            echo "<tr class='linha-produto'>";
+            echo "<td class='celula-imagem'><img src='../controle/fotos/$foto'></td>";
+            echo "<td class='celula-info'>
+                    <span class='nome-produto'>$nome</span>
+                    <span class='ingredientes-produto'>$ingredientes</span>
+                  </td>";
+            echo "<td class='celula-preco'>$valor</td>";
+
             echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
@@ -203,10 +206,13 @@
             $descricao = $produto['descricao'];
 
             echo "<tr>";
-            echo "<td><img src='../controle/fotos/$foto'></td>";
-            echo "<td><span class='nome-produto'>$nome</span>
-            <span class='ingredientes-produto'>$ingredientes</span></td>";
-            echo "<td>$valor</td>";
+            echo "<tr class='linha-produto'>";
+            echo "<td class='celula-imagem'><img src='../controle/fotos/$foto'></td>";
+            echo "<td class='celula-info'>
+                    <span class='nome-produto'>$nome</span>
+                    <span class='ingredientes-produto'>$ingredientes</span>
+                  </td>";
+            echo "<td class='celula-preco'>$valor</td>";
             echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
