@@ -11,7 +11,6 @@
     <h1>Lista de usuarios</h1>
 
     <?php
-    //require_once "../controle/verificaLogado.php";
     require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
 
