@@ -27,6 +27,6 @@ $_SESSION['telefone'] = $telefone;
 $_SESSION['endereco'] = $endereco;
 
 
-header("Location: ../public/perfil.php");
+header("Location: ../public/index.php");
 exit;
 ?>
