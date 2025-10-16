@@ -134,7 +134,6 @@
     <div class="hamburguer">
     <h2>Hambúrguer</h2>
     <?php
-    //require_once "../controle/verificaLogado.php";
     require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
 
@@ -176,7 +175,6 @@
     </div>
     <div class="outros"> 
         <h2>Outros</h2> <?php
-    //require_once "../controle/verificaLogado.php";
     require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
 
