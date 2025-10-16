@@ -27,7 +27,6 @@ if (isset($_SESSION['nome'])) {
     <h1>Lista de produtos</h1>
 
     <?php
-    //require_once "../controle/verificaLogado.php";
     require_once "../controle/conexao.php";
     require_once "../controle/funcoes.php";
 
