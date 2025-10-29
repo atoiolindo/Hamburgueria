@@ -14,14 +14,17 @@
 .cardapiogeral {
     margin-top: -1.8%;
     margin-left: 2%;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #AD2E1A;
+    color: white;
 
-    
-    border: 2px solid white;     /* borda branca */
-    border-radius: 12px;         /* arredonda as bordas */
-    padding: 20px;               /* espaço interno */
-    width: 2000px;                /* largura */
-    background-color: #AD2E1A;      /* fundo escuro pra destacar */
-    color: white;                /* texto branco */
+    display: flex;              /* coloca lado a lado */
+    flex-wrap: wrap;            /* quebra linha se faltar espaço */
+    justify-content: space-between; /* separa as colunas */
+    align-items: flex-start;    /* alinha no topo */
+    gap: 40px;                  /* espaço entre as seções */
 }
 
 .hamburguer,
@@ -29,16 +32,18 @@
   background-color: #AD2E1A;
   border-radius: 20px;
   padding: 20px;
-  width: 48%; /* divide quase meio a meio */
+  width: 48%; /* metade da largura */
+  box-sizing: border-box; /* pra respeitar padding */
 }
 
 .titulo {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Bevan', serif;
   text-align: center;
-  letter-spacing: -2%; 
+  letter-spacing: -2%;
   color: #FFFFFF;
 }
 
