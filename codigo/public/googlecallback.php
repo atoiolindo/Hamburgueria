@@ -50,7 +50,7 @@ try {
 </head>
 <body>
     <div class="container">
-        <div class="success"><?= htmlspecialchars($mensagem) ?></div>
+        <div class="success"><?=($mensagem) ?></div>
         <p>Concluir meu cadastro</p>
         <a href="formCliente.php" class="btn">Ir agora</a>
     </div>

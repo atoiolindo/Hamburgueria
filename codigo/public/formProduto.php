@@ -45,9 +45,10 @@ verificarPermissao(['a']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $botao; ?></title>
     <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+    <link rel="stylesheet" href="./css/forms.css">
 </head>
 <body>
-    <h1><?php echo $botao; ?></h1>
+    <h2><?php echo $botao; ?></h2> <br> <br>
     <form action="../controle/salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         Nome: <br>
         <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
@@ -57,7 +58,7 @@ verificarPermissao(['a']);
         <input type="text" name="ingredientes" value="<?php echo $ingredientes; ?>"> 
         
         <br><br>
-        Quantidade de ingredientes: <br>
+        Quantidade de ingredientes: <br> <br>
         <?php
         require_once "../controle/conexao.php";
         require_once "../controle/funcoes.php";

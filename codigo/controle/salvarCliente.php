@@ -1,32 +1,31 @@
 <?php
-session_start();
-
 require_once "conexao.php";
 require_once "funcoes.php";
 
-$id = $_GET['id'];
+session_start();
+
+if (!isset($_SESSION['idusuario'])) {
+    echo "<script>alert('ID do usuário não foi fornecido.'); window.history.back();</script>";
+    exit;
+}
+
+$idusuario = $_SESSION['idusuario'];
 $nome = $_POST['nome'];
 $telefone = $_POST['telefone'];
 $endereco = $_POST['endereco'];
 
-// $idcliente = salvarCliente($conexao, $nome, $email, $endereco, $telefone);
-
-
-if ($id == 0) {
-    $idcliente = salvarCliente($conexao, $nome, $telefone, $endereco);
-    if ($idcliente === false) {
-        echo "<script>alert('Telefone ou endereço já cadastrado!'); history.back();</script>";
-        exit;
-    }
-} else {
-    editarCliente($conexao, $nome, $telefone, $endereco, $id);
+$idcliente = salvarCliente($conexao, $nome, $telefone, $endereco, $idusuario);
+if ($idcliente === false) {
+    echo "<script>alert('Telefone ou endereço já cadastrado!'); history.back();</script>";
+    exit;
 }
 
-$_SESSION['nome_completo'] = $nome;
+
+$_SESSION['nome'] = $nome;
 $_SESSION['telefone'] = $telefone;
 $_SESSION['endereco'] = $endereco;
 
 
-header("Location: ../public/index.php");
+header("Location: ../public/perfil.php");
 exit;
 ?>

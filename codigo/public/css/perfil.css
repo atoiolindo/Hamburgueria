@@ -114,3 +114,30 @@ h2 {
 #asterisco{
     color:brown;
 }
+
+#voltar {
+    position: absolute;
+    top: 460px;   
+    left: 265px;  
+    z-index: 100; 
+}
+
+
+.voltar {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: none;
+    color: #AD2E1A;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.voltar::before {
+    content: '↵';
+    margin-right: 8px;
+    font-size: 20px;
+}

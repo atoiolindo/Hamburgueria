@@ -20,6 +20,7 @@
             $_SESSION['logado'] = 'sim';
             $_SESSION['tipo'] = $usuario['tipo'];
             $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['email'] = $usuario['email'];
             $_SESSION['idusuario'] = $usuario['idusuario'];
             header("Location: ../public/index.php");
             exit;
