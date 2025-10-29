@@ -1,9 +1,15 @@
 <?php
 session_start();
-require_once "../controle/conexao.php";
-require_once "../controle/funcoes.php";
+if (isset($_SESSION['nome'])) {
+    $nome_usuario = $_SESSION['nome'];
+    $tipo_usuario = $_SESSION['tipo'];
+}
+else {
+    $nome_usuario = "Usuário";
+    $tipo_usuario = 0;
+}
 
-$tipo_usuario = isset($_SESSION['tipo']) ? $_SESSION['tipo'] : '';
+if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 ?>
 
 <!DOCTYPE html>
@@ -182,9 +188,16 @@ $tipo_usuario = isset($_SESSION['tipo']) ? $_SESSION['tipo'] : '';
                     <span class='ingredientes-produto'>$ingredientes</span>
                   </td>";
             echo "<td class='celula-preco'>$valor</td>";
-            echo '<td class= "carrinho"><img src="./assets/adicionarcarrinho.png">';
-            echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
-            echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
+            if ($tipo_usuario == 'c') {
+                echo '<td class= "carrinho"> <a href="carrinho.php"> <img src="./assets/adicionarcarrinho.png">';
+            }
+            if ($tipo_usuario == 0) {
+                echo '<td class= "carrinho"> <a href="home.php"> <img src="./assets/adicionarcarrinho.png">';
+            }
+            if ($tipo_usuario == 'a') {
+                echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
+                echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
+            }
             echo "</tr>";
 
             $contador++; 
@@ -234,9 +247,16 @@ $tipo_usuario = isset($_SESSION['tipo']) ? $_SESSION['tipo'] : '';
                     <span class='ingredientes-produto'>$ingredientes</span>
                   </td>";
             echo "<td class='celula-preco'>$valor</td>";
-            echo '<td class= "carrinho"><img src="./assets/adicionarcarrinho.png">';
-            echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
-            echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
+            if ($tipo_usuario == 'c') {
+                echo '<td class= "carrinho"> <a href="carrinho.php"> <img src="./assets/adicionarcarrinho.png"> </a></td>';
+            }
+            if ($tipo_usuario == 0) {
+                echo '<td class= "carrinho"> <a href="home.php"> <img src="./assets/adicionarcarrinho.png"> </a></td>';
+            }
+            if ($tipo_usuario == 'a') {
+                echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
+                echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
+            }
             echo "</tr>";
 
             $contador++; 
