@@ -142,11 +142,8 @@ function salvarCliente($conexao, $nome, $telefone, $endereco, $idusuario) {
     $sql = "INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);  
     
-<<<<<<< Updated upstream
+
     mysqli_stmt_bind_param($comando, 'sssi',  $nome, $telefone, $endereco, $idusuario);
-=======
-    mysqli_stmt_bind_param($comando, 'sss',  $nome, $telefone, $endereco);
->>>>>>> Stashed changes
     
     mysqli_stmt_execute($comando);
     
@@ -876,7 +873,6 @@ function pegarNomeUsuario($conexao, $idusuario){
     
 }
 
-<<<<<<< Updated upstream
 function verificarPermissao($tiposPermitidos) {
     session_start();
     if (!isset($_SESSION['logado']) || !isset($_SESSION['tipo'])) {
@@ -919,7 +915,8 @@ function buscarProdutoPorId($conexao, $idproduto) {
 
     $resultado = mysqli_stmt_get_result($stmt);
     return mysqli_fetch_assoc($resultado);
-=======
+}
+
 function pegarDadosCliente($conexao, $idcliente) {
     $sql = "SELECT * FROM cliente WHERE idcliente = ?";
 
@@ -937,7 +934,6 @@ function pegarDadosCliente($conexao, $idcliente) {
     else {
         return 0;
     }
->>>>>>> Stashed changes
 }
 
 ?>

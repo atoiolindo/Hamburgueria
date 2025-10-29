@@ -20,19 +20,18 @@ if ($idcliente === false) {
     exit;
 }
 
-<<<<<<< Updated upstream
 $_SESSION['nome_cliente'] = $nome;
 $_SESSION['telefone_cliente'] = $telefone;
 $_SESSION['endereco_cliente'] = $endereco;
 
-=======
+
 
 $_SESSION['nome'] = $nome;
 $_SESSION['telefone'] = $telefone;
 $_SESSION['endereco'] = $endereco;
 
 
->>>>>>> Stashed changes
+
 header("Location: ../public/perfil.php");
 exit;
 ?>
