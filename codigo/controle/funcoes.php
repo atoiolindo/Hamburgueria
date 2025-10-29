@@ -835,17 +835,18 @@ function verificarEmail($conexao, $email) {
 }
 
 
-function gerarTokenUnico($conexao){
+function gerarTokenUnico($conexao, $idusuario){
     $token = bin2hex(random_bytes(3));
-    $sql = "SELECT idusuario FROM usuario WHERE email = ? AND token = ?";
+    $sql = "UPDATE usuario SET token = ? WHERE idusuario = ?";
+
     $comando = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($comando, "ss", $email, $codigo);
+    mysqli_stmt_bind_param($comando, "si", $token, $idusuario);
     mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-    $quantidade = mysqli_num_rows($resultado);
 
-    return $quantidade;
+
+
+    return $token;
     
 
     if (!$user) {
@@ -857,6 +858,28 @@ function gerarTokenUnico($conexao){
     header("Location: novaSenha.php?email=" ($email));
     exit;
 }
+
+function verificarToken ($conexao, $idusuario, $codigo){
+    $sql = "SELECT token FROM usuario WHERE idusuario = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, "i", $idusuario);
+    mysqli_stmt_execute($comando);
+
+    $resultado = mysqli_stmt_get_result($comando);
+    $usuario = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+
+
+    if(!$usuario) return false; 
+
+    $tokenBanco = $usuario['token'];
+
+    return ($codigo === $tokenBanco);
+    
+    }
+
 function pegarNomeUsuario($conexao, $idusuario){
     $sql= "SELECT nome FROM usuario WHERE idusuario =?";
     $comando = mysqli_prepare($conexao, $sql);

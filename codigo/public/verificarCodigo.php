@@ -11,14 +11,12 @@ $email = $_POST['email'];
 $codigo = $_POST['codigo'];
 
 $idusuario = verificarEmail($conexao, $email);
-$tokenUsuario = pegarTokenUnico($conexao, $idusuario);
+$token = gerarTokenUnico($conexao, $idusuario);
 
-if ($codigo === $tokenUsuario) {
-    // Código correto, redireciona para criar nova senha
+if ($codigo === $token) {
     header("Location: novaSenha.php?email=" . urlencode($email));
     exit;
 } else {
-    // Código incorreto
     echo "<p style='color:red;text-align:center;'>Código incorreto.</p>";
     echo "<p style='text-align:center;'><a href='digitarCodigo.php?email=" . urlencode($email) . "'>Tentar novamente</a></p>";
     exit;

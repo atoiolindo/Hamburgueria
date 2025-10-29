@@ -9,7 +9,7 @@ $senha = $_POST['senha'];
 $nome = $_POST['nome'];
 
 $tipo = "c";
-$token = gerarTokenUnico($conexao);
+$token = gerarTokenUnico($conexao, $idusuario);
 $status = "nao";
 
 $idusuario = salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status);

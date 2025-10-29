@@ -22,7 +22,7 @@ $email = $_GET['email'];
         <p>Digite o código enviado para seu e-mail:</p>
         <div class="codigo-inputs" style="display: flex; gap: 10px; justify-content: center;">
             <?php for ($i = 0; $i < 6; $i++): ?>
-                <input type="text" name="codigo[]" maxlength="1" pattern="\d*" inputmode="numeric" class="codigo" required>
+                <input type="text" name="codigo[]" maxlength="1" inputmode="text" class="codigo" required>
             <?php endfor; ?>
         </div>
         <input type="submit" value="Confirmar" style="margin-top: 20px;">
@@ -33,17 +33,21 @@ $email = $_GET['email'];
     <script>
     const inputs = document.querySelectorAll('.codigo');
     inputs.forEach((input, idx, arr) => {
-        input.addEventListener('input', () => { if(input.value.length===1 && idx<arr.length-1) arr[idx+1].focus(); });
-        input.addEventListener('keydown', (e)=>{ if(e.key==="Backspace" && input.value==="" && idx>0) arr[idx-1].focus(); });
+        input.addEventListener('input', () => {
+            if(input.value.length === 1 && idx < arr.length - 1) arr[idx + 1].focus();
+        });
+        input.addEventListener('keydown', (e) => {
+            if(e.key === "Backspace" && input.value === "" && idx > 0) arr[idx - 1].focus();
+        });
     });
 
     document.getElementById('codigo-form').addEventListener('submit', function(e){
-        let codigo='';
-        inputs.forEach(input=>codigo+=input.value);
-        let hidden=document.createElement('input');
-        hidden.type='hidden';
-        hidden.name='codigo';
-        hidden.value=codigo;
+        let codigo = '';
+        inputs.forEach(input => codigo += input.value);
+        let hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'codigo';
+        hidden.value = codigo;
         this.appendChild(hidden);
     });
     </script>

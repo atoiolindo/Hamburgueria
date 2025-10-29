@@ -26,6 +26,8 @@ if ($idusuario == 0) {
 $token = gerarTokenUnico($conexao, $idusuario);
 $nome  = pegarNomeUsuario($conexao, $idusuario);
 
+// so pegar n gerar
+
 $mail = new PHPMailer(true);
 
 try {
