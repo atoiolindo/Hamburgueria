@@ -19,6 +19,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hamburgueria - Home</title>
+        <link rel="icon" href="./assets/logopaoemagia2.png" type="image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="./css/index.css">
         <link href="https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
