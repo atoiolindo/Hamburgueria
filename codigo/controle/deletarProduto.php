@@ -5,7 +5,7 @@ require_once "funcoes.php";
 $id = $_GET['id'];
 
 if (inativarProduto($conexao, $id)) {
-    header("Location: ../public/listarProduto.php");
+    header("Location: ../public/index.php");
 } else {
     header("Location: erro.php");
 }
