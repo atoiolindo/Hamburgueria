@@ -103,3 +103,18 @@ h2 {
   text-align: right;
   min-width: 60px;
 }
+
+.carrinho img {
+  width: 80px;       
+  height: 80px;      
+  cursor: pointer;   
+  transition: transform 0.2s ease;
+}
+
+.carrinho img:hover {
+  transform: scale(1.1); 
+}
+
+.hover img:hover {
+  transform: scale(1.1); 
+}

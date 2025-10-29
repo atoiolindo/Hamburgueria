@@ -168,9 +168,9 @@
                     <span class='ingredientes-produto'>$ingredientes</span>
                   </td>";
             echo "<td class='celula-preco'>$valor</td>";
-
-            echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
-            echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
+            echo '<td class= "carrinho"><img src="./assets/adicionarcarrinho.png">';
+            echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
+            echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
         }
     }
@@ -213,8 +213,9 @@
                     <span class='ingredientes-produto'>$ingredientes</span>
                   </td>";
             echo "<td class='celula-preco'>$valor</td>";
-            echo '<td><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
-            echo '<td><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
+            echo '<td class= "carrinho"><img src="./assets/adicionarcarrinho.png">';
+            echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
+            echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
         }
     }
