@@ -96,7 +96,7 @@ function listarCliente($conexao) {
 // testado e funcionando
 
 
-function salvarCliente($conexao, $nome, $telefone, $endereco) {
+function salvarCliente($conexao, $nome, $telefone, $endereco, $idusuario) {
      // verifica duplicidade
     $sql_check = "SELECT idcliente FROM cliente WHERE telefone=? OR endereco=?";
     $stmt_check = mysqli_prepare($conexao, $sql_check);
@@ -112,10 +112,10 @@ function salvarCliente($conexao, $nome, $telefone, $endereco) {
 
     // se não existe, insere
     
-    $sql = "INSERT INTO cliente (nome, telefone, endereco) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);  
     
-    mysqli_stmt_bind_param($comando, 'sss', $nome, $telefone, $endereco);
+    mysqli_stmt_bind_param($comando, 'sssi',  $nome, $telefone, $endereco, $idusuario);
     
     mysqli_stmt_execute($comando);
     
@@ -140,10 +140,10 @@ function deletarCliente($conexao, $idcliente) {
 };
 
 
-function editarCliente($conexao, $nome, $telefone, $endereco, $idcliente) {
-    $sql = "UPDATE cliente SET nome=?, telefone=?, endereco=? WHERE idcliente=?";
+function editarCliente($conexao, $nome, $telefone, $endereco, $idusuario) {
+    $sql = "UPDATE cliente SET nome=?, telefone=?, endereco=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $telefone, $endereco, $idcliente );
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $telefone, $endereco, $idusuario );
     
     $funcionou = mysqli_stmt_execute($comando);
     
@@ -161,8 +161,14 @@ function salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status) 
 
     $funcionou = mysqli_stmt_execute($comando);
 
+    if ($funcionou) {
+        $idusuario = mysqli_stmt_insert_id($comando);
+    } else {
+        $idusuario = false;
+    }
+
     mysqli_stmt_close($comando);
-    return $funcionou;
+    return $idusuario  ;
 };
 
 
@@ -254,7 +260,7 @@ function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $st
     mysqli_stmt_bind_param($stmt, 'dssis', $valor_final, $observacao, $data, $idcliente, $status);
 
     if (mysqli_stmt_execute($stmt)) {
-        $idvenda = mysqli_insert_id($conexao); // ✅ pega o id correto
+        $idvenda = mysqli_stmt_insert_id($stmt); // ✅ pega o id correto
         mysqli_stmt_close($stmt);
         return $idvenda; // retorna para usar em salvarItemVenda
     } else {
@@ -566,7 +572,7 @@ function verificarLogin($conexao, $email, $senha) {
 }
 
 function pegarDadosUsuario($conexao, $idusuario) {
-    $sql = "SELECT idusuario, nome, tipo FROM usuario WHERE idusuario = ?";
+    $sql = "SELECT * FROM usuario WHERE idusuario = ?";
 
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, 'i', $idusuario);
@@ -771,7 +777,7 @@ function registrarOuBuscarUsuario($conexao, $email, $nome) {
         mysqli_stmt_bind_param($comando, "ssss", $email, $nome, $senha, $token); 
         mysqli_stmt_execute($comando);
 
-        return mysqli_insert_id($conexao);
+        return mysqli_stmt_insert_id($comando);
     } else {
         return $usuario['idusuario'];
     }
@@ -852,4 +858,25 @@ function verificarPermissao($tiposPermitidos) {
         exit;
     }
 }
+
+function buscarDadosPerfil ($conexao, $idusuario){
+    $sql = "SELECT c.idcliente, c.nome AS nome_completo, c.telefone, c.endereco, u.email, u.senha, u.nome 
+    AS nome_usuario, u.status
+    FROM cliente AS c INNER JOIN usuario AS u ON c.idusuario = u.idusuario
+    WHERE u.idusuario = ?";
+
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, "i", $idusuario);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $usuario = mysqli_fetch_assoc($resultado);
+    
+    mysqli_stmt_close($comando);
+
+    return $usuario;
+    
+}
+
 ?>

@@ -11,5 +11,7 @@ $client->setRedirectUri('http://localhost:83/public/googlecallback.php');
 $client->addScope('email');
 $client->addScope('profile');
 
+$client->setPrompt('select_account');
+
 $login_url = $client->createAuthUrl();
 ?>

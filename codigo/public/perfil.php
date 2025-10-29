@@ -1,21 +1,38 @@
 <?php
+require_once "../controle/conexao.php";
+require_once "../controle/funcoes.php";
+
 session_start();
 
-$nome = $_SESSION['nome'] ?? "";
-$email = $_SESSION['email'] ?? "";
+if (!isset($_SESSION['idusuario'])) {
+  header("Location: home.php");
+  exit;
+}
 
-$nome_completo = $_SESSION['nome_completo'] ?? "";
-$telefone = $_SESSION['telefone'] ?? "";
-$endereco = $_SESSION['endereco'] ?? "";
+$idusuario = $_SESSION['idusuario'];
+$usuario = buscarDadosPerfil($conexao, $idusuario);
+
+$nome_completo = $usuario['nome_completo'];
+$telefone = $usuario['telefone'];
+$endereco = $usuario['endereco'];
+
+$email = $usuario['email'];
+$nome = $usuario['nome_usuario'];
+
+$_SESSION['nome'] = $nome;
+$_SESSION['email'] = $email;
+$_SESSION['nome_completo'] = $nome_completo;
+$_SESSION['telefone'] = $telefone;
+$_SESSION['endereco'] = $endereco;
 
 if (isset($_POST['telefone'])) {
     $telefone = trim($_POST['telefone']);
     $_SESSION['telefone'] = $telefone; 
     $msg = "Telefone atualizado com sucesso!";
 } 
-elseif (isset($_POST['nome'])) {
-    $nome = trim($_POST['nome']);
-    $_SESSION['nome'] = $nome; 
+elseif (isset($_POST['nome_usuario'])) {
+    $nome = trim($_POST['nome_usuario']);
+    $_SESSION['nome_usuario'] = $nome; 
     $msg = "Nome de usuário atualizado com sucesso!";
 } 
 elseif (isset($_POST['email'])) {
@@ -23,6 +40,7 @@ elseif (isset($_POST['email'])) {
     $_SESSION['email'] = $email; 
     $msg = "E-mail atualizado com sucesso!";
 }
+
 ?>
 
 
@@ -47,12 +65,12 @@ elseif (isset($_POST['email'])) {
 
     <div class="grid">
       <div class="campo">
-        <label>Nome de usuário</label>
-        <input type="text" value="<?php echo ($nome); ?>" readonly>
+        <label>Nome Completo</label>
+        <input type="text" value="<?php echo ($nome_completo); ?>" readonly>
       </div>
 
       <div class="campo">
-        <label>Nome de usuário</label>
+        <label>Nome de Usuario</label>
         <input type="text" value="<?php echo ($nome); ?>" readonly>
       </div>
 
@@ -78,6 +96,23 @@ elseif (isset($_POST['email'])) {
         </form>
 
       </div>
+
+      <div class="campo">
+        <label> Endereco <span id="asterisco">*</label>
+
+        <form method="post" id="endereco-form">
+          <input type="text" name="endereco" id="endereco" class="endereco" value="<?php echo ($endereco); ?>" placeholder="Seu endereco" readonly>
+          <span class="aviso">Campo obrigatório </span>
+        </form>
+
+      </div>
+
+
+      <div id="voltar">
+        <a href="index.php" class="voltar">Voltar</a>
+      </div>
+
+
     </div>
   </div>
 </body>
