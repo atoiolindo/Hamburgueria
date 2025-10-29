@@ -10,7 +10,14 @@
     color: #fff;
 }
 
-
+.rectangle-29 {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; 
+  opacity: 0.4;
+  margin: 10px 0;
+  border-radius: 10px;
+}
 .cardapiogeral {
     margin: 0 auto;             
     margin-top: -1.8%;

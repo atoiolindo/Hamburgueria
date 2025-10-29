@@ -146,12 +146,13 @@
         <table border="0">
             <tr>
                 
-            </tr>
-
+            </tr> 
         <?php
+        $contador = 0;
         foreach ($lista_produtos as $produto) {
             if (strtolower($produto['tipo']) !== 'hambúrguer') continue;
-
+            
+            
             $idproduto = $produto['idproduto'];
             $nome = $produto['nome'];
             $nome_real = $produto['nome_real'];
@@ -160,6 +161,11 @@
             $tipo = $produto['tipo'];
             $foto = $produto['foto'];
             $descricao = $produto['descricao'];
+
+            // 🔹 Adiciona o retângulo SOMENTE a partir do segundo produto
+            if ($contador > 0) {
+                echo '<tr><td colspan="6"><div class="rectangle-29"></div></td></tr>';
+            }
 
             echo "<tr class='linha-produto'>";
             echo "<td class='celula-imagem'><img src='../controle/fotos/$foto'></td>";
@@ -172,6 +178,8 @@
             echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
+
+            $contador++; 
         }
     }
         ?>
@@ -188,9 +196,9 @@
         echo "Não existem produtos cadastrados.";
     } else {
     ?>
-        <table border="0">
-            
+        <table border="0">  
         <?php
+        $contador = 0;
         foreach ($lista_produtos as $produto) {
             if (!in_array(strtolower($produto['tipo']), ['bebida', 'acompanhamento'])) {
             continue; // pula os outros tipos
@@ -204,6 +212,11 @@
             $tipo = $produto['tipo'];
             $foto = $produto['foto'];
             $descricao = $produto['descricao'];
+            
+            // 🔹 Adiciona o retângulo SOMENTE a partir do segundo produto
+            if ($contador > 0) {
+                echo '<tr><td colspan="6"><div class="rectangle-29"></div></td></tr>';
+            }
 
             echo "<tr>";
             echo "<tr class='linha-produto'>";
@@ -217,6 +230,8 @@
             echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
             echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             echo "</tr>";
+
+            $contador++; 
         }
     }
         ?>
