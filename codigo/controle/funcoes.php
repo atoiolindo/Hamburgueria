@@ -940,7 +940,6 @@ function buscarProdutoPorId($conexao, $idproduto) {
     return mysqli_fetch_assoc($resultado);
 }
 
-function pegarDadosCliente($conexao, $idcliente) {
     $sql = "SELECT * FROM cliente WHERE idcliente = ?";
 
     $comando = mysqli_prepare($conexao, $sql);
