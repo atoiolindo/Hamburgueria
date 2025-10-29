@@ -10,35 +10,50 @@
     color: #fff;
 }
 
-
-.cardapiogeral {
-    margin-top: -1.8%;
-    margin-left: 2%;
-
-    
-    border: 2px solid white;     /* borda branca */
-    border-radius: 12px;         /* arredonda as bordas */
-    padding: 20px;               /* espaço interno */
-    width: 2000px;                /* largura */
-    background-color: #AD2E1A;      /* fundo escuro pra destacar */
-    color: white;                /* texto branco */
+.rectangle-29 {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; 
+  opacity: 0.4;
+  margin: 10px 0;
+  border-radius: 10px;
 }
+.cardapiogeral {
+    margin: 0 auto;             
+    margin-top: -1.8%;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 20px 40px;         
+    background-color: #AD2E1A;
+    color: white;
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+
+    width: 90%;                 
+    max-width: 1600px;          
+    box-sizing: border-box;
+}
 .hamburguer,
 .outros {
   background-color: #AD2E1A;
   border-radius: 20px;
   padding: 20px;
-  width: 48%; /* divide quase meio a meio */
+  width: 48%; 
+  box-sizing: border-box; 
 }
 
 .titulo {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Bevan', serif;
   text-align: center;
-  letter-spacing: -2%; 
+  letter-spacing: -2%;
   color: #FFFFFF;
 }
 
@@ -94,4 +109,19 @@ h2 {
   color: #fff;
   text-align: right;
   min-width: 60px;
+}
+
+.carrinho img {
+  width: 80px;       
+  height: 80px;      
+  cursor: pointer;   
+  transition: transform 0.2s ease;
+}
+
+.carrinho img:hover {
+  transform: scale(1.1); 
+}
+
+.hover img:hover {
+  transform: scale(1.1); 
 }

@@ -18,10 +18,37 @@ function inativarProduto($conexao, $idproduto) {
     
     return $funcionou; 
 }
-//  testado e funcionando
+
+function ativarProduto($conexao, $idproduto) {
+    $sql = "UPDATE produto SET estado = 'ativo' WHERE idproduto = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+}
 
 function listarProduto($conexao) {
     $sql = "SELECT * FROM produto WHERE estado = 'ativo'";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($comando); 
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_produto = [];
+    while ($produto = mysqli_fetch_assoc($resultado)){
+        $lista_produto[] = $produto;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_produto;
+};
+
+function listarProdutoInativo($conexao) {
+    $sql = "SELECT * FROM produto WHERE estado = 'inativo'";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($comando); 
@@ -877,6 +904,16 @@ function buscarDadosPerfil ($conexao, $idusuario){
 
     return $usuario;
     
+}
+function buscarProdutoPorId($conexao, $idproduto) {
+    $sql = "SELECT * FROM produto WHERE idproduto = ? AND estado = 'ativo'";
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($stmt, 'i', $idproduto);
+    mysqli_stmt_execute($stmt);
+
+    $resultado = mysqli_stmt_get_result($stmt);
+    return mysqli_fetch_assoc($resultado);
 }
 
 ?>

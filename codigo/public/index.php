@@ -19,6 +19,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hamburgueria - Home</title>
+        <link rel="icon" href="./assets/logopaoemagia2.png" type="image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="./css/index.css">
         <link href="https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -84,6 +85,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "    </button>";
                     echo "    <div class='dropdown-container'>";
                     echo "        <a href='listarProduto.php'>Lista de produtos cadastrados</a>";
+                    echo "        <a href='listarProdutoInativo.php'>Lista de produtos inativos cadastrados</a>";
                     echo "        <a href='listarCliente.php'>Lista de clientes cadastrados</a>";
                     echo "        <a href='listarVenda.php'>Lista de vendas cadastrados</a>";
                     echo "        <a href='listarArmazenamento.php'>Lista de ingredientes cadastrados</a>";
@@ -187,7 +189,8 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 
                 <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Feitiço Clássico</h5>
                 <p class="card-text">R$33,00</p>
-                <a href="" class="btn-cardapio">Ver Produto</a>
+                <a href="produto.php?id=<?php echo $idproduto; ?>" class="btn-cardapio" >Ver Produto</a>
+                <!-- professor mexeu aquiiiiii -->
 
             </div>
         </div>
