@@ -940,22 +940,4 @@ function buscarProdutoPorId($conexao, $idproduto) {
     return mysqli_fetch_assoc($resultado);
 }
 
-    $sql = "SELECT * FROM cliente WHERE idcliente = ?";
-
-    $comando = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($comando, 'i', $idcliente);
-
-    mysqli_stmt_execute($comando);
-    $resultado = mysqli_stmt_get_result($comando);
-    $quantidade = mysqli_num_rows($resultado);
-    
-    if ($quantidade != 0) {
-        $usuario = mysqli_fetch_assoc($resultado);
-        return $usuario;
-    }
-    else {
-        return 0;
-    }
-}
-
 ?>
