@@ -85,6 +85,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "    </button>";
                     echo "    <div class='dropdown-container'>";
                     echo "        <a href='listarProduto.php'>Lista de produtos cadastrados</a>";
+                    echo "        <a href='listarProdutoInativo.php'>Lista de produtos inativos cadastrados</a>";
                     echo "        <a href='listarCliente.php'>Lista de clientes cadastrados</a>";
                     echo "        <a href='listarVenda.php'>Lista de vendas cadastrados</a>";
                     echo "        <a href='listarArmazenamento.php'>Lista de ingredientes cadastrados</a>";

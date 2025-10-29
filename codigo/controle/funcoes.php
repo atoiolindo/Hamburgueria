@@ -18,7 +18,18 @@ function inativarProduto($conexao, $idproduto) {
     
     return $funcionou; 
 }
-//  testado e funcionando
+
+function ativarProduto($conexao, $idproduto) {
+    $sql = "UPDATE produto SET estado = 'ativo' WHERE idproduto = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $funcionou; 
+}
 
 function listarProduto($conexao) {
     $sql = "SELECT * FROM produto WHERE estado = 'ativo'";
@@ -872,7 +883,7 @@ function verificarPermissao($tiposPermitidos) {
 function buscarProdutoPorId($conexao, $idproduto) {
     $sql = "SELECT * FROM produto WHERE idproduto = ? AND estado = 'ativo'";
     $stmt = mysqli_prepare($conexao, $sql);
-    
+
     mysqli_stmt_bind_param($stmt, 'i', $idproduto);
     mysqli_stmt_execute($stmt);
 
