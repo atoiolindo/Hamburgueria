@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once "../controle/conexao.php";
+require_once "../controle/funcoes.php";
+
+$tipo_usuario = isset($_SESSION['tipo']) ? $_SESSION['tipo'] : '';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
