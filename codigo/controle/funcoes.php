@@ -36,6 +36,22 @@ function listarProduto($conexao) {
     return $lista_produto;
 };
 
+function listarProdutoInativo($conexao) {
+    $sql = "SELECT * FROM produto WHERE estado = 'inativo'";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($comando); 
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $lista_produto = [];
+    while ($produto = mysqli_fetch_assoc($resultado)){
+        $lista_produto[] = $produto;
+    }
+
+    mysqli_stmt_close($comando);
+    return $lista_produto;
+};
+
 // testado e funcionando
 
 function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao) {
