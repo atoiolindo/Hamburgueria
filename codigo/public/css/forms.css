@@ -1,0 +1,130 @@
+/* =======================
+   FORMULÁRIOS AJUSTADOS E CENTRALIZADOS
+   ======================= */
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff8f6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* evita sumir topo */
+  min-height: 100vh;
+  padding: 50px 0; /* espaço interno pra não colar no topo */
+}
+
+/* Container do formulário */
+.form-container {
+  background-color: #fff3f1;
+  padding: 40px 50px;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  max-width: 90%;
+  overflow-y: auto; /* rolagem se for muito grande */
+  max-height: 90vh; /* evita sair da tela */
+}
+
+/* Cabeçalho */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 20px;
+}
+
+/* Labels e campos */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #f5a623;
+  box-shadow: 0 0 4px rgba(245, 166, 35, 0.4);
+}
+
+input[type="checkbox"] {
+  transform: scale(1.1);
+  margin-right: 6px;
+}
+
+/* Botão */
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #e39b00;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #cf8c00;
+  transform: scale(1.02);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c2c2c;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+h2 {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left; /* ou center, se quiser centralizado */
+    border-bottom: 2px solid #f5b700; /* se quiser linha igual na print */
+    padding-bottom: 5px;
+}
+
+/* Linha decorativa abaixo do título */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #e39b00;
+  margin: 10px auto 0 auto;
+  border-radius: 3px;
+}
