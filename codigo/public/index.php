@@ -187,7 +187,8 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 
                 <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Feitiço Clássico</h5>
                 <p class="card-text">R$33,00</p>
-                <a href="" class="btn-cardapio">Ver Produto</a>
+                <a href="produto.php?id=<?php echo $idproduto; ?>" class="btn-cardapio" >Ver Produto</a>
+                <!-- professor mexeu aquiiiiii -->
 
             </div>
         </div>

@@ -868,4 +868,16 @@ function verificarPermissao($tiposPermitidos) {
         exit;
     }
 }
+
+function buscarProdutoPorId($conexao, $idproduto) {
+    $sql = "SELECT * FROM produto WHERE idproduto = ? AND estado = 'ativo'";
+    $stmt = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($stmt, 'i', $idproduto);
+    mysqli_stmt_execute($stmt);
+
+    $resultado = mysqli_stmt_get_result($stmt);
+    return mysqli_fetch_assoc($resultado);
+}
+
 ?>
