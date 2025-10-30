@@ -81,8 +81,8 @@ if (isset($_SESSION['nome'])) {
         echo "</td>";
     
         if ($tipo_usuario == 'a') {
-        echo "<td><a href='formVenda.php?id=$idvenda'>Editar</a></td>";
-        echo "<td><a href='deletarVenda.php?id=$idvenda'>Excluir</a></td>";
+        echo "<td><a href='formVenda.php?id=$idvenda'><img src='./assets/editar.png' alt='editar'></a></td>";
+        echo "<td><a href='deletarVenda.php?id=$idvenda'><img src='./assets/excluir.png' alt='excluir'></a></td>";
         } echo "</tr>";
         }
     }

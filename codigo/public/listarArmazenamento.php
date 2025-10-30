@@ -15,7 +15,6 @@ if (isset($_SESSION['nome'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Ingredientes</title>
-    <link rel="stylesheet" href="./css/listar.css">
 </head>
 
 <body>
@@ -57,8 +56,8 @@ if (isset($_SESSION['nome'])) {
             echo "<td>$nome</td>";
 
             if ($tipo_usuario == 'a') {
-            echo "<td><a href='formArmazenamento.php?id=$idingrediente'>Editar</a></td>";
-            echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'>Excluir</a></td>";
+            echo "<td><a href='formArmazenamento.php?id=$idingrediente'><img src='./assets/editar.png' alt='editar'></a></td>";
+            echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'><img src='./assets/excluir.png' alt='excluir'></a></td>";
             }
             echo "</tr>";
         }

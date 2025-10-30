@@ -74,7 +74,7 @@ if (isset($_SESSION['nome'])) {
             echo "<td>$descricao</td>";
 
             if ($tipo_usuario == 'a') {
-            echo "<td><a href='formProduto.php?id=$idproduto'>Editar</a></td>";
+            echo "<td><a href='formProduto.php?id=$idproduto'><img src='./assets/editar.png' alt='editar'></a></td>";
             echo "<td><a href='../controle/adicionarProduto.php?id=$idproduto'>Adicionar</a></td>";
             }
             echo "</tr>";
