@@ -51,8 +51,12 @@ try {
 <body>
     <div class="container">
         <div class="success"><?=($mensagem) ?></div>
-        <p>Concluir meu cadastro</p>
-        <a href="formCliente.php" class="btn">Ir agora</a>
+            <?php if (!isset($_SESSION['idcliente'])): ?>
+                <p>Concluir meu cadastro</p>
+                <a href="formCliente.php" class="btn">Ir agora</a>
+            <?php else: ?>
+                <a href="index.php"></a>
+            <?php endif; ?>
     </div>
 </body>
 </html>

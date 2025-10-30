@@ -50,7 +50,7 @@ $login_url = $client->createAuthUrl();
     <div id=div>
         <a href="formUsuario.php">Não tem login? Crie um!</a>
         <input type="submit" value="Confirmar">
-        <a href="index.php" class="voltar">Voltar</a>
+        <a href="index.php" class="voltar">Voltar   </a>
         
     </div>
 
