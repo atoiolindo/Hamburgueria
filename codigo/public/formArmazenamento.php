@@ -38,7 +38,7 @@ verificarPermissao(['a', 'b']);
 </head>
 <body>
     <div class="form-container">
-    <h1>Cadastro de ingredientes</h1>
+    <h2><?php echo $botao?></h2>
     <form action="../controle/salvarArmazenamento.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
 
         Quantidade: <br>
