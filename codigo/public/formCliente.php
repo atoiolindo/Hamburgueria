@@ -42,8 +42,10 @@ require_once "../controle/funcoes.php";
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <script src="../controle/funcoes.js"></script>
     <script src="../controle/mask.js"></script>
+    <link rel="stylesheet" href="./css/forms.css">
 </head>
 <body>
+    <div class="form-container">
     <h1>Cadastro de Cliente</h1>
     <form action="../controle/salvarCliente.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
 
@@ -56,5 +58,6 @@ require_once "../controle/funcoes.php";
 
         <input type="submit" value="<?php echo $botao; ?>">
     </form>
+    </div>
 </body>
 </html>

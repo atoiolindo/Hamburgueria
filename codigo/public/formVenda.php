@@ -41,9 +41,11 @@ if (isset($_GET['id'])) {
     <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
     <script src="../controle/jquery-3.7.1min(1).js"></script>
     <script src="../controle/funcoes.js"></script>
+    <link rel="stylesheet" href="./css/forms.css">
 </head>
 
 <body>
+    <div class="form-container">
     <form action="../controle/salvarVenda.php?id=<?php echo $idvenda; ?>" method="post" enctype="multipart/form-data">
         Cliente: <br>
         <select name="idcliente" id="idcliente">
@@ -95,7 +97,7 @@ if (isset($_GET['id'])) {
         <input type="submit" value="<?php echo $botao; ?>">
     
     </form>
-    <button>Botão de testes</button>
+    <div class="form-container">
 </body>
 
 </html>
