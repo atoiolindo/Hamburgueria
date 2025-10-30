@@ -18,7 +18,8 @@ if (isset($_SESSION['nome'])) {
 </head>
 
 <body>
-    <h1>Lista de ingredientes</h1>
+    <div class="list-container">
+    <h2>Lista de ingredientes</h2>
 
     <?php
     require_once "../controle/conexao.php";
@@ -55,14 +56,15 @@ if (isset($_SESSION['nome'])) {
             echo "<td>$nome</td>";
 
             if ($tipo_usuario == 'a') {
-            echo "<td><a href='formArmazenamento.php?id=$idingrediente'>Editar</a></td>";
-            echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'>Excluir</a></td>";
+            echo "<td><a href='formArmazenamento.php?id=$idingrediente'><img src='./assets/editar.png' alt='editar'></a></td>";
+            echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'><img src='./assets/excluir.png' alt='excluir'></a></td>";
             }
             echo "</tr>";
         }
     }
         ?>
         </table>
+    </div>
 </body>
 
 </html>

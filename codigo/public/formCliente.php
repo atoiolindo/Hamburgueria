@@ -46,7 +46,7 @@ require_once "../controle/funcoes.php";
 </head>
 <body>
     <div class="form-container">
-    <h1>Cadastro de Cliente</h1>
+    <h2><?php echo $botao?></h2>
     <form action="../controle/salvarCliente.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
 
         Nome Completo: *nao é possivel alterar posteriormente<br> 

@@ -46,6 +46,7 @@ if (isset($_GET['id'])) {
 
 <body>
     <div class="form-container">
+    <h2><?php echo $botao?></h2>
     <form action="../controle/salvarVenda.php?id=<?php echo $idvenda; ?>" method="post" enctype="multipart/form-data">
         Cliente: <br>
         <select name="idcliente" id="idcliente">

@@ -50,7 +50,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                 </button>
                 <ul>
                     <br><br><br>
-                    <li><a href="home.php">Entrar</a></li>
                     <li><a href="index.php">Início</a></li>
                     <li><a href="cardapio.php">Cardápio</a></li>
 
@@ -97,7 +96,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     
                     <br>
                     <li><a href="historia.php">História/Política de Privacidade</a></li>
-                    <li><a href="deslogar.php">Sair</a></li>
                 </ul>
             </nav>
 
