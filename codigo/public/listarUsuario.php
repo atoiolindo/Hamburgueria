@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="./css/listar.css">
 </head>
 
 <body>
-    <h1>Lista de usuarios</h1>
+    <div class="list-container">
+    <h2>Lista de usuarios</h2>
 
     <?php
     require_once "../controle/conexao.php";
@@ -49,6 +51,7 @@
     }
         ?>
         </table>
+    </div>
 </body>
 
 </html>

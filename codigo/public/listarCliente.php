@@ -15,10 +15,12 @@ if (isset($_SESSION['nome'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="./css/listar.css">
 </head>
 
 <body>
-    <h1>Lista de clientes</h1>
+    <div class="list-container">
+    <h2>Lista de clientes</h2>
 
     <?php
     require_once "../controle/conexao.php";
@@ -67,6 +69,7 @@ if (isset($_SESSION['nome'])) {
     }
         ?>
         </table>
+    </div>
 </body>
 
 </html>
