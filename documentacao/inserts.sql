@@ -229,20 +229,25 @@ INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (12, 43, 1
 INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (13, 44, 1);
 INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (14, 45, 1);
 
--- INSERTs para cliente
-
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Cleber', '62 93920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / ES');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Francisco Peixoto', '62 98396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / AL');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Jessica Arantes Renascida', '62 96873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / ES');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Luana Coutto', '62 98582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / ES');
-INSERT INTO cliente (nome, telefone, endereco) VALUES ('Alícia Oliveira', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / SP');
 -- INSERTs para usuario
 
-INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'jess_rainhe@yahoo.com.br', '$2y$10$MwI4cpcmi6gJhSjxWTzJUejR7MK63EA3SQiRhp//yqzmSIJzIvsYm', 'Jessica Arantes', 'a', '1', 'não');
-INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'antonio.andrade@gmail.com', '$2y$10$yHqcxeEU22fW1UNYXj.EgejsFuScLbKS/aELrcs4VmWkghlJdS12a', 'Antônio Andrade', 'b', '2', 'não');
-INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'gabriel.rodrigues@gmail.com', '$2y$10$n5PDU7AAWJYj4KKf0PFK6e6rEQ9ag.yNLxY2Kk9hd8IzbO0cHmaHq', 'Gabriel Rodrigues', 'b', '3', 'não');
-INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'yasmin.pereira@gmail.com', '$2y$10$JMZ1VlAtGhcPg5wq0cjl4u6lRoP2Gf/ohSKzMXbw4vvvLRn7LGtNW', 'Yasmin Pereira', 'b', '4', 'não');
-INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'im.just.cleber@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Cleber', 'c', '5', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'jess_rainhe@yahoo.com.br', '$2y$10$MwI4cpcmi6gJhSjxWTzJUejR7MK63EA3SQiRhp//yqzmSIJzIvsYm', 'Jessica Arantes', 'a', '1abcgj', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'antonio.andrade@gmail.com', '$2y$10$yHqcxeEU22fW1UNYXj.EgejsFuScLbKS/aELrcs4VmWkghlJdS12a', 'Antônio Andrade', 'b', '2hty58', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'gabriel.rodrigues@gmail.com', '$2y$10$n5PDU7AAWJYj4KKf0PFK6e6rEQ9ag.yNLxY2Kk9hd8IzbO0cHmaHq', 'Gabriel Rodrigues', 'b', '3htoi8', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'yasmin.pereira@gmail.com', '$2y$10$JMZ1VlAtGhcPg5wq0cjl4u6lRoP2Gf/ohSKzMXbw4vvvLRn7LGtNW', 'Yasmin Pereira', 'b', '413f7u', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'im.just.cleber@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Cleber', 'c', '5gd47h', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'afonsinha.nao@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Agatha Nunes', 'c', '6235gv', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'jess_plebeia1@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Jessica Arantes', 'c', '7f65dv', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'luaninha02020@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Luana Coutto', 'c', '8ca4fg', 'não');
+INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'cururu@gmail.com', '$2y$10$UWktZ11KeApu8Zu.3PddBe7KhUejcR8B/KZYP/LkOn/KpgBc0zILy', 'Maria Jose', 'c', '9f43a1', 'não');
+
+-- INSERTs para cliente
+
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Cleber', '62 93920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / GO', '5' );
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Agatha Nunes', '62 98396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / GO', '6' );
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Jessica Arantes Renascida', '62 96873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / GO', '7' );
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Luana Coutto', '62 98582 0028', 'Distrito de Silva, 7, Vila Santo Antônio, 40888427 Barbosa de Almeida / GO', '8' );
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Maria Jose', '62 91034 2149', 'Estação de Ramos, 84, Bernadete, 48402260 da Mota de Minas / GO', '9' );
 -- INSERTs para venda
 
 INSERT INTO venda ( valor_final, observacao, data, idcliente, status)
