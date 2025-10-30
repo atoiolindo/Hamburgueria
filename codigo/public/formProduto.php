@@ -48,6 +48,7 @@ verificarPermissao(['a']);
     <link rel="stylesheet" href="./css/forms.css">
 </head>
 <body>
+    <div class="form-container">
     <h2><?php echo $botao; ?></h2> <br> <br>
     <form action="../controle/salvarProduto.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         Nome: <br>
@@ -102,5 +103,6 @@ verificarPermissao(['a']);
         
         <input type="submit" value="<?php echo $botao; ?>">
     </form>
+    </div>
 </body>
 </html>
