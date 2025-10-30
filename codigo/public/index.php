@@ -175,98 +175,73 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
             </div>
         </div>
 
+<section id="mais-pedidos" style="margin-top: 40px;">
+    <h2 style="font-family: 'Bevan', serif; color: #4B1203;">Nossos itens mais pedidos</h2> 
+    <br><br>
 
+    <div class="container mt-4">
+        <div class="row justify-content-start">
 
-        <h2 style="font-family: 'Bevan', serif; color: #4B1203;">Nossos itens mais pedidos </h2><br><br>
+            <?php
+            // Inclui a conexão com o banco de dados
+            include '../controle/conexao.php';
 
+            // Cria o comando SQL
+            // Seleciona até 6 produtos que estão com o estado 'ativo'
+            $sql = "SELECT idproduto, nome, valor, foto 
+                    FROM produto WHERE estado = 'ativo' ORDER BY idproduto LIMIT 6";
 
-        <div class="card" style="width: 18rem;">
-            <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-            <div class="card-body">
+            // Executa a consulta SQL
+            $result = mysqli_query($conexao, $sql);
 
-                <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Feitiço Clássico</h5>
-                <p class="card-text">R$33,00</p>
-                <a href="produto.php?id=<?php echo $idproduto; ?>" class="btn-cardapio" >Ver Produto</a>
-                <!-- professor mexeu aquiiiiii -->
+            // Verifica se retornou algum resultado
+            if (mysqli_num_rows($result) > 0) {
 
-            </div>
+                // Percorre cada produto retornado pelo banco
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                    // Exibe um card para cada produto
+                    echo '
+                    <div class="col-md-4 mb-4 d-flex justify-content-center">
+                        <div class="card shadow-sm" style="width: 18rem; border: none; border-radius: 10px;">
+
+                            <!-- Imagem do produto -->
+                            <img src="../controle/fotos/' . htmlspecialchars($row["foto"]) . '" 
+                                 class="card-img-top" 
+                                 alt="' . htmlspecialchars($row["nome"]) . '" 
+                                 style="border-top-left-radius: 10px; 
+                                        border-top-right-radius: 10px; 
+                                        height: 180px; 
+                                        object-fit: cover;">
+
+                            <!-- Corpo do card -->
+                            <div class="card-body text-center">
+
+                                <!-- Nome do produto -->
+                                <h5 style="font-family: \'Bevan\', serif; color: #4B1203;">
+                                    ' . htmlspecialchars($row["nome"]) . '
+                                </h5>
+
+                                <!-- Valor formatado -->
+                                <p class="card-text">
+                                    R$' . number_format($row["valor"], 2, ',', '.') . '
+                                </p>
+
+                                <!-- Botão que leva à página do produto -->
+                                <a href="produto.php?id=' . urlencode($row["idproduto"]) . '" 
+                                   class="btn-cardapio">Ver Produto</a>
+                            </div>
+                        </div>
+                    </div>';
+                }
+            } else {
+                // 🔹 7️⃣ Caso não existam produtos ativos, mostra esta mensagem
+                echo '<p>Nenhum produto encontrado.</p>';
+            }
+            ?>
         </div>
-
-
-        <div class="card" style="width: 18rem;">
-            <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-            <div class="card-body">
-
-                <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Encantamento Dourado</h5>
-                <p class="card-text">R$40,00</p>
-                <a href="" class="btn-cardapio">Ver Produto</a>
-
-            </div>
-        </div>
-
-
-        <div class="card" style="width: 18rem;">
-            <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-            <div class="card-body">
-
-                <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Trio Arcano</h5>
-                <p class="card-text">R$35,00</p>
-                <a href="" class="btn-cardapio">Ver Produto</a>
-
-            </div>
-        </div>
-
-
-        <div class="card" style="width: 18rem;">
-            <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-            <div class="card-body">
-
-                <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Gorgonzola Místico</h5>
-                <p class="card-text">R$42,00</p>
-                <a href="" class="btn-cardapio">Ver Produto</a>
-
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-            <div class="card-body">
-
-                <h5 style="font-family: 'Bevan', serif; color: #4B1203;">Batata Frita Média Simples</h5>
-                <p class="card-text">R$13,00</p>
-                <a href="" class="btn-cardapio">Ver Produto</a>
-
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-            <div class="card-body">
-
-                <h5 style="font-family: 'Bevan', serif; color: #4B1203;"> Coca-Cola Lata</h5>
-                <p class="card-text">R$5,00</p>
-                <a href="" class="btn-cardapio">Ver Produto</a>
-
-            </div>
-        </div>
+    </div>
+</section>
 
         <br><br>
 
