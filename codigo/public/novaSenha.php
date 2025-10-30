@@ -5,6 +5,7 @@ if (!isset($_GET['email'])) {
 }
 
 $email = $_GET['email'];
+$erro = isset($_GET['erro']);
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +19,9 @@ $email = $_GET['email'];
 <body>
 <div class="container">
     <h1>Criar Nova Senha</h1>
-    <form action="salvarNovaSenha.php" method="post">
-        <input type="hidden" name="email" value="<?php echo ($email); ?>">
+    <form action="../controle/salvarNovaSenha.php" method="post">
         <p>Nova senha:</p>
+        <input type="hidden" name="email" value="<?= htmlspecialchars($email) ?>">
         <input type="password" name="senha" required>
         <p>Confirme a nova senha:</p>
         <input type="password" name="senha2" required>
@@ -30,3 +31,6 @@ $email = $_GET['email'];
 </div>
 </body>
 </html>
+
+
+erro com o email, arrumar dps

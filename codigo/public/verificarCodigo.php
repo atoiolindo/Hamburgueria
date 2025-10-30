@@ -11,7 +11,7 @@ $email = $_POST['email'];
 $codigo = $_POST['codigo'];
 
 $idusuario = verificarEmail($conexao, $email);
-$token = gerarTokenUnico($conexao, $idusuario);
+$token = pegarToken($conexao, $idusuario);
 
 if ($codigo === $token) {
     header("Location: novaSenha.php?email=" . urlencode($email));

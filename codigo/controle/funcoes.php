@@ -857,7 +857,23 @@ function gerarTokenUnico($conexao, $idusuario){
 
     header("Location: novaSenha.php?email=" ($email));
     exit;
+};
+
+function pegarToken($conexao, $idusuario){
+    $sql = "SELECT token FROM usuario WHERE idusuario = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idusuario);
+
+    mysqli_stmt_execute($comando); 
+
+    $resultado = mysqli_stmt_get_result($comando);
+    $linha = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $linha['token'];
 }
+
 
 function verificarToken ($conexao, $idusuario, $codigo){
     $sql = "SELECT token FROM usuario WHERE idusuario = ?";
@@ -939,5 +955,19 @@ function buscarProdutoPorId($conexao, $idproduto) {
     $resultado = mysqli_stmt_get_result($stmt);
     return mysqli_fetch_assoc($resultado);
 }
+function salvarNovaSenha($conexao, $email, $senha) {
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+    $sql = "UPDATE usuario SET senha = ?, token = ? WHERE email = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, "sss", $senha_hash, $email);
+
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+
+    return $funcionou;
+}
+
 
 ?>
