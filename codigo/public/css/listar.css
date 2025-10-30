@@ -174,3 +174,41 @@ td {
     color: #555;
   }
 }
+
+/* ===== ÍCONES DE AÇÃO (Editar / Excluir) ===== */
+table td a img {
+  width: 26px;                 /* tamanho fixo dos ícones */
+  height: 26px;
+  object-fit: contain;
+  border-radius: 8px;          /* cantos levemente arredondados */
+  padding: 5px;                /* respiro interno */
+  transition: all 0.25s ease;  /* transição suave */
+  background-color: #fff;      /* fundo branco */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone de editar */
+table td a[href*="form"],
+table td a[href*="editar"] img {
+  background-color: #f5b70020; /* leve tom dourado translúcido */
+}
+
+table td a[href*="form"]:hover img,
+table td a[href*="editar"]:hover img {
+  background-color: #e39b00;
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Ícone de excluir */
+table td a[href*="deletar"] img,
+table td a[href*="excluir"] img {
+  background-color: #ff000020; /* leve tom vermelho translúcido */
+}
+
+table td a[href*="deletar"]:hover img,
+table td a[href*="excluir"]:hover img {
+  background-color: #d32f2f;
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
