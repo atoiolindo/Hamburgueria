@@ -1,0 +1,214 @@
+/* =======================
+   LISTAGENS PADRÃO – ESTILO PÃO E MAGIA
+   ======================= */
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff8f6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 50px 0;
+}
+
+/* Container principal */
+.list-container {
+  background-color: #fff3f1;
+  padding: 40px 50px;
+  border-radius: 25px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  overflow-x: auto;
+}
+
+/* ======= TÍTULO ======= */
+.list-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c2c2c;
+  font-size: 28px;
+  font-weight: 600;
+  border-bottom: 2px solid #f5b700;
+  padding-bottom: 5px;
+}
+
+.list-container h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #e39b00;
+  margin: 10px auto 0 auto;
+  border-radius: 3px;
+}
+
+/* ======= TABELA ======= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Cabeçalho */
+thead {
+  background-color: #e39b00;
+  color: #fff;
+}
+
+thead th {
+  padding: 14px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Linhas */
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+  background-color: #fff8e6;
+}
+
+/* Células */
+td {
+  padding: 12px 15px;
+  font-size: 15px;
+  color: #333;
+  vertical-align: middle;
+}
+
+/* ======= BOTÕES DE AÇÃO ======= */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.action-btn.edit {
+  background-color: #f5b700;
+}
+
+.action-btn.delete {
+  background-color: #e74c3c;
+}
+
+.action-btn.add {
+  background-color: #27ae60;
+  margin-bottom: 15px;
+}
+
+.action-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.action-btn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+/* ======= SEM REGISTROS ======= */
+.no-data {
+  text-align: center;
+  color: #777;
+  padding: 25px;
+  font-size: 16px;
+}
+
+/* ======= ROLAGEM RESPONSIVA ======= */
+@media (max-width: 768px) {
+  .list-container {
+    padding: 25px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    padding: 12px;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: none;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+}
+
+/* ===== ÍCONES DE AÇÃO (Editar / Excluir) ===== */
+table td a img {
+  width: 26px;                 /* tamanho fixo dos ícones */
+  height: 26px;
+  object-fit: contain;
+  border-radius: 8px;          /* cantos levemente arredondados */
+  padding: 5px;                /* respiro interno */
+  transition: all 0.25s ease;  /* transição suave */
+  background-color: #fff;      /* fundo branco */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone de editar */
+table td a[href*="form"],
+table td a[href*="editar"] img {
+  background-color: #f5b70020; /* leve tom dourado translúcido */
+}
+
+table td a[href*="form"]:hover img,
+table td a[href*="editar"]:hover img {
+  background-color: #e39b00;
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Ícone de excluir */
+table td a[href*="deletar"] img,
+table td a[href*="excluir"] img {
+  background-color: #ff000020; /* leve tom vermelho translúcido */
+}
+
+table td a[href*="deletar"]:hover img,
+table td a[href*="excluir"]:hover img {
+  background-color: #d32f2f;
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}

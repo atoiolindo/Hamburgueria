@@ -15,6 +15,7 @@ if (isset($_SESSION['nome'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Vendas</title>
+    <link rel="stylesheet" href="./css/listar.css">
     <style>
         img {
             width: 50px;
@@ -24,7 +25,8 @@ if (isset($_SESSION['nome'])) {
 </head>
 
 <body>
-    <h1>Lista de vendas</h1>
+    <div class="list-container">
+    <h2>Lista de vendas</h2>
 
     <?php
     require_once "../controle/conexao.php";
@@ -79,13 +81,14 @@ if (isset($_SESSION['nome'])) {
         echo "</td>";
     
         if ($tipo_usuario == 'a') {
-        echo "<td><a href='formVenda.php?id=$idvenda'>Editar</a></td>";
-        echo "<td><a href='deletarVenda.php?id=$idvenda'>Excluir</a></td>";
+        echo "<td><a href='formVenda.php?id=$idvenda'><img src='./assets/editar.png' alt='editar'></a></td>";
+        echo "<td><a href='deletarVenda.php?id=$idvenda'><img src='./assets/excluir.png' alt='excluir'></a></td>";
         } echo "</tr>";
         }
     }
         ?>
         </table>
+    </div>
 </body>
 
 

@@ -15,10 +15,12 @@ if (isset($_SESSION['nome'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="./css/listar.css">s
 </head>
 
 <body>
-    <h1>Lista de clientes</h1>
+    <div class="list-container">
+    <h2>Lista de clientes</h2>
 
     <?php
     require_once "../controle/conexao.php";
@@ -59,14 +61,15 @@ if (isset($_SESSION['nome'])) {
             echo "<td>$endereco</td>";
             
             if ($tipo_usuario == 'a') {
-            echo "<td><a href='formCliente.php?id=$idcliente'>Editar</a></td>";
-            echo "<td><a href='../controle/deletarCliente.php?id=$idcliente'>Excluir</a></td>";
+            echo "<td><a href='formCliente.php?id=$idcliente'><img src='./assets/editar.png' alt='editar'></a></td>";
+            echo "<td><a href='../controle/deletarCliente.php?id=$idcliente'><img src='./assets/excluir.png' alt='excluir'></a></td>";
             }
             echo "</tr>";
         }
     }
         ?>
         </table>
+    </div>
 </body>
 
 </html>

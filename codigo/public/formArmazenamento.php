@@ -34,9 +34,11 @@ verificarPermissao(['a', 'b']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+    <link rel="stylesheet" href="./css/forms.css">
 </head>
 <body>
-    <h1>Cadastro de ingredientes</h1>
+    <div class="form-container">
+    <h2><?php echo $botao?></h2>
     <form action="../controle/salvarArmazenamento.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
 
         Quantidade: <br>
@@ -46,5 +48,6 @@ verificarPermissao(['a', 'b']);
 
         <input type="submit" value="<?php echo $botao; ?>">
     </form>
+    </div>
 </body>
 </html>
