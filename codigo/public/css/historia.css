@@ -1,0 +1,85 @@
+/* ======== SEÇÃO HISTÓRIA / POLÍTICA ======== */
+.section-content {
+  background-color: #fff8f6; /* fundo claro, combinando com o resto do site */
+  padding: 60px 15%;
+  color: #3a2b1e; /* marrom escuro para o texto */
+  line-height: 1.8;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ======== TÍTULOS PRINCIPAIS ======== */
+.section-content h2 {
+  font-size: 30px;
+  color: #8b1e00; /* tom vinho-avermelhado para destacar o título */
+  text-align: left;
+  margin-bottom: 20px;
+  position: relative;
+  font-weight: 700;
+}
+
+/* Linha decorativa abaixo do título */
+.section-content h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #f5b700; /* dourado da identidade visual */
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+/* ======== PARÁGRAFOS ======== */
+.section-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* ======== LISTAS ======== */
+.section-content ul {
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.section-content li {
+  margin-bottom: 8px;
+  list-style-type: disc;
+}
+
+/* ======== LINKS ======== */
+.section-content a {
+  color: #d32f2f; /* vermelho suave para links */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.section-content a:hover {
+  color: #8b1e00;
+  text-decoration: underline;
+}
+
+/* ======== IMAGEM DECORATIVA ======== */
+.section-content img {
+  display: block;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto 30px auto;
+  filter: grayscale(30%) contrast(1.1);
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 768px) {
+  .section-content {
+    padding: 40px 8%;
+  }
+
+  .section-content h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .section-content img {
+    max-width: 220px;
+  }
+}

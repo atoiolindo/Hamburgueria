@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>História do Pão e Magia</title>
+    <link rel="icon" href="./assets/logopaoemagia2.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/historia.css">
 </head>
 <body>
     <h1> História do Pão e Magia </h1>
