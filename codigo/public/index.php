@@ -50,7 +50,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                 </button>
                 <ul>
                     <br><br><br>
-                    <li><a href="index.php">Início</a></li>
                     <li><a href="cardapio.php">Cardápio</a></li>
 
 
@@ -64,10 +63,14 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "    <div class='dropdown-container'>";
                     
                     if ($tipo_usuario == 'a') {
-                    echo "        <a href='formProduto.php'>Cadastrar novo produto</a>";}
+                    echo "        <a href='formProduto.php'>Cadastrar novo produto</a>";
+                    echo "        <br>";}
                     echo "        <a href='formCliente.php'>Cadastrar novo cliente</a>";
+                    echo "        <br>";
                     echo "        <a href='formVenda.php'>Cadastrar nova venda</a>";
+                    echo "        <br>";
                     echo "        <a href='formArmazenamento.php'>Cadastrar novo ingrediente</a>";
+                    echo "        <br>";
                     echo "    </div>";
                     echo "</div>";
                     }?>
@@ -84,11 +87,17 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     echo "    </button>";
                     echo "    <div class='dropdown-container'>";
                     echo "        <a href='listarProduto.php'>Lista de produtos cadastrados</a>";
+                    echo "        <br>";
                     echo "        <a href='listarProdutoInativo.php'>Lista de produtos inativos cadastrados</a>";
+                    echo "        <br>";
                     echo "        <a href='listarCliente.php'>Lista de clientes cadastrados</a>";
+                    echo "        <br>";
                     echo "        <a href='listarVenda.php'>Lista de vendas cadastrados</a>";
+                    echo "        <br>";
                     echo "        <a href='listarArmazenamento.php'>Lista de ingredientes cadastrados</a>";
+                    echo "        <br>";
                     echo "        <a href='listarUsuario.php'>Lista de usuários cadastrados</a>";
+                    echo "        <br><br>";
                     echo "    </div>";
                     echo "</div>";
                     }?>
