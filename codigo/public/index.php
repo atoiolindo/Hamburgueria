@@ -120,7 +120,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                             </div>
                       
                             <a href="pedidos.php">Pedidos</a>
-                            <a href="pagento.php">Pagamento</a>
+                            <a href="pagamento.php">Pagamento</a>
                             <a href="perfil.php">Meus Dados</a>
                             <a href="../controle/deslogar.php">Sair</a>
                         </div>
