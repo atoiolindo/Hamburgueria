@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if (!isset($_POST['email'])) {
-    header("Location: ../public/verificarEmail.php");
+    header("Location: ../public/esqueciSenha.php");
     exit;
 }
 
@@ -19,7 +19,7 @@ $email = $_POST['email'];
 
 $idusuario = verificarEmail($conexao, $email);
 if ($idusuario == 0) {
-    header("Location: ../public/verificarEmail.php?erro=1");
+    header("Location: ../public/esqueciSenha.php?erro=1");
     exit;
 }
 
@@ -48,11 +48,11 @@ try {
 
     $mail->send();
 
-    header("Location: ../public/digitarCodigoVerificar.php?email=" . ($email));
+    header("Location: ../public/digitarCodigo.php?email=" . ($email));
     exit;
 
 } catch (Exception $e) {
     echo "<p style='color:red;text-align:center;'>Erro ao enviar e-mail: {$mail->ErrorInfo}</p>";
-    echo "<p style='text-align:center;'><a href='verificarEmail.php'>Tentar novamente</a></p>";
+    echo "<p style='text-align:center;'><a href='esqueciSenha.php'>Tentar novamente</a></p>";
     exit;
 }
