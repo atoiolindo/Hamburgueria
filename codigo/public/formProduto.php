@@ -87,7 +87,7 @@ verificarPermissao(['a']);
             echo "<input type='number' 
             name='quantidade[$idingrediente]' 
             id='quantidade_$idingrediente' 
-            value='$quantidade_valor'><br>";
+            value='$quantidade_valor'min='0'><br>";
         }
         ?>
 
