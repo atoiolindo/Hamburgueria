@@ -103,7 +103,6 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     }?>
 
                     
-                    <br>
                     <li><a href="historia.php">História/Política de Privacidade</a></li>
                 </ul>
             </nav>
