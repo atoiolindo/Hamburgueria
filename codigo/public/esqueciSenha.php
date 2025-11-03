@@ -16,7 +16,7 @@
     <?php endif; ?>
 
 
-    <form action="../controle/verificarEmail.php" method="post">
+    <form action="../controle/esqueciSenha.php" method="post">
     <p>Digite seu e-mail:</p>  
     <input type="text" name="email" required>
     

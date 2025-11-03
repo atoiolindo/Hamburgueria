@@ -122,3 +122,28 @@
             text-align: right;
             margin-top: 10px;
         }
+
+
+        .imagem-card {
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.imagem-card img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.imagem-card img:hover {
+    transform: scale(1.05);
+}

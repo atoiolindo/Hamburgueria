@@ -20,11 +20,10 @@ if ($idcliente === false) {
     exit;
 }
 
-
+$_SESSION['idcliente'] = $idcliente;
 $_SESSION['nome'] = $nome;
 $_SESSION['telefone'] = $telefone;
 $_SESSION['endereco'] = $endereco;
-
 
 header("Location: ../public/perfil.php");
 exit;
