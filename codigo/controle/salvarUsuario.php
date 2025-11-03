@@ -9,10 +9,11 @@ $senha = $_POST['senha'];
 $nome = $_POST['nome'];
 
 $tipo = "c";
-$token = gerarTokenUnico($conexao, $idusuario);
 $status = "nao";
 
-$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status);
+$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token ="", $status);
+$token = gerarTokenUnico($conexao, $idusuario);
+
 
 if ($idusuario !== false) {
 
@@ -24,4 +25,3 @@ if ($idusuario !== false) {
     header("Location: ../public/index.php");
     exit;
 }
-?>
