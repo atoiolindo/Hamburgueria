@@ -22,7 +22,7 @@ $produto = buscarProdutoPorId($conexao, $id);
     <div class="produto-container">
 
         <!-- Imagem -->
-        <div class="imagem">
+        <div class="imagem-card">
             <?php 
             $caminhoImagem = "../controle/fotos/" . htmlspecialchars($produto['foto']);
             if (file_exists($caminhoImagem)) {
@@ -30,7 +30,6 @@ $produto = buscarProdutoPorId($conexao, $id);
             }
             ?>
         </div>
-
         <!-- Informações -->
         <div class="detalhes">
             <h1><?php echo htmlspecialchars($produto['nome']); ?></h1>
