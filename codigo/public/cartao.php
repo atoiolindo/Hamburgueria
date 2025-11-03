@@ -6,10 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    formas de pagamento
-    adicione um cartão
+    escolha um meio de pagamento 
 
-
-     <a href="cartao.php">adicionar novo cartao</a>
+   <a href="credito.php">Crédito</a> 
+   <a href="debito.php">Débito</a> 
 </body>
 </html>

@@ -849,11 +849,11 @@ function gerarTokenUnico($conexao, $idusuario){
     return $token;
     
 
-    if (!$user) {
-        echo "<p style='color:red;text-align:center;'>Código incorreto.</p>";
-        echo "<p style='text-align:center;'><a href='esqueciSenha.php'>Tentar novamente</a></p>";
-        exit;
-    }
+    // if (!$user) {
+    //     echo "<p style='color:red;text-align:center;'>Código incorreto.</p>";
+    //     echo "<p style='text-align:center;'><a href='esqueciSenha.php'>Tentar novamente</a></p>";
+    //     exit;
+    // }
 
     header("Location: novaSenha.php?email=" ($email));
     exit;

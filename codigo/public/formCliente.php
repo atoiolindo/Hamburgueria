@@ -50,11 +50,11 @@ require_once "../controle/funcoes.php";
     <form action="../controle/salvarCliente.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
 
         Nome Completo: *nao é possivel alterar posteriormente<br> 
-        <input type="text" name="nome" value="<?php echo $nome; ?>"> <br><br>
+        <input type="text" name="nome" value="<?php echo $nome; ?>" required> <br><br>
         Telefone: <br>
-        <input type="text" name="telefone" id="telefone" value="<?php echo $telefone; ?>"> <br><br>
+        <input type="text" name="telefone" id="telefone" value="<?php echo $telefone; ?>" required> <br><br>
         Endereço: <br>
-        <input type="text" name="endereco" value="<?php echo $endereco; ?>"> <br><br>
+        <input type="text" name="endereco" value="<?php echo $endereco; ?>" required> <br><br>
 
         <input type="submit" value="<?php echo $botao; ?>">
     </form>

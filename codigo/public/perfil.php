@@ -79,7 +79,7 @@ elseif (isset($_POST['email'])) {
 
         <form method="post" id="email-form">
           <input type="text" name="email" id="email" class="email" value="<?php echo ($email); ?>" placeholder="Seu e-mail" readonly>
-          <button type="button" class="editar" onclick="window.location.href='../controle/verificarEmail.php?email=<?php echo($email); ?>'">Editar</button>
+          <button type="button" class="editar" onclick="window.location.href='../controle/verificarEmail.php?email=<?php echo($email); ?>'">Verificar</button>
           <span class="aviso">Campo obrigatório </span>
         </form>
 
