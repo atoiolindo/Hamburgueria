@@ -1,85 +1,177 @@
-/* ======== SEÇÃO HISTÓRIA / POLÍTICA ======== */
-.section-content {
-  background-color: #fff8f6; /* fundo claro, combinando com o resto do site */
-  padding: 60px 15%;
-  color: #3a2b1e; /* marrom escuro para o texto */
-  line-height: 1.8;
+/* =======================
+   ESTILO GERAL
+   ======================= */
+
+* {
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* ======== TÍTULOS PRINCIPAIS ======== */
-.section-content h2 {
-  font-size: 30px;
-  color: #8b1e00; /* tom vinho-avermelhado para destacar o título */
-  text-align: left;
-  margin-bottom: 20px;
-  position: relative;
+body {
+  background-color: #fff8f6;
+  color: #2c2c2c;
+  line-height: 1.7;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* =======================
+   CONTAINER CENTRAL
+   ======================= */
+.container {
+  background-color: #fff3f1;
+  padding: 50px;
+  border-radius: 25px;
+  width: 80%;
+  max-width: 950px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* =======================
+   TÍTULOS
+   ======================= */
+h1 {
+  text-align: center;
+  font-size: 26px;
+  color: #a91d3a;
   font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Linha decorativa abaixo do título */
-.section-content h2::after {
+h1::after {
   content: "";
   display: block;
   width: 80px;
   height: 4px;
-  background-color: #f5b700; /* dourado da identidade visual */
+  background-color: #e39b00;
+  margin: 10px auto 0;
   border-radius: 3px;
-  margin-top: 8px;
 }
 
-/* ======== PARÁGRAFOS ======== */
-.section-content p {
-  font-size: 16px;
-  margin-bottom: 20px;
+h2 {
+  color: #a91d3a;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* =======================
+   SEÇÃO HISTÓRIA
+   ======================= */
+.historia {
+  margin-bottom: 60px;
+}
+
+.historia-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem-historia {
+  width: 350px;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.imagem-historia:hover {
+  transform: scale(1.03);
+}
+
+.texto {
+  flex: 1;
+  min-width: 280px;
+  font-size: 15px;
   text-align: justify;
+  color: #3a3a3a;
 }
 
-/* ======== LISTAS ======== */
-.section-content ul {
-  margin-left: 25px;
-  margin-bottom: 25px;
+/* =======================
+   POLÍTICA DE PRIVACIDADE
+   ======================= */
+.politica {
+  background-color: #fffaf8;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.section-content li {
-  margin-bottom: 8px;
-  list-style-type: disc;
+.politica p {
+  margin-bottom: 15px;
 }
 
-/* ======== LINKS ======== */
-.section-content a {
-  color: #d32f2f; /* vermelho suave para links */
+.politica ul {
+  list-style: disc;
+  margin: 10px 0 20px 25px;
+  color: #444;
+}
+
+/* =======================
+   BOTÃO FINAL
+   ======================= */
+.botoes-finais {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.botao-voltar {
+  display: inline-block;
+  background-color: #e39b00;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-.section-content a:hover {
-  color: #8b1e00;
-  text-decoration: underline;
+.botao-voltar:hover {
+  background-color: #cf8c00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* ======== IMAGEM DECORATIVA ======== */
-.section-content img {
-  display: block;
-  max-width: 300px;
-  height: auto;
-  margin: 0 auto 30px auto;
-  filter: grayscale(30%) contrast(1.1);
+.botao-voltar:active {
+  transform: scale(0.97);
 }
 
-/* ======== RESPONSIVIDADE ======== */
+/* =======================
+   RESPONSIVIDADE
+   ======================= */
 @media (max-width: 768px) {
-  .section-content {
-    padding: 40px 8%;
+  .container {
+    padding: 30px;
   }
 
-  .section-content h2 {
-    font-size: 24px;
-    text-align: center;
+  h1 {
+    font-size: 22px;
   }
 
-  .section-content img {
-    max-width: 220px;
+  .historia-conteudo {
+    flex-direction: column;
+  }
+
+  .imagem-historia {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .politica {
+    padding: 25px;
   }
 }
