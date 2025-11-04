@@ -276,7 +276,7 @@ VALUES ('Poção Refrescante de Laranja', 'Suco de laranja',
 -- Produto 13 – Batatas Encantadas
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
 VALUES ('Batatas Encantadas', 'Batata frita', 
-'Batatas crocantes e douradas', 10.90, 'acompanhamento', 'batatas.png', 
+'Batatas crocantes e douradas', 10.90, 'acompanhamento', 'batatasencantadas.png', 
 'Batatas rústicas servidas douradas, sequinhas e bem temperadas, direto do caldeirão.', 'ativo');
 
 -- Produto 14 – Verde de Elphira
