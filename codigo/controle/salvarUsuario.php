@@ -11,7 +11,7 @@ $nome = $_POST['nome'];
 $tipo = "c";
 $status = "nao";
 
-$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token ="", $status);
+$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $token ="", $status);
 $token = gerarTokenUnico($conexao, $idusuario);
 
 

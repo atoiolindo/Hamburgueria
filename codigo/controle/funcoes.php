@@ -69,7 +69,6 @@ function salvarProduto($conexao, $nome, $nome_real, $ingredientes, $valor, $tipo
     $sql = "INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado) VALUES (?, ?, ?, ?, ?, ?, ?, 'ativo')";
     $comando = mysqli_prepare($conexao, $sql);
     
-    // Removemos o parâmetro $estado
     mysqli_stmt_bind_param($comando, 'sssdsss', $nome, $nome_real, $ingredientes, $valor, $tipo, $foto, $descricao);
     
     $funcionou = mysqli_stmt_execute($comando);
@@ -180,12 +179,12 @@ function editarCliente($conexao, $nome, $telefone, $endereco, $idusuario) {
 };
 
 
-function salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status) {
-    $sql = "INSERT INTO usuario (nome, email, senha, tipo, token, status) VALUES (?, ?, ?, ?, ?, ?)";
+function salvarUsuario($conexao, $nome, $email, $senha, $token, $status) {
+    $sql = "INSERT INTO usuario (nome, email, senha, tipo, token, status) VALUES (?, ?, ?, 'c', ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($comando, 'ssssss', $nome, $email, $senha_hash, $tipo, $token, $status);
+    mysqli_stmt_bind_param($comando, 'sssss', $nome, $email, $senha_hash, $token, $status);
 
     $funcionou = mysqli_stmt_execute($comando);
 

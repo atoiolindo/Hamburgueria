@@ -1,17 +1,9 @@
-<?php
-
-// require_once "../controle/conexao.php";
-// require_once "../controle/funcoes.php";
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Hamburgueria Delícia</title>
-  <link rel="stylesheet" href="style.css">
+  <title>🍔 Hamburgueria Delícia</title>
+  <link rel="stylesheet" href="./css/carrinho.css">
 </head>
 <body>
   <h1>🍔 Hamburgueria Delícia</h1>
@@ -34,11 +26,22 @@
     </div>
   </div>
 
-  <h2>Carrinho 🛒</h2>
-  <ul id="cart-list"></ul>
-  <p id="total">Total: R$ 0,00</p>
+  <button id="open-cart" style="display:none;">🛒 Ver Carrinho</button>
 
-  <script src="script.js"></script>
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h2>Seu pedido</h2>
+      <button id="close-cart">&times;</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <p id="cart-total">Total: R$ 0,00</p>
+      <button class="checkout-btn">Finalizar Pedido</button>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <script src="funcoes.js"></script>
 </body>
 </html>
-

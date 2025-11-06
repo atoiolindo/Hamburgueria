@@ -1,0 +1,8 @@
+Warning: move_uploaded_file(fotos/690ced7aaa874.jpg): Failed to open stream: Permission denied in /var/www/html/controle/salvarProduto.php on line 47
+
+Warning: move_uploaded_file(): Unable to move "/tmp/phpHUuDhH" to "fotos/690ced7aaa874.jpg" in /var/www/html/controle/salvarProduto.php on line 47
+
+Warning: Cannot modify header information - headers already sent by (output started at /var/www/html/controle/salvarProduto.php:47) in /var/www/html/controle/salvarProduto.php on line 78
+
+^
+erro no salvar produto, fotos
