@@ -96,7 +96,7 @@
         }
 
         .modal textarea {
-            width: 100%;
+            width: 90%;
             height: 120px;
             resize: none;
             border: 1px solid #ccc;
@@ -137,8 +137,8 @@
 }
 
 .imagem-card img {
-    max-width: 90%;
-    max-height: 90%;
+    width: 90%;
+    height: 90%;
     object-fit: contain;
     border-radius: 12px;
     transition: transform 0.3s ease;
