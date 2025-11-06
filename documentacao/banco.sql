@@ -334,6 +334,21 @@ INSERT INTO armazenamento (quantidade, nome, valor_unitario) VALUES (100, 'Molho
 INSERT INTO armazenamento (quantidade, nome, valor_unitario) VALUES (100, 'Molho barbecue', 1.50);
 INSERT INTO armazenamento (quantidade, nome, valor_unitario) VALUES (100, 'Molho barbecue picante', 1.50);
 
+-- Produto 12 – Poção Refrescante de Laranja
+INSERT INTO armazenamento (quantidade, nome, valor_unitario)
+VALUES (100, 'Poção Refrescante de Laranja', 7.90);
+
+-- Produto 13 – Batatas Encantadas
+INSERT INTO armazenamento (quantidade, nome, valor_unitario)
+VALUES (100, 'Batatas Encantadas', 10.90);
+
+-- Produto 14 – Verde de Elphira
+INSERT INTO armazenamento (quantidade, nome, valor_unitario)
+VALUES (100, 'Verde de Elphira', 9.90);
+
+-- Produto 15 – Runa Dourada
+INSERT INTO armazenamento (quantidade, nome, valor_unitario)
+VALUES (100, 'Runa Dourada', 11.90);
 
 -- Produto 1: Encantamento Dourado
 INSERT INTO ingrediente (idproduto, idingrediente, quantidade) VALUES (1, 1, 1);
