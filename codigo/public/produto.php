@@ -58,6 +58,7 @@ $produto = buscarProdutoPorId($conexao, $id);
                     <input type="hidden" name="quantidade" id="inputQuantidade" value="1">
                     <input type="hidden" name="observacoes" id="inputObservacoes">
                     <button type="submit">Adicionar ao carrinho</button>
+                    <br><br>
                 </form>
 
                 <form action="finalizar_compra.php" method="post">
