@@ -1,66 +1,106 @@
   body {
     font-family: 'Poppins', sans-serif;
+    background-color: #fafafa;
     margin: 0;
-    padding: 40px 80px;
-    background: #fff;
-    color: #121212;
-  }
-
-  h1 {
-    font-weight: 600;
-    font-size: 24px;
-    margin-bottom: 40px;
+    padding: 0;
   }
 
   .container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  p.descricao {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .metodo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 80px;
+    justify-content: space-between;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    transition: 0.2s;
   }
 
-  .text-content {
-    max-width: 400px;
+  .metodo:hover {
+    background: #f8f8f8;
   }
 
-  .text-content h2 {
-    font-weight: 600;
+  .metodo .icone img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .metodo .info {
+    flex: 1;
+    margin-left: 14px;
+  }
+
+  .metodo .info h3 {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin: 0;
+    color: #222;
   }
 
-  .text-content p {
-    font-weight: 400;
+  .metodo .info p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #777;
+  }
+
+  .status span.ativo {
+    color: #00b37e;
+    font-weight: 600;
     font-size: 14px;
-    color: #666666;
-    margin-top: 0;
-    margin-bottom: 40px;
-    line-height: 1.4;
   }
 
-  .btn {
-    display: inline-block;
-    background-color: #e9202d;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-weight: 500;
+  .status span.desativado {
+    color: #aaa;
     font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s;
-    text-decoration: none;
   }
 
-  .btn:hover {
-    background-color: #b71c22;
-  }
+  #voltar {
+  position: absolute;
+  top: 460px;   
+  left: 265px;  
+  z-index: 100; 
+}
 
-  .image {
-    width: 180px;
-    height: 140px;
-    background: #f2f2f2;
-    border-radius: 50%;
-    position: relative;
-  }
+
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: none;
+  color: #AD2E1A;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.voltar::before {
+  content: '↵';
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+

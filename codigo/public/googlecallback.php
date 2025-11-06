@@ -28,8 +28,19 @@ try {
 
     $idusuario = registrarOuBuscarUsuario($conexao, $dadosGoogle['email'], $dadosGoogle['nome']);
     salvarSessaoGoogle($idusuario, $dadosGoogle['email'], $dadosGoogle['nome']);
-
     $mensagem = "Login realizado com sucesso!";
+
+    
+    $idcliente = ClientePorUsuario($conexao, $idusuario);
+
+    if ($idcliente) {
+        $_SESSION['idcliente'] = $idcliente;
+        header("Location: perfil.php");
+        exit;
+    }
+
+
+
 } catch (Exception $e) {
     if (session_status() === PHP_SESSION_ACTIVE) {
         session_unset();
@@ -54,8 +65,6 @@ try {
             <?php if (!isset($_SESSION['idcliente'])): ?>
                 <p>Concluir meu cadastro</p>
                 <a href="formCliente.php" class="btn">Ir agora</a>
-            <?php else: ?>
-                <a href="index.php"></a>
             <?php endif; ?>
     </div>
 </body>
