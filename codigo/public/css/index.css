@@ -464,3 +464,51 @@ footer br {
         font-size: 0.9rem;
     }
 }
+
+
+
+
+.side-cart {
+    position: fixed;
+    top: 0;
+    right: 0; /* Mudei para 0, mas com display none */
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s;
+    z-index: 1000;
+    padding: 20px;
+    display: none; /* Esconde inicialmente */
+}
+.side-cart.open {
+    display: block; /* Mostra quando open */
+    right: 0; /* Mantém visível */
+}
+
+.cart-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.cart-total {
+    margin-top: 20px;
+    font-size: 18px;
+}
+.btn-cart {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}

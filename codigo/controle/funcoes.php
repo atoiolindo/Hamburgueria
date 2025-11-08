@@ -983,4 +983,35 @@ function ClientePorUsuario ($conexao, $idusuario){
 
     return $cliente ? $cliente['idcliente'] : false;
 }
+
+function emailVerificado($conexao, $idusuario) {
+
+    $sql = "UPDATE usuario SET status = 'verificado' WHERE idusuario = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, "i", $idusuario);
+
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+
+    return $funcionou;
+}
+
+function verificarStatus($conexao, $email) {
+
+    $sql = "SELECT status FROM usuario WHERE email = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, "s", $email);
+    
+    mysqli_stmt_execute($comando);
+
+    mysqli_stmt_bind_result($comando, $status);
+    mysqli_stmt_fetch($comando);
+
+    mysqli_stmt_close($comando);
+    
+    return $status === 'verificado';
+}
+
+
 ?>

@@ -10,16 +10,16 @@ require '../vendor/PHPMailer-master/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if (!isset($_POST['email'])) {
-    header("Location: ../public/verificarEmail.php");
+if (!isset($_GET['email'])) {
+    header("Location: ../public/digitarCodigoVerificar.php");
     exit;
 }
 
-$email = $_POST['email'];
+$email = $_GET['email'];
 
 $idusuario = verificarEmail($conexao, $email);
 if ($idusuario == 0) {
-    header("Location: ../public/verificarEmail.php?erro=1");
+    header("Location: ../public/digitarCodigoVerificar.php?erro=1");
     exit;
 }
 
@@ -53,6 +53,6 @@ try {
 
 } catch (Exception $e) {
     echo "<p style='color:red;text-align:center;'>Erro ao enviar e-mail: {$mail->ErrorInfo}</p>";
-    echo "<p style='text-align:center;'><a href='verificarEmail.php'>Tentar novamente</a></p>";
+    echo "<p style='text-align:center;'><a href='../public/digitarCodigoVerificar.php'>Tentar novamente</a></p>";
     exit;
 }

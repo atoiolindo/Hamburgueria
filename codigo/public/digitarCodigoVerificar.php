@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['email'])) {
-    header("Location: verificarEmail.php");
+    header("Location: ../controle/verificarEmail.php");
     exit;
 }
 $email = $_GET['email'];

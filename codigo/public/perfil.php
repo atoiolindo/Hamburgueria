@@ -25,6 +25,12 @@ $_SESSION['nome_completo'] = $nome_completo;
 $_SESSION['telefone'] = $telefone;
 $_SESSION['endereco'] = $endereco;
 
+
+$emailVerificado = verificarStatus($conexao, $email);
+
+$msg = "";
+
+
 if (isset($_POST['telefone'])) {
     $telefone = trim($_POST['telefone']);
     $_SESSION['telefone'] = $telefone; 
@@ -75,15 +81,23 @@ elseif (isset($_POST['email'])) {
       </div>
 
       <div class="campo">
-        <label>E-mail <span id="asterisco">*</label>
-
-        <form method="post" id="email-form">
-          <input type="text" name="email" id="email" class="email" value="<?php echo ($email); ?>" placeholder="Seu e-mail" readonly>
-          <button type="button" class="editar" onclick="window.location.href='../controle/verificarEmail.php?email=<?php echo($email); ?>'">Verificar</button>
-          <span class="aviso">Campo obrigatório </span>
-        </form>
-
+          <label>E-mail <span id="asterisco">*</span></label>
+          
+          <form method="get" id="email-form">
+              <input type="text" name="email" id="email" class="email" value="<?php echo htmlspecialchars($email); ?>" placeholder="Seu e-mail" readonly>
+              
+              <?php if (!$emailVerificado): ?>
+                  <button type="button" class="editar" onclick="window.location.href='../controle/verificarEmail.php?email=<?php echo urlencode($email); ?>'">Verificar</button>
+                  <span class="aviso">Campo obrigatório</span>
+              <?php else: ?>
+                  <span style="font-size: 12px; color: green; margin-left: 10px;">Verificado</span>
+              <?php endif; ?>
+              
+          </form>
       </div>
+
+
+
 
       <div class="campo">
         <label>Telefone <span id="asterissco">*</span></label>
@@ -93,8 +107,6 @@ elseif (isset($_POST['email'])) {
           <button type="button" class="editar" onclick="editarTelefone()">Editar</button>
           <button type="submit" id="salvar" class="salvar">Salvar</button>
           <span class="aviso">Campo obrigatório </span>
-        </form>
-
       </div>
 
       <div class="campo">
@@ -118,4 +130,7 @@ elseif (isset($_POST['email'])) {
 </body>
 </html>
  
+
+?>
+
 

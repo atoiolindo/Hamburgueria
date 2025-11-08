@@ -106,6 +106,47 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     <li><a href="historia.php">História/Política de Privacidade</a></li>
                 </ul>
             </nav>
+            <div id="sideCart" class="side-cart">
+                <div class="cart-header">
+                    <h3>Carrinho</h3>
+                    <button class="close-btn" onclick="toggleCart()" title="Fechar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="cart-body">
+                    <?php
+                    $total = 0;
+                    if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
+                        foreach ($_SESSION['carrinho'] as $item) {
+                            $subtotal = $item['quantidade'] * $item['valor'];
+                            $total += $subtotal;
+                            $foto = isset($item['foto']) ? '../controle/fotos/' . htmlspecialchars($item['foto']) : './assets/placeholder.png'; // Placeholder se não houver foto                        echo '<div class="cart-item">';
+                            echo '<img src="' . $foto . '" alt="' . htmlspecialchars($item['nome']) . '" class="item-img">';
+                            echo '<div class="item-details">';
+                            echo '<h5>' . htmlspecialchars($item['nome']) . '</h5>';
+                            echo '<div class="quantity-controls">';
+                            echo '<button onclick="diminuirQuantidade(' . $item['idproduto'] . ')">-</button>';
+                            echo '<span>' . $item['quantidade'] . '</span>';
+                            echo '<button onclick="aumentarQuantidade(' . $item['idproduto'] . ')+">+</button>';
+                            echo '</div>';
+                            echo '<p>R$' . number_format($item['valor'], 2, ',', '.') . ' cada</p>';
+                            echo '<p class="subtotal">Subtotal: R$' . number_format($subtotal, 2, ',', '.') . '</p>';
+                            echo '<button class="remove-btn" onclick="removerItem(' . $item['idproduto'] . ')">Remover</button>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<p class="empty-cart">Seu carrinho está vazio.</p>';
+                    }
+                    ?>
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <strong>Total: R$<?php echo number_format($total, 2, ',', '.'); ?></strong>
+                    </div>
+                    <a href="carrinho.php" class="btn-finalizar">Finalizar Pedido</a>
+                </div>
+            </div>
 
 
             <form class="barra-pesquisa" action="pesquisa.php" method="get">
@@ -142,7 +183,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                 <a href="carrinho.php" title="Carrinho">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-            </div>
+            </div>  
 
 
             <br>
@@ -265,6 +306,31 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 
 
         <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cartIcon = document.getElementById("cartIcon");
+            const sideCart = document.getElementById("sideCart");
+            const closeCartBtn = document.getElementById("closeCartBtn");
+
+            // Ao clicar no ícone do carrinho, abre ou fecha a sidebar
+            cartIcon.addEventListener("click", function() {
+                sideCart.classList.toggle("open");
+            });
+
+            // Fecha a sidebar ao clicar no botão fechar
+            closeCartBtn.addEventListener("click", function() {
+                sideCart.classList.remove("open");
+            });
+
+            // Opcional: fechar sidebar ao clicar fora dela (fora do sideCart)
+            document.addEventListener("click", function(event) {
+                const isClickInside = sideCart.contains(event.target) || cartIcon.contains(event.target);
+                if (!isClickInside) {
+                    sideCart.classList.remove("open");
+                }
+            });
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             var menuDropdowns = document.querySelectorAll(".dropdown-btn");
             menuDropdowns.forEach(function(btn) {
@@ -284,6 +350,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                 });
             });
         });
+        
         </script>
     </body>
     <footer>

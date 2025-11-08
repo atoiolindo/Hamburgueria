@@ -82,72 +82,22 @@ function updateCartUI() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Adiciona item ao carrinho
-function addToCart(name, price) {
-  const existingItem = cart.find(i => i.name === name);
-  if (existingItem) {
-    existingItem.quantity++;
-  } else {
-    cart.push({ name, price, quantity: 1 });
-  }
-  updateCartUI();
+
+function toggleCart() {
+    const cart = document.getElementById('sideCart');
+    cart.classList.toggle('open');
 }
-
-// Altera quantidade
-function changeQuantity(name, delta) {
-  const item = cart.find(i => i.name === name);
-  if (!item) return;
-  item.quantity += delta;
-  if (item.quantity <= 0) {
-    cart = cart.filter(i => i.name !== name);
-  }
-  updateCartUI();
+// Função para aumentar quantidade
+function aumentarQuantidade(idproduto) {
+    window.location.href = '../controle/atualizarCarrinho.php?acao=aumentar&id=' + idproduto;
 }
-
-// Mostrar/ocultar carrinho
-openCartBtn.addEventListener('click', () => {
-  cartSidebar.classList.add('active');
-  overlay.classList.add('active');
-});
-
-closeCartBtn.addEventListener('click', () => {
-  cartSidebar.classList.remove('active');
-  overlay.classList.remove('active');
-});
-
-overlay.addEventListener('click', () => {
-  cartSidebar.classList.remove('active');
-  overlay.classList.remove('active');
-});
-
-// 🔥 Quando o site carrega, mostra os produtos salvos (se tiver)
-document.addEventListener('DOMContentLoaded', () => {
-  updateCartUI();
-});
-
-// Finalizar pedido
-document.querySelector('.checkout-btn').addEventListener('click', finalizarPedido);
-
-function finalizarPedido() {
-  if (cart.length === 0) return alert('Carrinho vazio!');
-
-  const pedido = {
-    id: Date.now(),
-    itens: cart,
-    total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
-    data: new Date().toLocaleString('pt-BR'),
-  };
-
-  // Recupera pedidos antigos e adiciona o novo
-  const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-  pedidos.push(pedido);
-  localStorage.setItem('pedidos', JSON.stringify(pedidos));
-
-  // Limpa o carrinho
-  cart = [];
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartUI();
-
-  alert('✅ Pedido finalizado com sucesso!');
-  window.location.href = '../public/pedidos.php'; // Redireciona para a página de pedidos
+// Função para diminuir quantidade
+function diminuirQuantidade(idproduto) {
+    window.location.href = '../controle/atualizarCarrinho.php?acao=diminuir&id=' + idproduto;
+}
+// Função para remover item
+function removerItem(idproduto) {
+    if (confirm('Remover item do carrinho?')) {
+        window.location.href = '../controle/removerCarrinho.php?id=' + idproduto;
+    }
 }
