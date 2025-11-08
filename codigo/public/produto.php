@@ -53,7 +53,7 @@ $produto = buscarProdutoPorId($conexao, $id);
 
             <!-- Ações -->
             <div class="acoes">
-                <form action="adicionar_carrinho.php" method="post">
+                <form action="adicionarCarrinho.php" method="post">
                     <input type="hidden" name="idproduto" value="<?php echo $produto['idproduto']; ?>">
                     <input type="hidden" name="quantidade" id="inputQuantidade" value="1">
                     <input type="hidden" name="observacoes" id="inputObservacoes">
@@ -61,7 +61,7 @@ $produto = buscarProdutoPorId($conexao, $id);
                     <br><br>
                 </form>
 
-                <form action="finalizar_compra.php" method="post">
+                <form action="finalizarCompra.php" method="post">
                     <input type="hidden" name="idproduto" value="<?php echo $produto['idproduto']; ?>">
                     <button type="submit">Finalizar</button>
                 </form>

@@ -1,16 +1,12 @@
 <?php
 session_start();
-if (isset($_SESSION['nome'])) {
-    $nome_usuario = $_SESSION['nome'];
-    $tipo_usuario = $_SESSION['tipo'];
-}
-else {
-    $nome_usuario = "Usuário";
-    $tipo_usuario = 0;
-}
 
-if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
+$nome_usuario = $_SESSION['nome'] ?? "Usuário";
+$tipo_usuario = $_SESSION['tipo'] ?? null;
+
 ?>
+
+
 
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -27,6 +23,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../controle/funcoes.js"></script>
 
         <script>
             function toggleMenu() {
@@ -120,17 +117,17 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                         foreach ($_SESSION['carrinho'] as $item) {
                             $subtotal = $item['quantidade'] * $item['valor'];
                             $total += $subtotal;
-                            $foto = isset($item['foto']) ? '../controle/fotos/' . htmlspecialchars($item['foto']) : './assets/placeholder.png'; // Placeholder se não houver foto                        echo '<div class="cart-item">';
-                            echo '<img src="' . $foto . '" alt="' . htmlspecialchars($item['nome']) . '" class="item-img">';
+                            $foto = isset($item['foto']) ? '../controle/fotos/' ($item['foto']) : './assets/placeholder.png'; // Placeholder se não houver foto                        echo '<div class="cart-item">';
+                            echo '<img src="' . $foto . '" alt="' ($item['nome']) . '" class="item-img">';
                             echo '<div class="item-details">';
-                            echo '<h5>' . htmlspecialchars($item['nome']) . '</h5>';
+                            echo '<h5>' ($item['nome']) . '</h5>';
                             echo '<div class="quantity-controls">';
                             echo '<button onclick="diminuirQuantidade(' . $item['idproduto'] . ')">-</button>';
                             echo '<span>' . $item['quantidade'] . '</span>';
                             echo '<button onclick="aumentarQuantidade(' . $item['idproduto'] . ')+">+</button>';
                             echo '</div>';
-                            echo '<p>R$' . number_format($item['valor'], 2, ',', '.') . ' cada</p>';
-                            echo '<p class="subtotal">Subtotal: R$' . number_format($subtotal, 2, ',', '.') . '</p>';
+                            echo '<p>R$' . ($item['valor'] 2, ',', '.') . ' cada</p>';
+                            echo '<p class="subtotal">Subtotal: R$' ($subtotal, 2, ',', '.') . '</p>';
                             echo '<button class="remove-btn" onclick="removerItem(' . $item['idproduto'] . ')">Remover</button>';
                             echo '</div>';
                             echo '</div>';
@@ -180,9 +177,10 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     </a>
                 <?php endif; ?>
 
-                <a href="carrinho.php" title="Carrinho">
+                <a href="javascript:void(0);" id="cartIcon" title="Carrinho" onclick="toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
+
             </div>  
 
 
@@ -271,11 +269,13 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                             </p>';
 
                             // Botão que leva à página do produto
-                            if ($tipo_usuario == 0) {
+                            if (!isset($_SESSION['idusuario'])) {
                                 echo '<a href="home.php?id=' . urlencode($row['idproduto']) . '" class="btn-cardapio">Ver Produto</a>';
                             } else {
                                 echo '<a href="produto.php?id=' . urlencode($row['idproduto']) . '" class="btn-cardapio">Ver Produto</a>';
                             }
+
+                            
 
                 echo '
                         </div>
@@ -307,29 +307,29 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
 
         <script>
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const cartIcon = document.getElementById("cartIcon");
-            const sideCart = document.getElementById("sideCart");
-            const closeCartBtn = document.getElementById("closeCartBtn");
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const cartIcon = document.getElementById("cartIcon");
+        //     const sideCart = document.getElementById("sideCart");
+        //     const closeCartBtn = document.getElementById("closeCartBtn");
 
-            // Ao clicar no ícone do carrinho, abre ou fecha a sidebar
-            cartIcon.addEventListener("click", function() {
-                sideCart.classList.toggle("open");
-            });
+        //     // Ao clicar no ícone do carrinho, abre ou fecha a sidebar
+        //     cartIcon.addEventListener("click", function() {
+        //         sideCart.classList.toggle("open");
+        //     });
 
-            // Fecha a sidebar ao clicar no botão fechar
-            closeCartBtn.addEventListener("click", function() {
-                sideCart.classList.remove("open");
-            });
+        //     // Fecha a sidebar ao clicar no botão fechar
+        //     closeCartBtn.addEventListener("click", function() {
+        //         sideCart.classList.remove("open");
+        //     });
 
-            // Opcional: fechar sidebar ao clicar fora dela (fora do sideCart)
-            document.addEventListener("click", function(event) {
-                const isClickInside = sideCart.contains(event.target) || cartIcon.contains(event.target);
-                if (!isClickInside) {
-                    sideCart.classList.remove("open");
-                }
-            });
-        });
+        //     // Opcional: fechar sidebar ao clicar fora dela (fora do sideCart)
+        //     document.addEventListener("click", function(event) {
+        //         const isClickInside = sideCart.contains(event.target) || cartIcon.contains(event.target);
+        //         if (!isClickInside) {
+        //             sideCart.classList.remove("open");
+        //         }
+        //     });
+        // });
 
         document.addEventListener("DOMContentLoaded", function() {
             var menuDropdowns = document.querySelectorAll(".dropdown-btn");

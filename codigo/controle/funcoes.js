@@ -101,3 +101,5 @@ function removerItem(idproduto) {
         window.location.href = '../controle/removerCarrinho.php?id=' + idproduto;
     }
 }
+
+

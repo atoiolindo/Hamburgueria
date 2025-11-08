@@ -1,16 +1,10 @@
 <?php
 session_start();
-if (isset($_SESSION['nome'])) {
-    $nome_usuario = $_SESSION['nome'];
-    $tipo_usuario = $_SESSION['tipo'];
-}
-else {
-    $nome_usuario = "Usuário";
-    $tipo_usuario = 0;
-}
 
-if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
+$nome_usuario = $_SESSION['nome'] ?? "Usuário";
+$tipo_usuario = $_SESSION['tipo'] ?? 0;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -137,9 +131,7 @@ if ($tipo_usuario == 'c' || $tipo_usuario == 0) {}
                     </a>
                 <?php endif; ?>
 
-                <a href="carrinho.php" title="Carrinho">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
+
     </div>
     <br>
     <div class="divisoria"></div><br><br>

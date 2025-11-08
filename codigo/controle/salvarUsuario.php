@@ -11,14 +11,16 @@ $nome = $_POST['nome'];
 $tipo = "c";
 $status = "nao";
 
-$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $token ="", $status);
+$idusuario = salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token ="", $status);
 $token = gerarTokenUnico($conexao, $idusuario);
 
 
 if ($idusuario !== false) {
 
     $_SESSION['idusuario'] = $idusuario;
-
+    $_SESSION['tipo'] = $tipo;
+    $_SESSION['nome'] = $nome;
+    
     header("Location: ../public/callback.php");
     exit;
 } else {
