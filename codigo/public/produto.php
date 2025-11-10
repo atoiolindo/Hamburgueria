@@ -35,12 +35,12 @@ if (!$produto) {
             }
             ?>
         </div>
+
         <!-- Informações -->
         <div class="detalhes">
             <h1><?php echo htmlspecialchars($produto['nome']); ?></h1>
             <h3><?php echo htmlspecialchars($produto['nome_real']); ?></h3>
             <p><?php echo htmlspecialchars($produto['descricao']); ?></p>
-
             <p><strong>R$ <?php echo number_format($produto['valor'], 2, ',', '.'); ?></strong></p>
 
             <!-- Botões -->
@@ -70,7 +70,6 @@ if (!$produto) {
                     <br><br>
                 </form>
 
-
                 <form action="finalizarCompra.php" method="post">
                     <input type="hidden" name="idproduto" value="<?php echo $produto['idproduto']; ?>">
                     <button type="submit">Finalizar</button>
@@ -91,6 +90,48 @@ if (!$produto) {
         </div>
     </div>
 
+    <!-- ===== Modal de Adicionais ===== -->
+    <div id="modalAdicionais" class="modal">
+        <div class="modal-content">
+            <h2>Escolha seus Adicionais</h2>
+
+            <?php
+            // Consulta os ingredientes agrupados por categoria
+            $sqlCategorias = "SELECT DISTINCT categoria FROM ingrediente ORDER BY categoria ASC";
+            $categorias = mysqli_query($conexao, $sqlCategorias);
+
+            while ($cat = mysqli_fetch_assoc($categorias)) {
+                echo "<details class='grupo-adicional'>";
+                echo "<summary>" . htmlspecialchars($cat['categoria']) . "</summary>";
+
+                $sqlItens = "SELECT idingrediente, nome, valor_unitario FROM ingrediente 
+                            WHERE categoria = '" . mysqli_real_escape_string($conexao, $cat['categoria']) . "'";
+                $itens = mysqli_query($conexao, $sqlItens);
+
+                while ($item = mysqli_fetch_assoc($itens)) {
+                    echo "
+                    <div class='adicional-item'>
+                        <span>" . htmlspecialchars($item['nome']) . " – R$ " . number_format($item['valor_unitario'], 2, ',', '.') . "</span>
+                        <div class='controle-qtd'>
+                            <button type='button' class='menos' data-id='{$item['idingrediente']}'>-</button>
+                            <input type='number' id='qtd_{$item['idingrediente']}' value='0' min='0' readonly>
+                            <button type='button' class='mais' data-id='{$item['idingrediente']}'>+</button>
+                        </div>
+                    </div>";
+                }
+
+                echo "</details>";
+            }
+            ?>
+
+            <div class="botoes-modal">
+                <button class="btn-secundario" id="btnCancelarAdd">Cancelar</button>
+                <button id="btnSalvarAdd" style="background:#d62828;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JavaScript ===== -->
     <script>
         // ===== Quantidade =====
         const menos = document.getElementById('menos');
@@ -114,31 +155,82 @@ if (!$produto) {
 
         // ===== Modal de Observações =====
         const btnObservacoes = document.getElementById('btnObservacoes');
-        const modal = document.getElementById('modalObservacoes');
-        const btnCancelar = document.getElementById('btnCancelar');
-        const btnSalvar = document.getElementById('btnSalvar');
+        const modalObs = document.getElementById('modalObservacoes');
+        const btnCancelarObs = document.getElementById('btnCancelar');
+        const btnSalvarObs = document.getElementById('btnSalvar');
         const textarea = document.getElementById('textoObservacoes');
         const inputObservacoes = document.getElementById('inputObservacoes');
 
         btnObservacoes.addEventListener('click', () => {
-            modal.style.display = 'block';
+            modalObs.style.display = 'block';
         });
 
-        btnCancelar.addEventListener('click', () => {
-            modal.style.display = 'none';
+        btnCancelarObs.addEventListener('click', () => {
+            modalObs.style.display = 'none';
         });
 
-        btnSalvar.addEventListener('click', () => {
+        btnSalvarObs.addEventListener('click', () => {
             inputObservacoes.value = textarea.value;
-            modal.style.display = 'none';
+            modalObs.style.display = 'none';
         });
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
+        // ===== Modal de Adicionais =====
+        const btnAdicionais = document.getElementById('btnAdicionais');
+        const modalAdd = document.getElementById('modalAdicionais');
+        const btnCancelarAdd = document.getElementById('btnCancelarAdd');
+        const btnSalvarAdd = document.getElementById('btnSalvarAdd');
+
+        btnAdicionais.addEventListener('click', () => {
+            modalAdd.style.display = 'block';
+        });
+
+        btnCancelarAdd.addEventListener('click', () => {
+            modalAdd.style.display = 'none';
+        });
+
+        btnSalvarAdd.addEventListener('click', () => {
+            modalAdd.style.display = 'none';
+        });
+
+        // ===== Fecha modais ao clicar fora =====
+        window.addEventListener('click', function(event) {
+            if (event.target === modalObs) {
+                modalObs.style.display = 'none';
             }
-        }
+            if (event.target === modalAdd) {
+                modalAdd.style.display = 'none';
+            }
+        });
     </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // ===== Modal de Adicionais =====
+    const btnAdicionais = document.getElementById('btnAdicionais');
+    const modalAdicionais = document.getElementById('modalAdicionais');
+    const btnCancelarAdd = document.getElementById('btnCancelarAdd');
+
+    if (btnAdicionais && modalAdicionais && btnCancelarAdd) {
+        btnAdicionais.addEventListener('click', () => {
+            modalAdicionais.style.display = 'block';
+        });
+
+        btnCancelarAdd.addEventListener('click', () => {
+            modalAdicionais.style.display = 'none';
+        });
+
+        // Fechar ao clicar fora do modal
+        window.addEventListener('click', (event) => {
+            if (event.target === modalAdicionais) {
+                modalAdicionais.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
+
+
+    <script src="../controle/adicionais.js"></script>
 
 </body>
 </html>

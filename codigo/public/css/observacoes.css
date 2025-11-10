@@ -147,3 +147,41 @@
 .imagem-card img:hover {
     transform: scale(1.05);
 }
+
+.grupo-adicional {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    background: #fff;
+}
+
+.grupo-adicional summary {
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.adicional-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+    padding-left: 8px;
+}
+
+.controle-qtd button {
+    background: #d62828;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.controle-qtd input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
