@@ -35,71 +35,75 @@ if (empty($_SESSION['carrinho'])) {
     <link rel="stylesheet" href="./css/finalizar.css">
 </head>
 <body>
-
 <div class="container">
 
-    <h2>Seu Pedido</h2>
-    <div class="card">
-        <?php
-        $total = 0;
-        foreach ($_SESSION['carrinho'] as $id => $quantidade) {
-            $produto = buscarProdutoPorId($conexao, $id);
-            if (!$produto) continue;
-            
-            $subtotal = $produto['valor'] * $quantidade;
-            $total += $subtotal;
-            echo "
-            <div class='item'>
-                <div>
-                    <div class='item-nome'>".htmlspecialchars($produto['nome'])."</div>
-                    <div class='item-qtd'>Qtd: $quantidade</div>
-                </div>
-                <div class='item-info'>
-                    <div>R$ ".number_format($produto['valor'], 2, ',', '.')."</div>
-                    <div style='font-size:14px;color:#777;'>Subtotal: R$ ".number_format($subtotal, 2, ',', '.')."</div>
-                </div>
-            </div>";
-        }
-        ?>
+    <div class="checkout">
+
+        <!-- COLUNA ESQUERDA -->
+        <div class="col-esquerda">
+            <h2>Entrega</h2>
+            <div class="bloco">
+                <p><strong><?= htmlspecialchars($cliente['endereco']) ?></strong></p>
+                <a href="perfil.php" class="trocar">Trocar</a>
+            </div>
+
+            <h2>Forma de Pagamento</h2>
+            <div class="bloco">
+                <label>
+                    <input type="radio" name="pagamento" checked> Pix
+                </label>
+            </div>
+        </div>
+
+        <div class="col-direita">
+            <h2>Resumo do Pedido</h2>
+            <div class="card">
+                <?php
+                $total = 0;
+                foreach ($_SESSION['carrinho'] as $id => $quantidade) {
+                    $produto = buscarProdutoPorId($conexao, $id);
+                    if (!$produto) continue;
+                    
+                    $subtotal = $produto['valor'] * $quantidade;
+                    $total += $subtotal;
+                    echo "
+                    <div class='item'>
+                        <div class='item-nome'>".htmlspecialchars($produto['nome'])."</div>
+                        <div class='item-qtd'>Qtd: $quantidade</div>
+                        <div class='item-preco'>R$ ".number_format($subtotal, 2, ',', '.')."</div>
+                    </div>";
+                }
+                $taxa_entrega = 5.00;
+                $total_final = $total + $taxa_entrega;
+                ?>
+            </div>
+
+            <div class="resumo-total">
+                <div><span>Subtotal</span><span>R$ <?= number_format($total, 2, ',', '.') ?></span></div>
+                <div><span>Entrega</span><span>R$ <?= number_format($taxa_entrega, 2, ',', '.') ?></span></div>
+                <div class="total"><strong>Total</strong><strong>R$ <?= number_format($total_final, 2, ',', '.') ?></strong></div>
+            </div>
+
+            <form action="../controle/salvarVenda.php" method="POST">
+                <input type="hidden" name="idcliente" value="<?= htmlspecialchars($cliente['idcliente']) ?>">
+                <input type="hidden" name="valor_final" value="<?= $total_final ?>">
+                <input type="hidden" name="data_compra" value="<?= date('Y-m-d') ?>">
+                <input type="hidden" name="status" value="pendente">
+                <?php
+                foreach ($_SESSION['carrinho'] as $id => $quantidade) {
+                    echo "<input type='hidden' name='idproduto[]' value='$id'>";
+                    echo "<input type='hidden' name='quantidade[$id]' value='$quantidade'>";
+                }
+                ?>
+                <button type="submit" class="botao-finalizar">Fazer pedido</button>
+            </form>
+
+            <a href="carrinho.php" class="voltar">← Voltar ao carrinho</a>
+        </div>
+
     </div>
-
-    <h2>Endereço de Entrega</h2>
-    <div class="card endereco">
-        <?php
-        echo htmlspecialchars($cliente['endereco'] ?? 'Endereço não informado') . "<br>";
-        ?>
-    </div>
-
-    <h2>Resumo do Pedido</h2>
-    <div class="card resumo">
-        <?php
-        $taxa_entrega = 5.00;
-        $total_final = $total + $taxa_entrega;
-        ?>
-        <div><span>Subtotal</span> <span>R$ <?= number_format($total, 2, ',', '.') ?></span></div>
-        <div><span>Taxa de entrega</span> <span>R$ <?= number_format($taxa_entrega, 2, ',', '.') ?></span></div>
-        <div class="total"><span>Total</span> <span>R$ <?= number_format($total_final, 2, ',', '.') ?></span></div>
-    </div>
-
-    <form action="../controle/salvarVenda.php" method="POST">
-        <input type="hidden" name="idcliente" value="<?= htmlspecialchars($usuario['idcliente']) ?>">
-        <input type="hidden" name="valor_final" value="<?= $total_final ?>">
-        <input type="hidden" name="data_compra" value="<?= date('Y-m-d') ?>">
-        <input type="hidden" name="status" value="pendente">
-
-        <?php
-        foreach ($_SESSION['carrinho'] as $id => $quantidade) {
-            echo "<input type='hidden' name='idproduto[]' value='$id'>";
-            echo "<input type='hidden' name='quantidade[$id]' value='$quantidade'>";
-        }
-        ?>
-
-        <button type="submit" class="botao-finalizar">Finalizar Pedido</button>
-    </form>
-
-    <a href="carrinho.php" class="voltar">← Voltar ao carrinho</a>
 
 </div>
-
 </body>
+
 </html>

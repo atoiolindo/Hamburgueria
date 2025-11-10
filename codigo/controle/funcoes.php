@@ -1036,5 +1036,16 @@ function verificarStatus($conexao, $email) {
     return $status === 'verificado';
 }
 
+function alterarEndereco ($conexao, $endereco, $idcliente) {
+    $sql = "UPDATE cliente SET endereco = ? WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
 
+    mysqli_stmt_bind_param($comando, 'si', $endereco, $idcliente);
+
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    return $funcionou;
+
+}
 ?>
