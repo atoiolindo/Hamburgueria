@@ -142,6 +142,8 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
             </div>  
 
 
+            
+
             <br>
             <div class="divisoria"></div><br><br>
 
