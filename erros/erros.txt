@@ -6,3 +6,16 @@ Warning: Cannot modify header information - headers already sent by (output star
 
 ^
 erro no salvar produto, fotos
+
+
+ao adicioanr ao carrinho, nao ser direcionado pra la
+
+so aparecer a bolinha com os numeros aumentando no icone do carrinho
+se quiser ir e finalizar, clica no carrinho e pronto
+
+
+
+
+ter com oclicar no produto na hora do cardapio pra aparecer campo de observacao e tal 
+
+
