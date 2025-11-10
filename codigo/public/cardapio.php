@@ -53,6 +53,8 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
                 </button>
                 <ul>
                     <br><br><br>
+                    <li><a href="index.php">Início</a></li>
+
                     <li><a href="cardapio.php">Cardápio</a></li>
 
 
@@ -147,7 +149,7 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
 
             </div>  
 
-            
+
 
 
     <br>
