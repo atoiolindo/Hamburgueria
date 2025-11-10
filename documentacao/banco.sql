@@ -223,7 +223,7 @@ INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao
 VALUES ('Fogo do Deserto', 'Apimentado Texano', 
 'Pão brioche, hambúrguer bovino 150g, queijo muçarela, jalapeños, molho barbecue picante, onion rings',
 32.90, 'hambúrguer', 'fogododeserto.png', 
-'Explosão de sabor picante com jalapeños, onion rings e molho barbecue especial sobre hambúrguer suculento.', ', ativo');
+'Explosão de sabor picante com jalapeños, onion rings e molho barbecue especial sobre hambúrguer suculento.', 'ativo');
 
 -- Produto 6 – Barbecue Sombrio
 INSERT INTO produto (nome, nome_real, ingredientes, valor, tipo, foto, descricao, estado)
