@@ -5,16 +5,22 @@ require_once "funcoes.php";
 session_start();
 
 if (!isset($_SESSION['idusuario'])) {
-    echo "<script>alert('ID do usuário não foi fornecido.'); window.history.back();</script>";
+    echo "<script>alert('Você precisa estar logado para continuar.'); window.location.href = '../public/home.php';</script>";
     exit;
 }
 
 $idusuario = $_SESSION['idusuario'];
-$nome = $_POST['nome'];
-$telefone = $_POST['telefone'];
-$endereco = $_POST['endereco'];
+$nome = trim($_POST['nome']);
+$telefone = trim($_POST['telefone']);
+$endereco = trim($_POST['endereco']);
+
+if (empty($nome) || empty($telefone) || empty($endereco)) {
+    echo "<script>alert('Por favor, preencha todos os campos.'); history.back();</script>";
+    exit;
+}
 
 $idcliente = salvarCliente($conexao, $nome, $telefone, $endereco, $idusuario);
+
 if ($idcliente === false) {
     echo "<script>alert('Telefone ou endereço já cadastrado!'); history.back();</script>";
     exit;

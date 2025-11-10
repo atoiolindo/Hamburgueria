@@ -621,6 +621,24 @@ function pegarDadosUsuario($conexao, $idusuario) {
     }
 }
 
+function pegarDadosCliente($conexao, $idcliente) {
+    $sql = "SELECT * FROM cliente WHERE idcliente = ?";
+
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+    $quantidade = mysqli_num_rows($resultado);
+    
+    if ($quantidade != 0) {
+        $cliente = mysqli_fetch_assoc($resultado);
+        return $cliente;
+    }
+    else {
+        return 0;
+    }
+}
 
 function filtrarValor($conexao, $valor_min, $valor_max) {
     $sql = "SELECT * FROM produto WHERE valor BETWEEN ? AND ?";
@@ -1018,5 +1036,16 @@ function verificarStatus($conexao, $email) {
     return $status === 'verificado';
 }
 
+function alterarEndereco ($conexao, $endereco, $idcliente) {
+    $sql = "UPDATE cliente SET endereco = ? WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
 
+    mysqli_stmt_bind_param($comando, 'si', $endereco, $idcliente);
+
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    return $funcionou;
+
+}
 ?>

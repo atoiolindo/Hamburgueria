@@ -1,90 +1,132 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    color: #222;
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
 .container {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 16px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-h2 {
-    margin-top: 0;
+.checkout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.col-esquerda {
+    flex: 1.2;
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.col-esquerda h2 {
+    font-size: 18px;
+    color: #d00;
+    margin-bottom: 8px;
+}
+
+.bloco {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.bloco p {
+    margin: 0;
+}
+
+.trocar {
+    color: #d00;
+    font-weight: 500;
+    float: right;
+    text-decoration: none;
+}
+
+.col-direita {
+    flex: 0.9;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.col-direita h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
     margin-bottom: 20px;
+    padding-top: 10px;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .item-nome {
-    font-weight: bold;
+    font-weight: 500;
 }
 
-.item-info {
-    text-align: right;
+.item-preco {
+    color: #444;
 }
 
-.endereco {
-    line-height: 1.5;
+.resumo-total {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-bottom: 20px;
 }
 
-.resumo {
-    font-size: 16px;
-}
-
-.resumo div {
+.resumo-total div {
     display: flex;
     justify-content: space-between;
-    margin: 6px 0;
+    margin-bottom: 5px;
 }
 
 .total {
-    font-weight: bold;
     font-size: 18px;
+    color: #d00;
 }
 
 .botao-finalizar {
-    display: block;
     width: 100%;
-    background-color: #ea1d2c;
-    color: white;
-    text-align: center;
+    padding: 12px;
+    background: #d00;
+    color: #fff;
+    font-weight: 600;
     border: none;
-    border-radius: 12px;
-    padding: 16px;
-    font-size: 18px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    margin-top: 16px;
-    transition: 0.3s;
+    transition: background 0.2s;
 }
 
 .botao-finalizar:hover {
-    background-color: #c41724;
+    background: #b00;
 }
 
-a.voltar {
-    text-decoration: none;
-    color: #ea1d2c;
+.voltar {
     display: block;
-    text-align: center;
     margin-top: 16px;
-    font-weight: bold;
+    text-align: center;
+    color: #d00;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .checkout {
+        flex-direction: column;
+    }
 }

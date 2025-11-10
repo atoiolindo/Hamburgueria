@@ -381,86 +381,139 @@
 h2 {
     font-family: 'Bevan', serif;
     color: #4B1203;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 20px;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .sobre-nos {
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: #3a2d2d;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
+    max-width: 700px;
+    margin: 0 auto 15px auto;
     text-align: justify;
 }
 
-/* Botão "Saiba mais" */
-.btn-botao {
-    display: inline-block;
-    background-color: #c2271e;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    margin: 20px auto 0 auto;  /* centraliza */
-    display: block;            /* necessário para margin:auto funcionar */
-    text-align: center;
-    width: fit-content;        /* evita que o botão estique */
+/* === FORÇA: botão menor e consistente === */
+a.btn-botao, .btn-botao {
+  display: inline-block !important;
+  width: 140px !important;         /* largura fixa — ajuste aqui */
+  max-width: 90% !important;
+  padding: 8px 12px !important;    /* controla altura */
+  line-height: 1 !important;
+  text-align: center !important;
+  margin: 12px auto !important;
+  box-sizing: border-box !important;
+  background-color: #262625 !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: transform .18s ease, box-shadow .18s ease !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12) !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  height: 30px !important; 
 }
 
-.btn-botao:hover {
-    background-color: #a81e16;
-    transform: scale(1.05);
+/* estado hover/active */
+a.btn-botao:hover, .btn-botao:hover {
+  transform: translateY(-2px) !important;
+  background-color: #241110 !important;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.14) !important;
 }
 
 /* ============================
    RODAPÉ
    ============================ */
 footer {
-    background-color: #1a1a1a;
+    background-color: #0f0f0f;
     color: #f5f5f5;
-    text-align: center;
-    padding: 40px 20px;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
+    padding: 40px 20px;
+    border-top: 4px solid #4B1203;
+}
+
+footer .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+footer .footer-col {
+    flex: 1 1 250px;
+    margin: 10px;
+}
+
+footer .footer-col h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+footer .footer-col p, 
+footer .footer-col a {
+    color: #ccc;
+    font-size: 0.9rem;
     line-height: 1.6;
-    margin-top: 60px;
-    border-top: 4px solid #c2271e;
-}
-
-footer a {
-    color: #f5c13b;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-footer a:hover {
+footer .footer-col a:hover {
+    color: #f5c13b;
+}
+
+/* Ícones das redes sociais */
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    display: inline-block;
+    color: #f5c13b;
+    font-size: 1.3rem;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    transform: scale(1.1);
     color: #fff;
 }
 
-footer br {
-    line-height: 2;
+/* Copyright */
+footer .copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 30px;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     h2 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     .sobre-nos {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         padding: 0 15px;
     }
 
-    .btn-botao {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+    footer .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .footer-col {
+        margin-bottom: 20px;
     }
 }

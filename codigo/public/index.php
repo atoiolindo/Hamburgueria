@@ -246,7 +246,7 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
 
         <br><br>
 
-        <a href="cardapio.php" class="btn-botao">Ver todos os produtos</a> <br><br><br><br>
+        <a href="cardapio.php" class="btn-botao">Ver todos </a> <br><br><br><br>
 
 
         <h2 style="font-family: 'Bevan', serif; color: #4B1203;">Sobre nós</h2><br>
@@ -311,18 +311,32 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
         </script>
     </body>
     <footer>
-        Horários de Funcionamento: <br>
-        Segunda a Sábado: 17h - 22h <br>
-        Domingo: Fechado<br><br>
+  <div class="footer-container">
+    <div class="footer-col">
+      <img src="logo.png" alt="Logo Pão e Magia" style="width:80px;"><br>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
 
-        Informações<br>
-        Sobre Nós<br>
-        Política de Privacidade<br>
-        Endereço<br>
-        <a href="https://access.workspace.google.com/ServiceNotAllowed?application=960906454010&source=scrip&continue=https://www.google.com/maps/place/Rua%2BLuiz%2BFagund
-    es,%2B51%2B-%2BPicadas%2Bdo%2BSul,%2BS%25C3%25A3o%2BJos%25C3%25A9%2B-%2BSC,%2B88104-300/data%3D!4m2!3m1!1s0x9527360529045821:0x780b6dd572a37?sa%3DX%26ved%3D1t:242%
-    26ictx%3D111&marker=c79b2205-0fca-4ee3-890a-f2dc68f5874a&pli=1">Rua Luiz Fagundes, 51 - Praia Comprida, São José - SC, 88103-500</a> <br>
+    <div class="footer-col">
+      <h3>Horários</h3>
+      <p>Seg a Sáb: 17:00 às 21:00</p>
+      <p>Dom: Fechado</p>
+    </div>
 
-    </footer>
+    <div class="footer-col">
+      <h3>Informações</h3>
+      <a href="#">Sobre nós</a><br>
+      <a href="#">Política de Privacidade</a><br>
+      <p>Rua Luiz Fagundes, 51 - Praia Comprida, São José - SC, 88103-500</p>
+    </div>
+  </div>
+
+  <p class="copyright">© 2025 Pão e Magia</p>
+</footer>
+
 
     </html>
