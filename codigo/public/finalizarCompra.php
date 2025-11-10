@@ -10,7 +10,15 @@ if (!isset($_SESSION['idusuario'])) {
 }
 
 $idusuario = $_SESSION['idusuario'];
-$usuario = pegarDadosUsuario($conexao, $idusuario); // deve retornar nome, endereco, telefone etc.
+$idcliente = $_SESSION['idcliente'] ?? 0;
+
+if ($idcliente == 0) {
+    echo "<p>Por favor, cadastre seu endereço antes de finalizar a compra. <a href='perfil.php'>Ir para perfil</a></p>";
+    exit;
+}
+
+$cliente = pegarDadosCliente($conexao, $idcliente);
+
 
 if (empty($_SESSION['carrinho'])) {
     echo "<p>Seu carrinho está vazio. <a href='cardapio.php'>Voltar ao cardápio</a></p>";
@@ -24,13 +32,13 @@ if (empty($_SESSION['carrinho'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Pedido</title>
-    <link rel="stylesheet" href="finalizar.css">
+    <link rel="stylesheet" href="./css/finalizar.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h2>🛒 Seu Pedido</h2>
+    <h2>Seu Pedido</h2>
     <div class="card">
         <?php
         $total = 0;
@@ -55,16 +63,14 @@ if (empty($_SESSION['carrinho'])) {
         ?>
     </div>
 
-    <h2>📍 Endereço de Entrega</h2>
+    <h2>Endereço de Entrega</h2>
     <div class="card endereco">
         <?php
-        echo htmlspecialchars($usuario['nome_completo']) . "<br>";
-        echo htmlspecialchars($usuario['endereco']) . "<br>";
-        echo "Telefone: " . htmlspecialchars($usuario['telefone']);
+        echo htmlspecialchars($cliente['endereco'] ?? 'Endereço não informado') . "<br>";
         ?>
     </div>
 
-    <h2>💰 Resumo do Pedido</h2>
+    <h2>Resumo do Pedido</h2>
     <div class="card resumo">
         <?php
         $taxa_entrega = 5.00;
@@ -75,8 +81,19 @@ if (empty($_SESSION['carrinho'])) {
         <div class="total"><span>Total</span> <span>R$ <?= number_format($total_final, 2, ',', '.') ?></span></div>
     </div>
 
-    <form action="confirmarPedido.php" method="POST">
-        <input type="hidden" name="total" value="<?= $total_final ?>">
+    <form action="../controle/salvarVenda.php" method="POST">
+        <input type="hidden" name="idcliente" value="<?= htmlspecialchars($usuario['idcliente']) ?>">
+        <input type="hidden" name="valor_final" value="<?= $total_final ?>">
+        <input type="hidden" name="data_compra" value="<?= date('Y-m-d') ?>">
+        <input type="hidden" name="status" value="pendente">
+
+        <?php
+        foreach ($_SESSION['carrinho'] as $id => $quantidade) {
+            echo "<input type='hidden' name='idproduto[]' value='$id'>";
+            echo "<input type='hidden' name='quantidade[$id]' value='$quantidade'>";
+        }
+        ?>
+
         <button type="submit" class="botao-finalizar">Finalizar Pedido</button>
     </form>
 
