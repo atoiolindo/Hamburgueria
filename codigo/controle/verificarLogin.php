@@ -11,6 +11,7 @@
     else {
         $usuario = pegarDadosUsuario($conexao, $idusuario);
         
+        
         if ($usuario == 0) {
             header("Location: ../public/home.php?erro=1");
             exit;

@@ -184,7 +184,7 @@ function salvarUsuario($conexao, $nome, $email, $senha, $tipo, $token, $status) 
     $comando = mysqli_prepare($conexao, $sql);
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($comando, 'ssssss', $nome, $email, $senha_hash, $tipo, $token, $status);
+    mysqli_stmt_bind_param($comando, 'sssss', $nome, $email, $senha_hash, $tipo, $status);
 
     $funcionou = mysqli_stmt_execute($comando);
 
@@ -556,7 +556,10 @@ function editarArmazenamento($conexao, $quantidade, $nome, $idingrediente) {
 };
 
 function pesquisar($conexao, $nome) {
-    $sql = "SELECT nome FROM produto WHERE nome LIKE ?";
+    $sql = "SELECT idproduto, nome, valor, descricao, foto 
+            FROM produto 
+            WHERE nome LIKE ?";
+    
     $comando = mysqli_prepare($conexao, $sql);
 
     $like_nome = "%" . $nome . "%";
@@ -572,7 +575,8 @@ function pesquisar($conexao, $nome) {
 
     mysqli_stmt_close($comando);
     return $produtos;
-};
+}
+
 
 
 function verificarLogin($conexao, $email, $senha) {
@@ -811,10 +815,11 @@ function registrarOuBuscarUsuario($conexao, $email, $nome) {
 }
 
 
-function salvarSessaoGoogle($id, $email, $nome) {
+function salvarSessaoGoogle($id, $email, $nome, $tipo) {
     $_SESSION['idusuario'] = $id;
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $nome;
+    $_SESSION ['tipo'] = $tipo;
 
 }
 

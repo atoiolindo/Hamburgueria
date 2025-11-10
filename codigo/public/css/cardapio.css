@@ -125,3 +125,21 @@ h2 {
 .hover img:hover {
   transform: scale(1.1); 
 }
+
+.btn-carrinho {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-carrinho img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: transparent;
+}

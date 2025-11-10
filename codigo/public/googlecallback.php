@@ -20,26 +20,28 @@ try {
     if (!isset($_GET['code'])) {
         throw new Exception("Código de autenticação não encontrado.");
     }
-    
+
     $dadosGoogle = buscarDadosGoogle($client, $_GET['code']);
     if (empty($dadosGoogle['email']) || empty($dadosGoogle['nome'])) {
         throw new Exception("Não foi possível obter email ou nome do Google.");
     }
 
     $idusuario = registrarOuBuscarUsuario($conexao, $dadosGoogle['email'], $dadosGoogle['nome']);
-    salvarSessaoGoogle($idusuario, $dadosGoogle['email'], $dadosGoogle['nome']);
+
+    $usuario = pegarDadosUsuario($conexao, $idusuario);
+    $tipo = $usuario['tipo'] ?? 'c'; 
+
+    salvarSessaoGoogle($idusuario, $dadosGoogle['email'], $dadosGoogle['nome'], $tipo);
+
     $mensagem = "Login realizado com sucesso!";
 
-    
-    $idcliente = ClientePorUsuario($conexao, $idusuario);
 
+    $idcliente = ClientePorUsuario($conexao, $idusuario);
     if ($idcliente) {
         $_SESSION['idcliente'] = $idcliente;
         header("Location: perfil.php");
         exit;
     }
-
-
 
 } catch (Exception $e) {
     if (session_status() === PHP_SESSION_ACTIVE) {
@@ -61,11 +63,12 @@ try {
 </head>
 <body>
     <div class="container">
-        <div class="success"><?=($mensagem) ?></div>
-            <?php if (!isset($_SESSION['idcliente'])): ?>
-                <p>Concluir meu cadastro</p>
-                <a href="formCliente.php" class="btn">Ir agora</a>
-            <?php endif; ?>
+        <div class="success"><?= htmlspecialchars($mensagem) ?></div>
+
+        <?php if (!isset($_SESSION['idcliente'])): ?>
+            <p>Concluir meu cadastro</p>
+            <a href="formCliente.php" class="btn">Ir agora</a>
+        <?php endif; ?>
     </div>
 </body>
 </html>

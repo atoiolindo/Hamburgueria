@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:wght@400&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Bevan', serif;
+    color: #4B1203;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.barra-pesquisa {
+    position: relative;
+    margin: 0 auto 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #AD2E1A;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.barra-pesquisa input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #fff;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+}
+
+.barra-pesquisa button {
+    background: #F0A913;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #000;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+.barra-pesquisa button:hover {
+    background: #d89e10;
+}
+
+/* ======= LISTA DE PRODUTOS ======= */
+.container-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.produto {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.produto:hover {
+    transform: scale(1.02);
+}
+
+.produto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.produto h3 {
+    font-size: 1.1rem;
+    color: #222;
+    margin: 12px 0 8px;
+}
+
+.produto p {
+    color: #666;
+    margin: 4px 0;
+}
+
+.preco {
+    color: #111;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.btn-carrinho {
+    display: inline-block;
+    margin-top: 8px;
+    background: #111;
+    color: #fff;    
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-carrinho:hover {
+    background: #333;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 40px;
+    text-decoration: none;
+    color: #AD2E1A;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}

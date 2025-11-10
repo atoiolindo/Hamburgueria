@@ -103,48 +103,6 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
                     <li><a href="historia.php">História/Política de Privacidade</a></li>
                 </ul>
             </nav>
-            <div id="sideCart" class="side-cart">
-                <div class="cart-header">
-                    <h3>Carrinho</h3>
-                    <button class="close-btn" onclick="toggleCart()" title="Fechar">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                <div class="cart-body">
-                    <?php
-                    $total = 0;
-                    if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
-                        foreach ($_SESSION['carrinho'] as $item) {
-                            $subtotal = $item['quantidade'] * $item['valor'];
-                            $total += $subtotal;
-                            $foto = isset($item['foto']) ? '../controle/fotos/' ($item['foto']) : './assets/placeholder.png'; // Placeholder se não houver foto                        echo '<div class="cart-item">';
-                            echo '<img src="' . $foto . '" alt="' ($item['nome']) . '" class="item-img">';
-                            echo '<div class="item-details">';
-                            echo '<h5>' ($item['nome']) . '</h5>';
-                            echo '<div class="quantity-controls">';
-                            echo '<button onclick="diminuirQuantidade(' . $item['idproduto'] . ')">-</button>';
-                            echo '<span>' . $item['quantidade'] . '</span>';
-                            echo '<button onclick="aumentarQuantidade(' . $item['idproduto'] . ')+">+</button>';
-                            echo '</div>';
-                            echo '<p>R$' . ($item['valor'] 2, ',', '.') . ' cada</p>';
-                            echo '<p class="subtotal">Subtotal: R$' ($subtotal, 2, ',', '.') . '</p>';
-                            echo '<button class="remove-btn" onclick="removerItem(' . $item['idproduto'] . ')">Remover</button>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                    } else {
-                        echo '<p class="empty-cart">Seu carrinho está vazio.</p>';
-                    }
-                    ?>
-                </div>
-                <div class="cart-footer">
-                    <div class="cart-total">
-                        <strong>Total: R$<?php echo number_format($total, 2, ',', '.'); ?></strong>
-                    </div>
-                    <a href="carrinho.php" class="btn-finalizar">Finalizar Pedido</a>
-                </div>
-            </div>
-
 
             <form class="barra-pesquisa" action="pesquisa.php" method="get">
                 <button type="submit" title="Pesquisar">
@@ -177,7 +135,7 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
                     </a>
                 <?php endif; ?>
 
-                <a href="javascript:void(0);" id="cartIcon" title="Carrinho" onclick="toggleCart()">
+                <a href="carrinho.php">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
 
@@ -241,12 +199,10 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
             // Percorre cada produto retornado pelo banco
             while ($row = mysqli_fetch_assoc($result)) {
 
-                // Exibe um card para cada produto
                 echo '
                 <div class="col-md-4 mb-4 d-flex justify-content-center">
                     <div class="card shadow-sm" style="width: 18rem; border: none; border-radius: 10px;">
 
-                        <!-- Imagem do produto -->
                         <img src="../controle/fotos/' . htmlspecialchars($row["foto"]) . '" 
                              class="card-img-top" 
                              alt="' . htmlspecialchars($row["nome"]) . '" 
@@ -268,7 +224,6 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
                                 R$' . number_format($row["valor"], 2, ',', '.') . '
                             </p>';
 
-                            // Botão que leva à página do produto
                             if (!isset($_SESSION['idusuario'])) {
                                 echo '<a href="home.php?id=' . urlencode($row['idproduto']) . '" class="btn-cardapio">Ver Produto</a>';
                             } else {

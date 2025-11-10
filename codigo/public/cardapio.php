@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $nome_usuario = $_SESSION['nome'] ?? "Usuário";
 $tipo_usuario = $_SESSION['tipo'] ?? 0;
 ?>
@@ -157,7 +158,7 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
         $contador = 0;
         foreach ($lista_produtos as $produto) {
             if (strtolower($produto['tipo']) !== 'hambúrguer') continue;
-            
+
             
             $idproduto = $produto['idproduto'];
             $nome = $produto['nome'];
@@ -168,7 +169,6 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
             $foto = $produto['foto'];
             $descricao = $produto['descricao'];
 
-            // 🔹 Adiciona o retângulo SOMENTE a partir do segundo produto
             if ($contador > 0) {
                 echo '<tr><td colspan="6"><div class="rectangle-29"></div></td></tr>';
             }
@@ -180,19 +180,31 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
                     <span class='ingredientes-produto'>$ingredientes</span>
                   </td>";
             echo "<td class='celula-preco'>$valor</td>";
+
             if ($tipo_usuario == 'c') {
-                echo '<td class= "carrinho"> <a href="carrinho.php"> <img src="./assets/adicionarcarrinho.png">';
+                echo '
+                <td class="carrinho">
+                    <form action="adicionarCarrinho.php" method="post">
+                        <input type="hidden" name="idproduto[]" value="' . $idproduto . '">
+                        <input type="hidden" name="quantidade[' . $idproduto . ']" value="1">
+                        <button type="submit" class="btn-carrinho">
+                            <img src="./assets/adicionarcarrinho.png" alt="Adicionar ao carrinho">
+                        </button>
+                    </form>
+                </td>';
             }
-            if ($tipo_usuario == 0) {
-                echo '<td class= "carrinho"> <a href="home.php"> <img src="./assets/adicionarcarrinho.png">';
+            elseif (!isset($_SESSION['idusuario'])) {
+                echo '<td class="carrinho"><a href="home.php"><img src="./assets/adicionarcarrinho.png" alt="Fazer login para comprar"></a></td>';
             }
-            if ($tipo_usuario == 'a') {
+            elseif ($tipo_usuario == 'a') {
+
                 echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
                 echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             }
-            echo "</tr>";
 
-            $contador++; 
+            echo "</tr>";
+            $contador++;
+
         }
     }
         ?>
@@ -226,7 +238,6 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
             $foto = $produto['foto'];
             $descricao = $produto['descricao'];
             
-            // 🔹 Adiciona o retângulo SOMENTE a partir do segundo produto
             if ($contador > 0) {
                 echo '<tr><td colspan="6"><div class="rectangle-29"></div></td></tr>';
             }
@@ -240,12 +251,22 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
                   </td>";
             echo "<td class='celula-preco'>$valor</td>";
             if ($tipo_usuario == 'c') {
-                echo '<td class= "carrinho"> <a href="carrinho.php"> <img src="./assets/adicionarcarrinho.png"> </a></td>';
+            echo '
+            <td class="carrinho">
+                <form action="adicionarCarrinho.php" method="post">
+                    <input type="hidden" name="idproduto[]" value="' . $idproduto . '">
+                    <input type="hidden" name="quantidade[' . $idproduto . ']" value="1">
+                    <button type="submit" class="btn-carrinho">
+                        <img src="./assets/adicionarcarrinho.png" alt="Adicionar ao carrinho">
+                    </button>
+                </form>
+            </td>';
             }
-            if ($tipo_usuario == 0) {
+            
+            elseif (!isset($_SESSION['idusuario'])){
                 echo '<td class= "carrinho"> <a href="home.php"> <img src="./assets/adicionarcarrinho.png"> </a></td>';
             }
-            if ($tipo_usuario == 'a') {
+            elseif ($tipo_usuario == 'a') {
                 echo '<td class="hover"><a href="formProduto.php?id=' . $idproduto . '"><img src="./assets/editar.png" alt="editar"></a></td>';
                 echo '<td class="hover"><a href="../controle/deletarProduto.php?id=' . $idproduto . '"><img src="./assets/excluir.png" alt="excluir"></a></td>';
             }
@@ -260,4 +281,4 @@ $tipo_usuario = $_SESSION['tipo'] ?? 0;
     </div>
 </body>
 
-</html>
+</html> 

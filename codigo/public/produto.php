@@ -3,10 +3,15 @@ require_once "../controle/conexao.php";
 require_once "../controle/funcoes.php";
 
 // Pega o ID do produto via GET e valida
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$idproduto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Busca o produto no banco
-$produto = buscarProdutoPorId($conexao, $id);
+$produto = buscarProdutoPorId($conexao, $idproduto);
+
+if (!$produto) {
+    echo "<p>Produto não encontrado.</p>";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,12 +59,17 @@ $produto = buscarProdutoPorId($conexao, $id);
             <!-- Ações -->
             <div class="acoes">
                 <form action="adicionarCarrinho.php" method="post">
-                    <input type="hidden" name="idproduto" value="<?php echo $produto['idproduto']; ?>">
+                    <input type="hidden" name="idproduto" value="<?php echo $produto['idproduto'] ?? $produto['id'] ?? 0; ?>">
+                    <input type="hidden" name="nome" value="<?php echo htmlspecialchars($produto['nome'] ?? ''); ?>">
+                    <input type="hidden" name="valor" value="<?php echo $produto['valor'] ?? 0; ?>">
+                    <input type="hidden" name="foto" value="<?php echo htmlspecialchars($produto['foto'] ?? ''); ?>">
+
                     <input type="hidden" name="quantidade" id="inputQuantidade" value="1">
                     <input type="hidden" name="observacoes" id="inputObservacoes">
                     <button type="submit">Adicionar ao carrinho</button>
                     <br><br>
                 </form>
+
 
                 <form action="finalizarCompra.php" method="post">
                     <input type="hidden" name="idproduto" value="<?php echo $produto['idproduto']; ?>">
