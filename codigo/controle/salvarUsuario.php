@@ -21,6 +21,7 @@ if ($idusuario !== false) {
     $_SESSION['tipo'] = $tipo;
     $_SESSION['nome'] = $nome;
     
+    
     header("Location: ../public/callback.php");
     exit;
 } else {

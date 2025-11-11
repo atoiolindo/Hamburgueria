@@ -22,4 +22,16 @@ ter como trocar endereco la na hgora de pagar
 
 aparecer cidade
 
+testar o comprar com conta google
 
+
+pag de pagamentos q funcione
+
+ver o lance do endereco da pag finalizar compra
+(ver se ta enviando o endereco escolhido na hora da troca ou o do perfil)
+
+mandar venda feita pra pag de pedidos.php
+
+redirecionamento do salvar vendas pro pagamentoPix
+
+integração?

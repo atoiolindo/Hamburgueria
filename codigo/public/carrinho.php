@@ -39,7 +39,6 @@ require_once "../controle/funcoes.php";
             echo "<td>" . htmlspecialchars($produto['nome']) . "</td>";
             echo "<td>R$ " . number_format($produto['valor'], 2, ',', '.') . "</td>";
 
-            // Mostra quantidade fixa (sem input)
             echo "<td>" . intval($quantidade) . "</td>";
 
             echo "<td>R$ " . number_format($total_unitario, 2, ',', '.') . "</td>";

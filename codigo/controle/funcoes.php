@@ -991,21 +991,22 @@ function salvarNovaSenha($conexao, $email, $senha) {
     return $funcionou;
 }
 
-function ClientePorUsuario ($conexao, $idusuario){
+function ClientePorUsuario($conexao, $idusuario) {
 
-    $sql = "SELECT idcliente FROM cliente WHERE idusuario =?";
+    $sql = "SELECT idcliente, endereco, telefone FROM cliente WHERE idusuario = ?";
     $comando = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($comando, "i", $idusuario);
 
     mysqli_stmt_execute($comando);
 
     $resultado = mysqli_stmt_get_result($comando);
+    
     $cliente = mysqli_fetch_assoc($resultado);
-
     mysqli_stmt_close($comando);
-
-    return $cliente ? $cliente['idcliente'] : false;
+    
+    return $cliente ?: false; 
 }
+
 
 function emailVerificado($conexao, $idusuario) {
 

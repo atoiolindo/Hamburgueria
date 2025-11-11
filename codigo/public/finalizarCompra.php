@@ -33,19 +33,28 @@ if (empty($_SESSION['carrinho'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Pedido</title>
     <link rel="stylesheet" href="./css/finalizar.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
 </head>
 <body>
 <div class="container">
 
     <div class="checkout">
 
-        <!-- COLUNA ESQUERDA -->
         <div class="col-esquerda">
             <h2>Entrega</h2>
             <div class="bloco">
-                <p><strong><?= htmlspecialchars($cliente['endereco']) ?></strong></p>
-                <a href="perfil.php" class="trocar">Trocar</a>
+                <p id="enderecoAtual"><strong><?= htmlspecialchars($cliente['endereco']) ?></strong></p>
+                <a href="#" class="trocar" id="btnTrocarEndereco">Trocar</a>
+
+                <div id="campoEndereco" style="display:none; margin-top:10px;">
+                    <input id="enderecoInput" type="text" placeholder="Buscar endereço..." style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+                    <div id="map" style="width:100%; height:300px; border-radius:8px; margin-top:10px;"></div>
+                    <button type="button" id="salvarEndereco" style="margin-top:8px; padding:8px 12px; border:none; background:#4CAF50; color:#fff; border-radius:6px; cursor:pointer;">Salvar</button>
+                </div>
             </div>
+
+
 
             <h2>Forma de Pagamento</h2>
             <div class="bloco">
@@ -104,6 +113,79 @@ if (empty($_SESSION['carrinho'])) {
     </div>
 
 </div>
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    document.getElementById('btnTrocarEndereco').addEventListener('click', function(e) {
+    e.preventDefault();
+    const campo = document.getElementById('campoEndereco');
+    
+    if (campo.style.display === 'none' || campo.style.display === '') {
+        campo.style.display = 'block';
+        criarMapa();
+    } else {
+        campo.style.display = 'none';
+    }
+});
+
+    function criarMapa() {
+    if (!document.getElementById('map')) {
+        const mapaDiv = document.createElement('div');
+        mapaDiv.id = 'map';
+        mapaDiv.style.width = '100%';
+        mapaDiv.style.height = '300px';
+        mapaDiv.style.marginTop = '10px';
+        document.getElementById('campoEndereco').appendChild(mapaDiv);
+    }
+
+    const coordenadas = [-27.60593, -48.63576];
+
+    const mapa = L.map('map').setView(coordenadas, 16);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mapa);
+
+    const marcador = L.marker(coordenadas, { draggable: true }).addTo(mapa)
+        .bindPopup('Rua Luiz Fagundes, 51 - Praia Comprida, São José - SC')
+        .openPopup();
+
+    document.getElementById('enderecoInput').value = 'Rua Luiz Fagundes, 51 - Praia Comprida, São José - SC';
+
+    marcador.on('dragend', async function() {
+        const pos = marcador.getLatLng();
+        const url = `https://nominatim.openstreetmap.org/reverse?lat=${pos.lat}&lon=${pos.lng}&format=json`;
+        
+        try {
+            const resp = await fetch(url);
+            const data = await resp.json();
+            if (data.display_name) {
+                document.getElementById('enderecoInput').value = data.display_name;
+            } else {
+                document.getElementById('enderecoInput').value = `Lat: ${pos.lat.toFixed(5)}, Lng: ${pos.lng.toFixed(5)}`;
+            }
+        } catch (e) {
+            document.getElementById('enderecoInput').value = `Lat: ${pos.lat.toFixed(5)}, Lng: ${pos.lng.toFixed(5)}`;
+        }
+    });
+}
+
+    document.getElementById('salvarEndereco').addEventListener('click', () => {
+    const novoEndereco = document.getElementById('enderecoInput').value.trim();
+
+    if (!novoEndereco) {
+        alert('Por favor, selecione ou digite um endereço.');
+        return;
+    }
+
+    document.getElementById('enderecoAtual').innerHTML = '<strong>' + novoEndereco + '</strong>';
+    document.getElementById('campoEndereco').style.display = 'none';
+});
+</script>
+
+
 </body>
 
 </html>
