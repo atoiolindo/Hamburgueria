@@ -2,22 +2,16 @@
   "name": "hamburgueria",
   "version": "1.0.0",
   "description": "hamburgueria pix",
-  "homepage": "https://github.com/atoiolindo/Hamburgueria#readme",
-  "bugs": {
-    "url": "https://github.com/atoiolindo/Hamburgueria/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/atoiolindo/Hamburgueria.git"
-  },
-  "license": "ISC",
-  "author": "yasmin lucas",
-  "type": "commonjs",
   "main": "pix.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
+  "author": "yasmin lucas",
+  "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mercadopago": "^2.10.0"
   }
 }
