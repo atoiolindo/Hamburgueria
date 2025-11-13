@@ -35,3 +35,6 @@ mandar venda feita pra pag de pedidos.php
 redirecionamento do salvar vendas pro pagamentoPix
 
 integração?
+
+
+adm poder mudar status do pedido pra entrega

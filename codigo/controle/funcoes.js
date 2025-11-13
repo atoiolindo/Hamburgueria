@@ -47,59 +47,29 @@ const closeCartBtn = document.getElementById('close-cart');
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Atualiza o carrinho visualmente
-function updateCartUI() {
-  cartItemsContainer.innerHTML = '';
+document.getElementById('salvarEndereco').addEventListener('click', () => {
+  const novoEndereco = document.getElementById('enderecoInput').value.trim();
 
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999;">Nenhum produto no carrinho</p>';
-    openCartBtn.style.display = 'none';
-    localStorage.setItem('cart', JSON.stringify([]));
-    cartTotal.textContent = 'Total: R$ 0,00';
+  if (!novoEndereco) {
+    alert('Por favor, selecione ou digite um endereço.');
     return;
   }
 
-  openCartBtn.style.display = 'flex';
-  let total = 0;
-
-  cart.forEach(item => {
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('cart-item');
-    itemDiv.innerHTML = `
-      <h4>${item.name}</h4>
-      <div class="quantity-controls">
-        <button onclick="changeQuantity('${item.name}', -1)">-</button>
-        <span>${item.quantity}</span>
-        <button onclick="changeQuantity('${item.name}', 1)">+</button>
-      </div>
-      <p>R$ ${(item.price * item.quantity).toFixed(2)}</p>
-    `;
-    cartItemsContainer.appendChild(itemDiv);
-    total += item.price * item.quantity;
-  });
-
-  cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
-  localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-
-function toggleCart() {
-    const cart = document.getElementById('sideCart');
-    cart.classList.toggle('open');
-}
-// Função para aumentar quantidade
-function aumentarQuantidade(idproduto) {
-    window.location.href = '../controle/atualizarCarrinho.php?acao=aumentar&id=' + idproduto;
-}
-// Função para diminuir quantidade
-function diminuirQuantidade(idproduto) {
-    window.location.href = '../controle/atualizarCarrinho.php?acao=diminuir&id=' + idproduto;
-}
-// Função para remover item
-function removerItem(idproduto) {
-    if (confirm('Remover item do carrinho?')) {
-        window.location.href = '../controle/removerCarrinho.php?id=' + idproduto;
+  fetch('../controle/atualizarEndereco.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'endereco=' + encodeURIComponent(novoEndereco)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.ok) {
+      document.getElementById('enderecoAtual').innerHTML = '<strong>' + data.endereco + '</strong>';
+      document.getElementById('campoEndereco').style.display = 'none';
+      alert('Endereço atualizado com sucesso!');
+    } else {
+      alert(data.erro || 'Erro ao atualizar endereço.');
     }
-}
-
+  })
+  .catch(() => alert('Erro ao se comunicar com o servidor.'));
+});
 

@@ -2,17 +2,19 @@
 require_once "../controle/conexao.php";
 require_once "../controle/funcoes.php";
 
+
 // Recebe dados da venda
-$idvenda = $_GET['id'] ?? 0; // 0 = nova venda
+$idvenda   = $_GET['id'] ?? 0; // 0 = nova venda
 $idcliente = $_POST['idcliente'] ?? null;
 
 if (!$idcliente) {
     die("Erro: Cliente não informado.");
 }
+
 $valor_final = $_POST['valor_final'] ?? 0;
 $data        = $_POST['data_compra'] ?? date('Y-m-d');
 $observacao  = $_POST['observacao'] ?? '';
-$status      = $_POST['status'] ?? 'pendente';
+$status = 'pendente';
 
 // Produtos e quantidades
 $idprodutos  = $_POST['idproduto'] ?? [];
@@ -24,6 +26,7 @@ foreach ($idprodutos as $produto) {
     $produtos[] = [$produto, $quantidades[$produto] ?? 1];
 }
 
+// 🧩 Cria ou atualiza a venda
 if ($idvenda == 0) {
     // Nova venda
     $idvenda = salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $status);
@@ -31,8 +34,8 @@ if ($idvenda == 0) {
     if (!$idvenda) {
         die("Erro ao criar a venda. Verifique o cliente e dados.");
     }
-    
-    // Depois usa $idvenda corretamente
+
+    // Salva os itens da venda
     foreach ($produtos as $p) {
         $valor_produto = buscarValorProduto($conexao, $p[0]);
         salvarItemVenda($conexao, $idvenda, $p[0], $p[1], $valor_produto, $observacao);
@@ -55,6 +58,6 @@ if ($idvenda == 0) {
     }
 }
 
-header("Location: ../public/index.php");
+header("Location: ../public/pagamentoPix.php?idvenda=$idvenda");
 exit;
 ?>

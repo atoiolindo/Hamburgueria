@@ -296,6 +296,81 @@ function salvarVenda($conexao, $valor_final, $observacao, $data, $idcliente, $st
     }
 }
 
+function buscarVendaPorId($conexao, $idvenda){
+    $sql = "SELECT * FROM venda WHERE idvenda = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idvenda);
+    mysqli_stmt_execute($comando);
+
+    $resultado = mysqli_stmt_get_result($comando);
+    return mysqli_fetch_assoc($resultado);
+}
+
+function atualizarStatusVenda($conexao, $idvenda, $novoStatus){
+    
+    $sql = "UPDATE venda SET status = ? WHERE idvenda = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'si', $novoStatus, $idvenda);
+
+    $funcionou = mysqli_stmt_execute($comando);
+
+    mysqli_stmt_close($comando);
+    return $funcionou;
+
+}
+
+
+function atualizarEndereco  ($conexao, $idcliente, $novoEndereco) {
+
+    $sql = "UPDATE cliente SET endereco = ? WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'si', $novoEndereco, $idcliente);
+
+    $funcionou = mysqli_stmt_execute($comando);
+
+    if ($funcionou) {
+        $_SESSION['endereco'] = $novoEndereco;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+function pedidoCliente($conexao, $idcliente) {
+
+    $sql = "SELECT * FROM venda WHERE idcliente = ? ORDER BY data DESC";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+    mysqli_stmt_execute($comando);
+
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $vendas = [];
+    while ($linha = mysqli_fetch_assoc($resultado)) {
+        $vendas[] = $linha;
+    }
+
+    return $vendas;
+}
+
+
+function itensPedido($conexao, $idvenda) {
+    $sql = "SELECT p.nome, iv.quantidade, iv.valor
+            FROM item_venda iv
+            JOIN produto p ON iv.idproduto = p.idproduto
+            WHERE iv.idvenda = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($comando, 'i', $idvenda);
+    mysqli_stmt_execute($comando);
+
+    $resultado = mysqli_stmt_get_result($comando);
+    return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+}
+
+
 function buscarValorProduto($conexao, $idproduto) {
     $sql = "SELECT valor FROM produto WHERE idproduto = ?";
     $stmt = mysqli_prepare($conexao, $sql);

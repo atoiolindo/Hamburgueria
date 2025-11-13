@@ -47,11 +47,12 @@ if (empty($_SESSION['carrinho'])) {
                 <p id="enderecoAtual"><strong><?= htmlspecialchars($cliente['endereco']) ?></strong></p>
                 <a href="#" class="trocar" id="btnTrocarEndereco">Trocar</a>
 
-                <div id="campoEndereco" style="display:none; margin-top:10px;">
-                    <input id="enderecoInput" type="text" placeholder="Buscar endereço..." style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                    <div id="map" style="width:100%; height:300px; border-radius:8px; margin-top:10px;"></div>
-                    <button type="button" id="salvarEndereco" style="margin-top:8px; padding:8px 12px; border:none; background:#4CAF50; color:#fff; border-radius:6px; cursor:pointer;">Salvar</button>
+                <div id="campoEndereco">
+                    <input id="enderecoInput" type="text" placeholder="Buscar endereço...">
+                    <button type="button" id="salvarEndereco">Salvar</button>
                 </div>
+
+
             </div>
 
 
@@ -185,7 +186,7 @@ if (empty($_SESSION['carrinho'])) {
 });
 </script>
 
-
+<script src="../controle/funcoes.js"></script>
 </body>
 
 </html>

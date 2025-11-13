@@ -124,3 +124,25 @@ body {
     color: #d00;
     text-decoration: none;
 }
+
+#campoEndereco {
+    display: none;
+    margin-top: 10px;
+}
+
+#enderecoInput{
+    width: 100%; 
+    padding: 8px; 
+    border-radius: 6px; 
+    border: 1px solid #ccc;
+}
+
+#salvarEndereco{
+    margin-top: 8px; 
+    padding: 8px 12px; 
+    border: none; 
+    background: #4CAF50; 
+    color: #fff; 
+    border-radius: 6px; 
+    cursor: pointer;
+}

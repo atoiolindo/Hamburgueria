@@ -1,106 +1,82 @@
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #fafafa;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    max-width: 500px;
-    margin: 60px auto;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-    padding: 30px;
-  }
-
-  h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  p.descricao {
-    text-align: center;
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 25px;
-  }
-
-  .metodo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fdfdfd;
-    border: 1px solid #eee;
-    border-radius: 14px;
-    padding: 14px 18px;
-    margin-bottom: 14px;
-    transition: 0.2s;
-  }
-
-  .metodo:hover {
-    background: #f8f8f8;
-  }
-
-  .metodo .icone img {
-    width: 42px;
-    height: 42px;
-  }
-
-  .metodo .info {
-    flex: 1;
-    margin-left: 14px;
-  }
-
-  .metodo .info h3 {
-    font-size: 16px;
-    margin: 0;
-    color: #222;
-  }
-
-  .metodo .info p {
-    margin: 4px 0 0;
-    font-size: 13px;
-    color: #777;
-  }
-
-  .status span.ativo {
-    color: #00b37e;
-    font-weight: 600;
-    font-size: 14px;
-  }
-
-  .status span.desativado {
-    color: #aaa;
-    font-size: 14px;
-  }
-
-  #voltar {
-  position: absolute;
-  top: 460px;   
-  left: 265px;  
-  z-index: 100; 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
 }
 
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
 
-.voltar {
-  display: inline-flex;
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.descricao {
+  text-align: center;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.metodo {
+  display: flex;
   align-items: center;
-  padding: 8px 12px;
-  background: none;
-  color: #AD2E1A;
-  font-size: 16px;
-  border: none;
-  text-decoration: none;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.metodo .icone img {
+  width: 40px;
+  height: 40px;
+}
+
+.metodo .info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.status span {
   font-weight: bold;
-  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
 }
 
-.voltar::before {
-  content: '↵';
-  margin-right: 8px;
-  font-size: 20px;
+.ativo {
+  background-color: #2ecc71;
+}
+.pendente {
+  background-color: #f1c40f;
+}
+.cancelado {
+  background-color: #e74c3c;
 }
 
+#voltar {
+  text-align: center;
+  margin-top: 20px;
+}
 
+#voltar a {
+  background: #555;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+#voltar a:hover {
+  background: #333;
+}
