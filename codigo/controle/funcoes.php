@@ -1124,4 +1124,23 @@ function alterarEndereco ($conexao, $endereco, $idcliente) {
     return $funcionou;
 
 }
+
+function buscarAdicionaisDisponiveis($conexao, $idproduto) {
+    // Busca todos os ingredientes disponíveis no armazenamento
+    $sql = "SELECT idingrediente, nome, valor_unitario 
+            FROM armazenamento
+            ORDER BY nome ASC";
+
+    $comando = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $adicionais = [];
+    while ($adc = mysqli_fetch_assoc($resultado)) {
+        $adicionais[] = $adc;
+    }
+
+    mysqli_stmt_close($comando);
+    return $adicionais;
+}
 ?>
