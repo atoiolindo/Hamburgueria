@@ -307,7 +307,7 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
     <footer>
         <div class="footer-container">
             <div class="footer-col">
-                <img src="logo.png" alt="Logo Pão e Magia" style="width:80px;"><br>
+                <img src="./assets/logo3.png" alt="Logo Pão e Magia" style="width:80px;"><br>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
