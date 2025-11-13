@@ -19,6 +19,7 @@ if ($novoEndereco === '') {
 }
 
 if (atualizarEndereco($conexao, $idcliente, $novoEndereco)) {
+    $_SESSION['endereco'] = $novoEndereco;
     echo json_encode(["ok" => true, "endereco" => $novoEndereco]);
 } else {
     http_response_code(500);

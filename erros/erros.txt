@@ -18,11 +18,11 @@ se quiser ir e finalizar, clica no carrinho e pronto
 
 ter com oclicar no produto na hora do cardapio pra aparecer campo de observacao e tal 
 
-ter como trocar endereco la na hgora de pagar
+ter como trocar endereco la na hgora de pagar ok
 
 aparecer cidade
 
-testar o comprar com conta google
+testar o comprar com conta google ok
 
 
 pag de pagamentos q funcione
@@ -34,7 +34,18 @@ mandar venda feita pra pag de pedidos.php
 
 redirecionamento do salvar vendas pro pagamentoPix
 
-integração?
+integração? oks apparentely
 
 
 adm poder mudar status do pedido pra entrega
+
+VER SOBRE O TOKEN DE PRODUCAO AMANHA
+
+arrumarpagamento real com pix logo e redirecioanmento pra uma pag q diz pagamento concluido 
+e mudar status pra pago
+p poder ve se o endereco ta atualizando, pq n ta atualizando e ocmo mudar
+
+tirar a cagada das => e -> e arrumar
+
+
+estudar codigo direito dps inclusive a parte das integrações 

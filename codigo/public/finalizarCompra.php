@@ -184,6 +184,7 @@ if (empty($_SESSION['carrinho'])) {
     document.getElementById('enderecoAtual').innerHTML = '<strong>' + novoEndereco + '</strong>';
     document.getElementById('campoEndereco').style.display = 'none';
 });
+
 </script>
 
 <script src="../controle/funcoes.js"></script>

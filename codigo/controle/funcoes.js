@@ -1,42 +1,52 @@
 function calcular() {
-    let total = 0;
+  let total = 0;
 
-    // pega todos os checkboxes de produtos
-    document.querySelectorAll("input[type=checkbox][id^='marcado_']").forEach(cb => {
-        if (cb.checked) {
-            let id = cb.value;
-            let preco = parseFloat(document.getElementById('preco_' + id).innerText) || 0;
-            let qtd = parseFloat(document.getElementById('quantidade_' + id).value) || 0;
-            total += preco * qtd;
-        }
-    });
+  document.querySelectorAll("input[type=checkbox][id^='marcado_']").forEach(cb => {
+    if (cb.checked) {
+      let id = cb.value;
+      let preco = parseFloat(document.getElementById('preco_' + id).innerText) || 0;
+      let qtd = parseFloat(document.getElementById('quantidade_' + id).value) || 0;
+      total += preco * qtd;
+    }
+  });
 
+  if (document.getElementById('valor_final')) {
     document.getElementById('valor_final').value = total.toFixed(2);
+  }
+  if (document.getElementById('mostrar_total')) {
     document.getElementById('mostrar_total').innerText = total.toFixed(2);
+  }
 }
 
+
 $(document).ready(function() {
-            $("form").on("submit", function(e) {
-                let data = $("#data").val().trim();
-                if (data === "") {
-                    alert("⚠️ Por favor, selecione a data da venda.");
-                    e.preventDefault(); // bloqueia envio
-                    return false;
-                }
-            });
-        });
+  $("form").on("submit", function(e) {
+    let data = $("#data").val();
+    if (data && data.trim() === "") {
+      alert("⚠️ Por favor, selecione a data da venda.");
+      e.preventDefault();
+      return false;
+    }
+  });
+});
+
 
 function editarTelefone() {
-    const input = document.getElementById('telefone');
+  const input = document.getElementById('telefone');
+  if (input) {
     input.removeAttribute('readonly');
     input.focus();
+  }
 }
 
 function editarUsuario() {
-    const input = document.getElementById('nome');
+  const input = document.getElementById('nome');
+  if (input) {
     input.removeAttribute('readonly');
     input.focus();
+  }
 }
+
 
 const cartSidebar = document.getElementById('cart-sidebar');
 const overlay = document.getElementById('overlay');
@@ -47,29 +57,75 @@ const closeCartBtn = document.getElementById('close-cart');
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-document.getElementById('salvarEndereco').addEventListener('click', () => {
-  const novoEndereco = document.getElementById('enderecoInput').value.trim();
 
-  if (!novoEndereco) {
-    alert('Por favor, selecione ou digite um endereço.');
-    return;
-  }
+const salvarEnderecoBtn = document.getElementById('salvarEndereco');
+if (salvarEnderecoBtn) {
+  salvarEnderecoBtn.addEventListener('click', () => {
+    const novoEnderecoInput = document.getElementById('enderecoInput');
+    if (!novoEnderecoInput) return;
 
-  fetch('../controle/atualizarEndereco.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: 'endereco=' + encodeURIComponent(novoEndereco)
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.ok) {
-      document.getElementById('enderecoAtual').innerHTML = '<strong>' + data.endereco + '</strong>';
-      document.getElementById('campoEndereco').style.display = 'none';
-      alert('Endereço atualizado com sucesso!');
-    } else {
-      alert(data.erro || 'Erro ao atualizar endereço.');
+    const novoEndereco = novoEnderecoInput.value.trim();
+    if (!novoEndereco) {
+      alert('Por favor, selecione ou digite um endereço.');
+      return;
     }
-  })
-  .catch(() => alert('Erro ao se comunicar com o servidor.'));
-});
 
+    fetch('../controle/atualizarEndereco.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'endereco=' + encodeURIComponent(novoEndereco)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.ok) {
+        document.getElementById('enderecoAtual').innerHTML = '<strong>' + data.endereco + '</strong>';
+        document.getElementById('campoEndereco').style.display = 'none';
+        alert('Endereço atualizado com sucesso!');
+      } else {
+        alert(data.erro || 'Erro ao atualizar endereço.');
+      }
+    })
+    .catch(() => alert('Erro ao se comunicar com o servidor.'));
+  });
+}
+
+function editarEndereco() {
+  const input = document.getElementById('endereco');
+  const salvar = document.getElementById('salvar-endereco');
+
+  if (input && salvar) {
+    input.removeAttribute('readonly');
+    input.focus();
+    salvar.style.display = 'inline-block';
+  }
+}
+
+const formEndereco = document.getElementById('endereco-form');
+if (formEndereco) {
+  formEndereco.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const endereco = document.getElementById('endereco').value.trim();
+
+    if (endereco === '') {
+      alert('Por favor, preencha o endereço.');
+      return;
+    }
+
+    fetch('./controle/atualizarEndereco.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'endereco=' + encodeURIComponent(endereco)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.ok) {
+        alert('Endereço atualizado com sucesso!');
+        document.getElementById('endereco').setAttribute('readonly', true);
+        document.getElementById('salvar-endereco').style.display = 'none';
+      } else {
+        alert(data.erro || 'Erro ao atualizar endereço.');
+      }
+    })
+    .catch(() => alert('Erro ao se comunicar com o servidor.'));
+  });
+}
