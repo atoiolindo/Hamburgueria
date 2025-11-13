@@ -231,7 +231,10 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
         </div>
 
         <!-- Botão final -->
-        <a href="cardapio.php" class="btn-botao">Ver todos</a>
+        <div class="botao-centro">
+            <a href="cardapio.php" class="btn-botao">Ver todos</a>
+        </div>
+
 
     </section>
 
@@ -246,7 +249,10 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
 
     <p class="sobre-nos">Aqui, valorizamos a simplicidade e a qualidade. Do pão artesanal às combinações
         criativas de molhos e acompanhamentos, cada item do nosso cardápio é cuidadosamente elaborado para surpreender.</p>
-    <a href="historia.php" class="btn-botao">Saiba mais</a> <br><br><br><br>
+
+    <div class="botao-centro">
+        <a href="historia.php" class="btn-botao">Saiba mais</a> <br><br><br><br>
+    </div>
 
 
     <script>
