@@ -449,6 +449,10 @@ INSERT INTO usuario ( email, senha, nome, tipo, token, status) VALUES ( 'cururu@
 
 -- INSERTs para cliente
 
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Jessica', '62 96666 6666', 'No seu coracao / GO', '1' );
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Antonio', '62 99503 3294', 'Ceres Restaurante / GO', '2' );
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Gabriel', '62 91234 5678', 'Ceres perto do comperfrutas / GO', '3' );
+INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Yasmin', '62 91234 2567', 'Uruana city / GO', '4' );
 INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Cleber', '62 93920 1593', 'Área Emanuelly da Conceição, 4, Beija Flor, 73605756 Aragão de Jesus / GO', '5' );
 INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Agatha Nunes', '62 98396 0409', 'Núcleo de Ferreira, Vila Pinho, 74581-047 Gonçalves do Sul / GO', '6' );
 INSERT INTO cliente (nome, telefone, endereco, idusuario) VALUES ('Jessica Arantes Renascida', '62 96873 7597', 'Estrada de Farias, 42, Nova Suíça, 45018640 Aragão / GO', '7' );
