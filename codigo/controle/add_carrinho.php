@@ -1,65 +1,89 @@
 <?php
-session_start();
 require_once "conexao.php";
 require_once "funcoes.php";
 
-// Verifica se recebeu os dados do formulário
-if (!isset($_POST['idproduto'])) {
-    echo "Nenhum produto selecionado.";
-    exit;
+session_start(); // Caso queira vincular o cliente depois
+
+// Dados do formulário
+$idproduto = isset($_POST['idproduto']) ? intval($_POST['idproduto']) : 0;
+$adicionais = isset($_POST['adicionais']) ? $_POST['adicionais'] : [];
+$observacao = isset($_POST['observacao']) ? trim($_POST['observacao']) : "";
+
+// Validação
+if ($idproduto <= 0) {
+    die("Produto inválido.");
 }
 
-// Recebe os dados do produto
-$idproduto = intval($_POST['idproduto']);
-$nome = $_POST['nome'];
-$valor = floatval($_POST['valor']);
+// Busca o valor do produto
+$sqlProduto = "SELECT valor FROM produto WHERE idproduto = ?";
+$stmt = mysqli_prepare($conexao, $sqlProduto);
+mysqli_stmt_bind_param($stmt, "i", $idproduto);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$produto = mysqli_fetch_assoc($result);
+mysqli_stmt_close($stmt);
 
-// Inicializa a sessão do carrinho, se ainda não existir
-if (!isset($_SESSION['carrinho'])) {
-    $_SESSION['carrinho'] = [];
+if (!$produto) {
+    die("Produto não encontrado.");
 }
 
-// Monta o array base do produto
-$item = [
-    'idproduto' => $idproduto,
-    'nome' => $nome,
-    'valor' => $valor,
-    'adicionais' => [],
-];
+$valor_final = $produto['valor'];
 
-// Se houver adicionais selecionados
-if (isset($_POST['adicionais']) && is_array($_POST['adicionais'])) {
-    $adicionais_ids = $_POST['adicionais'];
+// Soma o valor dos adicionais
+if (!empty($adicionais)) {
+    $ids = implode(',', array_map('intval', $adicionais));
+    $sqlAdd = "SELECT valor_unitario FROM armazenamento WHERE idingrediente IN ($ids)";
+    $res = mysqli_query($conexao, $sqlAdd);
+    while ($row = mysqli_fetch_assoc($res)) {
+        $valor_final += $row['valor_unitario'];
+    }
+}
 
-    foreach ($adicionais_ids as $idAdicional) {
-        $idAdicional = intval($idAdicional);
+// Cria a venda
+$data = date("Y-m-d");
+$idcliente = 1; // pode mudar para $_SESSION['idcliente'] depois
+$status = "pendente";
 
-        // Busca o adicional no banco (para garantir nome e valor atualizados)
-        $sql = "SELECT nome, valor_unitario FROM ingrediente WHERE idingrediente = ?";
-        $stmt = mysqli_prepare($conexao, $sql);
-        mysqli_stmt_bind_param($stmt, 'i', $idAdicional);
+$sqlVenda = "INSERT INTO venda (valor_final, observacao, data, idcliente, status) VALUES (?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($conexao, $sqlVenda);
+mysqli_stmt_bind_param($stmt, "dssis", $valor_final, $observacao, $data, $idcliente, $status);
+mysqli_stmt_execute($stmt);
+$idvenda = mysqli_insert_id($conexao);
+mysqli_stmt_close($stmt);
+
+// Insere o item principal da venda
+$sqlItem = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao) VALUES (?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($conexao, $sqlItem);
+$quantidade = 1;
+mysqli_stmt_bind_param($stmt, "iiids", $idvenda, $idproduto, $quantidade, $valor_final, $observacao);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+
+// Registra adicionais como novos itens (se quiser somar separadamente)
+if (!empty($adicionais)) {
+    foreach ($adicionais as $idAdd) {
+        $sqlAddItem = "SELECT nome, valor_unitario FROM armazenamento WHERE idingrediente = ?";
+        $stmt = mysqli_prepare($conexao, $sqlAddItem);
+        mysqli_stmt_bind_param($stmt, "i", $idAdd);
         mysqli_stmt_execute($stmt);
-        $resultado = mysqli_stmt_get_result($stmt);
-        $adicional = mysqli_fetch_assoc($resultado);
+        $res = mysqli_stmt_get_result($stmt);
+        $add = mysqli_fetch_assoc($res);
         mysqli_stmt_close($stmt);
 
-        if ($adicional) {
-            $item['adicionais'][] = [
-                'id' => $idAdicional,
-                'nome' => $adicional['nome'],
-                'valor' => $adicional['valor_unitario']
-            ];
-
-            // Soma o valor do adicional ao total do produto
-            $item['valor'] += $adicional['valor_unitario'];
+        if ($add) {
+            $sqlItemAdd = "INSERT INTO item_venda (idvenda, idproduto, quantidade, valor, observacao) VALUES (?, ?, ?, ?, ?)";
+            $descricaoAdd = "Adicional: " . $add['nome'];
+            $qtd = 1;
+            mysqli_stmt_bind_param($stmt, "iiids", $idvenda, $idproduto, $qtd, $add['valor_unitario'], $descricaoAdd);
+            $stmt = mysqli_prepare($conexao, $sqlItemAdd);
+            mysqli_stmt_bind_param($stmt, "iiids", $idvenda, $idproduto, $qtd, $add['valor_unitario'], $descricaoAdd);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
         }
     }
 }
 
-// Adiciona o item ao carrinho
-$_SESSION['carrinho'][] = $item;
-
-// Redireciona para a página do carrinho
-header("Location: ../carrinho.php");
+// Redireciona para o carrinho
+header("Location: ../public/carrinho.php?msg=Produto adicionado com sucesso");
 exit;
 ?>
