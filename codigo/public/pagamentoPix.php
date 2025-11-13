@@ -2,6 +2,10 @@
 require_once "../controle/conexao.php";
 require_once "../controle/funcoes.php";
 
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 $idvenda = $_GET['idvenda'] ?? 0;
 if (!$idvenda) {
     die("Venda não encontrada");
@@ -12,45 +16,39 @@ if (!$venda) {
     die("Venda não encontrada.");
 }
 
-$valor = floatval($venda['valor_final']); // ✅ Corrigido
+$valor = floatval($venda['valor_final']); 
+if ($valor <= 0) {
+    die("Valor inválido para pagamento: $valor");
+}
 
-$access_token = "TEST-3238476273840575-111217-6396ee4a40ca9d984b7d513162c5d4cc-2986569358";
+$access_token = "APP_USR-3238476273840575-111217-affc2ee9b4da830be6b7734c12cf4a19-2986569358";  // Mude para token de teste se testar sandbox
 
 $payload = [
-    "transaction_amount" => $valor,
-    "description" => "Pedido #$idvenda",
+    "transaction_amount" => $valor + (rand(1, 999) / 10000),  // Adiciona centavos aleatórios para diferenciar
+    "description" => "Pedido #$idvenda - " . uniqid() . " - " . time(),
+    "external_reference" => "pedido_$idvenda_" . uniqid() . "_" . time(),
     "payment_method_id" => "pix",
     "payer" => [
-        "email" => "cliente@example.com",
+        "email" => $venda['email_cliente'] . rand(1, 1000) . "@temp.com",  // Email único temporário (teste)
         "first_name" => "Cliente",
         "last_name" => "Teste"
     ],
-    "notification_url" => "https://6d102f5b31ab.ngrok-free.app/public/webhook.php"
+    "notification_url" => "https://seusite.com/webhook.php"
 ];
 
 $curl = curl_init();
 curl_setopt_array($curl, [
-    CURLOPT_URL => "https://api.mercadopago.com/v1/payments",
+    CURLOPT_URL => "https://api.mercadopago.com/v1/payments",  // Mude para sandbox se testar
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "POST",
     CURLOPT_HTTPHEADER => [
         "Authorization: Bearer $access_token",
         "Content-Type: application/json",
-        "X-Idempotency-Key: " . md5('pix_' . $idvenda . microtime(true))
-    ],
-    CURLOPT_POSTFIELDS => json_encode([
-        "transaction_amount" => $valor,
-        "description" => "Pedido #$idvenda - " . uniqid(),
-        "payment_method_id" => "pix",
-        "payer" => [
-            "email" => "cliente@example.com",
-            "first_name" => "Cliente",
-            "last_name" => "Teste"
-        ],
-        "notification_url" => "https://6d102f5b31ab.ngrok-free.app/public/webhook.php"
-    ])
+        "X-Idempotency-Key: " . md5(uniqid(mt_rand(), true) . microtime() . $idvenda . $valor)    ],
+    CURLOPT_POSTFIELDS => json_encode($payload)
 ]);
 
+file_put_contents('log_pix_debug.txt', date('Y-m-d H:i:s') . " - Iniciando - Payload: " . json_encode($payload) . "\n", FILE_APPEND);
 
 $response = curl_exec($curl);
 $http = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -58,12 +56,13 @@ curl_close($curl);
 
 $dados = json_decode($response, true);
 
-// 🔎 debug útil
+file_put_contents('log_pix_debug.txt', "HTTP: $http - Resposta: " . print_r($dados, true) . " - Response raw: $response\n\n", FILE_APPEND);
+
 if ($http >= 400) {
     echo "<pre>Erro HTTP $http\n";
     print_r($dados);
     echo "</pre>";
-    die("❌ Erro ao gerar PIX.");
+    die("Erro ao gerar PIX.");
 }
 
 if (isset($dados["point_of_interaction"]["transaction_data"]["qr_code_base64"])) {

@@ -8,7 +8,7 @@ $data = json_decode($input, true);
 if (isset($data["data"]["id"])) {
     $id_pagamento = $data["data"]["id"];
 
-    $access_token = "TEST-3238476273840575-111217-6396ee4a40ca9d984b7d513162c5d4cc-2986569358";
+    $access_token = "APP_USR-3238476273840575-111217-affc2ee9b4da830be6b7734c12cf4a19-2986569358";
     $url = "https://api.mercadopago.com/v1/payments/" . $id_pagamento;
 
     $ch = curl_init($url);
