@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>História do Pão e Magia</title>
-  <link rel="icon" href="./assets/logopaoemagia2.png" type="image/x-icon">
+  <link rel="icon" href="./assets/logo1.png" type="image/x-icon">
   <link rel="stylesheet" href="./css/historia.css">
 </head>
+
 <body>
   <div class="container">
 
@@ -89,4 +91,5 @@
 
   </div>
 </body>
+
 </html>

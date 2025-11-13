@@ -16,59 +16,60 @@ if (isset($_SESSION['nome'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Clientes</title>
     <link rel="stylesheet" href="./css/listar.css">
+    <link rel="icon" href="./assets/logo1.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="list-container">
-    <h2>Lista de clientes</h2>
-
-    <?php
-    require_once "../controle/conexao.php";
-    require_once "../controle/funcoes.php";
-
-    $lista_clientes = listarCliente($conexao);
-    
-
-    if (count($lista_clientes) == 0) {
-        echo "Não existem clientes cadastrados.";
-    } else {
-    ?>
-        <table border="1">
-            <tr>
-                <td>Id</td>
-                <td>Nome</td>
-                <td>Telefone</td>
-                <td>Endereço</td>
-
-                <?php 
-                if ($tipo_usuario == 'a') {
-                echo "<td colspan='2'>Ação</td>";
-                }?>
-
-            </tr>
+        <h2>Lista de clientes</h2>
 
         <?php
-        foreach ($lista_clientes as $cliente) {
-            $idcliente = $cliente['idcliente'];
-            $nome = $cliente['nome'];
-            $telefone = $cliente['telefone'];
-            $endereco = $cliente['endereco'];
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
 
-            echo "<tr>";
-            echo "<td>$idcliente</td>";
-            echo "<td>$nome</td>";
-            echo "<td>$telefone</td>";
-            echo "<td>$endereco</td>";
-            
-            if ($tipo_usuario == 'a') {
-            echo "<td><a href='formCliente.php?id=$idcliente'><img src='./assets/editar.png' alt='editar'></a></td>";
-            echo "<td><a href='../controle/deletarCliente.php?id=$idcliente'><img src='./assets/excluir.png' alt='excluir'></a></td>";
-            }
-            echo "</tr>";
-        }
-    }
+        $lista_clientes = listarCliente($conexao);
+
+
+        if (count($lista_clientes) == 0) {
+            echo "Não existem clientes cadastrados.";
+        } else {
         ?>
-        </table>
+            <table border="1">
+                <tr>
+                    <td>Id</td>
+                    <td>Nome</td>
+                    <td>Telefone</td>
+                    <td>Endereço</td>
+
+                    <?php
+                    if ($tipo_usuario == 'a') {
+                        echo "<td colspan='2'>Ação</td>";
+                    } ?>
+
+                </tr>
+
+            <?php
+            foreach ($lista_clientes as $cliente) {
+                $idcliente = $cliente['idcliente'];
+                $nome = $cliente['nome'];
+                $telefone = $cliente['telefone'];
+                $endereco = $cliente['endereco'];
+
+                echo "<tr>";
+                echo "<td>$idcliente</td>";
+                echo "<td>$nome</td>";
+                echo "<td>$telefone</td>";
+                echo "<td>$endereco</td>";
+
+                if ($tipo_usuario == 'a') {
+                    echo "<td><a href='formCliente.php?id=$idcliente'><img src='./assets/editar.png' alt='editar'></a></td>";
+                    echo "<td><a href='../controle/deletarCliente.php?id=$idcliente'><img src='./assets/excluir.png' alt='excluir'></a></td>";
+                }
+                echo "</tr>";
+            }
+        }
+            ?>
+            </table>
     </div>
 </body>
 

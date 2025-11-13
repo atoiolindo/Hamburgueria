@@ -16,55 +16,56 @@ if (isset($_SESSION['nome'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Ingredientes</title>
     <link rel="stylesheet" href="./css/listar.css">
+    <link rel="icon" href="./assets/logo1.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="list-container">
-    <h2>Lista de ingredientes</h2>
-
-    <?php
-    require_once "../controle/conexao.php";
-    require_once "../controle/funcoes.php";
-
-    $lista_armazenamento = listarArmazenamento($conexao);
-    
-
-    if (count($lista_armazenamento) == 0) {
-        echo "Não existem ingrendientes cadastrados.";
-    } else {
-    ?>
-        <table border="1">
-            <tr>
-                <td>Id</td>
-                <td>Quantidade</td>
-                <td>Nome</td>
-                
-                <?php 
-                if ($tipo_usuario == 'a') {
-                echo "<td colspan='2'>Ação</td>";
-                } ?>
-               </tr>
+        <h2>Lista de ingredientes</h2>
 
         <?php
-        foreach ($lista_armazenamento as $armazenamento) {
-            $idingrediente = $armazenamento['idingrediente'];
-            $quantidade = $armazenamento['quantidade'];
-            $nome = $armazenamento['nome'];
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
 
-            echo "<tr>";
-            echo "<td>$idingrediente</td>";
-            echo "<td>$quantidade</td>";
-            echo "<td>$nome</td>";
+        $lista_armazenamento = listarArmazenamento($conexao);
 
-            if ($tipo_usuario == 'a') {
-            echo "<td><a href='formArmazenamento.php?id=$idingrediente'><img src='./assets/editar.png' alt='editar'></a></td>";
-            echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'><img src='./assets/excluir.png' alt='excluir'></a></td>";
-            }
-            echo "</tr>";
-        }
-    }
+
+        if (count($lista_armazenamento) == 0) {
+            echo "Não existem ingrendientes cadastrados.";
+        } else {
         ?>
-        </table>
+            <table border="1">
+                <tr>
+                    <td>Id</td>
+                    <td>Quantidade</td>
+                    <td>Nome</td>
+
+                    <?php
+                    if ($tipo_usuario == 'a') {
+                        echo "<td colspan='2'>Ação</td>";
+                    } ?>
+                </tr>
+
+            <?php
+            foreach ($lista_armazenamento as $armazenamento) {
+                $idingrediente = $armazenamento['idingrediente'];
+                $quantidade = $armazenamento['quantidade'];
+                $nome = $armazenamento['nome'];
+
+                echo "<tr>";
+                echo "<td>$idingrediente</td>";
+                echo "<td>$quantidade</td>";
+                echo "<td>$nome</td>";
+
+                if ($tipo_usuario == 'a') {
+                    echo "<td><a href='formArmazenamento.php?id=$idingrediente'><img src='./assets/editar.png' alt='editar'></a></td>";
+                    echo "<td><a href='../controle/deletarArmazenamento.php?id=$idingrediente'><img src='./assets/excluir.png' alt='excluir'></a></td>";
+                }
+                echo "</tr>";
+            }
+        }
+            ?>
+            </table>
     </div>
 </body>
 

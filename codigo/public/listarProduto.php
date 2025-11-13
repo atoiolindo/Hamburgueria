@@ -16,7 +16,8 @@ if (isset($_SESSION['nome'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/listar.css">
-    
+    <link rel="icon" href="./assets/logo1.png" type="image/x-icon">
+
     <style>
         img {
             width: 50px;
@@ -27,65 +28,65 @@ if (isset($_SESSION['nome'])) {
 
 <body>
     <div class="list-container">
-    <h2>Lista de produtos</h2>
-
-    <?php
-    require_once "../controle/conexao.php";
-    require_once "../controle/funcoes.php";
-
-    $lista_produtos = listarProduto($conexao);
-    
-    if (count($lista_produtos) == 0) {
-        echo "Não existem produtos cadastrados.";
-    } else {
-    ?>
-        <table border="1">
-            <tr>
-                <td>Id</td>
-                <td>Foto</td>
-                <td>Nome</td>
-                <td>Nome real</td>
-                <td>Ingredientes</td>
-                <td>Valor</td>
-                <td>Tipo</td>
-                <td>Descrição</td>
-
-                <?php 
-                if ($tipo_usuario == 'a') {
-                echo "<td colspan='2'>Ação</td>";
-                } ?>
-            </tr>
+        <h2>Lista de produtos</h2>
 
         <?php
-        foreach ($lista_produtos as $produto) {
-            $idproduto = $produto['idproduto'];
-            $nome = $produto['nome'];
-            $nome_real = $produto['nome_real'];
-            $ingredientes = $produto['ingredientes'];
-            $valor = $produto['valor'];
-            $tipo = $produto['tipo'];
-            $foto = $produto['foto'];
-            $descricao = $produto['descricao'];
+        require_once "../controle/conexao.php";
+        require_once "../controle/funcoes.php";
 
-            echo "<tr>";
-            echo "<td>$idproduto</td>";
-            echo "<td><img src='../controle/fotos/$foto'></td>";
-            echo "<td>$nome</td>";
-            echo "<td>$nome_real</td>";
-            echo "<td>$ingredientes</td>";
-            echo "<td>$valor</td>";
-            echo "<td>$tipo</td>";
-            echo "<td>$descricao</td>";
+        $lista_produtos = listarProduto($conexao);
 
-            if ($tipo_usuario == 'a') {
-            echo "<td><a href='formProduto.php?id=$idproduto'><img src='./assets/editar.png' alt='editar'></a></td>";
-            echo "<td><a href='../controle/deletarProduto.php?id=$idproduto'><img src='./assets/excluir.png' alt='excluir'></a></td>";
-            }
-            echo "</tr>";
-        }
-    }
+        if (count($lista_produtos) == 0) {
+            echo "Não existem produtos cadastrados.";
+        } else {
         ?>
-        </table>
+            <table border="1">
+                <tr>
+                    <td>Id</td>
+                    <td>Foto</td>
+                    <td>Nome</td>
+                    <td>Nome real</td>
+                    <td>Ingredientes</td>
+                    <td>Valor</td>
+                    <td>Tipo</td>
+                    <td>Descrição</td>
+
+                    <?php
+                    if ($tipo_usuario == 'a') {
+                        echo "<td colspan='2'>Ação</td>";
+                    } ?>
+                </tr>
+
+            <?php
+            foreach ($lista_produtos as $produto) {
+                $idproduto = $produto['idproduto'];
+                $nome = $produto['nome'];
+                $nome_real = $produto['nome_real'];
+                $ingredientes = $produto['ingredientes'];
+                $valor = $produto['valor'];
+                $tipo = $produto['tipo'];
+                $foto = $produto['foto'];
+                $descricao = $produto['descricao'];
+
+                echo "<tr>";
+                echo "<td>$idproduto</td>";
+                echo "<td><img src='../controle/fotos/$foto'></td>";
+                echo "<td>$nome</td>";
+                echo "<td>$nome_real</td>";
+                echo "<td>$ingredientes</td>";
+                echo "<td>$valor</td>";
+                echo "<td>$tipo</td>";
+                echo "<td>$descricao</td>";
+
+                if ($tipo_usuario == 'a') {
+                    echo "<td><a href='formProduto.php?id=$idproduto'><img src='./assets/editar.png' alt='editar'></a></td>";
+                    echo "<td><a href='../controle/deletarProduto.php?id=$idproduto'><img src='./assets/excluir.png' alt='excluir'></a></td>";
+                }
+                echo "</tr>";
+            }
+        }
+            ?>
+            </table>
     </div>
 </body>
 

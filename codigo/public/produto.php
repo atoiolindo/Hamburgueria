@@ -26,11 +26,14 @@ $adicionais = buscarAdicionaisDisponiveis($conexao, $idproduto);
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($produto['nome']); ?></title>
     <link rel="stylesheet" href="css/produto.css">
+    <link rel="icon" href="./assets/logo1.png" type="image/x-icon">
 </head>
+
 <body>
     <div class="produto-container">
         <div class="produto-imagem">
@@ -98,4 +101,5 @@ $adicionais = buscarAdicionaisDisponiveis($conexao, $idproduto);
         fecharObs.onclick = () => popupObs.style.display = 'none';
     </script>
 </body>
+
 </html>
