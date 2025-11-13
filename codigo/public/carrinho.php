@@ -11,6 +11,7 @@ require_once "../controle/funcoes.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
+    <link rel=stylesheet href="./css/carrinho.css">
 </head>
 <body>
     <?php
@@ -28,7 +29,11 @@ require_once "../controle/funcoes.php";
         echo "<td>Remover</td>";
         echo "</tr>";
 
-        foreach ($_SESSION['carrinho'] as $id => $quantidade) {
+        $ids = array_keys($_SESSION['carrinho']); // pega os IDs do carrinho
+        for ($i = 0; $i < count($ids); $i++) {
+            $id = $ids[$i];
+            $quantidade = $_SESSION['carrinho'][$id];
+
             $produto = buscarProdutoPorId($conexao, $id);
             $valor_unitario = isset($produto['valor']) ? (float)$produto['valor'] : 0.0;
             $total_unitario = $valor_unitario * $quantidade;
@@ -37,10 +42,8 @@ require_once "../controle/funcoes.php";
             echo "<tr>";
             echo "<td>" . htmlspecialchars($produto['tipo']) . "</td>";
             echo "<td>" . htmlspecialchars($produto['nome']) . "</td>";
-            echo "<td>R$ " . number_format($produto['valor'], 2, ',', '.') . "</td>";
-
+            echo "<td>R$ " . number_format($valor_unitario, 2, ',', '.') . "</td>";
             echo "<td>" . intval($quantidade) . "</td>";
-
             echo "<td>R$ " . number_format($total_unitario, 2, ',', '.') . "</td>";
             echo "<td><a href='removerCarrinho.php?id=$id'>[remover]</a></td>";
             echo "</tr>";
@@ -57,3 +60,4 @@ require_once "../controle/funcoes.php";
     </p>
 </body>
 </html>
+<!-- htmlspecialchars converte caracteres especiais em entidades HTML, para evitar problemas de segurança ou quebra de HTML. -->

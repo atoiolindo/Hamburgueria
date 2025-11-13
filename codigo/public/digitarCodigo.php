@@ -31,26 +31,54 @@ $email = $_GET['email'];
     <a href="perfil.php" class="voltar">Voltar</a>
 
     <script>
-    const inputs = document.querySelectorAll('.codigo');
-    inputs.forEach((input, idx, arr) => {
-        input.addEventListener('input', () => {
-            if(input.value.length === 1 && idx < arr.length - 1) arr[idx + 1].focus();
-        });
-        input.addEventListener('keydown', (e) => {
-            if(e.key === "Backspace" && input.value === "" && idx > 0) arr[idx - 1].focus();
-        });
-    });
+// seleciona todos os inputs de código
+var inputs = document.querySelectorAll('.codigo');
 
-    document.getElementById('codigo-form').addEventListener('submit', function(e){
-        let codigo = '';
-        inputs.forEach(input => codigo += input.value);
-        let hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.name = 'codigo';
-        hidden.value = codigo;
-        this.appendChild(hidden);
-    });
-    </script>
+// para cada input, adiciona comportamento de navegação automática
+for (var i = 0; i < inputs.length; i++) {
+    (function(idx){
+        var input = inputs[idx];
+
+        // quando o usuário digita algo
+        input.addEventListener('input', function() {
+            // se digitou um caractere e não é o último input
+            // muda o foco automaticamente para o próximo input
+            if (input.value.length === 1 && idx < inputs.length - 1) {
+                inputs[idx + 1].focus();
+            }
+        });
+
+        // quando o usuário pressiona uma tecla
+        input.addEventListener('keydown', function(e) {
+            // se pressionou backspace, o input está vazio e não é o primeiro
+            // move o foco para o input anterior
+            if (e.key === "Backspace" && input.value === "" && idx > 0) {
+                inputs[idx - 1].focus();
+            }
+        });
+    })(i); // IIFE para manter o valor correto de idx
+}
+
+// ao enviar o formulário
+document.getElementById('codigo-form').addEventListener('submit', function(e) {
+    var codigo = '';
+
+    // junta os valores de todos os inputs em uma única string
+    for (var j = 0; j < inputs.length; j++) {
+        codigo += inputs[j].value;
+    }
+
+    // cria um input escondido para enviar o código completo como POST
+    var hidden = document.createElement('input');
+    hidden.type = 'hidden';
+    hidden.name = 'codigo';
+    hidden.value = codigo;
+
+    // adiciona o input escondido ao formulário antes de enviar
+    this.appendChild(hidden);
+});
+</script>
+
 </div>
 </body>
 </html>
