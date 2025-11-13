@@ -834,24 +834,36 @@ function removerCarrinho($conexao, $id) {
         }
     }
 }
-
 function listarCarrinho($conexao, $produtos) {
-    $carrinho = [];
+    $carrinho = array();
     $total = 0;
+
     if (!empty($_SESSION['carrinho'])) {
-        foreach ($_SESSION['carrinho'] as $id => $qtd) {
+        $ids = array_keys($_SESSION['carrinho']);
+        for ($i = 0; $i < count($ids); $i++) {
+            $id = $ids[$i];
+            $qtd = $_SESSION['carrinho'][$id];
+
             if (isset($produtos[$id])) {
                 $item = $produtos[$id];
-                $item['qtd'] = $qtd;
-                $item['subtotal'] = $item['valor'] * $qtd;
-                $carrinho[] = $item;
-                $total += $item['subtotal'];
+
+                // Cria um array numérico para cada item
+                $novoItem = array(
+                    $item[0],        // id ou nome
+                    $item[1],        // valor unitário
+                    $qtd,            // quantidade
+                    $item[1] * $qtd  // subtotal
+                );
+
+                $carrinho[] = $novoItem;
+                $total += $item[1] * $qtd;
             }
         }
     }
-    return ['itens' => $carrinho, 'total' => $total];
+
+    // Retorna um array numérico com carrinho e total
+    return array($carrinho, $total);
 }
-//testar
 
 function statusVenda($conexao, $status){
 
