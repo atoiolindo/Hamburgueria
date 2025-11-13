@@ -353,7 +353,11 @@ body {
     padding-bottom: 32px;
 }
 
-
+.faixa-escura {
+    width: 100%;
+    height: 60px;
+    background-color: #1a1a1a;
+}
 
 /* ----- Seção do Cardápio ----- */
 .secao-cardapio {

@@ -164,7 +164,9 @@ $tipo_usuario = $_SESSION['tipo'] ?? null;
             </div>
         </div>
     </div>
-    <br><br><br><br>
+
+
+    <div class="faixa-escura"></div>
 
 
     <section id="cardapio" class="secao-cardapio">
