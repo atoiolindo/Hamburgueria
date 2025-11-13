@@ -49,3 +49,82 @@ tirar a cagada das => e -> e arrumar
 
 
 estudar codigo direito dps inclusive a parte das integrações 
+
+
+
+<<<<<<< HEAD
+.faixa-escura {
+    width: 100%;
+    height: 60px;
+    background-color: #1a1a1a;
+}
+
+/* ----- Seção do Cardápio ----- */
+.secao-cardapio {
+    background-color: #fff;
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px 20px;
+}
+
+/* Título */
+#titulo-cardapio {
+    text-align: center;
+    font-family: 'Bevan', serif;
+    font-size: 2rem;
+    color: #4B1203;
+    margin-bottom: 40px;
+}
+
+/* ----- Bolinhas de categorias ----- */
+.cardapio-bolinhas {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.linha-bolinhas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.bolinha {
+    background-color: #FFF5E0;
+    color: #4B1203;
+    border: 2px solid #E0B88A;
+    font-family: 'Bevan', serif;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.bolinha:hover {
+    background-color: #F4C278;
+    border-color: #F4C278;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* ----- Cards dos produtos ----- */
+
+/* ==== Título "Nossos Produtos Mais Pedidos" ==== */
+.mais-pedidos .Nome {
+    text-align: center;
+    font-family: "Cinzel", serif;
+    /* dá aquele ar mágico e clássico */
+    font-weight: 700;
+    color: #4b1c04;
+    /* marrom escuro que combina com o tema */
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+=======
+.dropdown {
+>>>>>>> parent of aa697ec5 (processo do css i8ndex produtos pedidos)
+    position: relative;
+    display: inline-block;
+}
