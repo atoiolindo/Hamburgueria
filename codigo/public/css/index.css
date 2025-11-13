@@ -1,3 +1,12 @@
+/* reset mínimo para eliminar margens do browser */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Bevan:ital,wght@0,400;1,400&display=swap');
 
 .menu-btn {
@@ -426,94 +435,148 @@ a.btn-botao:hover, .btn-botao:hover {
   box-shadow: 0 6px 12px rgba(0,0,0,0.14) !important;
 }
 
-/* ============================
-   RODAPÉ
-   ============================ */
+/* RODAPÉ: fundo ocupa 100% da janela */
 footer {
-    background-color: #0f0f0f;
+    width: 160%;
+    background: #0f0f0f;
     color: #f5f5f5;
-    font-family: 'Poppins', sans-serif;
-    padding: 40px 20px;
     border-top: 4px solid #4B1203;
+    box-sizing: border-box;
+    margin-left: -30%;
+    margin-bottom: -10%;
+    /* padding vertical geral (o container interno controla padding horizontal) */
+    padding-top: 36px;
+    padding-bottom: 0;
 }
 
-footer .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 1000px;
+/* container interno centralizado (conteúdo com max-width) */
+.footer-container {
+    max-width: 1200px;
+    /* largura do conteúdo do footer */
     margin: 0 auto;
-    text-align: left;
+    /* centraliza horizontalmente */
+    padding: 0 20px;
+    /* espaço nas laterais em telas pequenas */
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-footer .footer-col {
-    flex: 1 1 250px;
-    margin: 10px;
+/* colunas do footer */
+.footer-col {
+    flex: 1 1 260px;
+    min-width: 200px;
+    margin-bottom: 18px;
 }
 
-footer .footer-col h3 {
-    font-size: 1rem;
+.footer-col h3 {
     color: #fff;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
-footer .footer-col p, 
-footer .footer-col a {
-    color: #ccc;
-    font-size: 0.9rem;
+.footer-col p,
+.footer-col a,
+.footer-col .endereco {
+    color: #cfcfcf;
+    font-size: 0.95rem;
+    text-decoration: none;
     line-height: 1.6;
+}
+
+.footer-col a:hover {
+    color: #f5c13b;
+}
+
+/* ícones sociais simplificados */
+.social-icons {
+    margin-top: 8px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: #222;
+    color: #f5c13b;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 8px;
     text-decoration: none;
 }
 
-footer .footer-col a:hover {
-    color: #f5c13b;
+/* barra final do footer — fica com mesma cor (leva margem-top para separar) */
+.footer-bar {
+    width: 100%;
+    background: #0a0a0a;
+    padding: 14px 0;
+    margin-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
 }
 
-/* Ícones das redes sociais */
-footer .social-icons {
-    margin-top: 10px;
-}
-
-footer .social-icons a {
-    display: inline-block;
-    color: #f5c13b;
-    font-size: 1.3rem;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-}
-
-footer .social-icons a:hover {
-    transform: scale(1.1);
-    color: #fff;
-}
-
-/* Copyright */
-footer .copyright {
+.footer-bar p {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     text-align: center;
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 30px;
+    color: #9b9b9b;
+    font-size: 0.88rem;
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    h2 {
-        font-size: 1.5rem;
+@media (max-width: 900px) {
+    .footer-container {
+        gap: 12px;
+        padding: 0 14px;
     }
+}
 
-    .sobre-nos {
-        font-size: 0.9rem;
-        padding: 0 15px;
-    }
-
-    footer .footer-container {
+@media (max-width: 480px) {
+    .footer-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    footer .footer-col {
-        margin-bottom: 20px;
+    .footer-col {
+        width: 100%;
+        min-width: auto;
     }
 }
+
+
+
+/* --- CORREÇÃO DO ESPAÇO EM BRANCO ENTRE O CONTEÚDO E O FOOTER --- */
+main,
+section,
+.sobre-nos,
+.sobre {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Garante que o footer encoste no conteúdo anterior */
+footer {
+    margin-top: 0 !important;
+}
+
+
+body {
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+html {
+    background-color: #fff;
+}
+
+footer {
+    display: block;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
