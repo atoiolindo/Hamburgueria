@@ -8,7 +8,7 @@ if ($idproduto <= 0) {
 }
 
 // Busca informações do produto
-$sql = "SELECT nome, descricao, valor FROM produto WHERE idproduto = ?";
+$sql = "SELECT nome, descricao, valor, foto FROM produto WHERE idproduto = ?";
 $stmt = mysqli_prepare($conexao, $sql);
 mysqli_stmt_bind_param($stmt, "i", $idproduto);
 mysqli_stmt_execute($stmt);
@@ -37,7 +37,8 @@ $adicionais = buscarAdicionaisDisponiveis($conexao, $idproduto);
 <body>
     <div class="produto-container">
         <div class="produto-imagem">
-            <img src="assets/<?php echo htmlspecialchars($idproduto); ?>.jpg" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
+            <img src="assets/<?php echo htmlspecialchars($produto['foto']); ?>" 
+                 alt="<?php echo htmlspecialchars($produto['nome']); ?>">
         </div>
 
         <div class="produto-info">
